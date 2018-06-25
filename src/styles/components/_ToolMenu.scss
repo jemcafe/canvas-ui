@@ -1,0 +1,17 @@
+.tool-menu {
+  .menu {
+    display: flex;
+    flex-direction: column;
+    background: grey;
+
+    > li {
+      padding: 4px;
+      box-sizing: border-box;
+
+      i {
+        border: 1px solid lightgrey;
+        background: seagreen;
+      }
+    }
+  }
+}

@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import Aux from '../hoc/Aux';
 
 class ColorGradient extends Component {
 
    componentDidMount () {
       this.props.initCanvas(this.refs.canvas);
+      console.log('canvas', this.refs.canvas);
    }
 
    render () {
       const { color, focus, engage, getColor, disengage, handleHueChange } = this.props;
-      
+      const { canvas } = this.refs;
+
       return (
          <div className="color-gradient">
 

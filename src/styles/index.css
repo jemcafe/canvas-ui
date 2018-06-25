@@ -1,4 +1,6 @@
-/*  Base  */
+/*---------------------------*/
+/*   Base                    */
+/*---------------------------*/
 body {
   margin: 0;
   padding: 0;
@@ -8,13 +10,14 @@ body {
 ul {
   margin: 0;
   padding: 0;
-  list-style-type: none;
-  background: #ff0000; }
+  list-style-type: none; }
 
 input {
   outline: none; }
 
-/*  Components  */
+/*---------------------------*/
+/*   Components              */
+/*---------------------------*/
 .color-gradient {
   display: flex;
   align-items: flex-start;
@@ -80,3 +83,14 @@ input {
         cursor: pointer; }
         .sketcher .tools-canvas .tool-menu > li:hover {
           border-color: #fff; }
+
+.tool-menu .menu {
+  display: flex;
+  flex-direction: column;
+  background: grey; }
+  .tool-menu .menu > li {
+    padding: 4px;
+    box-sizing: border-box; }
+    .tool-menu .menu > li i {
+      border: 1px solid lightgrey;
+      background: seagreen; }
