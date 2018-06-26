@@ -1,0 +1,15 @@
+.dropdown-btn {
+  @extend %fa;
+  &:before { content: fa-content($fa-var-angle-down); }
+
+  border: 1px solid $gray;
+  border-color: lightgrey;
+  border-radius: 2px;
+  background: $gray;
+  color: #ffffff;
+  
+  &:focus {
+    border-color: lightgrey;
+    background: $darkgray;
+  }
+}

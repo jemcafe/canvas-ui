@@ -1,0 +1,12 @@
+// Font Awesome
+%fa {
+  @include fa-icon;
+  @extend .fas;
+}
+
+//
+%center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

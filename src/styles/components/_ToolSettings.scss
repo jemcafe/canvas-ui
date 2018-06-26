@@ -1,0 +1,36 @@
+.tool-settings {
+  width: 100%;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #ffffff;
+  background: $gray;
+
+  .settings {
+    display: flex;
+    justify-self: flex-start;
+    font-size: 12px;
+  }
+
+  .setting {
+    @extend %center-content;
+    min-width: 30px;
+    height: 30px;
+  }
+
+  .brush-settings {
+    .radius {
+      display: flex;
+      
+      .brush {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #ffffff;
+      }
+    }
+
+    .opacity {
+      .text-input { width: 75px; }
+    }
+  }
+}

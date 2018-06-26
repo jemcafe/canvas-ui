@@ -1,7 +1,22 @@
 /*---------------------------*/
+/*   Font Awesome            */
+/*---------------------------*/
+@import "fontawesome/scss/fontawesome.scss";
+@import "fontawesome/scss/fa-solid.scss";
+/*---------------------------*/
+/*   Helpers                 */
+/*---------------------------*/
+@import 'helpers/variables';
+@import 'helpers/placeholders';
+/*---------------------------*/
 /*   Base                    */
 /*---------------------------*/
 @import 'base/base';
+/*---------------------------*/
+/*   Modules                 */
+/*---------------------------*/
+@import 'modules/buttons';
+@import 'modules/input';
 /*---------------------------*/
 /*   Components              */
 /*---------------------------*/

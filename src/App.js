@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-// import Sketcher from './containers/SketcherCntr';
-// import ColorGradient from './containers/ColorGradientCntr';
 import ToolMenu from './containers/ToolMenuCntr';
+import ToolSettings from './containers/ToolSettingsCntr';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <Sketcher /> */}
+        <ToolSettings />
         <ToolMenu />
-        APP
       </div>
     );
   }

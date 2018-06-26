@@ -1,17 +1,69 @@
 .tool-menu {
+  padding: 2px;
+  box-sizing: border-box;
+  color: #ffffff;
+  background: $gray;
+
   .menu {
-    display: flex;
-    flex-direction: column;
-    background: grey;
+    // display: flex;
+    // flex-direction: column;
 
-    > li {
-      padding: 4px;
-      box-sizing: border-box;
+    .tool {
+      @extend %center-content;
+      width: 30px;
+      height: 30px;
+      border: 1px solid $gray;
+      border-radius: 4px;
+      background: $gray;
+      &:hover { border: 1px solid lightgrey; }
+    }
 
-      i {
-        border: 1px solid lightgrey;
-        background: seagreen;
+    .move {
+      @extend %fa;
+      &:before { content: fa-content($fa-var-arrows-alt); }
+    }
+    .eyedropper {
+      @extend %fa;
+      &:before { content: fa-content($fa-var-eye-dropper); }
+    }
+    .paint-brush {
+      @extend %fa;
+      &:before { content: fa-content($fa-var-paint-brush); }
+    }
+    .eraser {
+      @extend %fa;
+      &:before { content: fa-content($fa-var-eraser); }
+    }
+    .fill {
+      @extend %fa;
+      &:before { content: fa-content($fa-var-fill-drip); }
+    }
+    .pen {
+      @extend %fa;
+      &:before { content: fa-content($fa-var-pen-nib); }
+    }
+    .magnify {
+      @extend %fa;
+      &:before { content: fa-content($fa-var-search); }
+    }
+  
+    .color {
+      @extend %center-content;
+      width: 30px;
+      height: 30px;
+      padding: 2px 0;
+
+      .one, .two {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        padding: 2px;
+        box-sizing: border-box;
+        border: 1px solid #ffffff;
+        background: black;
       }
+      .one { transform: translate(-5px, -5px); }
+      .two { transform: translate(5px, 5px); }
     }
   }
 }
