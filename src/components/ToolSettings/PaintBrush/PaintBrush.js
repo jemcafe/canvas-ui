@@ -2,9 +2,9 @@ import React from 'react';
 
 function PaintBrush () {
   return (
-    <ul className="settings brush-settings">
+    <ul className="settings paint-brush-settings">
       <li className="radius">
-        <div><div className="brush-img"></div>23</div>
+        <div><div className="brush"></div>23</div>
         <button className="dropdown-btn"></button>
       </li>
       <li className="opacity">

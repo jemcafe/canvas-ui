@@ -20,16 +20,32 @@
 
   .text-input { display: flex; }
 
-  .brush-settings {
+  .paint-brush-settings {
     .radius {
       display: flex;
-      
-      .brush-img {
+
+      .brush {
         width: 15px;
         height: 15px;
         border-radius: 50%;
         background: #ffffff;
       }
+    }
+  }
+
+  .magnify-settings {
+    .magnify-plus {
+      @extend %fa;
+      &:before { content: fa-content($fa-var-search-plus); } 
+    }
+    .magnify-minus {
+      @extend %fa;
+      &:before { content: fa-content($fa-var-search-minus); } 
+    }
+
+    .plus, .minus {
+      @extend %icon;
+      &:hover { border: 1px solid lightgrey; }
     }
   }
 }

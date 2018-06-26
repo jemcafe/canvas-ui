@@ -15,6 +15,8 @@
 .tool-menu .menu .fill,
 .tool-menu .menu .pen,
 .tool-menu .menu .magnify,
+.tool-settings .magnify-settings .magnify-plus,
+.tool-settings .magnify-settings .magnify-minus,
 .far,
 .fal,
 .fab {
@@ -106,6 +108,8 @@
 .tool-menu .menu .fa-pull-left.fill,
 .tool-menu .menu .fa-pull-left.pen,
 .tool-menu .menu .fa-pull-left.magnify,
+.tool-settings .magnify-settings .fa-pull-left.magnify-plus,
+.tool-settings .magnify-settings .fa-pull-left.magnify-minus,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
@@ -121,6 +125,8 @@
 .tool-menu .menu .fa-pull-right.fill,
 .tool-menu .menu .fa-pull-right.pen,
 .tool-menu .menu .fa-pull-right.magnify,
+.tool-settings .magnify-settings .fa-pull-right.magnify-plus,
+.tool-settings .magnify-settings .fa-pull-right.magnify-minus,
 .far.fa-pull-right,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
@@ -3562,14 +3568,16 @@ readers do not read off random characters that represent icons */
 .tool-menu .menu .eraser,
 .tool-menu .menu .fill,
 .tool-menu .menu .pen,
-.tool-menu .menu .magnify {
+.tool-menu .menu .magnify,
+.tool-settings .magnify-settings .magnify-plus,
+.tool-settings .magnify-settings .magnify-minus {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 
 /*---------------------------*/
 /*   Helpers                 */
 /*---------------------------*/
-.dropdown-btn, .tool-menu .menu .move, .tool-menu .menu .eyedropper, .tool-menu .menu .paint-brush, .tool-menu .menu .eraser, .tool-menu .menu .fill, .tool-menu .menu .pen, .tool-menu .menu .magnify {
+.dropdown-btn, .tool-menu .menu .move, .tool-menu .menu .eyedropper, .tool-menu .menu .paint-brush, .tool-menu .menu .eraser, .tool-menu .menu .fill, .tool-menu .menu .pen, .tool-menu .menu .magnify, .tool-settings .magnify-settings .magnify-plus, .tool-settings .magnify-settings .magnify-minus {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -3579,10 +3587,16 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-.tool-menu .menu .tool, .tool-menu .menu .color, .tool-settings ul li {
+.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .tool-menu .menu .color, .tool-settings ul li {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #5e5e5e;
+  border-radius: 4px; }
 
 /*---------------------------*/
 /*   Base                    */
@@ -3657,14 +3671,8 @@ input::-webkit-input-placeholder {
   box-sizing: border-box;
   color: #ffffff;
   background: #5e5e5e; }
-  .tool-menu .menu .tool {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #5e5e5e;
-    border-radius: 4px;
-    background: #5e5e5e; }
-    .tool-menu .menu .tool:hover {
-      border: 1px solid lightgrey; }
+  .tool-menu .menu .tool:hover {
+    border: 1px solid lightgrey; }
   .tool-menu .menu .move:before {
     content: "\f0b2"; }
   .tool-menu .menu .eyedropper:before {
@@ -3712,10 +3720,16 @@ input::-webkit-input-placeholder {
       margin: 0 5px; }
   .tool-settings .text-input {
     display: flex; }
-  .tool-settings .brush-settings .radius {
+  .tool-settings .paint-brush-settings .radius {
     display: flex; }
-    .tool-settings .brush-settings .radius .brush-img {
+    .tool-settings .paint-brush-settings .radius .brush {
       width: 15px;
       height: 15px;
       border-radius: 50%;
       background: #ffffff; }
+  .tool-settings .magnify-settings .magnify-plus:before {
+    content: "\f00e"; }
+  .tool-settings .magnify-settings .magnify-minus:before {
+    content: "\f010"; }
+  .tool-settings .magnify-settings .plus:hover, .tool-settings .magnify-settings .minus:hover {
+    border: 1px solid lightgrey; }

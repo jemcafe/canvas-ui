@@ -5,7 +5,7 @@ function Eyedropper () {
     <ul className="settings brush-settings">
       <li className="sample-size">
         Sample Size:&nbsp;&nbsp;
-        <select>
+        <select defaultValue="Point Sample">
           <option>Point Sample</option>
           <option>3 by 3 average</option>
           <option>5 by 5 average</option>

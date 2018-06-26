@@ -2,17 +2,10 @@ import React from 'react';
 
 function Magnify () {
   return (
-    <ul className="settings brush-settings">
-      <li className="radius">
-        <div><div className="brush-img"></div>23</div>
-        <button className="dropdown-btn"></button>
-      </li>
-      <li className="opacity">
-        Opacity:&nbsp;&nbsp;
-        <div className="text-input">
-          <input defaultValue="100%"/>&nbsp;&nbsp;
-          <button className="dropdown-btn"></button>
-        </div>
+    <ul className="settings magnify-settings">
+      <li className="zoom">
+        <div className="plus"><i className="magnify-plus"></i></div>
+        <div className="minus"><i className="magnify-minus"></i></div>
       </li>
     </ul>
   );

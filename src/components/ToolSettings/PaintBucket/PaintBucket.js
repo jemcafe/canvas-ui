@@ -2,11 +2,7 @@ import React from 'react';
 
 function Fill () {
   return (
-    <ul className="settings brush-settings">
-      <li className="radius">
-        <div><div className="brush-img"></div>23</div>
-        <button className="dropdown-btn"></button>
-      </li>
+    <ul className="settings paint-bucket-settings">
       <li className="opacity">
         Opacity:&nbsp;&nbsp;
         <div className="text-input">
