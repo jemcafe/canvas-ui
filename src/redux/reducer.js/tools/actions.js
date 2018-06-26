@@ -1,6 +1,6 @@
 // Action types
 export const TOOL = 'TOOL',
-             RADIUS = 'RADIUS';
+             BRUSH_RADIUS = 'BRUSH_RADIUS';
 
 // Action creators
 export const selectTool = (tool) => ({ 
@@ -11,11 +11,13 @@ export const selectTool = (tool) => ({
   }
 });
 
-export const updateRadius = (tool, radius) => ({ 
-  type: RADIUS, 
-  payload: (state) => {
-    if ( tool === 'brush' ) state.brush.radius = radius;
-    if ( tool === 'eraser' ) state.eraser.radius = radius;
-    return state;
+export const updateBrushRadius = (tool, radius) => {
+  return { 
+    type: BRUSH_RADIUS, 
+    payload: (state) => {
+      if ( tool === 'paintBrush' ) state.paintBrush.radius = parseInt(radius, 10);
+      if ( tool === 'eraser' ) state.eraser.radius = parseInt(radius, 10;
+      return state;
+    }
   }
-});
+};

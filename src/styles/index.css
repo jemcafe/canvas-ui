@@ -3579,7 +3579,7 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-.tool-menu .menu .tool, .tool-menu .menu .color, .tool-settings .setting {
+.tool-menu .menu .tool, .tool-menu .menu .color, .tool-settings ul li {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -3603,9 +3603,26 @@ button {
 
 input {
   outline: none;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  padding: 3px 5px;
+  box-sizing: border-box;
+  background: transparent; }
+  input:focus {
+    border-color: #3ee9be; }
+
+input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  padding: 3px 5px;
+  box-sizing: border-box;
+  background: transparent;
   color: #fff;
   text-shadow: 0 0 0 #fff;
   -webkit-text-fill-color: transparent; }
+  input:focus {
+    border-color: #3ee9be; }
 
 input::-webkit-input-placeholder {
   color: #ccc;
@@ -3626,18 +3643,6 @@ input::-webkit-input-placeholder {
   .dropdown-btn:focus {
     border-color: lightgrey;
     background: #3d3d3d; }
-
-.text-input {
-  display: flex; }
-  .text-input input {
-    outline: none;
-    border: none;
-    border-bottom: 1px solid lightgrey;
-    padding: 3px 5px;
-    box-sizing: border-box;
-    background: transparent; }
-    .text-input input:focus {
-      border-color: #3ee9be; }
 
 /*---------------------------*/
 /*   Components              */
@@ -3697,19 +3702,20 @@ input::-webkit-input-placeholder {
   box-sizing: border-box;
   color: #ffffff;
   background: #5e5e5e; }
-  .tool-settings .settings {
+  .tool-settings ul {
     display: flex;
     justify-self: flex-start;
     font-size: 12px; }
-  .tool-settings .setting {
-    min-width: 30px;
-    height: 30px; }
+    .tool-settings ul li {
+      min-width: 30px;
+      height: 30px;
+      margin: 0 5px; }
+  .tool-settings .text-input {
+    display: flex; }
   .tool-settings .brush-settings .radius {
     display: flex; }
-    .tool-settings .brush-settings .radius .brush {
+    .tool-settings .brush-settings .radius .brush-img {
       width: 15px;
       height: 15px;
       border-radius: 50%;
       background: #ffffff; }
-  .tool-settings .brush-settings .opacity .text-input {
-    width: 75px; }

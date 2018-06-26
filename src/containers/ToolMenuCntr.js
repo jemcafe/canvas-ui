@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ToolMenu from '../components/ToolMenu';
+import ToolMenu from '../components/ToolMenu/ToolMenu';
 
 class ToolMenuCntr extends Component {
   constructor () {

@@ -6,3 +6,5 @@ An app for sketching images.
 
 * React
 * Sass
+
+...in progress
