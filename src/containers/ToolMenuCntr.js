@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { selectTool } from '../redux/reducer/tools/actions';
-
+// Component
 import ToolMenu from '../components/ToolMenu/ToolMenu';
 
-class ToolMenuCntr extends Component {
-  render () {
-    const { props } = this;
-
-    return (
-      <ToolMenu {...props}/>
-    );
-  }
+function ToolMenuCntr (props) {
+  return (
+    <ToolMenu tools={ props.tools } selectTool={ props.selectTool } />
+  );
 }
 
 const mapStateToProps = state => state;
