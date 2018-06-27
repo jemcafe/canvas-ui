@@ -11,37 +11,37 @@ import Shape from './Shape/Shape';
 import Magnify from './Magnify/Magnify';
 
 function ToolSettings (props) {
-  // const { 
-  //   move, 
-  //   eyedropper, 
-  //   paintBrush, 
-  //   eraser, 
-  //   paintBucket, 
-  //   pen, 
-  //   shape, 
-  //   magnify 
-  // } = props.tools;
+  const { 
+    move, 
+    eyedropper, 
+    paintBrush, 
+    eraser, 
+    paintBucket, 
+    pen, 
+    shape, 
+    magnify 
+  } = props.tools;
 
-  console.log('ToolSettings props', props);
+  console.log('ToolSettings props', props.tools);
 
   return (
     <div className="tool-settings">
-      {/* { move.selected && <Move /> }
+      { move.selected && <Move /> }
       { eyedropper.selected && <Eyedropper /> }
       { paintBrush.selected && <PaintBrush /> }
       { eraser.selected && <Eraser /> }
       { paintBucket.selected && <PaintBucket /> }
       { pen.selected && <Pen /> }
       { shape.selected && <Shape /> }
-      { magnify.selected && <Magnify /> } */}
-      <Move />
+      { magnify.selected && <Magnify /> }
+      {/* <Move />
       <Eyedropper />
       <PaintBrush />
       <Eraser />
       <PaintBucket />
       <Pen />
       <Shape />
-      <Magnify />
+      <Magnify /> */}
     </div>
   );
 }
