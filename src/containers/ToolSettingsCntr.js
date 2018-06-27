@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 // Component
 import ToolSettings from '../components/ToolSettings/ToolSettings';
 
-function ToolMenuCntr (props) {
+function ToolSettingsCntr (props) {
   return (
-    <ToolSettings tools={ props.tools } />
+    <ToolSettings tools={props.tools} />
   );
 }
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(ToolMenuCntr);
+export default connect(mapStateToProps)(ToolSettingsCntr);

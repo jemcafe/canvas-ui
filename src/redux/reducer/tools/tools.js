@@ -1,29 +1,31 @@
-import { TOOL, BRUSH_RADIUS } from './actions';
+import { 
+  SELECT
+} from './actions';
 
 const initialState = {
   move: {
-    select: 'Layer',
-    selected: false
+    selected: false,
+    select: 'Layer'
   },
   eyedropper: {
-    sampleSize: 'Point Sample',
-    selected: false
+    selected: false,
+    sampleSize: 'Point Sample'
   },
   paintBrush: {
+    selected: true,
     brush: 'Hard Round',
     radius: 10,
-    opacity: 1,
-    selected: true
+    opacity: 1
   },
   eraser: {
+    selected: false,
     brush: 'Hard Round',
     radius: 10,
-    opacity: 1,
-    selected: false
+    opacity: 1
   },
   paintBucket: {
-    opacity: 1,
-    selected: false
+    selected: false,
+    opacity: 1
   },
   pen: {
     selected: false
@@ -41,10 +43,8 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case TOOL:
-      return { tools: payload(state) };
-    case BRUSH_RADIUS:
-      return { tools: payload(state) };
+    case SELECT:
+      return payload(state);
     default:
       return state;
   }

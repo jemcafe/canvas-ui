@@ -1,21 +1,21 @@
 // Action types
-export const TOOL = 'TOOL',
-             BRUSH_RADIUS = 'BRUSH_RADIUS';
+export const SELECT = 'SELECT';
 
 // Action creators
-export const selectTool = (tool) => ({ 
-  type: TOOL, 
+export const selectTool = (tool) => ({
+  type: SELECT,
   payload: (state) => {
-    for (let i in state) state[i].selected = i.toLowerCase() === tool.toLowerCase() ? true : false;
-    return state;
-  }
-});
+    // The selected tool's object is stored in new variable
+    let newObj = state[tool];
+    newObj.selected = true;
 
-export const updateBrushRadius = (tool, radius) =>({ 
-  type: BRUSH_RADIUS, 
-  payload: (state) => {
-    if ( tool === 'paintBrush' ) state.paintBrush.radius = parseInt(radius, 10);
-    if ( tool === 'eraser' ) state.eraser.radius = parseInt(radius, 10);
-    return state;
+    // The selected tool is set to null. The other tools are not selected.
+    for (let i in state) {
+      if (i === tool) state[i] = null;
+      if (i !== tool) state[i].selected = false; 
+    }
+
+    // The selected tool is set to the new object
+    return {...state, [tool]: newObj};
   }
 });

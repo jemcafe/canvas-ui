@@ -6,7 +6,7 @@ import ToolMenu from '../components/ToolMenu/ToolMenu';
 
 function ToolMenuCntr (props) {
   return (
-    <ToolMenu tools={ props.tools } selectTool={ props.selectTool } />
+    <ToolMenu tools={props.tools} selectTool={props.selectTool} />
   );
 }
 
