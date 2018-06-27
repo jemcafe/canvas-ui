@@ -6,8 +6,7 @@ export const TOOL = 'TOOL',
 export const selectTool = (tool) => ({ 
   type: TOOL, 
   payload: (state) => {
-    for (let i in state) state[i].selected = i === tool.toLowerCase() ? true : false;
-    console.log('Redux -> tool state', state);
+    for (let i in state) state[i].selected = i.toLowerCase() === tool.toLowerCase() ? true : false;
     return state;
   }
 });

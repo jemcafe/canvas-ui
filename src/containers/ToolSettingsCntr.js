@@ -4,20 +4,15 @@ import { connect } from 'react-redux';
 import ToolSettings from '../components/ToolSettings/ToolSettings';
 
 class ToolMenuCntr extends Component {
-  constructor () {
-    super();
-    this.state = {}
-  }
-
   render () {
+    const { props } = this;
+
     return (
-      <ToolSettings tools={ this.props.tools }/>
+      <ToolSettings {...props}/>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  tools: state.tools
-});
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps)(ToolMenuCntr);

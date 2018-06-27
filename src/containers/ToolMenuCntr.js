@@ -5,21 +5,16 @@ import { selectTool } from '../redux/reducer/tools/actions';
 import ToolMenu from '../components/ToolMenu/ToolMenu';
 
 class ToolMenuCntr extends Component {
-  constructor () {
-    super();
-    this.state = {}
-  }
-
   render () {
+    const { props } = this;
+
     return (
-      <ToolMenu selectTool={ this.props.selectTool }/>
+      <ToolMenu {...props}/>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  tool: state.tool
-});
+const mapStateToProps = state => state;
 
 const mapDispatchToProps = { selectTool };
 

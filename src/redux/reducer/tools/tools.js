@@ -42,9 +42,9 @@ export default (state = initialState, action) => {
 
   switch (type) {
     case TOOL:
-      return payload(state);
+      return { tools: payload(state) };
     case BRUSH_RADIUS:
-      return payload(state);
+      return { tools: payload(state) };
     default:
       return state;
   }
