@@ -1,13 +1,16 @@
 .dropdown-btn {
-  @extend %fa;
-  &:before { content: fa-content($fa-var-angle-down); }
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-angle-down); }
 
+  @extend %center-content;
   border: 1px solid $gray;
   border-color: lightgrey;
   border-radius: 2px;
   background: $gray;
   color: #ffffff;
-  
+  // width: 18px;
+
   &:focus {
     border-color: lightgrey;
     background: $darkgray;

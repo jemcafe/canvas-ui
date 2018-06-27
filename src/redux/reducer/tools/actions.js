@@ -12,13 +12,11 @@ export const selectTool = (tool) => ({
   }
 });
 
-export const updateBrushRadius = (tool, radius) => {
-  return { 
-    type: BRUSH_RADIUS, 
-    payload: (state) => {
-      if ( tool === 'paintBrush' ) state.paintBrush.radius = parseInt(radius, 10);
-      if ( tool === 'eraser' ) state.eraser.radius = parseInt(radius, 10);
-      return state;
-    }
+export const updateBrushRadius = (tool, radius) =>({ 
+  type: BRUSH_RADIUS, 
+  payload: (state) => {
+    if ( tool === 'paintBrush' ) state.paintBrush.radius = parseInt(radius, 10);
+    if ( tool === 'eraser' ) state.eraser.radius = parseInt(radius, 10);
+    return state;
   }
-};
+});

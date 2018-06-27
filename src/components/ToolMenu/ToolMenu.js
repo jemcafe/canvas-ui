@@ -1,7 +1,5 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { selectTool } from '../../redux/reducer/tools/actions';
 
 function ToolMenu (props) {
   const { selectTool } = props;
@@ -13,8 +11,9 @@ function ToolMenu (props) {
         <li className="tool" onClick={() => selectTool('eyedropper')}><i className="eyedropper"></i></li>
         <li className="tool" onClick={() => selectTool('paintBrush')}><i className="paint-brush"></i></li>
         <li className="tool" onClick={() => selectTool('eraser')}><i className="eraser"></i></li>
-        <li className="tool" onClick={() => selectTool('fill')}><i className="fill"></i></li>
+        <li className="tool" onClick={() => selectTool('paintBucket')}><i className="paint-bucket"></i></li>
         <li className="tool" onClick={() => selectTool('pen')}><i className="pen"></i></li>
+        <li className="tool" onClick={() => selectTool('shape')}><i className="shape-circle"></i></li>
         <li className="tool" onClick={() => selectTool('magnify')}><i className="magnify"></i></li>
         <li className="color">
           <div className="two" onClick={() => selectTool('eyedropper')}></div>
@@ -25,8 +24,4 @@ function ToolMenu (props) {
   );
 }
 
-const mapStateToProps = state => state;
-
-const mapDispatchToProps = { selectTool };
-
-export default connect(mapStateToProps, mapDispatchToProps)(ToolMenu);
+export default ToolMenu;

@@ -2,9 +2,13 @@ import React from 'react';
 
 function Eraser () {
   return (
-    <ul className="settings brush-settings">
+    <ul className="settings eraser-settings">
+      <li className="tool">
+        <i className="eraser"></i>
+        <i className="angle-down"></i>
+      </li>
       <li className="radius">
-        <div><div className="brush-img"></div>23</div>
+        <div><div className="brush"></div>23</div>
         <button className="dropdown-btn"></button>
       </li>
       <li className="opacity">

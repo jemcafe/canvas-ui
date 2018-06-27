@@ -7,17 +7,19 @@
  */
 .fa,
 .fas,
+.move,
+.eyedropper,
+.paint-brush,
+.eraser,
+.paint-bucket,
+.pen,
+.magnify,
+.magnify-minus,
+.magnify-plus,
+.angle-down,
 .dropdown-btn,
-.tool-menu .menu .move,
-.tool-menu .menu .eyedropper,
-.tool-menu .menu .paint-brush,
-.tool-menu .menu .eraser,
-.tool-menu .menu .fill,
-.tool-menu .menu .pen,
-.tool-menu .menu .magnify,
-.tool-settings .magnify-settings .magnify-plus,
-.tool-settings .magnify-settings .magnify-minus,
 .far,
+.shape-circle,
 .fal,
 .fab {
   -moz-osx-font-smoothing: grayscale;
@@ -100,34 +102,38 @@
 
 .fa.fa-pull-left,
 .fas.fa-pull-left,
+.fa-pull-left.move,
+.fa-pull-left.eyedropper,
+.fa-pull-left.paint-brush,
+.fa-pull-left.eraser,
+.fa-pull-left.paint-bucket,
+.fa-pull-left.pen,
+.fa-pull-left.magnify,
+.fa-pull-left.magnify-minus,
+.fa-pull-left.magnify-plus,
+.fa-pull-left.angle-down,
 .fa-pull-left.dropdown-btn,
-.tool-menu .menu .fa-pull-left.move,
-.tool-menu .menu .fa-pull-left.eyedropper,
-.tool-menu .menu .fa-pull-left.paint-brush,
-.tool-menu .menu .fa-pull-left.eraser,
-.tool-menu .menu .fa-pull-left.fill,
-.tool-menu .menu .fa-pull-left.pen,
-.tool-menu .menu .fa-pull-left.magnify,
-.tool-settings .magnify-settings .fa-pull-left.magnify-plus,
-.tool-settings .magnify-settings .fa-pull-left.magnify-minus,
 .far.fa-pull-left,
+.fa-pull-left.shape-circle,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
   margin-right: .3em; }
 
 .fa.fa-pull-right,
 .fas.fa-pull-right,
+.fa-pull-right.move,
+.fa-pull-right.eyedropper,
+.fa-pull-right.paint-brush,
+.fa-pull-right.eraser,
+.fa-pull-right.paint-bucket,
+.fa-pull-right.pen,
+.fa-pull-right.magnify,
+.fa-pull-right.magnify-minus,
+.fa-pull-right.magnify-plus,
+.fa-pull-right.angle-down,
 .fa-pull-right.dropdown-btn,
-.tool-menu .menu .fa-pull-right.move,
-.tool-menu .menu .fa-pull-right.eyedropper,
-.tool-menu .menu .fa-pull-right.paint-brush,
-.tool-menu .menu .fa-pull-right.eraser,
-.tool-menu .menu .fa-pull-right.fill,
-.tool-menu .menu .fa-pull-right.pen,
-.tool-menu .menu .fa-pull-right.magnify,
-.tool-settings .magnify-settings .fa-pull-right.magnify-plus,
-.tool-settings .magnify-settings .fa-pull-right.magnify-minus,
 .far.fa-pull-right,
+.fa-pull-right.shape-circle,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
   margin-left: .3em; }
@@ -3561,23 +3567,24 @@ readers do not read off random characters that represent icons */
 
 .fa,
 .fas,
-.dropdown-btn,
-.tool-menu .menu .move,
-.tool-menu .menu .eyedropper,
-.tool-menu .menu .paint-brush,
-.tool-menu .menu .eraser,
-.tool-menu .menu .fill,
-.tool-menu .menu .pen,
-.tool-menu .menu .magnify,
-.tool-settings .magnify-settings .magnify-plus,
-.tool-settings .magnify-settings .magnify-minus {
+.move,
+.eyedropper,
+.paint-brush,
+.eraser,
+.paint-bucket,
+.pen,
+.magnify,
+.magnify-minus,
+.magnify-plus,
+.angle-down,
+.dropdown-btn {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 
 /*---------------------------*/
 /*   Helpers                 */
 /*---------------------------*/
-.dropdown-btn, .tool-menu .menu .move, .tool-menu .menu .eyedropper, .tool-menu .menu .paint-brush, .tool-menu .menu .eraser, .tool-menu .menu .fill, .tool-menu .menu .pen, .tool-menu .menu .magnify, .tool-settings .magnify-settings .magnify-plus, .tool-settings .magnify-settings .magnify-minus {
+.move, .eyedropper, .paint-brush, .eraser, .paint-bucket, .pen, .magnify, .magnify-minus, .magnify-plus, .angle-down, .dropdown-btn {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -3587,16 +3594,28 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .tool-menu .menu .color, .tool-settings ul li {
+.shape-circle {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: -.125em; }
+
+.tool-menu .menu .tool, .tool-settings .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .tool-menu .menu .color, .tool-settings ul li {
   display: flex;
   justify-content: center;
   align-items: center; }
 
-.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus {
+.tool-menu .menu .tool, .tool-settings .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus {
   width: 30px;
   height: 30px;
   border: 1px solid #5e5e5e;
   border-radius: 4px; }
+  .tool-menu .menu .tool i, .tool-settings .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i {
+    font-size: 16px; }
 
 /*---------------------------*/
 /*   Base                    */
@@ -3621,16 +3640,6 @@ input {
   border-bottom: 1px solid lightgrey;
   padding: 3px 5px;
   box-sizing: border-box;
-  background: transparent; }
-  input:focus {
-    border-color: #3ee9be; }
-
-input {
-  outline: none;
-  border: none;
-  border-bottom: 1px solid lightgrey;
-  padding: 3px 5px;
-  box-sizing: border-box;
   background: transparent;
   color: #fff;
   text-shadow: 0 0 0 #fff;
@@ -3646,6 +3655,39 @@ input::-webkit-input-placeholder {
 /*---------------------------*/
 /*   Modules                 */
 /*---------------------------*/
+.move:before {
+  content: "\f0b2"; }
+
+.eyedropper:before {
+  content: "\f1fb"; }
+
+.paint-brush:before {
+  content: "\f1fc"; }
+
+.eraser:before {
+  content: "\f12d"; }
+
+.paint-bucket:before {
+  content: "\f576"; }
+
+.pen:before {
+  content: "\f5ad"; }
+
+.shape-circle:before {
+  content: "\f111"; }
+
+.magnify:before {
+  content: "\f002"; }
+
+.magnify-minus:before {
+  content: "\f010"; }
+
+.magnify-plus:before {
+  content: "\f00e"; }
+
+.angle-down:before {
+  content: "\f107"; }
+
 .dropdown-btn {
   border: 1px solid #5e5e5e;
   border-color: lightgrey;
@@ -3673,20 +3715,6 @@ input::-webkit-input-placeholder {
   background: #5e5e5e; }
   .tool-menu .menu .tool:hover {
     border: 1px solid lightgrey; }
-  .tool-menu .menu .move:before {
-    content: "\f0b2"; }
-  .tool-menu .menu .eyedropper:before {
-    content: "\f1fb"; }
-  .tool-menu .menu .paint-brush:before {
-    content: "\f1fc"; }
-  .tool-menu .menu .eraser:before {
-    content: "\f12d"; }
-  .tool-menu .menu .fill:before {
-    content: "\f576"; }
-  .tool-menu .menu .pen:before {
-    content: "\f5ad"; }
-  .tool-menu .menu .magnify:before {
-    content: "\f002"; }
   .tool-menu .menu .color {
     width: 30px;
     height: 30px;
@@ -3718,18 +3746,18 @@ input::-webkit-input-placeholder {
       min-width: 30px;
       height: 30px;
       margin: 0 5px; }
+  .tool-settings .tool i {
+    margin: 0 4px; }
+  .tool-settings .tool .angle-down {
+    font-size: 12px; }
   .tool-settings .text-input {
     display: flex; }
   .tool-settings .paint-brush-settings .radius {
     display: flex; }
-    .tool-settings .paint-brush-settings .radius .brush {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background: #ffffff; }
-  .tool-settings .magnify-settings .magnify-plus:before {
-    content: "\f00e"; }
-  .tool-settings .magnify-settings .magnify-minus:before {
-    content: "\f010"; }
+  .tool-settings .paint-brush-settings .brush {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ffffff; }
   .tool-settings .magnify-settings .plus:hover, .tool-settings .magnify-settings .minus:hover {
     border: 1px solid lightgrey; }

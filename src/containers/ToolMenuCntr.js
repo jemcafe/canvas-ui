@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { selectTool } from '../redux/reducer/tools/actions';
+
 import ToolMenu from '../components/ToolMenu/ToolMenu';
 
 class ToolMenuCntr extends Component {
@@ -9,9 +12,15 @@ class ToolMenuCntr extends Component {
 
   render () {
     return (
-      <ToolMenu />
+      <ToolMenu selectTool={ this.props.selectTool }/>
     );
   }
 }
 
-export default ToolMenuCntr;
+const mapStateToProps = state => ({
+  tool: state.tool
+});
+
+const mapDispatchToProps = { selectTool };
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToolMenuCntr);

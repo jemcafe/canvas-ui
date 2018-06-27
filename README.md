@@ -1,10 +1,12 @@
 ## Sketcher
 
-An app for sketching images.
+An app for sketching images with React and Sass.
 
-### Built with
+### Installed
 
-* React
-* Sass
+* redux
+* react-redux
+* node-sass-chokidar
+* npm-run-all
 
 ...in progress

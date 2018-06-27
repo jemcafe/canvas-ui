@@ -3,6 +3,10 @@ import React from 'react';
 function Fill () {
   return (
     <ul className="settings paint-bucket-settings">
+      <li className="tool">
+        <i className="paint-bucket"></i>
+        <i className="angle-down"></i>
+      </li>
       <li className="opacity">
         Opacity:&nbsp;&nbsp;
         <div className="text-input">

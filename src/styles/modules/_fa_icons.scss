@@ -1,0 +1,60 @@
+// Tools
+
+.move {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-arrows-alt); }
+}
+.eyedropper {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-eye-dropper); }
+}
+.paint-brush {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-paint-brush); }
+}
+.eraser {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-eraser); }
+}
+.paint-bucket {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-fill-drip); }
+}
+.pen {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-pen-nib); }
+}
+.shape-circle {
+  @extend %far;
+  &:before { 
+    content: fa-content($fa-var-circle); }
+}
+.magnify {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-search); } 
+}
+.magnify-minus {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-search-minus); } 
+}
+.magnify-plus {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-search-plus); } 
+}
+
+//
+
+.angle-down {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-angle-down); }
+}

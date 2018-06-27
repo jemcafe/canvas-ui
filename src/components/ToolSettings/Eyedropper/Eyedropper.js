@@ -2,7 +2,11 @@ import React from 'react';
 
 function Eyedropper () {
   return (
-    <ul className="settings brush-settings">
+    <ul className="settings eyedropper-settings">
+      <li className="tool">
+        <i className="eyedropper"></i>
+        <i className="angle-down"></i>
+      </li>
       <li className="sample-size">
         Sample Size:&nbsp;&nbsp;
         <select defaultValue="Point Sample">

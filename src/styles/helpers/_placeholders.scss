@@ -1,7 +1,11 @@
 // Font Awesome
-%fa {
+%fas {
   @include fa-icon;
   @extend .fas;
+}
+%far {
+  @include fa-icon;
+  @extend .far;
 }
 
 //
@@ -17,4 +21,5 @@
   height: 30px;
   border: 1px solid $gray;
   border-radius: 4px;
+  i { font-size: 16px; }
 }

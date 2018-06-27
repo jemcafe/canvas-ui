@@ -1,4 +1,4 @@
-import { COLOR_1, COLOR_2, selectTool } from './actions';
+import { COLOR_1, COLOR_2 } from './actions';
 
 const initialState = {
   color_1: {

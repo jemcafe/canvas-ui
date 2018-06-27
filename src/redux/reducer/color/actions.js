@@ -2,8 +2,8 @@
 import { RGBtoHex, RGBtoCMYK, RGBtoHSL, RGBtoLAB, CMYKtoRGB, HSLtoRGB, LABtoRGB } from '../../../helpers/colorConversion';
 
 // Action Types
-const COLOR_1 = 'COLOR_1';
-const COLOR_2 = 'COLOR_2';
+export const COLOR_1 = 'COLOR_1',
+             COLOR_2 = 'COLOR_2';
 
 // Action Creators
 export const selectColor = (num, picker, c) => ({
@@ -13,7 +13,7 @@ export const selectColor = (num, picker, c) => ({
         rgb = {}, 
         cmyk = {}, 
         hsl = {}, 
-        lab = {}
+        lab = {},
         x = 0, 
         y = 0;
 
