@@ -4,8 +4,10 @@ function Move () {
   return (
     <ul className="settings move-settings">
       <li className="tool">
-        <i className="move"></i>
-        <i className="angle-down"></i>
+        <div>
+          <i className="icon-move"></i>
+          <i className="icon-angle-down"></i>
+        </div>
       </li>
       <li className="select">
         Select:&nbsp;&nbsp;

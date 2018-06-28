@@ -7,19 +7,19 @@
  */
 .fa,
 .fas,
-.move,
-.eyedropper,
-.paint-brush,
-.eraser,
-.paint-bucket,
-.pen,
-.magnify,
-.magnify-minus,
-.magnify-plus,
-.angle-down,
+.icon-move,
+.icon-eyedropper,
+.icon-paint-brush,
+.icon-eraser,
+.icon-paint-bucket,
+.icon-pen,
+.icon-magnify,
+.icon-magnify-minus,
+.icon-magnify-plus,
+.icon-angle-down,
 .dropdown-btn,
 .far,
-.shape-circle,
+.icon-shape-circle,
 .fal,
 .fab {
   -moz-osx-font-smoothing: grayscale;
@@ -102,38 +102,38 @@
 
 .fa.fa-pull-left,
 .fas.fa-pull-left,
-.fa-pull-left.move,
-.fa-pull-left.eyedropper,
-.fa-pull-left.paint-brush,
-.fa-pull-left.eraser,
-.fa-pull-left.paint-bucket,
-.fa-pull-left.pen,
-.fa-pull-left.magnify,
-.fa-pull-left.magnify-minus,
-.fa-pull-left.magnify-plus,
-.fa-pull-left.angle-down,
+.fa-pull-left.icon-move,
+.fa-pull-left.icon-eyedropper,
+.fa-pull-left.icon-paint-brush,
+.fa-pull-left.icon-eraser,
+.fa-pull-left.icon-paint-bucket,
+.fa-pull-left.icon-pen,
+.fa-pull-left.icon-magnify,
+.fa-pull-left.icon-magnify-minus,
+.fa-pull-left.icon-magnify-plus,
+.fa-pull-left.icon-angle-down,
 .fa-pull-left.dropdown-btn,
 .far.fa-pull-left,
-.fa-pull-left.shape-circle,
+.fa-pull-left.icon-shape-circle,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
   margin-right: .3em; }
 
 .fa.fa-pull-right,
 .fas.fa-pull-right,
-.fa-pull-right.move,
-.fa-pull-right.eyedropper,
-.fa-pull-right.paint-brush,
-.fa-pull-right.eraser,
-.fa-pull-right.paint-bucket,
-.fa-pull-right.pen,
-.fa-pull-right.magnify,
-.fa-pull-right.magnify-minus,
-.fa-pull-right.magnify-plus,
-.fa-pull-right.angle-down,
+.fa-pull-right.icon-move,
+.fa-pull-right.icon-eyedropper,
+.fa-pull-right.icon-paint-brush,
+.fa-pull-right.icon-eraser,
+.fa-pull-right.icon-paint-bucket,
+.fa-pull-right.icon-pen,
+.fa-pull-right.icon-magnify,
+.fa-pull-right.icon-magnify-minus,
+.fa-pull-right.icon-magnify-plus,
+.fa-pull-right.icon-angle-down,
 .fa-pull-right.dropdown-btn,
 .far.fa-pull-right,
-.fa-pull-right.shape-circle,
+.fa-pull-right.icon-shape-circle,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
   margin-left: .3em; }
@@ -3567,16 +3567,16 @@ readers do not read off random characters that represent icons */
 
 .fa,
 .fas,
-.move,
-.eyedropper,
-.paint-brush,
-.eraser,
-.paint-bucket,
-.pen,
-.magnify,
-.magnify-minus,
-.magnify-plus,
-.angle-down,
+.icon-move,
+.icon-eyedropper,
+.icon-paint-brush,
+.icon-eraser,
+.icon-paint-bucket,
+.icon-pen,
+.icon-magnify,
+.icon-magnify-minus,
+.icon-magnify-plus,
+.icon-angle-down,
 .dropdown-btn {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
@@ -3584,7 +3584,7 @@ readers do not read off random characters that represent icons */
 /*---------------------------*/
 /*   Helpers                 */
 /*---------------------------*/
-.move, .eyedropper, .paint-brush, .eraser, .paint-bucket, .pen, .magnify, .magnify-minus, .magnify-plus, .angle-down, .dropdown-btn {
+.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-angle-down, .dropdown-btn {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -3594,7 +3594,7 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-.shape-circle {
+.icon-shape-circle {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -3604,17 +3604,17 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-.tool-menu .menu .tool, .tool-settings .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .tool-menu .menu .color, .tool-settings ul li {
+.tool-menu .menu .tool, .tool-settings .tool > div, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .tool-menu .menu .color, .tool-settings ul > li {
   display: flex;
   justify-content: center;
   align-items: center; }
 
-.tool-menu .menu .tool, .tool-settings .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus {
+.tool-menu .menu .tool, .tool-settings .tool > div, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus {
   width: 30px;
   height: 30px;
   border: 1px solid #5e5e5e;
   border-radius: 4px; }
-  .tool-menu .menu .tool i, .tool-settings .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i {
+  .tool-menu .menu .tool i, .tool-settings .tool > div i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i {
     font-size: 16px; }
 
 /*---------------------------*/
@@ -3658,40 +3658,52 @@ select {
   background: #3d3d3d; }
 
 /*---------------------------*/
+/*   Layouts                 */
+/*---------------------------*/
+.text-input-dropdown {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 8px; }
+  .text-input-dropdown > div {
+    margin: 0 0 0 6px; }
+
+/*---------------------------*/
 /*   Modules                 */
 /*---------------------------*/
-.move:before {
+.icon-move:before {
   content: "\f0b2"; }
 
-.eyedropper:before {
+.icon-eyedropper:before {
   content: "\f1fb"; }
 
-.paint-brush:before {
+.icon-paint-brush:before {
   content: "\f1fc"; }
 
-.eraser:before {
+.icon-eraser:before {
   content: "\f12d"; }
 
-.paint-bucket:before {
+.icon-paint-bucket:before {
   content: "\f576"; }
 
-.pen:before {
+.icon-pen:before {
   content: "\f5ad"; }
 
-.shape-circle:before {
+.icon-shape-circle:before {
   content: "\f111"; }
 
-.magnify:before {
+.icon-magnify:before {
   content: "\f002"; }
 
-.magnify-minus:before {
+.icon-magnify-minus:before {
   content: "\f010"; }
 
-.magnify-plus:before {
+.icon-magnify-plus:before {
   content: "\f00e"; }
 
-.angle-down:before {
-  content: "\f107"; }
+.icon-angle-down {
+  font-size: 12px; }
+  .icon-angle-down:before {
+    content: "\f107"; }
 
 .dropdown-btn {
   border: 1px solid #5e5e5e;
@@ -3757,28 +3769,26 @@ select {
   justify-content: flex-start;
   padding: 2px;
   box-sizing: border-box;
-  border-bottom: 2px solid #3d3d3d;
   background: #5e5e5e;
   color: #fff; }
   .tool-settings ul {
     display: flex;
     font-size: 12px;
     background: #5e5e5e; }
-    .tool-settings ul li {
-      margin: 0 5px; }
-  .tool-settings .tool i {
-    margin: 0 4px; }
-  .tool-settings .tool .angle-down {
-    font-size: 12px; }
+    .tool-settings ul > li {
+      padding: 0 5px;
+      box-sizing: border-box; }
+  .tool-settings .tool > div {
+    width: auto; }
+    .tool-settings .tool > div .icon-angle-down {
+      font-size: 12px; }
   .tool-settings .text-input {
-    display: flex; }
-  .tool-settings .paint-brush-settings .radius {
-    display: flex; }
-  .tool-settings .paint-brush-settings .brush {
+    display: flex;
+    align-items: center; }
+  .tool-settings .paint-brush-settings .brush, .tool-settings .eraser-settings .brush {
     width: 15px;
     height: 15px;
-    border-radius: 50%;
-    background: #fff; }
+    background: #969696; }
   .tool-settings .pen-settings > li > .color {
     width: 30px;
     height: 20px;

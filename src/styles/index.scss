@@ -7,19 +7,22 @@
 /*---------------------------*/
 /*   Helpers                 */
 /*---------------------------*/
-@import 'helpers/variables';
-@import 'helpers/placeholders';
+@import '0-helpers/variables';
+@import '0-helpers/placeholders';
 /*---------------------------*/
 /*   Base                    */
 /*---------------------------*/
-@import 'base/base';
+@import '1-base/base';
+/*---------------------------*/
+/*   Layouts                 */
+/*---------------------------*/
+@import '2-layouts/inputs';
 /*---------------------------*/
 /*   Modules                 */
 /*---------------------------*/
-@import 'modules/fa_icons';
-@import 'modules/buttons';
-@import 'modules/inputs';
+@import '3-modules/fa_icons';
+@import '3-modules/buttons';
 /*---------------------------*/
 /*   Components              */
 /*---------------------------*/
-@import 'components/all';
+@import '4-components/all';

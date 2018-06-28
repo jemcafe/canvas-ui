@@ -1,51 +1,51 @@
 // Tools
 
-.move {
+.icon-move {
   @extend %fas;
   &:before { 
     content: fa-content($fa-var-arrows-alt); }
 }
-.eyedropper {
+.icon-eyedropper {
   @extend %fas;
   &:before { 
     content: fa-content($fa-var-eye-dropper); }
 }
-.paint-brush {
+.icon-paint-brush {
   @extend %fas;
   &:before { 
     content: fa-content($fa-var-paint-brush); }
 }
-.eraser {
+.icon-eraser {
   @extend %fas;
   &:before { 
     content: fa-content($fa-var-eraser); }
 }
-.paint-bucket {
+.icon-paint-bucket {
   @extend %fas;
   &:before { 
     content: fa-content($fa-var-fill-drip); }
 }
-.pen {
+.icon-pen {
   @extend %fas;
   &:before { 
     content: fa-content($fa-var-pen-nib); }
 }
-.shape-circle {
+.icon-shape-circle {
   @extend %far;
   &:before { 
     content: fa-content($fa-var-circle); }
 }
-.magnify {
+.icon-magnify {
   @extend %fas;
   &:before { 
     content: fa-content($fa-var-search); } 
 }
-.magnify-minus {
+.icon-magnify-minus {
   @extend %fas;
   &:before { 
     content: fa-content($fa-var-search-minus); } 
 }
-.magnify-plus {
+.icon-magnify-plus {
   @extend %fas;
   &:before { 
     content: fa-content($fa-var-search-plus); } 
@@ -53,8 +53,9 @@
 
 //
 
-.angle-down {
+.icon-angle-down {
   @extend %fas;
   &:before { 
     content: fa-content($fa-var-angle-down); }
+  font-size: 12px;
 }

@@ -4,14 +4,16 @@ function Fill () {
   return (
     <ul className="settings paint-bucket-settings">
       <li className="tool">
-        <i className="paint-bucket"></i>
-        <i className="angle-down"></i>
+        <div>
+          <i className="icon-paint-bucket"></i>
+          <i className="icon-angle-down"></i>
+        </div>
       </li>
       <li className="opacity">
-        Opacity:&nbsp;&nbsp;
-        <div className="text-input">
-          <input defaultValue="100%"/>&nbsp;&nbsp;
-          <button className="dropdown-btn"></button>
+        Opacity:
+        <div className="text-input-dropdown">
+          <input defaultValue="100%"/>
+          <div><i className="icon-angle-down"></i></div>
         </div>
       </li>
     </ul>

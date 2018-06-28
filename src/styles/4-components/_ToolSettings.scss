@@ -3,7 +3,7 @@
   justify-content: flex-start;
   padding: 2px;
   box-sizing: border-box;
-  border-bottom: 2px solid $darkgray;
+  // border-bottom: 2px solid $darkgray;
   background: $gray;
   color: #fff;
 
@@ -12,36 +12,32 @@
     font-size: 12px;
     background: $gray;
 
-    li {
+    > li {
       @extend %center-content;
-      margin: 0 5px;
+      padding: 0 5px;
+      box-sizing: border-box;
     }
   }
 
-  .tool { 
+  .tool > div { 
     @extend %icon;
-    i { margin: 0 4px; }
-    .angle-down { font-size: 12px; }
+    width: auto;
+    .icon-angle-down { font-size: 12px; }
   }
 
-  .text-input { display: flex; }
+  .text-input { 
+    display: flex;
+    align-items: center;
+  }
 
   
-  .paint-brush-settings {
-    .radius {
-      display: flex;
-    }
+  .paint-brush-settings, .eraser-settings {
     .brush {
       width: 15px;
       height: 15px;
-      border-radius: 50%;
-      background: #fff;
+      background: rgb(150, 150, 150);
     }
   }
-
-  // .eraser-settings {
-    
-  // }
 
   .pen-settings {
     > li {

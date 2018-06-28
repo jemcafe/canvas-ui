@@ -4,18 +4,28 @@ function PaintBrush () {
   return (
     <ul className="settings paint-brush-settings">
       <li className="tool">
-        <i className="paint-brush"></i>
-        <i className="angle-down"></i>
+        <div>
+          <i className="icon-paint-brush"></i>
+          <i className="icon-angle-down"></i>
+        </div>
       </li>
       <li className="radius">
         <div><div className="brush"></div>23</div>
-        <button className="dropdown-btn"><i></i></button>
+        <div><i className="icon-angle-down"></i></div>
+      </li>
+      <li className="mode">
+        Mode:&nbsp;&nbsp;
+        <div className="text-input">
+          <select>
+            <option>Normal</option>
+          </select>
+        </div>
       </li>
       <li className="opacity">
-        Opacity:&nbsp;&nbsp;
-        <div className="text-input">
-          <input defaultValue="100%"/>&nbsp;&nbsp;
-          <button className="dropdown-btn"><i></i></button>
+        Opacity:
+        <div className="text-input-dropdown">
+          <input defaultValue="100%"/>
+          <div><i className="icon-angle-down"></i></div>
         </div>
       </li>
     </ul>

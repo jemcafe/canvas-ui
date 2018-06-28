@@ -4,12 +4,14 @@ function Magnify () {
   return (
     <ul className="settings magnify-settings">
       <li className="tool">
-        <i className="magnify"></i>
-        <i className="angle-down"></i>
+        <div>
+          <i className="icon-magnify"></i>
+          <i className="icon-angle-down"></i>
+        </div>
       </li>
       <li className="zoom">
-        <div className="plus"><i className="magnify-plus"></i></div>
-        <div className="minus"><i className="magnify-minus"></i></div>
+        <div className="plus"><i className="icon-magnify-plus"></i></div>
+        <div className="minus"><i className="icon-magnify-minus"></i></div>
       </li>
     </ul>
   );

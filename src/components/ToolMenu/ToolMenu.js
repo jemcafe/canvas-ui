@@ -7,14 +7,14 @@ function ToolMenu (props) {
   return (
     <div className="tool-menu">
       <ul className="menu">
-        <li className="tool" onClick={() => selectTool('move')}><i className="move"></i></li>
-        <li className="tool" onClick={() => selectTool('eyedropper')}><i className="eyedropper"></i></li>
-        <li className="tool" onClick={() => selectTool('paintBrush')}><i className="paint-brush"></i></li>
-        <li className="tool" onClick={() => selectTool('eraser')}><i className="eraser"></i></li>
-        <li className="tool" onClick={() => selectTool('paintBucket')}><i className="paint-bucket"></i></li>
-        <li className="tool" onClick={() => selectTool('pen')}><i className="pen"></i></li>
-        <li className="tool" onClick={() => selectTool('shape')}><i className="shape-circle"></i></li>
-        <li className="tool" onClick={() => selectTool('magnify')}><i className="magnify"></i></li>
+        <li className="tool" onClick={() => selectTool('move')}><i className="icon-move"></i></li>
+        <li className="tool" onClick={() => selectTool('eyedropper')}><i className="icon-eyedropper"></i></li>
+        <li className="tool" onClick={() => selectTool('paintBrush')}><i className="icon-paint-brush"></i></li>
+        <li className="tool" onClick={() => selectTool('eraser')}><i className="icon-eraser"></i></li>
+        <li className="tool" onClick={() => selectTool('paintBucket')}><i className="icon-paint-bucket"></i></li>
+        <li className="tool" onClick={() => selectTool('pen')}><i className="icon-pen"></i></li>
+        <li className="tool" onClick={() => selectTool('shape')}><i className="icon-shape-circle"></i></li>
+        <li className="tool" onClick={() => selectTool('magnify')}><i className="icon-magnify"></i></li>
         <li className="color">
           <div className="two" onClick={() => selectTool('eyedropper')}></div>
           <div className="one" onClick={() => selectTool('eyedropper')}></div>

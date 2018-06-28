@@ -15,13 +15,15 @@ const initialState = {
     selected: true,
     brush: 'Hard Round',
     radius: 10,
-    opacity: 1
+    opacity: 1,
+    mode: 'Normal'
   },
   eraser: {
     selected: false,
     brush: 'Hard Round',
     radius: 10,
-    opacity: 1
+    opacity: 1,
+    mode: 'Brush'
   },
   paintBucket: {
     selected: false,

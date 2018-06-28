@@ -5,7 +5,7 @@ export const SELECT_TOOL = 'SELECT_TOOL';
 export const selectTool = (tool) => ({
   type: SELECT_TOOL,
   payload: (state) => {
-    // The selected tool's object is stored in new variable and is selected.
+    // The tool's object is stored in new variable and selected becomes true.
     let newObj = state[tool];
     newObj.selected = true;
 

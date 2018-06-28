@@ -4,8 +4,10 @@ function Shape () {
   return (
     <ul className="settings shape-settings">
       <li className="tool">
-        <i className="shape-circle"></i>
-        <i className="angle-down"></i>
+        <div>
+          <i className="icon-shape-circle"></i>
+          <i className="icon-angle-down"></i>
+        </div>
       </li>
       <li className="type">
         Type:&nbsp;&nbsp;

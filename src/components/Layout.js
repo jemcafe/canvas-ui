@@ -3,6 +3,7 @@ import ToolBar from '../containers/ToolBarCntr';
 import ToolMenu from '../containers/ToolMenuCntr';
 import ToolSettings from '../containers/ToolSettingsCntr';
 import History from '../containers/HistoryCntr';
+import Text from '../containers/TextCntr';
 import Color from '../containers/ColorCntr';
 import Layers from '../containers/LayersCntr';
 
@@ -19,6 +20,7 @@ function Layout () {
         <div className="panels">
           <div className="one">
             <History />
+            <Text />
           </div>
           <div className="two">
             <Color />
