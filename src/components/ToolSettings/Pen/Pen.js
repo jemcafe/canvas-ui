@@ -14,6 +14,14 @@ function Pen () {
           <option>Path</option>
         </select>
       </li>
+      <li className="fill">
+        Fill:&nbsp;&nbsp;
+        <div className="color"></div>
+      </li>
+      <li className="stroke">
+        Stroke:&nbsp;&nbsp;
+        <div className="color"></div>
+      </li>
     </ul>
   );
 }

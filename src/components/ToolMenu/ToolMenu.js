@@ -4,8 +4,6 @@ import React from 'react';
 function ToolMenu (props) {
   const { selectTool } = props;
 
-  // console.log('ToolMenu props', props.tools);
-
   return (
     <div className="tool-menu">
       <ul className="menu">

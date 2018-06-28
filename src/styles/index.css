@@ -3652,6 +3652,11 @@ input::-webkit-input-placeholder {
   text-shadow: none;
   -webkit-text-fill-color: initial; }
 
+select {
+  outline: none;
+  color: #ffffff;
+  background: #3d3d3d; }
+
 /*---------------------------*/
 /*   Modules                 */
 /*---------------------------*/
@@ -3707,6 +3712,10 @@ input::-webkit-input-placeholder {
   display: flex;
   flex-direction: column;
   align-items: flex-start; }
+  .App .body {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; }
 
 .tool-menu {
   padding: 2px;
@@ -3733,18 +3742,19 @@ input::-webkit-input-placeholder {
       transform: translate(5px, 5px); }
 
 .tool-settings {
+  display: flex;
+  justify-content: flex-start;
   width: 100%;
   padding: 2px;
   box-sizing: border-box;
-  color: #ffffff;
-  background: #5e5e5e; }
+  border-bottom: 2px solid #3d3d3d;
+  background: #5e5e5e;
+  color: #ffffff; }
   .tool-settings ul {
     display: flex;
-    justify-self: flex-start;
-    font-size: 12px; }
+    font-size: 12px;
+    background: #5e5e5e; }
     .tool-settings ul li {
-      min-width: 30px;
-      height: 30px;
       margin: 0 5px; }
   .tool-settings .tool i {
     margin: 0 4px; }
@@ -3759,5 +3769,13 @@ input::-webkit-input-placeholder {
     height: 15px;
     border-radius: 50%;
     background: #ffffff; }
+  .tool-settings .pen-settings > li > .color {
+    width: 30px;
+    height: 20px;
+    border: 1px solid #d3d3d3;
+    background: black; }
   .tool-settings .magnify-settings .plus:hover, .tool-settings .magnify-settings .minus:hover {
     border: 1px solid lightgrey; }
+
+.panels {
+  background: lightblue; }

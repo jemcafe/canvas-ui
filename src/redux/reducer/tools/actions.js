@@ -1,9 +1,9 @@
 // Action types
-export const SELECT = 'SELECT';
+export const SELECT_TOOL = 'SELECT_TOOL';
 
 // Action creators
 export const selectTool = (tool) => ({
-  type: SELECT,
+  type: SELECT_TOOL,
   payload: (state) => {
     // The selected tool's object is stored in new variable
     let newObj = state[tool];

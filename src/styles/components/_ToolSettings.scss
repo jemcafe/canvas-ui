@@ -1,19 +1,20 @@
 .tool-settings {
+  display: flex;
+  justify-content: flex-start;
   width: 100%;
   padding: 2px;
   box-sizing: border-box;
-  color: #ffffff;
+  border-bottom: 2px solid $darkgray;
   background: $gray;
+  color: #ffffff;
 
   ul {
     display: flex;
-    justify-self: flex-start;
     font-size: 12px;
+    background: $gray;
 
     li {
       @extend %center-content;
-      min-width: 30px;
-      height: 30px;
       margin: 0 5px;
     }
   }
@@ -26,6 +27,7 @@
 
   .text-input { display: flex; }
 
+  
   .paint-brush-settings {
     .radius {
       display: flex;
@@ -41,6 +43,17 @@
   // .eraser-settings {
     
   // }
+
+  .pen-settings {
+    > li {
+      > .color {
+        width: 30px;
+        height:20px;
+        border: 1px solid $lightgray;
+        background: black;
+      }
+    }
+  }
 
   .magnify-settings {
     .plus, .minus {

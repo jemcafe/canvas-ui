@@ -32,3 +32,9 @@ input::-webkit-input-placeholder {
     text-shadow: none;
     -webkit-text-fill-color: initial;
 }
+
+select {
+  outline: none;
+  color: #ffffff;
+  background: $darkgray;
+}

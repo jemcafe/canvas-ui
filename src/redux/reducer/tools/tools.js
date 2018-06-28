@@ -1,5 +1,5 @@
 import { 
-  SELECT
+  SELECT_TOOL
 } from './actions';
 
 const initialState = {
@@ -28,13 +28,17 @@ const initialState = {
     opacity: 1
   },
   pen: {
-    selected: false
+    selected: false,
+    type: 'Path'
   },
   shape: {
-    selected: false
+    selected: false,
+    type: 'Path',
   },
   magnify: {
-    selected: false
+    selected: false,
+    in: true, 
+    out: false
   }
 };
 
@@ -43,7 +47,7 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case SELECT:
+    case SELECT_TOOL:
       return payload(state);
     default:
       return state;
