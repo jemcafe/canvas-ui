@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Move from './Move/Move';
 import Eyedropper from './Eyedropper/Eyedropper';
@@ -10,38 +10,31 @@ import Pen from './Pen/Pen';
 import Shape from './Shape/Shape';
 import Magnify from './Magnify/Magnify';
 
-function ToolSettings (props) {
-  const { 
-    move, 
-    eyedropper, 
-    paintBrush, 
-    eraser, 
-    paintBucket, 
-    pen, 
-    shape, 
-    magnify 
-  } = props.tools;
-
+function ToolSettings ({ tools }) {
   return (
     <div className="tool-settings">
-      {/* { move.selected && <Move /> }
-      { eyedropper.selected && <Eyedropper /> }
-      { paintBrush.selected && <PaintBrush /> }
-      { eraser.selected && <Eraser /> }
-      { paintBucket.selected && <PaintBucket /> }
-      { pen.selected && <Pen /> }
-      { shape.selected && <Shape /> }
-      { magnify.selected && <Magnify /> } */}
-      <Move />
+      { tools.move.selected && <Move /> }
+      { tools.eyedropper.selected && <Eyedropper /> }
+      { tools.paintBrush.selected && <PaintBrush /> }
+      { tools.eraser.selected && <Eraser /> }
+      { tools.paintBucket.selected && <PaintBucket /> }
+      { tools.pen.selected && <Pen /> }
+      { tools.shape.selected && <Shape /> }
+      { tools.magnify.selected && <Magnify /> }
+      {/* <Move />
       <Eyedropper />
       <PaintBrush />
       <Eraser />
       <PaintBucket />
       <Pen />
       <Shape />
-      <Magnify />
+      <Magnify /> */}
     </div>
   );
+}
+
+ToolSettings.propTypes = {
+  tools: PropTypes.object.isRequired
 }
 
 export default ToolSettings;

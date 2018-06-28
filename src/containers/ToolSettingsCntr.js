@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// Component
 import ToolSettings from '../components/ToolSettings/ToolSettings';
 
 function ToolSettingsCntr (props) {

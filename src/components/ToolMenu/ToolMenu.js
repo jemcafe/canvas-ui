@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 function ToolMenu (props) {
   const { selectTool } = props;
@@ -22,6 +22,10 @@ function ToolMenu (props) {
       </ul>
     </div>
   );
+}
+
+ToolMenu.propTypes = {
+  selectTool: PropTypes.func.isRequired
 }
 
 export default ToolMenu;

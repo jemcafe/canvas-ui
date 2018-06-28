@@ -1,0 +1,25 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .workspace {
+    display: flex;
+    justify-content: space-between;
+    background: #ebebeb;
+    height: 100%;
+  }
+
+  .canvas-space {
+    width: 100%;
+    background: #dfffdf;
+  }
+
+  .panels {
+    display: flex;
+    background: lightblue;
+
+    > .one { background: pink; }
+    > .two { background: #ffe3af; }
+  }
+}

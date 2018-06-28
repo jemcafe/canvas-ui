@@ -5,17 +5,15 @@ export const SELECT_TOOL = 'SELECT_TOOL';
 export const selectTool = (tool) => ({
   type: SELECT_TOOL,
   payload: (state) => {
-    // The selected tool's object is stored in new variable
+    // The selected tool's object is stored in new variable and is selected.
     let newObj = state[tool];
     newObj.selected = true;
 
-    // The selected tool is set to null. The other tools are not selected.
-    for (let i in state) {
-      if (i === tool) state[i] = null;
-      if (i !== tool) state[i].selected = false; 
-    }
+    // The tool is set to null and the other tools are not selected.
+    state[tool] = null;
+    for (let i in state) if (state[i]) state[i].selected = false; 
 
-    // The selected tool is set to the new object
+    // The tool is set to the new object
     return {...state, [tool]: newObj};
   }
 });

@@ -3654,7 +3654,7 @@ input::-webkit-input-placeholder {
 
 select {
   outline: none;
-  color: #ffffff;
+  color: #fff;
   background: #3d3d3d; }
 
 /*---------------------------*/
@@ -3708,19 +3708,30 @@ select {
 /*---------------------------*/
 /*   Components              */
 /*---------------------------*/
-.App {
+.layout {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; }
-  .App .body {
+  height: 100vh; }
+  .layout .workspace {
     display: flex;
     justify-content: space-between;
-    width: 100%; }
+    background: #ebebeb;
+    height: 100%; }
+  .layout .canvas-space {
+    width: 100%;
+    background: #dfffdf; }
+  .layout .panels {
+    display: flex;
+    background: lightblue; }
+    .layout .panels > .one {
+      background: pink; }
+    .layout .panels > .two {
+      background: #ffe3af; }
 
 .tool-menu {
   padding: 2px;
   box-sizing: border-box;
-  color: #ffffff;
+  color: #fff;
   background: #5e5e5e; }
   .tool-menu .menu .tool:hover {
     border: 1px solid lightgrey; }
@@ -3734,7 +3745,7 @@ select {
       height: 20px;
       padding: 2px;
       box-sizing: border-box;
-      border: 1px solid #ffffff;
+      border: 1px solid #fff;
       background: black; }
     .tool-menu .menu .color .one {
       transform: translate(-5px, -5px); }
@@ -3744,12 +3755,11 @@ select {
 .tool-settings {
   display: flex;
   justify-content: flex-start;
-  width: 100%;
   padding: 2px;
   box-sizing: border-box;
   border-bottom: 2px solid #3d3d3d;
   background: #5e5e5e;
-  color: #ffffff; }
+  color: #fff; }
   .tool-settings ul {
     display: flex;
     font-size: 12px;
@@ -3768,7 +3778,7 @@ select {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: #ffffff; }
+    background: #fff; }
   .tool-settings .pen-settings > li > .color {
     width: 30px;
     height: 20px;
@@ -3776,6 +3786,3 @@ select {
     background: black; }
   .tool-settings .magnify-settings .plus:hover, .tool-settings .magnify-settings .minus:hover {
     border: 1px solid lightgrey; }
-
-.panels {
-  background: lightblue; }

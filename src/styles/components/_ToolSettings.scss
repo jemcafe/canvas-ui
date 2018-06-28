@@ -1,12 +1,11 @@
 .tool-settings {
   display: flex;
   justify-content: flex-start;
-  width: 100%;
   padding: 2px;
   box-sizing: border-box;
   border-bottom: 2px solid $darkgray;
   background: $gray;
-  color: #ffffff;
+  color: #fff;
 
   ul {
     display: flex;
@@ -36,7 +35,7 @@
       width: 15px;
       height: 15px;
       border-radius: 50%;
-      background: #ffffff;
+      background: #fff;
     }
   }
 
