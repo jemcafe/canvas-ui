@@ -19,6 +19,11 @@
     display: flex;
     background: lightblue;
 
+    > div {
+      display: flex;
+      flex-direction: column;
+    }
+
     > .one { background: pink; }
     > .two { background: #ffe3af; }
   }

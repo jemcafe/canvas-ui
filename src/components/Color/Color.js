@@ -1,10 +1,9 @@
 import React from 'react';
+import Panel from '../Panel/Panel';
 
 function Color () {
   return (
-    <div className="color">
-      COLOR
-    </div>
+    <Panel tabs={['Color', 'Swatches']}></Panel>
   );
 }
 

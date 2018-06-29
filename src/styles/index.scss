@@ -9,6 +9,7 @@
 /*---------------------------*/
 @import '0-helpers/variables';
 @import '0-helpers/placeholders';
+@import '0-helpers/mixins';
 /*---------------------------*/
 /*   Base                    */
 /*---------------------------*/
@@ -17,6 +18,7 @@
 /*   Layouts                 */
 /*---------------------------*/
 @import '2-layouts/inputs';
+@import '2-layouts/panel';
 /*---------------------------*/
 /*   Modules                 */
 /*---------------------------*/

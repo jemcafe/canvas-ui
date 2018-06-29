@@ -17,6 +17,7 @@
 .icon-magnify-minus,
 .icon-magnify-plus,
 .icon-angle-down,
+.icon-bars,
 .dropdown-btn,
 .far,
 .icon-shape-circle,
@@ -112,6 +113,7 @@
 .fa-pull-left.icon-magnify-minus,
 .fa-pull-left.icon-magnify-plus,
 .fa-pull-left.icon-angle-down,
+.fa-pull-left.icon-bars,
 .fa-pull-left.dropdown-btn,
 .far.fa-pull-left,
 .fa-pull-left.icon-shape-circle,
@@ -131,6 +133,7 @@
 .fa-pull-right.icon-magnify-minus,
 .fa-pull-right.icon-magnify-plus,
 .fa-pull-right.icon-angle-down,
+.fa-pull-right.icon-bars,
 .fa-pull-right.dropdown-btn,
 .far.fa-pull-right,
 .fa-pull-right.icon-shape-circle,
@@ -3577,6 +3580,7 @@ readers do not read off random characters that represent icons */
 .icon-magnify-minus,
 .icon-magnify-plus,
 .icon-angle-down,
+.icon-bars,
 .dropdown-btn {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
@@ -3584,7 +3588,7 @@ readers do not read off random characters that represent icons */
 /*---------------------------*/
 /*   Helpers                 */
 /*---------------------------*/
-.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-angle-down, .dropdown-btn {
+.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-angle-down, .icon-bars, .dropdown-btn {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -3667,6 +3671,45 @@ select {
   .text-input-dropdown > div {
     margin: 0 0 0 6px; }
 
+.panel {
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  font-size: 12px;
+  color: #fff;
+  background: #ade6d3; }
+  .panel > nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #d2afff; }
+    .panel > nav .selected {
+      background: #3d3d3d; }
+    .panel > nav ul {
+      display: flex; }
+      .panel > nav ul li {
+        -webkit-user-select: none;
+        /* Chrome all / Safari all */
+        -moz-user-select: none;
+        /* Firefox all */
+        -ms-user-select: none;
+        /* IE 10+ */
+        user-select: none;
+        /* Likely future */
+        padding: 8px;
+        border-right: 1px solid black; }
+        .panel > nav ul li:active {
+          background: #cc5a5a; }
+    .panel > nav div:last-child {
+      margin: 0 4px;
+      padding: 2px 4px;
+      border: 1px solid #5e5e5e;
+      border-radius: 2px; }
+      .panel > nav div:last-child:hover {
+        border-color: lightgrey; }
+  .panel > main {
+    background: #a1a0ff; }
+
 /*---------------------------*/
 /*   Modules                 */
 /*---------------------------*/
@@ -3705,6 +3748,9 @@ select {
   .icon-angle-down:before {
     content: "\f107"; }
 
+.icon-bars:before {
+  content: "\f0c9"; }
+
 .dropdown-btn {
   border: 1px solid #5e5e5e;
   border-color: lightgrey;
@@ -3735,6 +3781,9 @@ select {
   .layout .panels {
     display: flex;
     background: lightblue; }
+    .layout .panels > div {
+      display: flex;
+      flex-direction: column; }
     .layout .panels > .one {
       background: pink; }
     .layout .panels > .two {
