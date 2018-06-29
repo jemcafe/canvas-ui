@@ -3608,7 +3608,7 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .tool-menu .menu .color, .tool-settings ul > li {
+.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .tool-menu .menu .color, .tool-settings ul > li, .panel > nav > div div {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -3671,45 +3671,6 @@ select {
   .text-input-dropdown > div {
     margin: 0 0 0 6px; }
 
-.panel {
-  display: flex;
-  flex-direction: column;
-  padding: 2px;
-  font-size: 12px;
-  color: #fff;
-  background: #ade6d3; }
-  .panel > nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #d2afff; }
-    .panel > nav .selected {
-      background: #3d3d3d; }
-    .panel > nav ul {
-      display: flex; }
-      .panel > nav ul li {
-        -webkit-user-select: none;
-        /* Chrome all / Safari all */
-        -moz-user-select: none;
-        /* Firefox all */
-        -ms-user-select: none;
-        /* IE 10+ */
-        user-select: none;
-        /* Likely future */
-        padding: 8px;
-        border-right: 1px solid black; }
-        .panel > nav ul li:active {
-          background: #cc5a5a; }
-    .panel > nav div:last-child {
-      margin: 0 4px;
-      padding: 2px 4px;
-      border: 1px solid #5e5e5e;
-      border-radius: 2px; }
-      .panel > nav div:last-child:hover {
-        border-color: lightgrey; }
-  .panel > main {
-    background: #a1a0ff; }
-
 /*---------------------------*/
 /*   Modules                 */
 /*---------------------------*/
@@ -3766,27 +3727,30 @@ select {
 /*---------------------------*/
 /*   Components              */
 /*---------------------------*/
-.layout {
+#app-layout {
   display: flex;
   flex-direction: column;
   height: 100vh; }
-  .layout .workspace {
+  #app-layout .workspace {
     display: flex;
     justify-content: space-between;
     background: #ebebeb;
     height: 100%; }
-  .layout .canvas-space {
+  #app-layout .canvas-space {
     width: 100%;
     background: #dfffdf; }
-  .layout .panels {
+  #app-layout .panels {
     display: flex;
     background: lightblue; }
-    .layout .panels > div {
+    #app-layout .panels > div {
       display: flex;
       flex-direction: column; }
-    .layout .panels > .one {
+    #app-layout .panels > .one {
       background: pink; }
-    .layout .panels > .two {
+    #app-layout .panels > .two {
+      min-width: 200px;
+      padding: 2px;
+      box-sizing: border-box;
       background: #ffe3af; }
 
 .tool-menu {
@@ -3860,3 +3824,65 @@ select {
       background: #969696; }
   .tool-settings .magnify-settings .plus:hover, .tool-settings .magnify-settings .minus:hover {
     border: 1px solid lightgrey; }
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 2px 0;
+  font-size: 12px;
+  color: #fff;
+  background: #ade6d3; }
+  .panel > nav {
+    display: flex;
+    background: #d2afff; }
+    .panel > nav .selected-tab {
+      border-left: 1px solid black;
+      border-top: 1px solid black;
+      border-right: 1px solid black;
+      background: #5e5e5e; }
+    .panel > nav .left-tab {
+      border-bottom: 1px solid black;
+      border-left: 1px solid black;
+      border-top: 1px solid black;
+      background: #3d3d3d; }
+    .panel > nav .right-tab {
+      border-top: 1px solid black;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      background: #3d3d3d; }
+    .panel > nav ul {
+      display: flex; }
+      .panel > nav ul li {
+        -webkit-user-select: none;
+        /* Chrome all / Safari all */
+        -moz-user-select: none;
+        /* Firefox all */
+        -ms-user-select: none;
+        /* IE 10+ */
+        user-select: none;
+        /* Likely future */
+        padding: 8px 10px; }
+        .panel > nav ul li:active {
+          background: #3ee9be; }
+    .panel > nav > div {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+      border-top: 1px solid black;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black; }
+      .panel > nav > div div {
+        margin: 0 4px;
+        padding: 2px 4px;
+        border: 1px solid #5e5e5e;
+        border-radius: 2px; }
+        .panel > nav > div div:hover {
+          border-color: lightgrey; }
+        .panel > nav > div div:active {
+          background: #3d3d3d; }
+  .panel > main {
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    background: #5e5e5e; }

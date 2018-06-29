@@ -9,7 +9,7 @@ import Layers from '../containers/LayersCntr';
 
 function Layout () {
   return (
-    <div className="layout">
+    <div id="app-layout">
       <ToolBar />
       <ToolSettings />
       <div className="workspace">

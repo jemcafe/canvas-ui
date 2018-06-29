@@ -6,28 +6,30 @@ class Panel extends Component {
     this.state = { tab: 0 }
   }
 
-  selectTab (index) {
-    this.setState({ tab: index });
-  }
-
   render () {
-    const { tabs, children } = this.props;
+    const { tab: t } = this.state;
+    const { tabs = [], children = [] } = this.props;
+    console.log('children', children);
 
     const tabsList = tabs.map((e, i) => {
-      const selected = this.state.tab === i ? 'selected': '';
-      return <li key={i} className={selected} onClick={() => this.selectTab(i)}>{ e }</li>
+      const className = t === i ? 'selected-tab' : i < t ? 'left-tab' : i > t ? 'right-tab' : '';
+      return <li key={i} className={className} onClick={() => this.setState({ tab: i })}>{ e }</li>;
     });
+
+    const content = tabs.length === 1 ? children : tabs.length ? children.map((e, i) => t === i && e) : 'NEED TABS';
 
     return (
       <div className="panel">
         <nav>
           <ul>
-            { tabsList ? tabsList : 'NO TABS' }
+            { tabs.length ? tabsList : <div className="left-tab">NO TABS</div> }
           </ul>
-          <div><i className="icon-bars"></i></div>
+          <div>
+            <div><i className="icon-bars"></i></div>
+          </div>
         </nav>
         <main>
-          { children ? children : 'NO CHILDREN' }
+          { children.length ? content : 'NO CHILDREN' }
         </main>
       </div>
     );

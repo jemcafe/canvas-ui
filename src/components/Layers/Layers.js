@@ -1,10 +1,11 @@
 import React from 'react';
+import Panel from '../Panel/Panel';
 
 function Layers () {
   return (
-    <div className="layers">
-      LAYERS
-    </div>
+    <Panel tabs={['Layers']}>
+      <div className="layers">LAYERS CONTENT</div>
+    </Panel>
   );
 }
 
