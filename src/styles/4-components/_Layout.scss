@@ -19,17 +19,23 @@
     display: flex;
     background: lightblue;
 
-    > div {
+    > div {  // panel group
       display: flex;
       flex-direction: column;
+      min-width: 200px;
+
+      > .container { 
+        height: 100%;
+        padding: 2px;
+        box-sizing: border-box;
+      }
     }
 
-    > .one { background: pink; }
+    > .one > .container {
+      background: pink; 
+    }
     
-    > .two { 
-      min-width: 200px;
-      padding: 2px;
-      box-sizing: border-box;
+    > .two > .container { 
       background: #ffe3af; 
     }
   }

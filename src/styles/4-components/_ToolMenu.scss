@@ -8,6 +8,7 @@
     padding: 4px;
     box-sizing: border-box;
     height: 100%;
+    overflow-y: hidden;
     background: $gray;
 
     .tool {
@@ -16,13 +17,13 @@
     }
   
     .color {
-      @extend %center-content;
       width: 30px;
-      height: 30px;
+      // height: 30px;
       padding: 4px 0;
 
       .one, .two {
-        position: absolute;
+        // position: absolute;
+        margin: 0 auto;
         width: 20px;
         height: 20px;
         padding: 2px;
@@ -30,8 +31,8 @@
         border: 1px solid #fff;
         background: black;
       }
-      .one { transform: translate(-5px, -5px); }
-      .two { transform: translate(5px, 5px); }
+      .one { transform: translate(-5px, -15px); }
+      .two { transform: translate(5px, 15px); }
     }
   }
 }

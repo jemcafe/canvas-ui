@@ -18,6 +18,8 @@
 .icon-magnify-plus,
 .icon-angle-down,
 .icon-bars,
+.icon-angle-double-right,
+.icon-angle-double-left,
 .dropdown-btn,
 .far,
 .icon-shape-circle,
@@ -114,6 +116,8 @@
 .fa-pull-left.icon-magnify-plus,
 .fa-pull-left.icon-angle-down,
 .fa-pull-left.icon-bars,
+.fa-pull-left.icon-angle-double-right,
+.fa-pull-left.icon-angle-double-left,
 .fa-pull-left.dropdown-btn,
 .far.fa-pull-left,
 .fa-pull-left.icon-shape-circle,
@@ -134,6 +138,8 @@
 .fa-pull-right.icon-magnify-plus,
 .fa-pull-right.icon-angle-down,
 .fa-pull-right.icon-bars,
+.fa-pull-right.icon-angle-double-right,
+.fa-pull-right.icon-angle-double-left,
 .fa-pull-right.dropdown-btn,
 .far.fa-pull-right,
 .fa-pull-right.icon-shape-circle,
@@ -3581,6 +3587,8 @@ readers do not read off random characters that represent icons */
 .icon-magnify-plus,
 .icon-angle-down,
 .icon-bars,
+.icon-angle-double-right,
+.icon-angle-double-left,
 .dropdown-btn {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
@@ -3588,7 +3596,7 @@ readers do not read off random characters that represent icons */
 /*---------------------------*/
 /*   Helpers                 */
 /*---------------------------*/
-.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-angle-down, .icon-bars, .dropdown-btn {
+.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-angle-down, .icon-bars, .icon-angle-double-right, .icon-angle-double-left, .dropdown-btn {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -3608,7 +3616,7 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .tool-menu .menu .color, .tool-settings ul > li, .panel > nav > div div {
+.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .tool-settings ul > li, .panel > nav > div div {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -3712,6 +3720,16 @@ select {
 .icon-bars:before {
   content: "\f0c9"; }
 
+.icon-angle-double-right {
+  font-size: 12px; }
+  .icon-angle-double-right:before {
+    content: "\f101"; }
+
+.icon-angle-double-left {
+  font-size: 12px; }
+  .icon-angle-double-left:before {
+    content: "\f100"; }
+
 .dropdown-btn {
   border: 1px solid #5e5e5e;
   border-color: lightgrey;
@@ -3744,13 +3762,15 @@ select {
     background: lightblue; }
     #app-layout .panels > div {
       display: flex;
-      flex-direction: column; }
-    #app-layout .panels > .one {
+      flex-direction: column;
+      min-width: 200px; }
+      #app-layout .panels > div > .container {
+        height: 100%;
+        padding: 2px;
+        box-sizing: border-box; }
+    #app-layout .panels > .one > .container {
       background: pink; }
-    #app-layout .panels > .two {
-      min-width: 200px;
-      padding: 2px;
-      box-sizing: border-box;
+    #app-layout .panels > .two > .container {
       background: #ffe3af; }
 
 .tool-menu {
@@ -3762,15 +3782,15 @@ select {
     padding: 4px;
     box-sizing: border-box;
     height: 100%;
+    overflow-y: hidden;
     background: #5e5e5e; }
     .tool-menu .menu .tool:hover {
       border: 1px solid lightgrey; }
     .tool-menu .menu .color {
       width: 30px;
-      height: 30px;
       padding: 4px 0; }
       .tool-menu .menu .color .one, .tool-menu .menu .color .two {
-        position: absolute;
+        margin: 0 auto;
         width: 20px;
         height: 20px;
         padding: 2px;
@@ -3778,9 +3798,9 @@ select {
         border: 1px solid #fff;
         background: black; }
       .tool-menu .menu .color .one {
-        transform: translate(-5px, -5px); }
+        transform: translate(-5px, -15px); }
       .tool-menu .menu .color .two {
-        transform: translate(5px, 5px); }
+        transform: translate(5px, 15px); }
 
 .tool-settings {
   display: flex;

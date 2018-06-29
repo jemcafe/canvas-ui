@@ -7,7 +7,8 @@ import Text from '../containers/TextCntr';
 import Color from '../containers/ColorCntr';
 import Layers from '../containers/LayersCntr';
 
-function Layout () {
+function Layout (props) {
+
   return (
     <div id="app-layout">
       <ToolBar />
@@ -19,12 +20,18 @@ function Layout () {
         </div>
         <div className="panels">
           <div className="one">
-            <History />
-            <Text />
+            <div><i className="icon-angle-double-right"></i></div>
+            <div className="container">
+              <History />
+              <Text />
+            </div>
           </div>
           <div className="two">
-            <Color />
-            <Layers />
+            <div><i className="icon-angle-double-right"></i></div>
+            <div className="container">
+              <Color />
+              <Layers />
+            </div>
           </div>
         </div>
       </div>
