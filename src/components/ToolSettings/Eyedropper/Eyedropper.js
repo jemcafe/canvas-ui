@@ -4,10 +4,8 @@ function Eyedropper () {
   return (
     <ul className="settings eyedropper-settings">
       <li className="tool">
-        <div>
-          <i className="icon-eyedropper"></i>
-          <i className="icon-angle-down"></i>
-        </div>
+        <div className="icon"><i className="icon-eyedropper"></i></div>
+        <div><i className="icon-angle-down"></i></div>
       </li>
       <li className="sample-size">
         Sample Size:&nbsp;&nbsp;

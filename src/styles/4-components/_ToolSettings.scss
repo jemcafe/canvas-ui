@@ -3,9 +3,9 @@
   justify-content: flex-start;
   padding: 2px;
   box-sizing: border-box;
-  // border-bottom: 2px solid $darkgray;
   background: $gray;
   color: #fff;
+  min-height: 40px;
 
   ul {
     display: flex;
@@ -14,45 +14,61 @@
 
     > li {
       @extend %center-content;
-      padding: 0 5px;
-      box-sizing: border-box;
+      padding: 0 10px;
+      border-right: 1px solid $darkgray;
     }
   }
 
-  .tool > div { 
-    @extend %icon;
-    width: auto;
-    .icon-angle-down { font-size: 12px; }
+  .tool {
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+
+    > div { 
+      flex: 1;
+      &:first-child {
+        flex: 2;
+        font-size: 16px;
+      } 
+    }
   }
 
-  .text-input { 
-    display: flex;
-    align-items: center;
+  .fill, .stroke {
+    .color {
+      width: 30px;
+      height: 50%;
+      border: 1px solid $lightgray;
+      background: black;
+    }
   }
 
   
   .paint-brush-settings, .eraser-settings {
     .brush {
-      width: 15px;
-      height: 15px;
-      background: rgb(150, 150, 150);
-    }
-  }
+      display: flex;
+      justify-content: space-between;
+      width: 40px;
+      
+      > div:first-child { 
+        padding: 0 6px;
+        box-sizing: border-box;
+      }
 
-  .pen-settings {
-    > li {
-      > .color {
-        width: 30px;
-        height:20px;
-        border: 1px solid $lightgray;
-        background: black;
+      .img {
+        width: 15px;
+        height: 15px;
+        background: #969696;
       }
     }
   }
 
+  // .pen-settings {
+    
+  // }
+
   .magnify-settings {
     .plus, .minus {
-      @extend %icon;
+      @extend %tool-menu-icon;
       &:hover { border: 1px solid lightgrey; }
     }
   }

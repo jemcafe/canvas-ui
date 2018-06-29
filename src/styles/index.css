@@ -3604,17 +3604,17 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-.tool-menu .menu .tool, .tool-settings .tool > div, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .tool-menu .menu .color, .tool-settings ul > li {
+.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .tool-menu .menu .color, .tool-settings ul > li {
   display: flex;
   justify-content: center;
   align-items: center; }
 
-.tool-menu .menu .tool, .tool-settings .tool > div, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus {
+.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus {
   width: 30px;
   height: 30px;
   border: 1px solid #5e5e5e;
   border-radius: 4px; }
-  .tool-menu .menu .tool i, .tool-settings .tool > div i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i {
+  .tool-menu .menu .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i {
     font-size: 16px; }
 
 /*---------------------------*/
@@ -3744,25 +3744,30 @@ select {
   padding: 2px;
   box-sizing: border-box;
   color: #fff;
-  background: #5e5e5e; }
-  .tool-menu .menu .tool:hover {
-    border: 1px solid lightgrey; }
-  .tool-menu .menu .color {
-    width: 30px;
-    height: 30px;
-    padding: 2px 0; }
-    .tool-menu .menu .color .one, .tool-menu .menu .color .two {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      padding: 2px;
-      box-sizing: border-box;
-      border: 1px solid #fff;
-      background: black; }
-    .tool-menu .menu .color .one {
-      transform: translate(-5px, -5px); }
-    .tool-menu .menu .color .two {
-      transform: translate(5px, 5px); }
+  background: #3d3d3d; }
+  .tool-menu .menu {
+    padding: 4px;
+    box-sizing: border-box;
+    height: 100%;
+    background: #5e5e5e; }
+    .tool-menu .menu .tool:hover {
+      border: 1px solid lightgrey; }
+    .tool-menu .menu .color {
+      width: 30px;
+      height: 30px;
+      padding: 4px 0; }
+      .tool-menu .menu .color .one, .tool-menu .menu .color .two {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        padding: 2px;
+        box-sizing: border-box;
+        border: 1px solid #fff;
+        background: black; }
+      .tool-menu .menu .color .one {
+        transform: translate(-5px, -5px); }
+      .tool-menu .menu .color .two {
+        transform: translate(5px, 5px); }
 
 .tool-settings {
   display: flex;
@@ -3770,29 +3775,39 @@ select {
   padding: 2px;
   box-sizing: border-box;
   background: #5e5e5e;
-  color: #fff; }
+  color: #fff;
+  min-height: 40px; }
   .tool-settings ul {
     display: flex;
     font-size: 12px;
     background: #5e5e5e; }
     .tool-settings ul > li {
-      padding: 0 5px;
-      box-sizing: border-box; }
-  .tool-settings .tool > div {
-    width: auto; }
-    .tool-settings .tool > div .icon-angle-down {
-      font-size: 12px; }
-  .tool-settings .text-input {
+      padding: 0 10px;
+      border-right: 1px solid #3d3d3d; }
+  .tool-settings .tool {
     display: flex;
-    align-items: center; }
-  .tool-settings .paint-brush-settings .brush, .tool-settings .eraser-settings .brush {
-    width: 15px;
-    height: 15px;
-    background: #969696; }
-  .tool-settings .pen-settings > li > .color {
+    justify-content: space-between;
+    width: 50px; }
+    .tool-settings .tool > div {
+      flex: 1; }
+      .tool-settings .tool > div:first-child {
+        flex: 2;
+        font-size: 16px; }
+  .tool-settings .fill .color, .tool-settings .stroke .color {
     width: 30px;
-    height: 20px;
+    height: 50%;
     border: 1px solid #d3d3d3;
     background: black; }
+  .tool-settings .paint-brush-settings .brush, .tool-settings .eraser-settings .brush {
+    display: flex;
+    justify-content: space-between;
+    width: 40px; }
+    .tool-settings .paint-brush-settings .brush > div:first-child, .tool-settings .eraser-settings .brush > div:first-child {
+      padding: 0 6px;
+      box-sizing: border-box; }
+    .tool-settings .paint-brush-settings .brush .img, .tool-settings .eraser-settings .brush .img {
+      width: 15px;
+      height: 15px;
+      background: #969696; }
   .tool-settings .magnify-settings .plus:hover, .tool-settings .magnify-settings .minus:hover {
     border: 1px solid lightgrey; }

@@ -4,13 +4,11 @@ function PaintBrush () {
   return (
     <ul className="settings paint-brush-settings">
       <li className="tool">
-        <div>
-          <i className="icon-paint-brush"></i>
-          <i className="icon-angle-down"></i>
-        </div>
+        <div className="icon"><i className="icon-paint-brush"></i></div>
+        <div><i className="icon-angle-down"></i></div>
       </li>
-      <li className="radius">
-        <div><div className="brush"></div>23</div>
+      <li className="brush">
+        <div><div className="img"></div>23</div>
         <div><i className="icon-angle-down"></i></div>
       </li>
       <li className="mode">

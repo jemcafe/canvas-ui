@@ -4,13 +4,11 @@ function Eraser () {
   return (
     <ul className="settings eraser-settings">
       <li className="tool">
-        <div>
-          <i className="icon-eraser"></i>
-          <i className="icon-angle-down"></i>
-        </div>
+        <div className="icon"><i className="icon-eraser"></i></div>
+        <div><i className="icon-angle-down"></i></div>
       </li>
-      <li className="radius">
-        <div><div className="brush"></div>23</div>
+      <li className="brush">
+        <div><div className="img"></div>23</div>
         <div><i className="icon-angle-down"></i></div>
       </li>
       <li className="mode">
@@ -22,9 +20,9 @@ function Eraser () {
         </div>
       </li>
       <li className="opacity">
-        Opacity:&nbsp;&nbsp;
+        Opacity:
         <div className="text-input-dropdown">
-          <input defaultValue="100%"/>&nbsp;&nbsp;
+          <input defaultValue="100%"/>
           <div><i className="icon-angle-down"></i></div>
         </div>
       </li>

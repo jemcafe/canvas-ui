@@ -4,10 +4,8 @@ function Pen () {
   return (
     <ul className="settings pen-settings">
       <li className="tool">
-        <div>
-          <i className="icon-pen"></i>
-          <i className="icon-angle-down"></i>
-        </div>
+        <div className="icon"><i className="icon-pen"></i></div>
+        <div><i className="icon-angle-down"></i></div>
       </li>
       <li className="type">
         Type:&nbsp;&nbsp;

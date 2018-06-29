@@ -2,11 +2,16 @@
   padding: 2px;
   box-sizing: border-box;
   color: #fff;
-  background: $gray;
+  background: $darkgray;
 
   .menu {
+    padding: 4px;
+    box-sizing: border-box;
+    height: 100%;
+    background: $gray;
+
     .tool {
-      @extend %icon;
+      @extend %tool-menu-icon;
       &:hover { border: 1px solid lightgrey; }
     }
   
@@ -14,7 +19,7 @@
       @extend %center-content;
       width: 30px;
       height: 30px;
-      padding: 2px 0;
+      padding: 4px 0;
 
       .one, .two {
         position: absolute;
