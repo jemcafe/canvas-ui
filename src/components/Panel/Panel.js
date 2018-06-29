@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Panel extends Component {
   constructor () {
     super();
     this.state = { tab: 0 }
+  }
+
+  tabList () {
+    const { tab: t } = this.state;
+    const { className, tabs = [] } = this.props;
+
+    if ( tabs.length ) {
+      return tabs.map((e, i) => {
+        const className = t === i ? 'selected-tab' : i < t ? 'left-tab' : i > t ? 'right-tab' : '';
+        return <li key={i} className={className} onClick={() => this.setState({ tab: i })}>{ e }</li>;
+      });
+    } else {
+      return <div className="left-tab">NO TABS</div>
+    };
   }
 
   displayContent () {
@@ -21,30 +36,23 @@ class Panel extends Component {
   }
 
   render () {
-    const { tab: t } = this.state;
-    const { tabs = [], children = [] } = this.props;
-
-    const tabsList = tabs.map((e, i) => {
-      const className = t === i ? 'selected-tab' : i < t ? 'left-tab' : i > t ? 'right-tab' : '';
-      return <li key={i} className={className} onClick={() => this.setState({ tab: i })}>{ e }</li>;
-    });
+    const { className: cn } = this.props;
+    const className = cn ? ` ${cn}` : '';
 
     return (
-      <div className="panel">
+      <div className={`panel${className}`}>
         <nav>
-          <ul>
-            { tabs.length ? tabsList : <div className="left-tab">NO TABS</div> }
-          </ul>
-          <div>
-            <div><i className="icon-bars"></i></div>
-          </div>
+          <ul>{ this.tabList() }</ul>
+          <div><div><i className="icon-bars"></i></div></div>
         </nav>
-        <main>
-          { this.displayContent() }
-        </main>
+        <main>{ this.displayContent() }</main>
       </div>
     );
   }
+}
+
+Panel.propTypes = {
+  tabs: PropTypes.array.isRequired,
 }
 
 export default Panel;

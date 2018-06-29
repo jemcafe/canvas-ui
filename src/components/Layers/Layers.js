@@ -3,8 +3,8 @@ import Panel from '../Panel/Panel';
 
 function Layers () {
   return (
-    <Panel tabs={['Layers']}>
-      <div className="layers">LAYERS CONTENT</div>
+    <Panel className={"layers"} tabs={['Layers']}>
+      <div>LAYERS CONTENT</div>
     </Panel>
   );
 }
