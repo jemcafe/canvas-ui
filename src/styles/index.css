@@ -3616,7 +3616,7 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .tool-settings ul > li, .panel > nav > div div {
+.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .tool-settings ul > li, .tool-settings .workspace-presets, .panel-group > div:first-child div, .panel > nav > div div {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -3672,13 +3672,6 @@ select {
 /*---------------------------*/
 /*   Layouts                 */
 /*---------------------------*/
-.text-input-dropdown {
-  display: flex;
-  align-items: center;
-  margin: 0 0 0 8px; }
-  .text-input-dropdown > div {
-    margin: 0 0 0 6px; }
-
 /*---------------------------*/
 /*   Modules                 */
 /*---------------------------*/
@@ -3742,13 +3735,21 @@ select {
     border-color: lightgrey;
     background: #3d3d3d; }
 
+.text-input-dropdown {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 8px; }
+  .text-input-dropdown > div {
+    margin: 0 0 0 6px; }
+
 /*---------------------------*/
 /*   Components              */
 /*---------------------------*/
 #app-layout {
   display: flex;
   flex-direction: column;
-  height: 100vh; }
+  height: 100vh;
+  overflow: hidden; }
   #app-layout .workspace {
     display: flex;
     justify-content: space-between;
@@ -3760,22 +3761,30 @@ select {
   #app-layout .panels {
     display: flex;
     background: lightblue; }
-    #app-layout .panels > div {
-      display: flex;
-      flex-direction: column;
-      min-width: 200px; }
-      #app-layout .panels > div > .container {
-        height: 100%;
-        padding: 2px;
-        box-sizing: border-box; }
-    #app-layout .panels > .one > .container {
-      background: pink; }
-    #app-layout .panels > .two > .container {
-      background: #ffe3af; }
+
+.toolbar {
+  font-size: 12px;
+  color: #fff;
+  border-bottom: 1px solid #3d3d3d;
+  background: #5e5e5e; }
+  .toolbar > ul {
+    display: flex; }
+    .toolbar > ul > li {
+      -webkit-user-select: none;
+      /* Chrome all / Safari all */
+      -moz-user-select: none;
+      /* Firefox all */
+      -ms-user-select: none;
+      /* IE 10+ */
+      user-select: none;
+      /* Likely future */
+      padding: 6px 10px; }
+      .toolbar > ul > li:active {
+        background: #3ee9be; }
 
 .tool-menu {
-  padding: 2px;
-  box-sizing: border-box;
+  border-left: 1px solid #3d3d3d;
+  border-right: 1px solid #3d3d3d;
   color: #fff;
   background: #3d3d3d; }
   .tool-menu .menu {
@@ -3804,12 +3813,14 @@ select {
 
 .tool-settings {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  min-height: 40px;
   padding: 2px;
   box-sizing: border-box;
-  background: #5e5e5e;
   color: #fff;
-  min-height: 40px; }
+  min-height: 40px;
+  border-bottom: 1px solid #3d3d3d;
+  background: #5e5e5e; }
   .tool-settings ul {
     display: flex;
     font-size: 12px;
@@ -3844,6 +3855,28 @@ select {
       background: #969696; }
   .tool-settings .magnify-settings .plus:hover, .tool-settings .magnify-settings .minus:hover {
     border: 1px solid lightgrey; }
+  .tool-settings .workspace-presets {
+    margin: 0 6px; }
+
+.panel-group {
+  display: flex;
+  flex-direction: column;
+  color: white; }
+  .panel-group > div:first-child {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px;
+    box-sizing: border-box; }
+    .panel-group > div:first-child div {
+      margin: 0 2px 0 0; }
+      .panel-group > div:first-child div:active {
+        color: gray; }
+  .panel-group > .container {
+    height: 100%;
+    padding: 2px;
+    box-sizing: border-box;
+    outline: 1px solid grey;
+    background: #ffe3af; }
 
 .panel {
   display: flex;
@@ -3901,7 +3934,7 @@ select {
           border-color: lightgrey; }
         .panel > nav > div div:active {
           background: #3d3d3d; }
-  .panel > main {
+  .panel > .container {
     border-left: 1px solid black;
     border-bottom: 1px solid black;
     border-right: 1px solid black;

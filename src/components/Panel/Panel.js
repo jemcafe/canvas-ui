@@ -9,7 +9,7 @@ class Panel extends Component {
 
   tabList () {
     const { tab: t } = this.state;
-    const { className, tabs = [] } = this.props;
+    const { tabs = [] } = this.props;
 
     if ( tabs.length ) {
       return tabs.map((e, i) => {
@@ -18,7 +18,7 @@ class Panel extends Component {
       });
     } else {
       return <div className="left-tab">NO TABS</div>
-    };
+    }
   }
 
   displayContent () {
@@ -43,9 +43,13 @@ class Panel extends Component {
       <div className={`panel${className}`}>
         <nav>
           <ul>{ this.tabList() }</ul>
-          <div><div><i className="icon-bars"></i></div></div>
+          <div>
+            <div><i className="icon-bars"></i></div>
+          </div>
         </nav>
-        <main>{ this.displayContent() }</main>
+        <div className="container">
+          { this.displayContent() }
+        </div>
       </div>
     );
   }

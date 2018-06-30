@@ -1,11 +1,13 @@
 .tool-settings {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  min-height: 40px;
   padding: 2px;
   box-sizing: border-box;
-  background: $gray;
   color: #fff;
   min-height: 40px;
+  border-bottom: 1px solid $darkgray;
+  background: $gray;
 
   ul {
     display: flex;
@@ -71,5 +73,10 @@
       @extend %tool-menu-icon;
       &:hover { border: 1px solid lightgrey; }
     }
+  }
+
+  .workspace-presets {
+    @extend %center-content;
+    margin: 0 6px;
   }
 }

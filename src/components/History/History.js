@@ -1,10 +1,11 @@
 import React from 'react';
+import Panel from '../Panel/Panel';
 
 function History () {
   return (
-    <div className="history">
-      HISTORY
-    </div>
+    <Panel className={"history"} tabs={['History']}>
+      <div>HISTORY CONTENT</div>
+    </Panel>
   );
 }
 

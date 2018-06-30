@@ -1,0 +1,23 @@
+#app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+
+  .workspace {
+    display: flex;
+    justify-content: space-between;
+    background: #ebebeb;
+    height: 100%;
+  }
+
+  .canvas-space {
+    width: 100%;
+    background: #dfffdf;
+  }
+
+  .panels {
+    display: flex;
+    background: lightblue;
+  }
+}

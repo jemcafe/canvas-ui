@@ -1,4 +1,7 @@
 import React from 'react';
+
+import PanelGroup from './PanelGroup/PanelGroup';
+
 import ToolBar from '../containers/ToolBarCntr';
 import ToolMenu from '../containers/ToolMenuCntr';
 import ToolSettings from '../containers/ToolSettingsCntr';
@@ -8,7 +11,6 @@ import Color from '../containers/ColorCntr';
 import Layers from '../containers/LayersCntr';
 
 function Layout (props) {
-
   return (
     <div id="app-layout">
       <ToolBar />
@@ -19,20 +21,14 @@ function Layout (props) {
           CANVAS SPACE
         </div>
         <div className="panels">
-          <div className="one">
-            <div><i className="icon-angle-double-right"></i></div>
-            <div className="container">
-              <History />
-              <Text />
-            </div>
-          </div>
-          <div className="two">
-            <div><i className="icon-angle-double-right"></i></div>
-            <div className="container">
-              <Color />
-              <Layers />
-            </div>
-          </div>
+          <PanelGroup>
+            <History />
+            <Text />
+          </PanelGroup>
+          <PanelGroup>
+            <Color />
+            <Layers />
+          </PanelGroup>
         </div>
       </div>
     </div>
