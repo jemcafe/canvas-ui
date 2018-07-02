@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 class Panel extends Component {
@@ -22,13 +22,14 @@ class Panel extends Component {
   }
 
   displayContent () {
-    const { tab: t } = this.state;
-    const { tabs = [], children: c } = this.props;
+    const { state, props, isObject } = this;
+    const { tab: t } = state;
+    const { tabs = [], children: c } = props;
 
-    if ( !tabs.length ) return 'NEED TABS';                     // No Tabs;
-    if ( !c ) return 'NO CHILDREN';                             // No children
-    if ( this.isObject(c) ) return t === 0 ? c : 'NO CONTENT';  // One child
-    return t < c.length ? c[t] : 'NO CONTENT';                  // More than one child
+    if ( !tabs.length ) return 'NEED TABS';                 // No Tabs;
+    if ( !c )           return 'NO CHILDREN';               // No children
+    if ( isObject(c) )  return t === 0 ? c : 'NO CONTENT';  // One child
+    return t < c.length ? c[t] : 'NO CONTENT';              // More than one child
   }
 
   isObject (value) {
@@ -40,17 +41,27 @@ class Panel extends Component {
     const className = cn ? ` ${cn}` : '';
 
     return (
-      <div className={`panel${className}`}>
-        <nav>
-          <ul>{ this.tabList() }</ul>
-          <div>
-            <div><i className="icon-bars"></i></div>
+      <Fragment>
+        <div className={`panel${className}`}>
+          <nav>
+            <ul>{ this.tabList() }</ul>
+            <div>
+              <div><i className="icon-bars"></i></div>
+            </div>
+          </nav>
+          <div className="container">
+            { this.displayContent() }
           </div>
-        </nav>
-        <div className="container">
-          { this.displayContent() }
         </div>
-      </div>
+
+        <div className={`panel-collapsed${className}`}>
+          <ul>
+            <li><i className="icon-swatches"></i></li>
+            <li><i className="icon-color"></i></li>
+            <li><i className="icon-layers"></i></li>
+          </ul>
+        </div>
+      </Fragment>
     );
   }
 }

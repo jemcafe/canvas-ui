@@ -13,16 +13,20 @@
 .icon-eraser,
 .icon-paint-bucket,
 .icon-pen,
+.icon-shape-circle,
 .icon-magnify,
 .icon-magnify-minus,
 .icon-magnify-plus,
+.icon-color,
+.icon-adjust,
+.icon-swatches,
+.icon-layers,
 .icon-angle-down,
 .icon-bars,
 .icon-angle-double-right,
 .icon-angle-double-left,
 .dropdown-btn,
 .far,
-.icon-shape-circle,
 .fal,
 .fab {
   -moz-osx-font-smoothing: grayscale;
@@ -111,16 +115,20 @@
 .fa-pull-left.icon-eraser,
 .fa-pull-left.icon-paint-bucket,
 .fa-pull-left.icon-pen,
+.fa-pull-left.icon-shape-circle,
 .fa-pull-left.icon-magnify,
 .fa-pull-left.icon-magnify-minus,
 .fa-pull-left.icon-magnify-plus,
+.fa-pull-left.icon-color,
+.fa-pull-left.icon-adjust,
+.fa-pull-left.icon-swatches,
+.fa-pull-left.icon-layers,
 .fa-pull-left.icon-angle-down,
 .fa-pull-left.icon-bars,
 .fa-pull-left.icon-angle-double-right,
 .fa-pull-left.icon-angle-double-left,
 .fa-pull-left.dropdown-btn,
 .far.fa-pull-left,
-.fa-pull-left.icon-shape-circle,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
   margin-right: .3em; }
@@ -133,16 +141,20 @@
 .fa-pull-right.icon-eraser,
 .fa-pull-right.icon-paint-bucket,
 .fa-pull-right.icon-pen,
+.fa-pull-right.icon-shape-circle,
 .fa-pull-right.icon-magnify,
 .fa-pull-right.icon-magnify-minus,
 .fa-pull-right.icon-magnify-plus,
+.fa-pull-right.icon-color,
+.fa-pull-right.icon-adjust,
+.fa-pull-right.icon-swatches,
+.fa-pull-right.icon-layers,
 .fa-pull-right.icon-angle-down,
 .fa-pull-right.icon-bars,
 .fa-pull-right.icon-angle-double-right,
 .fa-pull-right.icon-angle-double-left,
 .fa-pull-right.dropdown-btn,
 .far.fa-pull-right,
-.fa-pull-right.icon-shape-circle,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
   margin-left: .3em; }
@@ -3582,9 +3594,14 @@ readers do not read off random characters that represent icons */
 .icon-eraser,
 .icon-paint-bucket,
 .icon-pen,
+.icon-shape-circle,
 .icon-magnify,
 .icon-magnify-minus,
 .icon-magnify-plus,
+.icon-color,
+.icon-adjust,
+.icon-swatches,
+.icon-layers,
 .icon-angle-down,
 .icon-bars,
 .icon-angle-double-right,
@@ -3596,17 +3613,7 @@ readers do not read off random characters that represent icons */
 /*---------------------------*/
 /*   Helpers                 */
 /*---------------------------*/
-.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-angle-down, .icon-bars, .icon-angle-double-right, .icon-angle-double-left, .dropdown-btn {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  vertical-align: -.125em; }
-
-.icon-shape-circle {
+.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-shape-circle, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-color, .icon-adjust, .icon-swatches, .icon-layers, .icon-angle-down, .icon-bars, .icon-angle-double-right, .icon-angle-double-left, .dropdown-btn {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -3704,6 +3711,18 @@ select {
 
 .icon-magnify-plus:before {
   content: "\f00e"; }
+
+.icon-color:before {
+  content: "\f53f"; }
+
+.icon-adjust:before {
+  content: "\f042"; }
+
+.icon-swatches:before {
+  content: "\f5c3"; }
+
+.icon-layers:before {
+  content: "\f24d"; }
 
 .icon-angle-down {
   font-size: 12px; }

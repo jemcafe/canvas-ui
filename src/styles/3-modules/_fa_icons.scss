@@ -31,7 +31,7 @@
     content: fa-content($fa-var-pen-nib); }
 }
 .icon-shape-circle {
-  @extend %far;
+  @extend %fas;
   &:before { 
     content: fa-content($fa-var-circle); }
 }
@@ -49,6 +49,29 @@
   @extend %fas;
   &:before { 
     content: fa-content($fa-var-search-plus); } 
+}
+
+// Panel icons
+
+.icon-color {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-palette); } 
+}
+.icon-adjust {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-adjust); } 
+}
+.icon-swatches {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-swatchbook); } 
+}
+.icon-layers {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-clone); } 
 }
 
 // other icons
