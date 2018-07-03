@@ -21,6 +21,9 @@
 .icon-adjust,
 .icon-swatches,
 .icon-layers,
+.icon-history,
+.icon-character,
+.icon-paragraph,
 .icon-angle-down,
 .icon-bars,
 .icon-angle-double-right,
@@ -123,6 +126,9 @@
 .fa-pull-left.icon-adjust,
 .fa-pull-left.icon-swatches,
 .fa-pull-left.icon-layers,
+.fa-pull-left.icon-history,
+.fa-pull-left.icon-character,
+.fa-pull-left.icon-paragraph,
 .fa-pull-left.icon-angle-down,
 .fa-pull-left.icon-bars,
 .fa-pull-left.icon-angle-double-right,
@@ -149,6 +155,9 @@
 .fa-pull-right.icon-adjust,
 .fa-pull-right.icon-swatches,
 .fa-pull-right.icon-layers,
+.fa-pull-right.icon-history,
+.fa-pull-right.icon-character,
+.fa-pull-right.icon-paragraph,
 .fa-pull-right.icon-angle-down,
 .fa-pull-right.icon-bars,
 .fa-pull-right.icon-angle-double-right,
@@ -3602,6 +3611,9 @@ readers do not read off random characters that represent icons */
 .icon-adjust,
 .icon-swatches,
 .icon-layers,
+.icon-history,
+.icon-character,
+.icon-paragraph,
 .icon-angle-down,
 .icon-bars,
 .icon-angle-double-right,
@@ -3613,7 +3625,7 @@ readers do not read off random characters that represent icons */
 /*---------------------------*/
 /*   Helpers                 */
 /*---------------------------*/
-.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-shape-circle, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-color, .icon-adjust, .icon-swatches, .icon-layers, .icon-angle-down, .icon-bars, .icon-angle-double-right, .icon-angle-double-left, .dropdown-btn {
+.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-shape-circle, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-color, .icon-adjust, .icon-swatches, .icon-layers, .icon-history, .icon-character, .icon-paragraph, .icon-angle-down, .icon-bars, .icon-angle-double-right, .icon-angle-double-left, .dropdown-btn {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -3623,17 +3635,17 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .tool-settings ul > li, .tool-settings .workspace-presets, .panel-group > div:first-child div, .panel > nav > div div {
+.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > ul > li, .dropdown-btn, .tool-settings ul > li, .tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div div {
   display: flex;
   justify-content: center;
   align-items: center; }
 
-.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus {
+.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > ul > li {
   width: 30px;
   height: 30px;
   border: 1px solid #5e5e5e;
   border-radius: 4px; }
-  .tool-menu .menu .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i {
+  .tool-menu .menu .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i, .panel > ul > li i {
     font-size: 16px; }
 
 /*---------------------------*/
@@ -3723,6 +3735,15 @@ select {
 
 .icon-layers:before {
   content: "\f24d"; }
+
+.icon-history:before {
+  content: "\f1da"; }
+
+.icon-character:before {
+  content: "\f031"; }
+
+.icon-paragraph:before {
+  content: "\f1dd"; }
 
 .icon-angle-down {
   font-size: 12px; }
@@ -3904,57 +3925,62 @@ select {
   font-size: 12px;
   color: #fff;
   background: #ade6d3; }
-  .panel > nav {
-    display: flex;
-    background: #d2afff; }
-    .panel > nav .selected-tab {
+  .panel .container {
+    max-width: 200px;
+    min-width: 150px; }
+    .panel .container > nav {
+      display: flex;
+      background: #d2afff; }
+      .panel .container > nav .selected-tab {
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        background: #5e5e5e; }
+      .panel .container > nav .left-tab {
+        border-bottom: 1px solid black;
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+        background: #3d3d3d; }
+      .panel .container > nav .right-tab {
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        background: #3d3d3d; }
+      .panel .container > nav ul {
+        display: flex; }
+        .panel .container > nav ul li {
+          -webkit-user-select: none;
+          /* Chrome all / Safari all */
+          -moz-user-select: none;
+          /* Firefox all */
+          -ms-user-select: none;
+          /* IE 10+ */
+          user-select: none;
+          /* Likely future */
+          padding: 8px 10px; }
+          .panel .container > nav ul li:active {
+            background: #3ee9be; }
+      .panel .container > nav > div {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black; }
+        .panel .container > nav > div div {
+          margin: 0 4px;
+          padding: 2px 4px;
+          border: 1px solid #5e5e5e;
+          border-radius: 2px; }
+          .panel .container > nav > div div:hover {
+            border-color: lightgrey; }
+          .panel .container > nav > div div:active {
+            background: #3d3d3d; }
+    .panel .container > div {
       border-left: 1px solid black;
-      border-top: 1px solid black;
+      border-bottom: 1px solid black;
       border-right: 1px solid black;
       background: #5e5e5e; }
-    .panel > nav .left-tab {
-      border-bottom: 1px solid black;
-      border-left: 1px solid black;
-      border-top: 1px solid black;
-      background: #3d3d3d; }
-    .panel > nav .right-tab {
-      border-top: 1px solid black;
-      border-right: 1px solid black;
-      border-bottom: 1px solid black;
-      background: #3d3d3d; }
-    .panel > nav ul {
-      display: flex; }
-      .panel > nav ul li {
-        -webkit-user-select: none;
-        /* Chrome all / Safari all */
-        -moz-user-select: none;
-        /* Firefox all */
-        -ms-user-select: none;
-        /* IE 10+ */
-        user-select: none;
-        /* Likely future */
-        padding: 8px 10px; }
-        .panel > nav ul li:active {
-          background: #3ee9be; }
-    .panel > nav > div {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      width: 100%;
-      border-top: 1px solid black;
-      border-right: 1px solid black;
-      border-bottom: 1px solid black; }
-      .panel > nav > div div {
-        margin: 0 4px;
-        padding: 2px 4px;
-        border: 1px solid #5e5e5e;
-        border-radius: 2px; }
-        .panel > nav > div div:hover {
-          border-color: lightgrey; }
-        .panel > nav > div div:active {
-          background: #3d3d3d; }
-  .panel > .container {
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
-    background: #5e5e5e; }
+  .panel > ul > li:hover {
+    border: 1px solid lightgrey; }

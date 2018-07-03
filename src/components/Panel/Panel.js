@@ -1,67 +1,87 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { isObject } from '../../helpers/dataTypeCheck';
 
 class Panel extends Component {
   constructor () {
     super();
-    this.state = { tab: 0 }
-  }
-
-  tabList () {
-    const { tab: t } = this.state;
-    const { tabs = [] } = this.props;
-
-    if ( tabs.length ) {
-      return tabs.map((e, i) => {
-        const className = t === i ? 'selected-tab' : i < t ? 'left-tab' : i > t ? 'right-tab' : '';
-        return <li key={i} className={className} onClick={() => this.setState({ tab: i })}>{ e }</li>;
-      });
-    } else {
-      return <div className="left-tab">NO TABS</div>
+    this.state = { 
+      tab: 0,
+      showPanel: false
     }
   }
 
-  displayContent () {
-    const { state, props, isObject } = this;
-    const { tab: t } = state;
-    const { tabs = [], children: c } = props;
-
-    if ( !tabs.length ) return 'NEED TABS';                 // No Tabs;
-    if ( !c )           return 'NO CHILDREN';               // No children
-    if ( isObject(c) )  return t === 0 ? c : 'NO CONTENT';  // One child
-    return t < c.length ? c[t] : 'NO CONTENT';              // More than one child
-  }
-
-  isObject (value) {
-    return value && typeof value === 'object' && value.constructor === Object;
+  togglePanel (tab) {
+    this.setState(prev => (
+      prev.tab === tab
+      ? { showPanel: !prev.showPanel }
+      : { tab: tab, showPanel: true }
+    ));
   }
 
   render () {
-    const { className: cn } = this.props;
-    const className = cn ? ` ${cn}` : '';
+    const { tab } = this.state;
+    const { className, tabs = [], children } = this.props;
+
+    const styles = {
+      collapsed: {
+        position: 'absolute',
+        minWidth: `${200}px`,
+        transform: `translate(-${202}px, 0)`
+      }
+    }
+
+    const classNames = {
+      panel: (
+        className ? ` ${className}` : ''
+      ),
+      tab: (index) => (
+        (tab === index) ? 'selected-tab' : 
+        (index < tab)   ? 'left-tab' : 
+        (index > tab)   ? 'right-tab' : ''
+      ),
+      icon: (tabName) => (
+        (tabName === 'Color')     ? 'icon-color' :
+        (tabName === 'Swatches')  ? 'icon-swatches' :
+        (tabName === 'Layers')    ? 'icon-layers' :
+        (tabName === 'History')   ? 'icon-history' :
+        (tabName === 'Character') ? 'icon-character' :
+        (tabName === 'Paragraph') ? 'icon-paragraph' : ''
+      )
+    }
+
+    const tabList = tabs.map((e, i) => (
+      <li key={i} className={ classNames.tab(i) } onClick={() => this.setState({ tab: i })}>{ e }</li>
+    ));
+
+    const iconList = tabs.map((e, i) => (
+      <li key={i} onClick={() => this.togglePanel(i)}><i className={ classNames.icon(e) }></i></li>
+    ));
+
+    const content = (
+      (!tabs.length)          // No tabs
+      ? ('NEED TABS') 
+      : (!children)           // No children
+      ? ('NO CHILDREN') 
+      : (isObject(children))  // One child
+      ? (tab === 0 ? children : 'NO CONTENT')
+      : (tab < children.length ? children[tab] : 'NO CONTENT')  // More than one child
+    );
 
     return (
-      <Fragment>
-        <div className={`panel${className}`}>
+      <div className={`panel${ classNames.panel }`}>
+        <div className="container" style={ styles.collapsed }>
           <nav>
-            <ul>{ this.tabList() }</ul>
-            <div>
-              <div><i className="icon-bars"></i></div>
-            </div>
+            <ul>{ tabList }</ul>
+            <div><div><i className="icon-bars"></i></div></div>
           </nav>
-          <div className="container">
-            { this.displayContent() }
-          </div>
+          <div>{ content }</div>
         </div>
 
-        <div className={`panel-collapsed${className}`}>
-          <ul>
-            <li><i className="icon-swatches"></i></li>
-            <li><i className="icon-color"></i></li>
-            <li><i className="icon-layers"></i></li>
-          </ul>
-        </div>
-      </Fragment>
+        <ul>
+          { iconList }
+        </ul>
+      </div>
     );
   }
 }

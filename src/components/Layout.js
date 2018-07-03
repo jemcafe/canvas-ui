@@ -10,7 +10,13 @@ import Text from '../containers/TextCntr';
 import Color from '../containers/ColorCntr';
 import Layers from '../containers/LayersCntr';
 
-function Layout (props) {
+function Layout () {
+  const panels = {
+    className: '',
+    tabs: ['Color', ''],
+    children: []
+  };
+
   return (
     <div id="app-layout">
       <ToolBar />

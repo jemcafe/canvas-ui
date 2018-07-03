@@ -73,6 +73,21 @@
   &:before { 
     content: fa-content($fa-var-clone); } 
 }
+.icon-history {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-history); } 
+}
+.icon-character {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-font); } 
+}
+.icon-paragraph {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-paragraph); } 
+}
 
 // other icons
 

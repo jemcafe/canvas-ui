@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Panel from '../Panel/Panel';
 
 function Color () {
   return (
-    <Panel className={"color"} tabs={['Color', 'Swatches']}>
+    <Fragment>
       <div>COLOR CONTENT</div>
       <div>SWATCHES CONTENT</div>
-    </Panel>
+    </Fragment>
   );
 }
 

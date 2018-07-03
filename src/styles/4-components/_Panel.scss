@@ -6,69 +6,87 @@
   color: #fff;
   background: #ade6d3;
 
-  > nav {
-    display: flex;
-    background: #d2afff;
-    // background: $darkgray;
+  .container {
+    max-width: 200px;
+    min-width: 150px;
 
-    .selected-tab { 
-      border-left: 1px solid black;
-      border-top: 1px solid black;
-      border-right: 1px solid black;
-      background: $gray; 
-    }
-
-    .left-tab {
-      border-bottom: 1px solid black;
-      border-left: 1px solid black;
-      border-top: 1px solid black;
-      background: $darkgray;
-    }
-
-    .right-tab {
-      border-top: 1px solid black;
-      border-right: 1px solid black;
-      border-bottom: 1px solid black;
-      background: $darkgray;
-    }
-
-    ul {
+    > nav {
       display: flex;
+      background: #d2afff;
+      // background: $darkgray;
 
-      li {
-        @include user-select(none);
-        padding: 8px 10px;
-        // &:hover { background: $gray; }
-        &:active { background: $themeColor; }
+      .selected-tab { 
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        background: $gray; 
+      }
+
+      .left-tab {
+        border-bottom: 1px solid black;
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+        background: $darkgray;
+      }
+
+      .right-tab {
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        background: $darkgray;
+      }
+
+      ul {
+        display: flex;
+
+        li {  // tabs
+          @include user-select(none);
+          padding: 8px 10px;
+          &:active { background: $themeColor; }
+        }
+      }
+
+      > div {  // space for other nav content
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+
+        div {  // The bars icon
+          @extend %center-content;
+          margin: 0 4px;
+          padding: 2px 4px;
+          border: 1px solid $gray;
+          border-radius: 2px;
+          &:hover { border-color: lightgrey; }
+          &:active { background: $darkgray; }
+        }
       }
     }
 
-    > div {  // space for for other content
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      width: 100%;
-      border-top: 1px solid black;
-      border-right: 1px solid black;
+    > div {  // content
+      border-left: 1px solid black;
       border-bottom: 1px solid black;
-
-      div {  // The bars icon
-        @extend %center-content;
-        margin: 0 4px;
-        padding: 2px 4px;
-        border: 1px solid $gray;
-        border-radius: 2px;
-        &:hover { border-color: lightgrey; }
-        &:active { background: $darkgray; }
-      }
+      border-right: 1px solid black;
+      background: $gray;
     }
   }
 
-  > .container {
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
-    // background: #a1a0ff;
-    background: $gray;
+
+  // Collapsed
+
+  // .collapsed {
+  //   position: absolute;
+  //   transform: translate(-202px, 0);
+  // }
+
+  > ul {
+    > li {  // icons
+      @extend %tool-menu-icon;
+      &:hover { border: 1px solid lightgrey; }
+    }
   }
 }
