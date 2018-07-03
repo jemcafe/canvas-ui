@@ -11,33 +11,6 @@ import Color from '../containers/ColorCntr';
 import Layers from '../containers/LayersCntr';
 
 function Layout () {
-  const panels = {
-    '1': [
-      {
-        className: 'color',
-        tabs: ['Color', 'Swatches'],
-        children: null
-      },
-      {
-        className: 'layers',
-        tabs: ['Layers'],
-        children: null
-      }
-    ],
-    '2': [
-      {
-        className: 'history',
-        tabs: ['History'],
-        children: null
-      },
-      {
-        className: 'text',
-        tabs: ['Character', 'Paragraph'],
-        children: null
-      }
-    ]
-  };
-
   return (
     <div id="app-layout">
       <ToolBar />
@@ -48,8 +21,14 @@ function Layout () {
           CANVAS SPACE
         </div>
         <div className="panels">
-          <PanelGroup panels={panels['2']}/>
-          <PanelGroup panels={panels['1']} />
+          <PanelGroup>
+            <History />
+            <Text />
+          </PanelGroup>
+          <PanelGroup>
+            <Color />
+            <Layers />
+          </PanelGroup>
         </div>
       </div>
     </div>

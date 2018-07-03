@@ -80,7 +80,10 @@ class Panel extends Component {
         </div> }
 
         { isCollapsed &&
-        <ul>{ iconList }</ul> }
+        <div className="icons">
+          <div></div>
+          <ul>{ iconList }</ul>
+        </div> }
       </div>
     );
   }

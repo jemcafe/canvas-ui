@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Panel from '../Panel/Panel';
 
 class PanelGroup extends Component {
   constructor () {
@@ -15,13 +14,7 @@ class PanelGroup extends Component {
 
   render () {
     const { isCollapsed } = this.state;
-    const { panels: p } = this.props;
-
-    const panels = p.map(e => (
-      <Panel className={e.className} tabs={e.tabs} isCollapsed={isCollapsed}>
-        { e.children }
-      </Panel>
-    ));
+    const { children } = this.props;
 
     return (
       <div className="panel-group">
@@ -31,7 +24,7 @@ class PanelGroup extends Component {
           : <div onClick={ this.toggleCollapse }><i className="icon-angle-double-left"></i></div> }
         </div>
         <div className="container">
-          { panels }
+          { children }
         </div>
       </div>
     );

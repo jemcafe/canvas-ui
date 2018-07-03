@@ -78,14 +78,15 @@
 
   // Collapsed
 
-  // .collapsed {
-  //   position: absolute;
-  //   transform: translate(-202px, 0);
-  // }
-
-  > ul {
-    > li {  // icons
+  > .collapsed {
+    > div {
+      background: black;
+      height: 4px;
+    }
+    
+    > ul > li {  // icons
       @extend %tool-menu-icon;
+      margin: 4px 0;
       &:hover { border: 1px solid lightgrey; }
     }
   }

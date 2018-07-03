@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Panel from '../Panel/Panel';
 
 function Layers () {
   return (
-    <Fragment>
+    <Panel className={"layers"} tabs={['Layers']}>
       <div>LAYERS CONTENT</div>
-    </Fragment>
+    </Panel>
   );
 }
 

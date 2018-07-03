@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Panel from '../Panel/Panel';
 
 function History () {
   return (
-    <Fragment>
+    <Panel className={"history"} tabs={['History']}>
       <div>HISTORY CONTENT</div>
-    </Fragment>
+    </Panel>
   );
 }
 

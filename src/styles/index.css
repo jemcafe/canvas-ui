@@ -3635,17 +3635,17 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > ul > li, .dropdown-btn, .tool-settings ul > li, .tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div div {
+.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > .collapsed > ul > li, .dropdown-btn, .tool-settings ul > li, .tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div div {
   display: flex;
   justify-content: center;
   align-items: center; }
 
-.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > ul > li {
+.tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > .collapsed > ul > li {
   width: 30px;
   height: 30px;
   border: 1px solid #5e5e5e;
   border-radius: 4px; }
-  .tool-menu .menu .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i, .panel > ul > li i {
+  .tool-menu .menu .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i, .panel > .collapsed > ul > li i {
     font-size: 16px; }
 
 /*---------------------------*/
@@ -3982,5 +3982,10 @@ select {
       border-bottom: 1px solid black;
       border-right: 1px solid black;
       background: #5e5e5e; }
-  .panel > ul > li:hover {
-    border: 1px solid lightgrey; }
+  .panel > .collapsed > div {
+    background: black;
+    height: 4px; }
+  .panel > .collapsed > ul > li {
+    margin: 4px 0; }
+    .panel > .collapsed > ul > li:hover {
+      border: 1px solid lightgrey; }
