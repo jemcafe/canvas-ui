@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Panel from '../Panel/Panel';
 
 function Text () {
   return (
-    <Panel className={"text"} tabs={['Character', 'Paragraph']}>
+    <Fragment>
       <div>CHARACTER CONTENT</div>
       <div>PARAGRAPH CONTENT</div>
-    </Panel>
+    </Fragment>
   );
 }
 

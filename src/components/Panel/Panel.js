@@ -20,15 +20,15 @@ class Panel extends Component {
   }
 
   render () {
-    const { tab } = this.state;
-    const { className, tabs = [], children } = this.props;
+    const { tab, showPanel } = this.state;
+    const { className, tabs = [], children, isCollapsed } = this.props;
 
     const styles = {
-      collapsed: {
+      collapsed: isCollapsed ? {
         position: 'absolute',
         minWidth: `${200}px`,
         transform: `translate(-${202}px, 0)`
-      }
+      } : null
     }
 
     const classNames = {
@@ -70,17 +70,17 @@ class Panel extends Component {
 
     return (
       <div className={`panel${ classNames.panel }`}>
+        { (showPanel || !isCollapsed) &&
         <div className="container" style={ styles.collapsed }>
           <nav>
             <ul>{ tabList }</ul>
             <div><div><i className="icon-bars"></i></div></div>
           </nav>
           <div>{ content }</div>
-        </div>
+        </div> }
 
-        <ul>
-          { iconList }
-        </ul>
+        { isCollapsed &&
+        <ul>{ iconList }</ul> }
       </div>
     );
   }

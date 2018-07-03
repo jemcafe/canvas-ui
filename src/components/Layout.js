@@ -12,9 +12,30 @@ import Layers from '../containers/LayersCntr';
 
 function Layout () {
   const panels = {
-    className: '',
-    tabs: ['Color', ''],
-    children: []
+    '1': [
+      {
+        className: 'color',
+        tabs: ['Color', 'Swatches'],
+        children: null
+      },
+      {
+        className: 'layers',
+        tabs: ['Layers'],
+        children: null
+      }
+    ],
+    '2': [
+      {
+        className: 'history',
+        tabs: ['History'],
+        children: null
+      },
+      {
+        className: 'text',
+        tabs: ['Character', 'Paragraph'],
+        children: null
+      }
+    ]
   };
 
   return (
@@ -27,14 +48,8 @@ function Layout () {
           CANVAS SPACE
         </div>
         <div className="panels">
-          <PanelGroup>
-            <History />
-            <Text />
-          </PanelGroup>
-          <PanelGroup>
-            <Color />
-            <Layers />
-          </PanelGroup>
+          <PanelGroup panels={panels['2']}/>
+          <PanelGroup panels={panels['1']} />
         </div>
       </div>
     </div>

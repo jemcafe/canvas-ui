@@ -4,7 +4,9 @@ import Panel from '../Panel/Panel';
 class PanelGroup extends Component {
   constructor () {
     super();
-    this.state = { isCollapsed: false }
+    this.state = { 
+      isCollapsed: false 
+    }
   }
 
   toggleCollapse = () => {
@@ -12,7 +14,7 @@ class PanelGroup extends Component {
   }
 
   render () {
-    const { isCollapsed } =this.state;
+    const { isCollapsed } = this.state;
     const { panels: p } = this.props;
 
     const panels = p.map(e => (
