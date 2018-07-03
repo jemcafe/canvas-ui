@@ -4,20 +4,24 @@
   height: 100vh;
   overflow: hidden;
 
+  > section {
+    background: #c0fffa;
+  }
+
   .workspace {
     display: flex;
     justify-content: space-between;
     background: #ebebeb;
     height: 100%;
-  }
 
-  .canvas-space {
-    width: 100%;
-    background: #dfffdf;
-  }
+    > section {
+      display: flex;
+      background: lightblue;
+    }
 
-  .panels {
-    display: flex;
-    background: lightblue;
+    .canvas-space {
+      width: 100%;
+      background: #dfffdf;
+    }
   }
 }

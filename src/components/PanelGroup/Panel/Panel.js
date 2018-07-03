@@ -21,7 +21,7 @@ class Panel extends Component {
 
   render () {
     const { tab, showPanel } = this.state;
-    const { className, tabs = [], children, isCollapsed } = this.props;
+    const { className, tabs = [], children: c, isCollapsed = false } = this.props;
 
     const styles = {
       collapsed: isCollapsed ? {
@@ -58,14 +58,15 @@ class Panel extends Component {
       <li key={i} onClick={() => this.togglePanel(i)}><i className={ classNames.icon(e) }></i></li>
     ));
 
+    // Children prop
     const content = (
-      (!tabs.length)          // No tabs
+      (!tabs.length)                              // No tabs
       ? ('NEED TABS') 
-      : (!children)           // No children
+      : (!c)                                      // No children
       ? ('NO CHILDREN') 
-      : (isObject(children))  // One child
-      ? (tab === 0 ? children : 'NO CONTENT')
-      : (tab < children.length ? children[tab] : 'NO CONTENT')  // More than one child
+      : (isObject(c))                             // One child
+      ? (tab === 0 ? c : 'NO CONTENT')
+      : (tab < c.length ? c[tab] : 'NO CONTENT')  // More than one child
     );
 
     return (

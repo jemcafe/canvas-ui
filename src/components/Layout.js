@@ -6,36 +6,35 @@ import ToolMenu from '../containers/ToolMenuCntr';
 import ToolSettings from '../containers/ToolSettingsCntr';
 
 import PanelGroup from './PanelGroup/PanelGroup';
-
-import History from '../containers/Tabs/HistoryCntr';
-import Character from '../containers/Tabs/CharacterCntr';
-import Paragraph from '../containers/Tabs/ParagraphCntr';
-import Color from '../containers/Tabs/ColorCntr';
-import Swatches from '../containers/Tabs/SwatchesCntr';
-import Layers from '../containers/Tabs/LayersCntr';
+import History from '../containers/PanelContent/HistoryCntr';
+import Character from '../containers/PanelContent/CharacterCntr';
+import Paragraph from '../containers/PanelContent/ParagraphCntr';
+import Color from '../containers/PanelContent/ColorCntr';
+import Swatches from '../containers/PanelContent/SwatchesCntr';
+import Layers from '../containers/PanelContent/LayersCntr';
 
 function Layout () {
   const panels = {
     '1': [
       {
-        // className: 'history',
+        id: 1,
         tabs: ['History'],
         children: <History />
       },
       {
-        // className: 'text',
+        id: 2,
         tabs: ['Character','Paragraph'],
-        children: [<Character />, <Paragraph />]
+        children: [<Character key={1} />, <Paragraph key={2} />]
       }
     ],
     '2': [
       {
-        // className: 'color',
+        id: 1,
         tabs: ['Color', 'Swatches'],
-        children: [<Color />, <Swatches />]
+        children: [<Color key={1} />, <Swatches key={2} />]
       },
       {
-        // className: 'layers',
+        id: 2,
         tabs: ['Layers'],
         children: <Layers />
       }
@@ -45,16 +44,20 @@ function Layout () {
   return (
     <div id="app-layout">
       <ToolBar />
-      <ToolSettings />
+      <section>
+        <ToolSettings />
+      </section>
       <div className="workspace">
-        <ToolMenu />
+        <section>
+          <ToolMenu />
+        </section>
         <div className="canvas-space">
           CANVAS SPACE
         </div>
-        <div className="panels">
+        <section className="panels">
           <PanelGroup panels={panels['1']} />
           <PanelGroup panels={panels['2']} />
-        </div>
+        </section>
       </div>
     </div>
   );
