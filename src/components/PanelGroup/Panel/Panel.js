@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { isObject } from '../../helpers/dataTypeCheck';
+import { isObject } from '../../../helpers/dataTypeCheck';
 
 class Panel extends Component {
   constructor () {
@@ -80,7 +80,7 @@ class Panel extends Component {
         </div> }
 
         { isCollapsed &&
-        <div className="icons">
+        <div className="collapsed">
           <div></div>
           <ul>{ iconList }</ul>
         </div> }

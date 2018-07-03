@@ -1,5 +1,5 @@
 import React from 'react';
-import History from '../components/History/History';
+import History from '../../components/PanelContent/History';
 
 function HistoryCntr (props) {
   return (
