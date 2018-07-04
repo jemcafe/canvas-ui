@@ -21,9 +21,12 @@ function PaintBrush () {
       </li>
       <li className="opacity">
         Opacity:
-        <div className="text-input-dropdown">
+        <div className="opacity-input">
           <input defaultValue="100%"/>
-          <div><i className="icon-angle-down"></i></div>
+          <button>
+            <i className="icon-angle-down"></i>
+            <div><div><input type="range" min="0" max="100"/></div></div>
+          </button>
         </div>
       </li>
     </ul>

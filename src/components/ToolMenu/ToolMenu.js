@@ -5,7 +5,7 @@ function ToolMenu (props) {
   const { selectTool } = props;
 
   return (
-    <div className="tool-menu">
+    <div id="tool-menu">
       <ul className="menu">
         <li className="tool" onClick={() => selectTool('move')}><i className="icon-move"></i></li>
         <li className="tool" onClick={() => selectTool('eyedropper')}><i className="icon-eyedropper"></i></li>

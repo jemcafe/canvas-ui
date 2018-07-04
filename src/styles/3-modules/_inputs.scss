@@ -1,7 +1,42 @@
-.text-input-dropdown {
+.opacity-input {
   display: flex;
   align-items: center;
   margin: 0 0 0 8px;
 
-  > div { margin: 0 0 0 6px; }
+  > input {
+    width: 80px;
+    padding-right: 30px;
+  }
+
+  > button {
+    position: absolute;
+    border: 1px solid $gray;
+    border-radius: 2px;
+    background: $gray;
+    color: #fff;
+    transform: translate(55px, 0);
+
+    > div {  // dropdown content container
+      display: none;
+      position: absolute;
+      padding: 6px 0 0 0;
+
+      > div {  // dropdown content
+        width: 150px;
+        padding: 2px 4px;
+        border: 1px solid $darkgray;
+        background: $gray;
+        transform: translate(-140px, 0);
+      }
+    }
+  }
+
+  > button:hover {
+    border-color: $lightgray;
+    background: $darkgray;
+
+    > div { 
+      display: block; 
+    }
+  }
 }

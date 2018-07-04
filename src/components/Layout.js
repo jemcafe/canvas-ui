@@ -47,7 +47,7 @@ function Layout () {
       <section>
         <ToolSettings />
       </section>
-      <div className="workspace">
+      <div id="workspace">
         <section>
           <ToolMenu />
         </section>

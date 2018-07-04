@@ -3635,17 +3635,18 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-.panel > .collapsed > ul > li, .tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .panel-group > div:first-child div, .panel .container > nav > div div, .tool-settings ul > li, .tool-settings .workspace-presets {
+.panel > .collapsed > ul > li, #tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .dropdown-btn, .panel-group > div:first-child div, .panel .container > nav > div div, .tool-settings ul > li, .tool-settings .workspace-presets {
   display: flex;
   justify-content: center;
   align-items: center; }
 
-.panel > .collapsed > ul > li, .tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus {
+.panel > .collapsed > ul > li, #tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus {
   width: 30px;
   height: 30px;
   border: 1px solid #5e5e5e;
-  border-radius: 4px; }
-  .panel > .collapsed > ul > li i, .tool-menu .menu .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i {
+  border-radius: 4px;
+  background: #5e5e5e; }
+  .panel > .collapsed > ul > li i, #tool-menu .menu .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i {
     font-size: 16px; }
 
 /*---------------------------*/
@@ -3669,7 +3670,7 @@ input {
   outline: none;
   border: none;
   border-bottom: 1px solid lightgrey;
-  padding: 3px 5px;
+  padding: 4px 5px;
   box-sizing: border-box;
   background: transparent;
   color: #fff;
@@ -3775,12 +3776,35 @@ select {
     border-color: lightgrey;
     background: #3d3d3d; }
 
-.text-input-dropdown {
+.opacity-input {
   display: flex;
   align-items: center;
   margin: 0 0 0 8px; }
-  .text-input-dropdown > div {
-    margin: 0 0 0 6px; }
+  .opacity-input > input {
+    width: 80px;
+    padding-right: 30px; }
+  .opacity-input > button {
+    position: absolute;
+    border: 1px solid #5e5e5e;
+    border-radius: 2px;
+    background: #5e5e5e;
+    color: #fff;
+    transform: translate(55px, 0); }
+    .opacity-input > button > div {
+      display: none;
+      position: absolute;
+      padding: 6px 0 0 0; }
+      .opacity-input > button > div > div {
+        width: 150px;
+        padding: 2px 4px;
+        border: 1px solid #3d3d3d;
+        background: #5e5e5e;
+        transform: translate(-140px, 0); }
+  .opacity-input > button:hover {
+    border-color: #d3d3d3;
+    background: #3d3d3d; }
+    .opacity-input > button:hover > div {
+      display: block; }
 
 /*---------------------------*/
 /*   Components              */
@@ -3792,15 +3816,15 @@ select {
   overflow: hidden; }
   #app-layout > section {
     background: #c0fffa; }
-  #app-layout .workspace {
+  #app-layout #workspace {
     display: flex;
     justify-content: space-between;
     background: #ebebeb;
     height: 100%; }
-    #app-layout .workspace > section {
+    #app-layout #workspace > section {
       display: flex;
       background: lightblue; }
-    #app-layout .workspace .canvas-space {
+    #app-layout #workspace .canvas-space {
       width: 100%;
       background: #dfffdf; }
 
@@ -3916,23 +3940,23 @@ select {
       .toolbar > ul > li:active {
         background: #3ee9be; }
 
-.tool-menu {
+#tool-menu {
   border-left: 1px solid #3d3d3d;
   border-right: 1px solid #3d3d3d;
   color: #fff;
   background: #3d3d3d; }
-  .tool-menu .menu {
+  #tool-menu .menu {
     padding: 4px;
     box-sizing: border-box;
     height: 100%;
     overflow-y: hidden;
     background: #5e5e5e; }
-    .tool-menu .menu .tool:hover {
+    #tool-menu .menu .tool:hover {
       border: 1px solid lightgrey; }
-    .tool-menu .menu .color {
+    #tool-menu .menu .color {
       width: 30px;
       padding: 4px 0; }
-      .tool-menu .menu .color .one, .tool-menu .menu .color .two {
+      #tool-menu .menu .color .one, #tool-menu .menu .color .two {
         margin: 0 auto;
         width: 20px;
         height: 20px;
@@ -3940,9 +3964,9 @@ select {
         box-sizing: border-box;
         border: 1px solid #fff;
         background: black; }
-      .tool-menu .menu .color .one {
+      #tool-menu .menu .color .one {
         transform: translate(-5px, -15px); }
-      .tool-menu .menu .color .two {
+      #tool-menu .menu .color .two {
         transform: translate(5px, 15px); }
 
 .tool-settings {
