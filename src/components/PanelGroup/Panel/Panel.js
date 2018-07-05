@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { isObject } from '../../../helpers/dataTypeCheck';
 
-function  Panel (props) {
+function Panel (props) {
   const { 
     index,
     className, // optional

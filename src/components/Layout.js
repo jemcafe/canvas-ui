@@ -5,7 +5,8 @@ import ToolBar from '../containers/ToolBarCntr';
 import ToolMenu from '../containers/ToolMenuCntr';
 import ToolSettings from '../containers/ToolSettingsCntr';
 
-import PanelGroup from './PanelGroup/PanelGroup';
+import PanelGroup from '../containers/PanelGroupCntr';
+
 import History from '../containers/PanelContent/HistoryCntr';
 import Character from '../containers/PanelContent/CharacterCntr';
 import Paragraph from '../containers/PanelContent/ParagraphCntr';

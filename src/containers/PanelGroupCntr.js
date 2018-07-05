@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PanelGroup from '../components/PanelGroup/PanelGroup';
 
-class PanelGroup extends Component {
+class PanelGroupCntr extends Component {
   constructor (props) {
     super(props);
     this.state = { 
@@ -46,14 +46,14 @@ class PanelGroup extends Component {
       <PanelGroup 
         panels={this.state.panels} 
         isCollapsed={this.state.isCollapsed}
-        tooglePanels={this.togglePanels}
+        togglePanels={this.togglePanels}
         changeTab={this.changeTab} />
     );
   }
 }
 
-PanelGroup.propTypes = {
+PanelGroupCntr.propTypes = {
   panels: PropTypes.array.isRequired
 }
 
-export default PanelGroup;
+export default PanelGroupCntr;
