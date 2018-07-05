@@ -7,13 +7,13 @@
 /*---------------------------*/
 /*   Helpers                 */
 /*---------------------------*/
-@import '0-helpers/variables';
-@import '0-helpers/placeholders';
-@import '0-helpers/mixins';
+@import '4-helpers/variables';
+@import '4-helpers/placeholders';
+@import '4-helpers/mixins';
 /*---------------------------*/
 /*   Base                    */
 /*---------------------------*/
-@import '1-base/base';
+@import '0-base/base';
 /*---------------------------*/
 /*   Layouts                 */
 /*---------------------------*/
@@ -27,4 +27,4 @@
 /*---------------------------*/
 /*   Components              */
 /*---------------------------*/
-@import '4-components/all';
+@import '1-components/all';

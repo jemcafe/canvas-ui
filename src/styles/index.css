@@ -3836,7 +3836,8 @@ select {
     display: flex;
     justify-content: flex-end;
     padding: 2px;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    background: #3d3d3d; }
     .panel-group > div:first-child div {
       margin: 0 2px 0 0; }
       .panel-group > div:first-child div:active {
@@ -3845,7 +3846,6 @@ select {
     height: 100%;
     padding: 2px;
     box-sizing: border-box;
-    outline: 1px solid grey;
     background: #ffe3af; }
 
 .panel {
