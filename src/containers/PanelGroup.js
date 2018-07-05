@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Panel from './Panel/Panel';
+import PanelGroup from '../components/PanelGroup/PanelGroup';
 
 class PanelGroup extends Component {
   constructor (props) {
@@ -43,28 +43,11 @@ class PanelGroup extends Component {
 
   render () {
     return (
-      <div className="panel-group">
-        <div>
-          { !this.state.isCollapsed 
-          ? <div onClick={ this.togglePanels }><i className="icon-angle-double-right"></i></div>
-          : <div onClick={ this.togglePanels }><i className="icon-angle-double-left"></i></div> }
-        </div>
-        <div className="container">
-          { this.state.panels.map((e, i) => (
-            <Panel 
-              key={e.id} 
-              index={i}
-              className={e.className} 
-              tabs={e.tabs} 
-              tab={e.tab}
-              isHidden={e.isHidden}
-              isCollapsed={this.state.isCollapsed}
-              changeTab={this.changeTab}>
-              { e.children }
-            </Panel> 
-          )) }
-        </div>
-      </div>
+      <PanelGroup 
+        panels={this.state.panels} 
+        isCollapsed={this.state.isCollapsed}
+        tooglePanels={this.togglePanels}
+        changeTab={this.changeTab} />
     );
   }
 }

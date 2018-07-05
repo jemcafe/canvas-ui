@@ -1,97 +1,92 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { isObject } from '../../../helpers/dataTypeCheck';
 
-class Panel extends Component {
-  constructor () {
-    super();
-    this.state = { 
-      tab: 0,
-      showPanel: false
-    }
+function  Panel (props) {
+  const { 
+    index,
+    className, // optional
+    tabs = [], 
+    tab = 0, 
+    children, 
+    isHidden = true, 
+    isCollapsed = false, 
+    changeTab
+  } = props;
+
+  const styles = {
+    collapsed: isCollapsed ? {
+      position: 'absolute',
+      minWidth: `${200}px`,
+      transform: `translate(-${202}px, 0)`
+    } : null
   }
 
-  togglePanel (tab) {
-    this.setState(prev => (
-      prev.tab === tab
-      ? { showPanel: !prev.showPanel }
-      : { tab: tab, showPanel: true }
-    ));
+  const classNames = {
+    panel: (
+      className ? ` ${className}` : ''
+    ),
+    tab: (index) => (
+      (tab === index) ? 'selected-tab' : 
+      (index < tab)   ? 'left-tab' : 
+      (index > tab)   ? 'right-tab' : ''
+    ),
+    icon: (tabName) => (
+      (tabName === 'Color')     ? 'icon-color' :
+      (tabName === 'Swatches')  ? 'icon-swatches' :
+      (tabName === 'Layers')    ? 'icon-layers' :
+      (tabName === 'History')   ? 'icon-history' :
+      (tabName === 'Character') ? 'icon-character' :
+      (tabName === 'Paragraph') ? 'icon-paragraph' : ''
+    )
   }
 
-  render () {
-    const { tab, showPanel } = this.state;
-    const { className, tabs = [], children: c, isCollapsed = false } = this.props;
+  const tabList = tabs.map((e, i) => (
+    <li key={i} className={ classNames.tab(i) } onClick={() => changeTab(index, i)}>{ e }</li>
+  ));
 
-    const styles = {
-      collapsed: isCollapsed ? {
-        position: 'absolute',
-        minWidth: `${200}px`,
-        transform: `translate(-${202}px, 0)`
-      } : null
-    }
+  const iconList = tabs.map((e, i) => (
+    <li key={i} onClick={() => changeTab(index, i)}><i className={ classNames.icon(e) }></i></li>
+  ));
 
-    const classNames = {
-      panel: (
-        className ? ` ${className}` : ''
-      ),
-      tab: (index) => (
-        (tab === index) ? 'selected-tab' : 
-        (index < tab)   ? 'left-tab' : 
-        (index > tab)   ? 'right-tab' : ''
-      ),
-      icon: (tabName) => (
-        (tabName === 'Color')     ? 'icon-color' :
-        (tabName === 'Swatches')  ? 'icon-swatches' :
-        (tabName === 'Layers')    ? 'icon-layers' :
-        (tabName === 'History')   ? 'icon-history' :
-        (tabName === 'Character') ? 'icon-character' :
-        (tabName === 'Paragraph') ? 'icon-paragraph' : ''
-      )
-    }
+  // Children prop
+  const content = (
+    (!tabs.length)                                            // No tabs
+    ? ('NEED TABS') 
+    : (!children)                                             // No children
+    ? ('NO CHILDREN') 
+    : (isObject(children))                                    // One child
+    ? (tab === 0 ? children : 'NO CONTENT')
+    : (tab < children.length ? children[tab] : 'NO CONTENT')  // More than one child
+  );
 
-    const tabList = tabs.map((e, i) => (
-      <li key={i} className={ classNames.tab(i) } onClick={() => this.setState({ tab: i })}>{ e }</li>
-    ));
+  return (
+    <div className={`panel${ classNames.panel }`}>
+      { (!isHidden || !isCollapsed) &&
+      <div className="container" style={ styles.collapsed }>
+        <nav>
+          <ul>{ tabList }</ul>
+          <div><div><i className="icon-bars"></i></div></div>
+        </nav>
+        <div>{ content }</div>
+      </div> }
 
-    const iconList = tabs.map((e, i) => (
-      <li key={i} onClick={() => this.togglePanel(i)}><i className={ classNames.icon(e) }></i></li>
-    ));
-
-    // Children prop
-    const content = (
-      (!tabs.length)                              // No tabs
-      ? ('NEED TABS') 
-      : (!c)                                      // No children
-      ? ('NO CHILDREN') 
-      : (isObject(c))                             // One child
-      ? (tab === 0 ? c : 'NO CONTENT')
-      : (tab < c.length ? c[tab] : 'NO CONTENT')  // More than one child
-    );
-
-    return (
-      <div className={`panel${ classNames.panel }`}>
-        { (showPanel || !isCollapsed) &&
-        <div className="container" style={ styles.collapsed }>
-          <nav>
-            <ul>{ tabList }</ul>
-            <div><div><i className="icon-bars"></i></div></div>
-          </nav>
-          <div>{ content }</div>
-        </div> }
-
-        { isCollapsed &&
-        <div className="collapsed">
-          <div></div>
-          <ul>{ iconList }</ul>
-        </div> }
-      </div>
-    );
-  }
+      { isCollapsed &&
+      <div className="collapsed">
+        <div></div>
+        <ul>{ iconList }</ul>
+      </div> }
+    </div>
+  );
 }
 
 Panel.propTypes = {
+  index: PropTypes.number.isRequired,
   tabs: PropTypes.array.isRequired,
+  tab: PropTypes.number.isRequired,
+  isHidden: PropTypes.bool.isRequired,
+  isCollapsed: PropTypes.bool.isRequired,
+  changeTab: PropTypes.func.isRequired,
 }
 
 export default Panel;

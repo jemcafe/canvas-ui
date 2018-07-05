@@ -18,25 +18,34 @@ function Layout () {
     '1': [
       {
         id: 1,
+        className: 'history',
         tabs: ['History'],
-        children: <History />
+        children: <History />,
+        tab: 0,
+        isHidden: true
       },
       {
         id: 2,
         tabs: ['Character','Paragraph'],
-        children: [<Character key={1} />, <Paragraph key={2} />]
+        children: [<Character key={1} />, <Paragraph key={2} />],
+        tab: 0,
+        isHidden: true
       }
     ],
     '2': [
       {
         id: 1,
         tabs: ['Color', 'Swatches'],
-        children: [<Color key={1} />, <Swatches key={2} />]
+        children: [<Color key={1} />, <Swatches key={2} />],
+        tab: 0,
+        isHidden: true
       },
       {
         id: 2,
         tabs: ['Layers'],
-        children: <Layers />
+        children: <Layers />,
+        tab: 0,
+        isHidden: true
       }
     ]
   };
