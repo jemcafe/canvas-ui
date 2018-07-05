@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+ 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+button {
+  outline: none;
+}
+
+input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  padding: 4px 5px;
+  box-sizing: border-box;
+  background: transparent;
+  color: #fff;
+  text-shadow: 0 0 0 #fff;
+  -webkit-text-fill-color: transparent;
+  &:focus { border-color: $themeColor; }
+}
+input::-webkit-input-placeholder {
+  color: #ccc;
+  text-shadow: none;
+  -webkit-text-fill-color: initial;
+}
+
+select {
+  outline: none;
+  color: #fff;
+  background: $darkgray;
+}

@@ -1,0 +1,16 @@
+.toolbar {
+  font-size: 12px;
+  color: #fff;
+  border-bottom: 1px solid $darkgray;
+  background: $gray;
+
+  > ul {
+    display: flex;
+
+    > li {
+      @include user-select(none);
+      padding: 6px 10px;
+      &:active { background: $themeColor; }
+    }
+  }
+}
