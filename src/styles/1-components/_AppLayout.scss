@@ -20,8 +20,11 @@
     }
 
     .canvas-space {
+      @extend %center-content;
       width: 100%;
-      background: #dfffdf;
+      color: #fff;
+      background: $darkergray;
+      // background: #dfffdf;
     }
   }
 }

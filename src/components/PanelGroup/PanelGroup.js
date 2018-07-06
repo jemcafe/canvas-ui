@@ -7,6 +7,7 @@ function PanelGroup (props) {
     panels,
     isCollapsed,
     togglePanels,
+    togglePanel,
     changeTab
   } = props;
 
@@ -27,6 +28,7 @@ function PanelGroup (props) {
             tab={e.tab}
             isHidden={e.isHidden}
             isCollapsed={isCollapsed}
+            togglePanel={togglePanel}
             changeTab={changeTab}>
             { e.children }
           </Panel> 

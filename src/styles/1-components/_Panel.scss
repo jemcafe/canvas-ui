@@ -1,38 +1,39 @@
 .panel {
-  display: flex;
-  flex-direction: column;
   padding: 0 0 2px 0;
   font-size: 12px;
   color: #fff;
-  background: #ade6d3;
+  // background: #ade6d3;
+  background: $darkgray;
 
   .container {
+    display: flex;
+    flex-direction: column;
     max-width: 200px;
     min-width: 150px;
 
     > nav {
       display: flex;
-      background: #d2afff;
-      // background: $darkgray;
+      background: $darkgray;
+      // background: #d2afff;
 
       .selected-tab { 
-        border-left: 1px solid black;
-        border-top: 1px solid black;
-        border-right: 1px solid black;
+        border-left: 1px solid $darkergray;
+        border-top: 1px solid $darkergray;
+        border-right: 1px solid $darkergray;
         background: $gray; 
       }
 
       .left-tab {
-        border-bottom: 1px solid black;
-        border-left: 1px solid black;
-        border-top: 1px solid black;
+        border-bottom: 1px solid $darkergray;
+        border-left: 1px solid $darkergray;
+        border-top: 1px solid $darkergray;
         background: $darkgray;
       }
 
       .right-tab {
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        border-bottom: 1px solid black;
+        border-top: 1px solid $darkergray;
+        border-right: 1px solid $darkergray;
+        border-bottom: 1px solid $darkergray;
         background: $darkgray;
       }
 
@@ -51,9 +52,9 @@
         justify-content: flex-end;
         align-items: center;
         width: 100%;
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        border-bottom: 1px solid black;
+        border-top: 1px solid $darkergray;
+        border-right: 1px solid $darkergray;
+        border-bottom: 1px solid $darkergray;
 
         div {  // The bars icon
           @extend %center-content;
@@ -67,18 +68,21 @@
       }
     }
 
-    > div {  // content
-      border-left: 1px solid black;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-      background: $gray;
+    > .content {  // content
+      flex: 1;
+      overflow-y: auto;
+      border-left: 1px solid $darkergray;
+      border-bottom: 1px solid $darkergray;
+      border-right: 1px solid $darkergray;
+      // background: $gray;
+      background: lightblue;
     }
   }
 
 
   > .collapsed {
     > div {
-      background: black;
+      background: $darkergray;
       height: 4px;
     }
     

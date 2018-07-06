@@ -1,7 +1,6 @@
 .panel-group {  // panel group
   display: flex;
   flex-direction: column;
-  // min-width: 200px;
   color: white;
 
   > div:first-child {
@@ -18,11 +17,16 @@
     }
   }
 
-  > .container { 
+  > .flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  > .container {
     height: 100%;
-    padding: 2px;
-    box-sizing: border-box;
-    // outline: 1px solid grey;
-    background: #ffe3af; 
+    // padding: 2px;
+    // box-sizing: border-box;
+    border-left: 2px solid $darkgray;
+    background: #ffe3af;
   }
 }

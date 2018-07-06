@@ -10,15 +10,24 @@ function Panel (props) {
     tab = 0, 
     children, 
     isHidden = true, 
-    isCollapsed = false, 
+    isCollapsed = false,
+    togglePanel,
     changeTab
   } = props;
 
   const styles = {
-    collapsed: isCollapsed ? {
+    panel: !isCollapsed ? {
+      height: '50%',
+    } : null,
+    container: isCollapsed ? {
       position: 'absolute',
-      minWidth: `${200}px`,
-      transform: `translate(-${202}px, 0)`
+      minWidth: `${230}px`,
+      transform: `translate(-${232}px, 0)`
+    } : {
+      height: '100%'
+    },
+    content: !isCollapsed ? {
+      height: '100%'
     } : null
   }
 
@@ -61,14 +70,17 @@ function Panel (props) {
   );
 
   return (
-    <div className={`panel${ classNames.panel }`}>
+    <div className={`panel${ classNames.panel }`} style={ styles.panel }>
       { (!isHidden || !isCollapsed) &&
-      <div className="container" style={ styles.collapsed }>
+      <div className="container" style={ styles.container }>
         <nav>
           <ul>{ tabList }</ul>
-          <div><div><i className="icon-bars"></i></div></div>
+          <div>
+            { isCollapsed && <div onClick={() => togglePanel(index)}><i className="icon-angle-double-right"></i></div> }
+            <div><i className="icon-bars"></i></div>
+          </div>
         </nav>
-        <div>{ content }</div>
+        <div className="content" style={ styles.content }>{ content }</div>
       </div> }
 
       { isCollapsed &&

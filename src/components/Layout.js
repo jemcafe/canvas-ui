@@ -19,7 +19,6 @@ function Layout () {
     '1': [
       {
         id: 1,
-        className: 'history',
         tabs: ['History'],
         children: <History />,
         tab: 0,

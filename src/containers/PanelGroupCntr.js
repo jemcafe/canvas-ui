@@ -21,6 +21,15 @@ class PanelGroupCntr extends Component {
     }));
   }
 
+  togglePanel = (panelIndex) => {
+    this.setState(prev => ({
+      panels: prev.panels.map((e, i) => {
+        if (panelIndex === i) e.isHidden = true;
+        return e;
+      })
+    }));
+  }
+
   changeTab = (panelIndex, tabIndex) => {
     this.setState(prev => ({ 
       panels: prev.panels.map((e, i) => {
@@ -47,6 +56,7 @@ class PanelGroupCntr extends Component {
         panels={this.state.panels} 
         isCollapsed={this.state.isCollapsed}
         togglePanels={this.togglePanels}
+        togglePanel={this.togglePanel}
         changeTab={this.changeTab} />
     );
   }

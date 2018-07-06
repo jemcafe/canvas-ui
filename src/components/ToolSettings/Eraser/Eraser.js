@@ -1,4 +1,5 @@
 import React from 'react';
+import OpacityInput from '../OpacityInput';
 
 function Eraser () {
   return (
@@ -20,14 +21,7 @@ function Eraser () {
         </div>
       </li>
       <li className="opacity">
-        Opacity:
-        <div className="opacity-input">
-          <input defaultValue="100%"/>
-          <button>
-            <i className="icon-angle-down"></i>
-            <div><div><input type="range" min="0" max="100"/></div></div>
-          </button>
-        </div>
+        Opacity: <OpacityInput />
       </li>
     </ul>
   );
