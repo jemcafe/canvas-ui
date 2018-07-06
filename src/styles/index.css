@@ -3782,8 +3782,7 @@ select {
 #app-layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  overflow: hidden; }
+  height: 100vh; }
   #app-layout > section {
     background: #c0fffa; }
   #app-layout #workspace {
@@ -3945,14 +3944,14 @@ select {
 
 .panel {
   padding: 0 0 2px 0;
+  box-sizing: border-box;
   font-size: 12px;
   color: #fff;
   background: #444444; }
   .panel .container {
     display: flex;
     flex-direction: column;
-    max-width: 250px;
-    min-width: 180px; }
+    min-width: 200px; }
     .panel .container > nav {
       display: flex;
       background: #444444; }
@@ -3971,9 +3970,9 @@ select {
         border-right: 1px solid #272727;
         border-bottom: 1px solid #272727;
         background: #444444; }
-      .panel .container > nav ul {
+      .panel .container > nav .tabs {
         display: flex; }
-        .panel .container > nav ul li {
+        .panel .container > nav .tabs li {
           -webkit-user-select: none;
           /* Chrome all / Safari all */
           -moz-user-select: none;
@@ -3983,7 +3982,7 @@ select {
           user-select: none;
           /* Likely future */
           padding: 8px 10px; }
-          .panel .container > nav ul li:active {
+          .panel .container > nav .tabs li:active {
             background: #3ee9be; }
       .panel .container > nav > div {
         display: flex;

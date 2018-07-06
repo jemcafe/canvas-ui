@@ -17,18 +17,15 @@ function Panel (props) {
 
   const styles = {
     panel: !isCollapsed ? {
-      height: '50%',
+      height: '50%',  // Using percentage instead of flexbox to stretch the panels
     } : null,
     container: isCollapsed ? {
       position: 'absolute',
-      minWidth: `${230}px`,
-      transform: `translate(-${232}px, 0)`
+      minWidth: `${220}px`,
+      transform: `translate(-${222}px, 0)`
     } : {
       height: '100%'
-    },
-    content: !isCollapsed ? {
-      height: '100%'
-    } : null
+    }
   }
 
   const classNames = {
@@ -74,13 +71,13 @@ function Panel (props) {
       { (!isHidden || !isCollapsed) &&
       <div className="container" style={ styles.container }>
         <nav>
-          <ul>{ tabList }</ul>
+          <ul className="tabs">{ tabList }</ul>
           <div>
             { isCollapsed && <div onClick={() => togglePanel(index)}><i className="icon-angle-double-right"></i></div> }
             <div><i className="icon-bars"></i></div>
           </div>
         </nav>
-        <div className="content" style={ styles.content }>{ content }</div>
+        <div className="content">{ content }</div>
       </div> }
 
       { isCollapsed &&
