@@ -84,7 +84,7 @@ function Panel (props) {
       </div> }
 
       { isCollapsed &&
-      <div className="collapsed">
+      <div className="icon-tabs">
         <div></div>
         <ul>{ iconList }</ul>
       </div> }

@@ -3635,18 +3635,18 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-#tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > .collapsed > ul > li, .dropdown-btn, #app-layout #workspace .canvas-space, .tool-settings ul > li, .tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div div {
+#tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > .icon-tabs > ul > li, .dropdown-btn, #app-layout #workspace .canvas-space, .tool-settings ul > li, .tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div div {
   display: flex;
   justify-content: center;
   align-items: center; }
 
-#tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > .collapsed > ul > li {
+#tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > .icon-tabs > ul > li {
   width: 30px;
   height: 30px;
   border: 1px solid #5e5e5e;
   border-radius: 4px;
   background: #5e5e5e; }
-  #tool-menu .menu .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i, .panel > .collapsed > ul > li i {
+  #tool-menu .menu .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i, .panel > .icon-tabs > ul > li i {
     font-size: 16px; }
 
 /*---------------------------*/
@@ -3951,8 +3951,8 @@ select {
   .panel .container {
     display: flex;
     flex-direction: column;
-    max-width: 200px;
-    min-width: 150px; }
+    max-width: 250px;
+    min-width: 180px; }
     .panel .container > nav {
       display: flex;
       background: #444444; }
@@ -4009,10 +4009,10 @@ select {
       border-bottom: 1px solid #272727;
       border-right: 1px solid #272727;
       background: lightblue; }
-  .panel > .collapsed > div {
+  .panel > .icon-tabs > div {
     background: #272727;
     height: 4px; }
-  .panel > .collapsed > ul > li {
+  .panel > .icon-tabs > ul > li {
     margin: 4px 0; }
-    .panel > .collapsed > ul > li:hover {
+    .panel > .icon-tabs > ul > li:hover {
       border: 1px solid lightgrey; }
