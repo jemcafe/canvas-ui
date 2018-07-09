@@ -58,7 +58,7 @@ function Layout () {
       </section>
       <div id="workspace">
         <section>
-           <PanelGroup side={'L'} isCollapsed={true} tools={true} />
+          <PanelGroup side={'L'} isCollapsed={true} tools={true} />
         </section>
         <div className="canvas-space">
           CANVAS SPACE

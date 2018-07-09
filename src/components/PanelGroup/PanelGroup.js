@@ -22,6 +22,7 @@ function PanelGroup (props) {
         ? <div onClick={ togglePanels }><i className={`icon-angle-double-${side === 'L' ? 'left' : 'right'}`}></i></div>
         : <div onClick={ togglePanels }><i className={`icon-angle-double-${side === 'L' ? 'right' : 'left'}`}></i></div> }
       </div>
+      
       <div className="container">
         { panels.length ? panels.map((e, i) => (
           <Panel 
@@ -38,7 +39,8 @@ function PanelGroup (props) {
           </Panel> 
         )) : null }
 
-        { tools && <ToolMenu isCollapsed={isCollapsed} /> }
+        { tools && 
+          <ToolMenu isCollapsed={isCollapsed} /> }
       </div>
     </div>
   );

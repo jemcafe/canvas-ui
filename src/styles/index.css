@@ -3826,33 +3826,30 @@ select {
         background: #3ee9be; }
 
 #tool-menu {
-  border-left: 1px solid #444444;
-  border-right: 1px solid #444444;
   color: #fff;
-  background: #444444; }
+  background: #5e5e5e; }
   #tool-menu .menu {
     padding: 4px;
     box-sizing: border-box;
-    height: 100%;
-    overflow-y: hidden;
-    background: #5e5e5e; }
+    height: 100%; }
     #tool-menu .menu .tool:hover {
       border: 1px solid lightgrey; }
-    #tool-menu .menu .color {
-      width: 30px;
-      padding: 4px 0; }
-      #tool-menu .menu .color .one, #tool-menu .menu .color .two {
-        margin: 0 auto;
-        width: 20px;
-        height: 20px;
-        padding: 2px;
-        box-sizing: border-box;
-        border: 1px solid #fff;
-        background: black; }
-      #tool-menu .menu .color .one {
-        transform: translate(-5px, -15px); }
-      #tool-menu .menu .color .two {
-        transform: translate(5px, 15px); }
+  #tool-menu .color {
+    width: 30px;
+    padding: 4px 0;
+    margin: auto; }
+    #tool-menu .color .one, #tool-menu .color .two {
+      margin: 0 auto;
+      width: 20px;
+      height: 20px;
+      padding: 2px;
+      box-sizing: border-box;
+      border: 1px solid #fff;
+      background: black; }
+    #tool-menu .color .one {
+      transform: translate(-5px, -15px); }
+    #tool-menu .color .two {
+      transform: translate(5px, 15px); }
 
 .opacity-input {
   display: flex;
