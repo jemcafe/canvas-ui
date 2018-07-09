@@ -1,10 +1,11 @@
 .panel {
-  padding: 0 0 2px 0;
-  box-sizing: border-box;
+  // padding: 0 0 2px 0;
+  // box-sizing: border-box;
+  border-bottom: 2px solid $darkgray;
   font-size: 12px;
   color: #fff;
-  // background: #ade6d3;
-  background: $darkgray;
+  background: #ade6d3;
+  // background: $darkgray;
 
   .container {
     display: flex;
@@ -80,10 +81,12 @@
   }
 
 
-  > .icon-tabs
-   {
+  > .icon-tabs {
+    padding: 2px;
+    background: $gray;
+
     > div {
-      background: $darkergray;
+      background: $darkgray;
       height: 4px;
     }
     

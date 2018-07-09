@@ -9,6 +9,7 @@ import PaintBucket from './PaintBucket/PaintBucket';
 import Pen from './Pen/Pen';
 import Shape from './Shape/Shape';
 import Magnify from './Magnify/Magnify';
+import Hand from './Hand/Hand';
 
 function ToolSettings ({ tools: t }) {
   return (
@@ -22,6 +23,7 @@ function ToolSettings ({ tools: t }) {
       { t.pen.selected && <Pen /> }
       { t.shape.selected && <Shape /> }
       { t.magnify.selected && <Magnify /> }
+      { t.hand.selected && <Hand /> }
 
       <div className="workspace-presets">
         <select defaultValue="Essentials">

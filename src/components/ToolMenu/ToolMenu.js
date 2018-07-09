@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// import { connect } from 'react-redux';
+// import { selectTool } from '../../redux/reducer/tools/actions';
+
 function ToolMenu (props) {
   const { selectTool } = props;
 
@@ -15,6 +18,7 @@ function ToolMenu (props) {
         <li className="tool" onClick={() => selectTool('pen')}><i className="icon-pen"></i></li>
         <li className="tool" onClick={() => selectTool('shape')}><i className="icon-shape-circle"></i></li>
         <li className="tool" onClick={() => selectTool('magnify')}><i className="icon-magnify"></i></li>
+        <li className="tool" onClick={() => selectTool('hand')}><i className="icon-hand"></i></li>
         <li className="color">
           <div className="two" onClick={() => selectTool('eyedropper')}></div>
           <div className="one" onClick={() => selectTool('eyedropper')}></div>

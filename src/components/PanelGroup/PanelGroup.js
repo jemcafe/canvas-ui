@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// Components
 import Panel from './Panel/Panel';
+import ToolMenu from '../../containers/ToolMenuCntr';
 
 function PanelGroup (props) {
   const {
-    panels,
     isCollapsed,
+    side,
+    tools,
+    panels,
     togglePanels,
     togglePanel,
     changeTab
@@ -13,13 +17,13 @@ function PanelGroup (props) {
 
   return (
     <div className="panel-group">
-      <div>
+      <div className={side === 'L' ? 'left' : 'right'}>
         { !isCollapsed 
-        ? <div onClick={ togglePanels }><i className="icon-angle-double-right"></i></div>
-        : <div onClick={ togglePanels }><i className="icon-angle-double-left"></i></div> }
+        ? <div onClick={ togglePanels }><i className={`icon-angle-double-${side === 'L' ? 'left' : 'right'}`}></i></div>
+        : <div onClick={ togglePanels }><i className={`icon-angle-double-${side === 'L' ? 'right' : 'left'}`}></i></div> }
       </div>
       <div className="container">
-        { panels.map((e, i) => (
+        { panels.length ? panels.map((e, i) => (
           <Panel 
             key={e.id} 
             index={i}
@@ -32,7 +36,9 @@ function PanelGroup (props) {
             changeTab={changeTab}>
             { e.children }
           </Panel> 
-        )) }
+        )) : null }
+
+        { tools && <ToolMenu isCollapsed={isCollapsed} /> }
       </div>
     </div>
   );

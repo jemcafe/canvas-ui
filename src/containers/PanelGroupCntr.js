@@ -7,7 +7,7 @@ class PanelGroupCntr extends Component {
     super(props);
     this.state = { 
       panels: this.props.panels || [],
-      isCollapsed: false 
+      isCollapsed: this.props.isCollapsed || false 
     }
   }
 
@@ -51,10 +51,14 @@ class PanelGroupCntr extends Component {
   }
 
   render () {
+    const { side = 'R', tools = false } = this.props;
+
     return (
-      <PanelGroup 
-        panels={this.state.panels} 
+      <PanelGroup
         isCollapsed={this.state.isCollapsed}
+        side={side}
+        tools={tools} 
+        panels={this.state.panels} 
         togglePanels={this.togglePanels}
         togglePanel={this.togglePanel}
         changeTab={this.changeTab} />
@@ -63,7 +67,9 @@ class PanelGroupCntr extends Component {
 }
 
 PanelGroupCntr.propTypes = {
-  panels: PropTypes.array.isRequired
+  panels: PropTypes.array,
+  side: PropTypes.string,
+  tools: PropTypes.bool
 }
 
 export default PanelGroupCntr;

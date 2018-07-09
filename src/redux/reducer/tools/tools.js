@@ -41,6 +41,9 @@ const initialState = {
     selected: false,
     in: true, 
     out: false
+  },
+  hand: {
+    selected: false
   }
 };
 

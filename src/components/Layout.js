@@ -2,7 +2,7 @@ import React from 'react';
 
 // Components
 import ToolBar from '../containers/ToolBarCntr';
-import ToolMenu from '../containers/ToolMenuCntr';
+// import ToolMenu from '../containers/ToolMenuCntr';
 import ToolSettings from '../containers/ToolSettingsCntr';
 
 import PanelGroup from '../containers/PanelGroupCntr';
@@ -58,14 +58,14 @@ function Layout () {
       </section>
       <div id="workspace">
         <section>
-          <ToolMenu />
+           <PanelGroup side={'L'} isCollapsed={true} tools={true} />
         </section>
         <div className="canvas-space">
           CANVAS SPACE
         </div>
         <section className="panels">
-          <PanelGroup panels={panels['1']} />
-          <PanelGroup panels={panels['2']} />
+          <PanelGroup side={'R'} isCollapsed={true} panels={panels['1']} />
+          <PanelGroup side={'R'} isCollapsed={false} panels={panels['2']} />
         </section>
       </div>
     </div>
