@@ -6,8 +6,9 @@ import ToolMenu from '../components/ToolMenu/ToolMenu';
 function ToolMenuCntr (props) {
   return (
     <ToolMenu 
+      isCollapsed={props.isCollapsed}
       selectTool={props.selectTool} 
-      isCollapsed={props.isCollapsed} />
+      tools={props.tools} />
   );
 }
 

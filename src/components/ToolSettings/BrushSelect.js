@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class OpacityInput extends Component {
+class BrushSelect extends Component {
   constructor () {
     super();
     this.state = { isHidden: true }
@@ -8,18 +8,18 @@ class OpacityInput extends Component {
 
   render () {
     return (
-      <div className="opacity-input">
-        <input defaultValue="100%"/>
+      <div className="brush-select">
+        <div><div className="img"></div>23</div>
         <button onClick={() => this.setState(prev =>({isHidden: !prev.isHidden}))}>
           <i className="icon-angle-down"></i>
         </button>
-        { !this.state.isHidden &&
+        { !this.state.isHidden && 
         <div className="container" onMouseLeave={() => this.setState({isHidden: true})}>
-          <input type="range" min="0" max="100"/>
+          BRUSHES
         </div> }
       </div>
     );
   }
 }
 
-export default OpacityInput;
+export default BrushSelect;

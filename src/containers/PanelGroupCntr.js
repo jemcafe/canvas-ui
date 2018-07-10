@@ -7,7 +7,7 @@ class PanelGroupCntr extends Component {
     super(props);
     this.state = { 
       panels: this.props.panels || [],
-      isCollapsed: this.props.isCollapsed || false 
+      isCollapsed: this.props.isCollapsed || false
     }
   }
 
@@ -67,8 +67,9 @@ class PanelGroupCntr extends Component {
 }
 
 PanelGroupCntr.propTypes = {
-  panels: PropTypes.array,
+  isCollapsed: PropTypes.bool,
   side: PropTypes.string,
+  panels: PropTypes.array,
   tools: PropTypes.bool
 }
 

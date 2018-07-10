@@ -5,15 +5,16 @@
 
 @import 'ToolMenu';
 
-@import 'OpacityInput';
-@import 'ToolSettings';
+@import 'ToolSettings/BrushSelect';
+@import 'ToolSettings/OpacityInput';
+@import 'ToolSettings/ToolSettings';
 
 @import 'PanelGroup';
 @import 'Panel';
 
-@import 'History';
-@import 'Character';
-@import 'Paragraph';
-@import 'Color';
-@import 'Swatches';
-@import 'Layers';
+@import 'PanelContent/History';
+@import 'PanelContent/Character';
+@import 'PanelContent/Paragraph';
+@import 'PanelContent/Color';
+@import 'PanelContent/Swatches';
+@import 'PanelContent/Layers';

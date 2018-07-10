@@ -45,24 +45,13 @@
   }
 
   
-  .paint-brush-settings, .eraser-settings {
-    .brush {
-      display: flex;
-      justify-content: space-between;
-      width: 40px;
-      
-      > div:first-child { 
-        padding: 0 6px;
-        box-sizing: border-box;
-      }
+  // .paint-brush-settings {
 
-      .img {
-        width: 15px;
-        height: 15px;
-        background: #969696;
-      }
-    }
-  }
+  // }
+
+  // .eraser-settings {
+
+  // }
 
   // .pen-settings {
     

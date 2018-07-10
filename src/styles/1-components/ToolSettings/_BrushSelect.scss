@@ -1,0 +1,38 @@
+.tool-settings {
+  .brush-select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    > div:first-child { // radius number and brush image
+      padding: 0 6px;
+      box-sizing: border-box;
+
+      .img {
+        width: 15px;
+        height: 15px;
+        background: #969696;
+      }
+    }
+
+    > button {
+      border: 1px solid $gray;
+      border-radius: 2px;
+      background: $gray;
+      color: #fff;
+
+      &:focus {
+        border-color: $lightgray;
+        background: $darkgray;
+      }
+    }
+
+    > .container {  // dropdown content container
+      position: absolute;
+      transform: translate(-60px, 30px);
+      padding: 10px;
+      background: $gray;
+      box-shadow: 0 2px 8px 0 black;
+    }
+  }
+}

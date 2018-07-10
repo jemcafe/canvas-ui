@@ -2,32 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function ToolMenu (props) {
-  const { selectTool, isCollapsed } = props;
+  const { tools: t, selectTool, isCollapsed } = props;
 
-  const styles = {
-    menu: !isCollapsed ? {
-      display: 'flex',
-      flexWrap: 'wrap',
-      width: '72px'
-    } : null
+  const tools = [
+    { name: 'move', icon: 'icon-move' },
+    { name: 'eyedropper', icon: 'icon-eyedropper' },
+    { name: 'paintBrush', icon: 'icon-paint-brush' },
+    { name: 'eraser', icon: 'icon-eraser' },
+    { name: 'paintBucket', icon: 'icon-paint-bucket' },
+    { name: 'pen', icon: 'icon-pen' },
+    { name: 'shape', icon: 'icon-shape-circle' },
+    { name: 'magnify', icon: 'icon-magnify' },
+    { name: 'hand', icon: 'icon-hand' }
+  ];
+
+  const classNames = {
+    tools: isCollapsed ? 'tools-collapsed' : 'tools',
+    color: isCollapsed ? 'color-collapsed' : 'color'
   }
 
-  console.log(isCollapsed);
+  const listOfTools = tools.map((e, i) => {
+    const selected = t[e.name].selected ? ' selected' : '';
+    return <li key={i} className={`tool${selected}`} onClick={() => selectTool(e.name)}><i className={e.icon}></i></li>
+  });
 
   return (
     <div id="tool-menu">
-      <ul className="menu" style={styles.menu}>
-        <li className="tool" onClick={() => selectTool('move')}><i className="icon-move"></i></li>
-        <li className="tool" onClick={() => selectTool('eyedropper')}><i className="icon-eyedropper"></i></li>
-        <li className="tool" onClick={() => selectTool('paintBrush')}><i className="icon-paint-brush"></i></li>
-        <li className="tool" onClick={() => selectTool('eraser')}><i className="icon-eraser"></i></li>
-        <li className="tool" onClick={() => selectTool('paintBucket')}><i className="icon-paint-bucket"></i></li>
-        <li className="tool" onClick={() => selectTool('pen')}><i className="icon-pen"></i></li>
-        <li className="tool" onClick={() => selectTool('shape')}><i className="icon-shape-circle"></i></li>
-        <li className="tool" onClick={() => selectTool('magnify')}><i className="icon-magnify"></i></li>
-        <li className="tool" onClick={() => selectTool('hand')}><i className="icon-hand"></i></li>
+      <ul className={classNames.tools}>
+        { listOfTools }
       </ul>
-      <div className="color">
+      <div className={classNames.color}>
         <div className="two" onClick={() => selectTool('eyedropper')}></div>
         <div className="one" onClick={() => selectTool('eyedropper')}></div>
       </div>
@@ -36,8 +40,9 @@ function ToolMenu (props) {
 }
 
 ToolMenu.propTypes = {
+  tools: PropTypes.object.isRequired,
   selectTool: PropTypes.func.isRequired,
-  isCollapsed: PropTypes.bool
+  isCollapsed: PropTypes.bool.isRequired
 }
 
 export default ToolMenu;

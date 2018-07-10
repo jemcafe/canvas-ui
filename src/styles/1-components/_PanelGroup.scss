@@ -3,7 +3,7 @@
   flex-direction: column;
   color: white;
 
-  > div:first-child {
+  > div:first-child {  // icon container
     display: flex;
     padding: 2px;
     box-sizing: border-box;
@@ -20,6 +20,7 @@
   > .left { justify-content: flex-start; }
 
   > .container {
+    overflow-y: hidden;
     height: 100%;
     border-left: 2px solid $darkgray;
     border-right: 2px solid $darkgray;

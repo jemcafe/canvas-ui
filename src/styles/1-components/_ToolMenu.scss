@@ -2,32 +2,55 @@
   color: #fff;
   background: $gray;
 
-  .menu {
+  .tools, .tools-collapsed {
     padding: 4px;
     box-sizing: border-box;
     height: 100%;
-    // background: $gray;
 
     .tool {
       @extend %tool-menu-icon;
       &:hover { border: 1px solid lightgrey; }
     }
+
+    > .selected {
+      border: 1px solid #fff;
+      background: $darkgray; 
+    }
   }
 
-  .color {
-    width: 30px;
-    // height: 30px;
-    padding: 4px 0;
-    margin: auto;
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    width: 72px;
+  }
 
+  .color, .color-collapsed {
+    margin: 0 auto;
     .one, .two {
       margin: 0 auto;
-      width: 20px;
-      height: 20px;
       padding: 2px;
       box-sizing: border-box;
       border: 1px solid #fff;
       background: black;
+    }
+  }
+
+  .color {
+    width: 60px;
+    .one, .two {
+      width: 32px;
+      height: 32px;
+    }
+    .one { transform: translate(-8px, -24px); }
+    .two { transform: translate(8px, 24px); }
+  }
+
+  .color-collapsed {
+    width: 30px;
+    padding: 4px 0;
+    .one, .two {
+      width: 20px;
+      height: 20px;
     }
     .one { transform: translate(-5px, -15px); }
     .two { transform: translate(5px, 15px); }

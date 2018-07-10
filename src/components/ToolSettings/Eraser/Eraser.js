@@ -1,4 +1,6 @@
 import React from 'react';
+
+import BrushSelect from '../BrushSelect';
 import OpacityInput from '../OpacityInput';
 
 function Eraser () {
@@ -9,8 +11,7 @@ function Eraser () {
         <div><i className="icon-angle-down"></i></div>
       </li>
       <li className="brush">
-        <div><div className="img"></div>23</div>
-        <div><i className="icon-angle-down"></i></div>
+        <BrushSelect />
       </li>
       <li className="mode">
         Mode:&nbsp;&nbsp;

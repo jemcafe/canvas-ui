@@ -3639,18 +3639,18 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-#tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > .icon-tabs > ul > li, .dropdown-btn, #app-layout #workspace .canvas-space, .tool-settings ul > li, .tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div div {
+#tool-menu .tools .tool, #tool-menu .tools-collapsed .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > .icon-tabs > ul > li, .dropdown-btn, #app-layout #workspace .canvas-space, .tool-settings ul > li, .tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div div {
   display: flex;
   justify-content: center;
   align-items: center; }
 
-#tool-menu .menu .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > .icon-tabs > ul > li {
+#tool-menu .tools .tool, #tool-menu .tools-collapsed .tool, .tool-settings .magnify-settings .plus, .tool-settings .magnify-settings .minus, .panel > .icon-tabs > ul > li {
   width: 30px;
   height: 30px;
   border: 1px solid #5e5e5e;
   border-radius: 4px;
   background: #5e5e5e; }
-  #tool-menu .menu .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i, .panel > .icon-tabs > ul > li i {
+  #tool-menu .tools .tool i, #tool-menu .tools-collapsed .tool i, .tool-settings .magnify-settings .plus i, .tool-settings .magnify-settings .minus i, .panel > .icon-tabs > ul > li i {
     font-size: 16px; }
 
 /*---------------------------*/
@@ -3828,54 +3828,97 @@ select {
 #tool-menu {
   color: #fff;
   background: #5e5e5e; }
-  #tool-menu .menu {
+  #tool-menu .tools, #tool-menu .tools-collapsed {
     padding: 4px;
     box-sizing: border-box;
     height: 100%; }
-    #tool-menu .menu .tool:hover {
+    #tool-menu .tools .tool:hover, #tool-menu .tools-collapsed .tool:hover {
       border: 1px solid lightgrey; }
-  #tool-menu .color {
-    width: 30px;
-    padding: 4px 0;
-    margin: auto; }
-    #tool-menu .color .one, #tool-menu .color .two {
+    #tool-menu .tools > .selected, #tool-menu .tools-collapsed > .selected {
+      border: 1px solid #fff;
+      background: #444444; }
+  #tool-menu .tools {
+    display: flex;
+    flex-wrap: wrap;
+    width: 72px; }
+  #tool-menu .color, #tool-menu .color-collapsed {
+    margin: 0 auto; }
+    #tool-menu .color .one, #tool-menu .color .two, #tool-menu .color-collapsed .one, #tool-menu .color-collapsed .two {
       margin: 0 auto;
-      width: 20px;
-      height: 20px;
       padding: 2px;
       box-sizing: border-box;
       border: 1px solid #fff;
       background: black; }
+  #tool-menu .color {
+    width: 60px; }
+    #tool-menu .color .one, #tool-menu .color .two {
+      width: 32px;
+      height: 32px; }
     #tool-menu .color .one {
-      transform: translate(-5px, -15px); }
+      transform: translate(-8px, -24px); }
     #tool-menu .color .two {
+      transform: translate(8px, 24px); }
+  #tool-menu .color-collapsed {
+    width: 30px;
+    padding: 4px 0; }
+    #tool-menu .color-collapsed .one, #tool-menu .color-collapsed .two {
+      width: 20px;
+      height: 20px; }
+    #tool-menu .color-collapsed .one {
+      transform: translate(-5px, -15px); }
+    #tool-menu .color-collapsed .two {
       transform: translate(5px, 15px); }
 
-.opacity-input {
+.tool-settings .brush-select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .tool-settings .brush-select > div:first-child {
+    padding: 0 6px;
+    box-sizing: border-box; }
+    .tool-settings .brush-select > div:first-child .img {
+      width: 15px;
+      height: 15px;
+      background: #969696; }
+  .tool-settings .brush-select > button {
+    border: 1px solid #5e5e5e;
+    border-radius: 2px;
+    background: #5e5e5e;
+    color: #fff; }
+    .tool-settings .brush-select > button:focus {
+      border-color: #d3d3d3;
+      background: #444444; }
+  .tool-settings .brush-select > .container {
+    position: absolute;
+    transform: translate(-60px, 30px);
+    padding: 10px;
+    background: #5e5e5e;
+    box-shadow: 0 2px 8px 0 black; }
+
+.tool-settings .opacity-input {
   display: flex;
   align-items: center;
   margin: 0 0 0 8px; }
-  .opacity-input > input {
+  .tool-settings .opacity-input > input {
     width: 80px;
     padding-right: 30px; }
-  .opacity-input > button {
+  .tool-settings .opacity-input > button {
     position: absolute;
     border: 1px solid #5e5e5e;
     border-radius: 2px;
     background: #5e5e5e;
     color: #fff;
     transform: translate(55px, 0); }
-    .opacity-input > button:focus {
+    .tool-settings .opacity-input > button:focus {
       border-color: #d3d3d3;
       background: #444444; }
-  .opacity-input > div {
+  .tool-settings .opacity-input > .container {
     position: absolute;
-    transform: translate(-80px, 30px); }
-    .opacity-input > div > div {
-      padding: 1px 10px;
-      border: 1px solid #444444;
-      background: #5e5e5e;
-      box-shadow: 0 2px 8px 0 black; }
+    transform: translate(-80px, 30px);
+    padding: 1px 10px;
+    border: 1px solid #444444;
+    background: #5e5e5e;
+    box-shadow: 0 2px 8px 0 black; }
 
 .tool-settings {
   display: flex;
@@ -3908,17 +3951,6 @@ select {
     height: 50%;
     border: 1px solid #d3d3d3;
     background: black; }
-  .tool-settings .paint-brush-settings .brush, .tool-settings .eraser-settings .brush {
-    display: flex;
-    justify-content: space-between;
-    width: 40px; }
-    .tool-settings .paint-brush-settings .brush > div:first-child, .tool-settings .eraser-settings .brush > div:first-child {
-      padding: 0 6px;
-      box-sizing: border-box; }
-    .tool-settings .paint-brush-settings .brush .img, .tool-settings .eraser-settings .brush .img {
-      width: 15px;
-      height: 15px;
-      background: #969696; }
   .tool-settings .magnify-settings .plus:hover, .tool-settings .magnify-settings .minus:hover {
     border: 1px solid lightgrey; }
   .tool-settings .workspace-presets {
@@ -3942,6 +3974,7 @@ select {
   .panel-group > .left {
     justify-content: flex-start; }
   .panel-group > .container {
+    overflow-y: hidden;
     height: 100%;
     border-left: 2px solid #444444;
     border-right: 2px solid #444444;

@@ -58,14 +58,14 @@ function Layout () {
       </section>
       <div id="workspace">
         <section>
-          <PanelGroup side={'L'} isCollapsed={true} tools={true} />
+          <PanelGroup side={'L'} tools={true} isCollapsed={true} />
         </section>
         <div className="canvas-space">
           CANVAS SPACE
         </div>
         <section className="panels">
-          <PanelGroup side={'R'} isCollapsed={true} panels={panels['1']} />
-          <PanelGroup side={'R'} isCollapsed={false} panels={panels['2']} />
+          <PanelGroup side={'R'} panels={panels['1']} isCollapsed={true} />
+          <PanelGroup side={'R'} panels={panels['2']} />
         </section>
       </div>
     </div>
