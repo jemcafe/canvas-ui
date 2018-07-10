@@ -1,4 +1,4 @@
-.tool-settings {
+#tool-settings {
   display: flex;
   justify-content: space-between;
   min-height: 40px;
@@ -6,10 +6,11 @@
   box-sizing: border-box;
   color: #fff;
   min-height: 40px;
-  border-bottom: 1px solid $darkgray;
+  // border-bottom: 1px solid $darkgray;
   background: $gray;
+  overflow-x: hidden;
 
-  ul {
+  > ul {
     display: flex;
     font-size: 12px;
     background: $gray;
@@ -66,6 +67,7 @@
 
   .workspace-presets {
     @extend %center-content;
-    margin: 0 6px;
+    padding: 0 6px;
+    box-sizing: border-box;
   }
 }

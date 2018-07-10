@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  // overflow: hidden;
 
   > section {
     background: #c0fffa;
@@ -19,12 +18,14 @@
       background: lightblue;
     }
 
-    .canvas-space {
+    #documents {
       @extend %center-content;
       width: 100%;
+      min-width: 40px;
       color: #fff;
-      background: $darkergray;
-      // background: #dfffdf;
+      // background: $darkergray;
+      background: #dfffdf;
+      overflow: hidden;
     }
   }
 }

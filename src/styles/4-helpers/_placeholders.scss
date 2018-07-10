@@ -15,12 +15,33 @@
   align-items: center;
 }
 
+//
 %tool-menu-icon {
   @extend %center-content;
   width: 30px;
   height: 30px;
-  border: 1px solid $gray;
+  border: 1px solid transparent;
   border-radius: 4px;
   background: $gray;
   i { font-size: 16px; }
+}
+
+// Tabs
+%selected-tab {
+  border: 1px solid $darkergray;
+  background: $gray; 
+}
+
+%right-tab {
+  border-top: 1px solid $darkergray;
+  border-right: 1px solid $darkergray;
+  border-bottom: 1px solid $darkergray;
+  background: $darkgray;
+}
+
+%left-tab {
+  border-bottom: 1px solid $darkergray;
+  border-left: 1px solid $darkergray;
+  border-top: 1px solid $darkergray;
+  background: $darkgray;
 }

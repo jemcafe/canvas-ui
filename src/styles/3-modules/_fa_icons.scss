@@ -96,6 +96,13 @@
 
 // other icons
 
+.icon-times {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-times); }
+  font-size: 12px;
+}
+
 .icon-angle-down {
   @extend %fas;
   &:before { 

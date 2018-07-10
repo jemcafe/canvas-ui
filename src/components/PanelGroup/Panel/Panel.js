@@ -5,7 +5,7 @@ import { isObject } from '../../../helpers/dataTypeCheck';
 function Panel (props) {
   const { 
     index,
-    className, // optional
+    className,  // optional
     tabs = [], 
     tab = 0, 
     children, 
@@ -44,6 +44,9 @@ function Panel (props) {
       (tabName === 'History')   ? 'icon-history' :
       (tabName === 'Character') ? 'icon-character' :
       (tabName === 'Paragraph') ? 'icon-paragraph' : ''
+    ),
+    selectedIcon: (index) => (
+      (!isHidden && (tab === index)) ? ' selected' : ''
     )
   }
 
@@ -52,7 +55,9 @@ function Panel (props) {
   ));
 
   const iconList = tabs.map((e, i) => (
-    <li key={i} onClick={() => changeTab(index, i)}><i className={ classNames.icon(e) }></i></li>
+    <li key={i} className={ classNames.selectedIcon(i) } onClick={() => changeTab(index, i)}>
+      <i className={ classNames.icon(e) }></i>
+    </li>
   ));
 
   // Children prop

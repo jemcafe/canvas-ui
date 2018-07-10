@@ -1,6 +1,4 @@
 .panel {
-  // padding: 0 0 2px 0;
-  // box-sizing: border-box;
   border-bottom: 2px solid $darkgray;
   font-size: 12px;
   color: #fff;
@@ -17,26 +15,9 @@
       background: $darkgray;
       // background: #d2afff;
 
-      .selected-tab { 
-        border-left: 1px solid $darkergray;
-        border-top: 1px solid $darkergray;
-        border-right: 1px solid $darkergray;
-        background: $gray; 
-      }
-
-      .left-tab {
-        border-bottom: 1px solid $darkergray;
-        border-left: 1px solid $darkergray;
-        border-top: 1px solid $darkergray;
-        background: $darkgray;
-      }
-
-      .right-tab {
-        border-top: 1px solid $darkergray;
-        border-right: 1px solid $darkergray;
-        border-bottom: 1px solid $darkergray;
-        background: $darkgray;
-      }
+      .selected-tab { @extend %selected-tab; border-bottom: none; }
+      .right-tab { @extend %right-tab; }
+      .left-tab { @extend %left-tab; }
 
       .tabs {
         display: flex;
@@ -44,18 +25,17 @@
         li {  // tab
           @include user-select(none);
           padding: 8px 10px;
+          white-space: nowrap;
           &:active { background: $themeColor; }
         }
       }
 
       > div {  // space for other nav content
+        flex: 1;
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        width: 100%;
-        border-top: 1px solid $darkergray;
-        border-right: 1px solid $darkergray;
-        border-bottom: 1px solid $darkergray;
+        @extend %right-tab;
 
         div {  // The bars icon
           @extend %center-content;
@@ -93,7 +73,12 @@
     > ul > li {  // icons
       @extend %tool-menu-icon;
       margin: 4px 0;
-      &:hover { border: 1px solid lightgrey; }
+      &:hover { border-color: #fff; }
+    }
+
+    > ul > .selected {  // selected icon
+      border: 1px solid #fff;
+      background: $darkgray;
     }
   }
 }

@@ -13,7 +13,7 @@ import Hand from './Hand/Hand';
 
 function ToolSettings ({ tools: t }) {
   return (
-    <div className="tool-settings">
+    <div id="tool-settings">
 
       { t.move.selected && <Move /> }
       { t.eyedropper.selected && <Eyedropper /> }

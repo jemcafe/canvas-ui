@@ -5,8 +5,9 @@ import ToolBar from '../containers/ToolBarCntr';
 // import ToolMenu from '../containers/ToolMenuCntr';
 import ToolSettings from '../containers/ToolSettingsCntr';
 
-import PanelGroup from '../containers/PanelGroupCntr';
+import Projects from '../containers/ProjectsCntr';
 
+import PanelGroup from '../containers/PanelGroupCntr';
 import History from '../containers/PanelContent/HistoryCntr';
 import Character from '../containers/PanelContent/CharacterCntr';
 import Paragraph from '../containers/PanelContent/ParagraphCntr';
@@ -60,8 +61,8 @@ function Layout () {
         <section>
           <PanelGroup side={'L'} tools={true} isCollapsed={true} />
         </section>
-        <div className="canvas-space">
-          CANVAS SPACE
+        <div id="documents">
+          <Projects />
         </div>
         <section className="panels">
           <PanelGroup side={'R'} panels={panels['1']} isCollapsed={true} />
