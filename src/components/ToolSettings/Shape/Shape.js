@@ -1,8 +1,8 @@
 import React, { Fragment as Aux } from 'react';
 
-import Tool from '../Settings/Tool';
-import ShapeType from '../Settings/ShapeType';
-import ShapeStyle from '../Settings/ShapeStyle';
+import Tool from '../_Settings/Tool';
+import ShapeType from '../_Settings/ShapeType';
+import ShapeStyle from '../_Settings/ShapeStyle';
 
 function Shape () {
   return (

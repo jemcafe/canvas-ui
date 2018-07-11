@@ -1,7 +1,7 @@
 import React, { Fragment as Aux } from 'react';
 
-import Tool from '../Settings/Tool';
-import SampleSize from '../Settings/SampleSize';
+import Tool from '../_Settings/Tool';
+import SampleSize from '../_Settings/SampleSize';
 
 function Eyedropper () {
   return (

@@ -1,7 +1,7 @@
 import React, { Fragment as Aux } from 'react';
 
-import Tool from '../Settings/Tool';
-import Select from '../Settings/Select';
+import Tool from '../_Settings/Tool';
+import Select from '../_Settings/Select';
 
 function Move () {
   return (

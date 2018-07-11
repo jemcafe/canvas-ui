@@ -1,7 +1,7 @@
 import React, { Fragment as Aux } from 'react';
 
-import Tool from '../Settings/Tool';
-import Opacity from '../Settings/Opacity';
+import Tool from '../_Settings/Tool';
+import Opacity from '../_Settings/Opacity';
 
 function Fill () {
   return (

@@ -1,7 +1,7 @@
 import React, { Fragment as Aux } from 'react';
 
-import Tool from '../Settings/Tool';
-import Zoom from '../Settings/Zoom';
+import Tool from '../_Settings/Tool';
+import Zoom from '../_Settings/Zoom';
 
 function Magnify () {
   return (
