@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react';
+import React, { Fragment as Aux } from 'react';
 
-import Tool from '../Tool';
-import Opacity from '../Opacity';
+import Tool from '../Settings/Tool';
+import Opacity from '../Settings/Opacity';
 
 function Fill () {
   return (
-    <Fragment>
+    <Aux>
       <Tool />
       <Opacity />
-    </Fragment>
+    </Aux>
   );
 }
 

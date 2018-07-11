@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react';
+import React, { Fragment as Aux } from 'react';
 
-import Tool from '../Tool';
-import Zoom from '../Zoom';
+import Tool from '../Settings/Tool';
+import Zoom from '../Settings/Zoom';
 
 function Magnify () {
   return (
-    <Fragment>
+    <Aux>
       <Tool />
       <Zoom />
-    </Fragment>
+    </Aux>
   );
 }
 

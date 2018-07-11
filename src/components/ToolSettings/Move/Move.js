@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react';
+import React, { Fragment as Aux } from 'react';
 
-import Tool from '../Tool';
-import Select from '../Select';
+import Tool from '../Settings/Tool';
+import Select from '../Settings/Select';
 
 function Move () {
   return (
-    <Fragment>
+    <Aux>
       <Tool />
       <Select />
-    </Fragment>
+    </Aux>
   );
 }
 

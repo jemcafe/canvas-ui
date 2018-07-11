@@ -1,18 +1,18 @@
-import React, { Fragment } from 'react';
+import React, { Fragment as Aux } from 'react';
 
-import Tool from '../Tool';
-import Brush from '../Brush';
-import Mode from '../Mode';
-import Opacity from '../Opacity';
+import Tool from '../Settings/Tool';
+import Brush from '../Settings/Brush';
+import Mode from '../Settings/Mode';
+import Opacity from '../Settings/Opacity';
 
 function Eraser () {
   return (
-    <Fragment>
+    <Aux>
       <Tool />
       <Brush />
       <Mode />
       <Opacity />
-    </Fragment>
+    </Aux>
   );
 }
 

@@ -1,16 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment as Aux } from 'react';
 
-import Tool from '../Tool';
-import ShapeType from '../ShapeType';
-import ShapeStyle from '../ShapeStyle';
+import Tool from '../Settings/Tool';
+import ShapeType from '../Settings/ShapeType';
+import ShapeStyle from '../Settings/ShapeStyle';
 
 function Pen () {
   return (
-    <Fragment>
+    <Aux>
       <Tool />
       <ShapeType />
       <ShapeStyle />
-    </Fragment>
+    </Aux>
   );
 }
 

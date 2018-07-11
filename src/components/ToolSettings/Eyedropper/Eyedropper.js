@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react';
+import React, { Fragment as Aux } from 'react';
 
-import Tool from '../Tool';
-import SampleSize from '../SampleSize';
+import Tool from '../Settings/Tool';
+import SampleSize from '../Settings/SampleSize';
 
 function Eyedropper () {
   return (
-    <Fragment>
+    <Aux>
       <Tool />
       <SampleSize />
-    </Fragment>
+    </Aux>
   );
 }
 

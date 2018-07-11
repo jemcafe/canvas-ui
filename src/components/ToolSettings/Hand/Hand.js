@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
+import React, { Fragment as Aux } from 'react';
 
-import Tool from '../Tool';
+import Tool from '../Settings/Tool';
 
 function Hand () {
   return (
-    <Fragment>
+    <Aux>
       <Tool />
-    </Fragment>
+    </Aux>
   );
 }
 
