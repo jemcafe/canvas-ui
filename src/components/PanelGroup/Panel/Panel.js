@@ -78,7 +78,8 @@ function Panel (props) {
         <nav>
           <ul className="tabs">{ tabList }</ul>
           <div>
-            { isCollapsed && <div onClick={() => togglePanel(index)}><i className="icon-angle-double-right"></i></div> }
+            { isCollapsed && 
+            <div onClick={() => togglePanel(index)}><i className="icon-angle-double-right"></i></div> }
             <div><i className="icon-bars"></i></div>
           </div>
         </nav>

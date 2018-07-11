@@ -1,0 +1,6 @@
+#tool-settings > .settings > .zoom {
+  .plus, .minus {
+    @extend %tool-menu-icon;
+    &:hover { border: 1px solid lightgrey; }
+  }
+}

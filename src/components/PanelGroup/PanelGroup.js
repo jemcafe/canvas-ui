@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 // Components
 import Panel from './Panel/Panel';
 import ToolMenu from '../../containers/ToolMenuCntr';

@@ -1,30 +1,18 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-import BrushSelect from '../BrushSelect';
-import OpacityInput from '../OpacityInput';
+import Tool from '../Tool';
+import Brush from '../Brush';
+import Mode from '../Mode';
+import Opacity from '../Opacity';
 
 function Eraser () {
   return (
-    <ul className="settings eraser-settings">
-      <li className="tool">
-        <div className="icon"><i className="icon-eraser"></i></div>
-        <div><i className="icon-angle-down"></i></div>
-      </li>
-      <li className="brush">
-        <BrushSelect />
-      </li>
-      <li className="mode">
-        Mode:&nbsp;&nbsp;
-        <div className="text-input">
-          <select defaultValue="Brush">
-            <option>Brush</option>
-          </select>
-        </div>
-      </li>
-      <li className="opacity">
-        Opacity: <OpacityInput />
-      </li>
-    </ul>
+    <Fragment>
+      <Tool />
+      <Brush />
+      <Mode />
+      <Opacity />
+    </Fragment>
   );
 }
 

@@ -1,17 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import Tool from '../Tool';
+import Zoom from '../Zoom';
 
 function Magnify () {
   return (
-    <ul className="settings magnify-settings">
-      <li className="tool">
-        <div className="icon"><i className="icon-magnify"></i></div>
-        <div><i className="icon-angle-down"></i></div>
-      </li>
-      <li className="zoom">
-        <div className="plus"><i className="icon-magnify-plus"></i></div>
-        <div className="minus"><i className="icon-magnify-minus"></i></div>
-      </li>
-    </ul>
+    <Fragment>
+      <Tool />
+      <Zoom />
+    </Fragment>
   );
 }
 

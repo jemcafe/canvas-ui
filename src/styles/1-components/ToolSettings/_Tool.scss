@@ -1,0 +1,36 @@
+#tool-settings > .settings > .tool {
+  .tool-select {
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+
+    > div {   // tool and angle icon
+      flex: 1;
+      &:first-child {  // tool icon
+        flex: 2;
+        font-size: 16px;
+      } 
+    }
+
+    > button {
+      border: 1px solid $gray;
+      border-radius: 2px;
+      background: $gray;
+      color: #fff;
+    }
+
+    > .pressed {
+      border-color: $lightgray;
+      background: $darkgray;
+    }
+
+    > .container {  // dropdown content container
+      position: absolute;
+      transform: translate(0, 30px);
+      padding: 10px;
+      background: $gray;
+      box-shadow: 0 2px 8px 0 black;
+      font-size: 12px;
+    }
+  }
+}

@@ -14,16 +14,17 @@ import Hand from './Hand/Hand';
 function ToolSettings ({ tools: t }) {
   return (
     <div id="tool-settings">
-
-      { t.move.selected && <Move /> }
-      { t.eyedropper.selected && <Eyedropper /> }
-      { t.paintBrush.selected && <PaintBrush /> }
-      { t.eraser.selected && <Eraser /> }
-      { t.paintBucket.selected && <PaintBucket /> }
-      { t.pen.selected && <Pen /> }
-      { t.shape.selected && <Shape /> }
-      { t.magnify.selected && <Magnify /> }
-      { t.hand.selected && <Hand /> }
+      <ul className="settings">
+        { t.move.selected && <Move /> }
+        { t.eyedropper.selected && <Eyedropper /> }
+        { t.paintBrush.selected && <PaintBrush /> }
+        { t.eraser.selected && <Eraser /> }
+        { t.paintBucket.selected && <PaintBucket /> }
+        { t.pen.selected && <Pen /> }
+        { t.shape.selected && <Shape /> }
+        { t.magnify.selected && <Magnify /> }
+        { t.hand.selected && <Hand /> }
+      </ul>
 
       <div className="workspace-presets">
         <select defaultValue="Essentials">

@@ -1,28 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import Tool from '../Tool';
+import ShapeType from '../ShapeType';
+import ShapeStyle from '../ShapeStyle';
 
 function Pen () {
   return (
-    <ul className="settings pen-settings">
-      <li className="tool">
-        <div className="icon"><i className="icon-pen"></i></div>
-        <div><i className="icon-angle-down"></i></div>
-      </li>
-      <li className="type">
-        Type:&nbsp;&nbsp;
-        <select defaultValue="Path">
-          <option>Shape</option>
-          <option>Path</option>
-        </select>
-      </li>
-      <li className="fill">
-        Fill:&nbsp;&nbsp;
-        <div className="color"></div>
-      </li>
-      <li className="stroke">
-        Stroke:&nbsp;&nbsp;
-        <div className="color"></div>
-      </li>
-    </ul>
+    <Fragment>
+      <Tool />
+      <ShapeType />
+      <ShapeStyle />
+    </Fragment>
   );
 }
 

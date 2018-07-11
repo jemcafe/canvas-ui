@@ -3,17 +3,24 @@
 
 @import 'ToolBar';
 
-@import 'ToolMenu';
-
 @import 'Projects';
 @import 'MainCanvas';
 
-@import 'ToolSettings/BrushSelect';
-@import 'ToolSettings/OpacityInput';
-@import 'ToolSettings/ToolSettings';
+@import 'ToolSettings/Brush';
+// @import 'ToolSettings/Mode';
+@import 'ToolSettings/Opacity';
+// @import 'ToolSettings/SampleSize';
+// @import 'ToolSettings/Select';
+@import 'ToolSettings/ShapeStyle';
+// @import 'ToolSettings/ShapeType';
+@import 'ToolSettings/Tool';
+@import 'ToolSettings/Zoom';
+@import 'ToolSettings';
 
-@import 'PanelGroup';
-@import 'Panel';
+@import 'PanelGroup/PanelGroup';
+@import 'PanelGroup/Panel';
+
+@import 'ToolMenu';
 
 @import 'PanelContent/History';
 @import 'PanelContent/Character';

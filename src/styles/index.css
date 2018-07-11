@@ -3639,18 +3639,18 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-#tool-menu .tools .tool, #tool-menu .tools-collapsed .tool, #tool-settings .magnify-settings .plus, #tool-settings .magnify-settings .minus, .panel > .icon-tabs > ul > li, #app-layout #workspace #documents, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects > nav > div:last-child > div, .projects .container, #tool-settings > ul > li, #tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div div {
+#tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, .panel > .icon-tabs > ul > li, #tool-menu .tools .tool, #tool-menu .tools-collapsed .tool, #app-layout #workspace #documents, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects > nav > div:last-child > div, .projects .container, #tool-settings > ul > li, #tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div div {
   display: flex;
   justify-content: center;
   align-items: center; }
 
-#tool-menu .tools .tool, #tool-menu .tools-collapsed .tool, #tool-settings .magnify-settings .plus, #tool-settings .magnify-settings .minus, .panel > .icon-tabs > ul > li {
+#tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, .panel > .icon-tabs > ul > li, #tool-menu .tools .tool, #tool-menu .tools-collapsed .tool {
   width: 30px;
   height: 30px;
   border: 1px solid transparent;
   border-radius: 4px;
   background: #5e5e5e; }
-  #tool-menu .tools .tool i, #tool-menu .tools-collapsed .tool i, #tool-settings .magnify-settings .plus i, #tool-settings .magnify-settings .minus i, .panel > .icon-tabs > ul > li i {
+  #tool-settings > .settings > .zoom .plus i, #tool-settings > .settings > .zoom .minus i, .panel > .icon-tabs > ul > li i, #tool-menu .tools .tool i, #tool-menu .tools-collapsed .tool i {
     font-size: 16px; }
 
 .projects > nav .selected-tab, .panel .container > nav .selected-tab {
@@ -3703,6 +3703,9 @@ input::-webkit-input-placeholder {
   color: #ccc;
   text-shadow: none;
   -webkit-text-fill-color: initial; }
+
+input[type=range] {
+  padding: 0; }
 
 select {
   outline: none;
@@ -3805,7 +3808,8 @@ select {
     display: flex;
     justify-content: space-between;
     background: #ebebeb;
-    height: 100%; }
+    height: 100%;
+    overflow: hidden; }
     #app-layout #workspace > section {
       display: flex;
       background: lightblue; }
@@ -3835,50 +3839,6 @@ select {
       padding: 6px 10px; }
       .toolbar > ul > li:active {
         background: #3ee9be; }
-
-#tool-menu {
-  color: #fff;
-  background: #5e5e5e; }
-  #tool-menu .tools, #tool-menu .tools-collapsed {
-    padding: 4px;
-    box-sizing: border-box;
-    height: 100%; }
-    #tool-menu .tools .tool:hover, #tool-menu .tools-collapsed .tool:hover {
-      border-color: #fff; }
-    #tool-menu .tools > .selected, #tool-menu .tools-collapsed > .selected {
-      border-color: #fff;
-      background: #444444; }
-  #tool-menu .tools {
-    display: flex;
-    flex-wrap: wrap;
-    width: 72px; }
-  #tool-menu .color, #tool-menu .color-collapsed {
-    margin: 0 auto; }
-    #tool-menu .color .one, #tool-menu .color .two, #tool-menu .color-collapsed .one, #tool-menu .color-collapsed .two {
-      margin: 0 auto;
-      padding: 2px;
-      box-sizing: border-box;
-      border: 1px solid #fff;
-      background: black; }
-  #tool-menu .color {
-    width: 60px; }
-    #tool-menu .color .one, #tool-menu .color .two {
-      width: 32px;
-      height: 32px; }
-    #tool-menu .color .one {
-      transform: translate(-8px, -24px); }
-    #tool-menu .color .two {
-      transform: translate(8px, 24px); }
-  #tool-menu .color-collapsed {
-    width: 30px;
-    padding: 4px 0; }
-    #tool-menu .color-collapsed .one, #tool-menu .color-collapsed .two {
-      width: 20px;
-      height: 20px; }
-    #tool-menu .color-collapsed .one {
-      transform: translate(-5px, -15px); }
-    #tool-menu .color-collapsed .two {
-      transform: translate(5px, 15px); }
 
 .projects {
   width: 100%;
@@ -3932,58 +3892,88 @@ select {
 .main-canvas .draw-canvas:hover, .main-canvas .focus-layer:hover {
   cursor: none; }
 
-#tool-settings .brush-select {
+#tool-settings > .settings > .brush .brush-select {
   display: flex;
   justify-content: space-between;
   align-items: center; }
-  #tool-settings .brush-select > div:first-child {
+  #tool-settings > .settings > .brush .brush-select > div:first-child {
     padding: 0 6px;
-    box-sizing: border-box; }
-    #tool-settings .brush-select > div:first-child .img {
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    /* Chrome all / Safari all */
+    -moz-user-select: none;
+    /* Firefox all */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+    /* Likely future */ }
+    #tool-settings > .settings > .brush .brush-select > div:first-child .img {
       width: 15px;
       height: 15px;
       background: #969696; }
-  #tool-settings .brush-select > button {
+  #tool-settings > .settings > .brush .brush-select > button {
     border: 1px solid #5e5e5e;
     border-radius: 2px;
     background: #5e5e5e;
     color: #fff; }
-    #tool-settings .brush-select > button:focus {
-      border-color: #d3d3d3;
-      background: #444444; }
-  #tool-settings .brush-select > .container {
+  #tool-settings > .settings > .brush .brush-select > .pressed {
+    border-color: #d3d3d3;
+    background: #444444; }
+  #tool-settings > .settings > .brush .brush-select > .container {
     position: absolute;
     transform: translate(-60px, 30px);
     padding: 10px;
     background: #5e5e5e;
     box-shadow: 0 2px 8px 0 black; }
 
-#tool-settings .opacity-input {
+#tool-settings > .settings > .opacity .text-input > .container {
+  transform: translate(-70px, 30px); }
+
+#tool-settings > .settings > .shape-style {
+  white-space: nowrap; }
+  #tool-settings > .settings > .shape-style .text-input > .container {
+    transform: translate(-60px, 30px); }
+  #tool-settings > .settings > .shape-style .color {
+    width: 30px;
+    height: 50%;
+    border: 1px solid #d3d3d3;
+    background: black; }
+  #tool-settings > .settings > .shape-style .stroke-width, #tool-settings > .settings > .shape-style .stroke-options {
+    margin: 0 0 0 8px; }
+  #tool-settings > .settings > .shape-style .stroke-options {
+    border: 1px solid gray;
+    border-radius: 2px;
+    background: #444444;
+    padding: 4px 6px;
+    box-sizing: border-box; }
+
+#tool-settings > .settings > .tool .tool-select {
   display: flex;
-  align-items: center;
-  margin: 0 0 0 8px; }
-  #tool-settings .opacity-input > input {
-    width: 80px;
-    padding-right: 30px; }
-  #tool-settings .opacity-input > button {
-    position: absolute;
+  justify-content: space-between;
+  width: 50px; }
+  #tool-settings > .settings > .tool .tool-select > div {
+    flex: 1; }
+    #tool-settings > .settings > .tool .tool-select > div:first-child {
+      flex: 2;
+      font-size: 16px; }
+  #tool-settings > .settings > .tool .tool-select > button {
     border: 1px solid #5e5e5e;
     border-radius: 2px;
     background: #5e5e5e;
-    color: #fff;
-    transform: translate(55px, 0); }
-    #tool-settings .opacity-input > button:focus {
-      border-color: #d3d3d3;
-      background: #444444; }
-  #tool-settings .opacity-input > .container {
+    color: #fff; }
+  #tool-settings > .settings > .tool .tool-select > .pressed {
+    border-color: #d3d3d3;
+    background: #444444; }
+  #tool-settings > .settings > .tool .tool-select > .container {
     position: absolute;
-    transform: translate(-80px, 30px);
-    padding: 4px 10px;
-    border: 1px solid #444444;
+    transform: translate(0, 30px);
+    padding: 10px;
     background: #5e5e5e;
-    box-shadow: 0 2px 8px 0 black; }
-    #tool-settings .opacity-input > .container > input {
-      padding: 0; }
+    box-shadow: 0 2px 8px 0 black;
+    font-size: 12px; }
+
+#tool-settings > .settings > .zoom .plus:hover, #tool-settings > .settings > .zoom .minus:hover {
+  border: 1px solid lightgrey; }
 
 #tool-settings {
   display: flex;
@@ -3992,7 +3982,6 @@ select {
   padding: 2px;
   box-sizing: border-box;
   color: #fff;
-  min-height: 40px;
   background: #5e5e5e;
   overflow-x: hidden; }
   #tool-settings > ul {
@@ -4002,22 +3991,29 @@ select {
     #tool-settings > ul > li {
       padding: 0 10px;
       border-right: 1px solid #444444; }
-  #tool-settings .tool {
+  #tool-settings .text-input {
     display: flex;
-    justify-content: space-between;
-    width: 50px; }
-    #tool-settings .tool > div {
-      flex: 1; }
-      #tool-settings .tool > div:first-child {
-        flex: 2;
-        font-size: 16px; }
-  #tool-settings .fill .color, #tool-settings .stroke .color {
-    width: 30px;
-    height: 50%;
-    border: 1px solid #d3d3d3;
-    background: black; }
-  #tool-settings .magnify-settings .plus:hover, #tool-settings .magnify-settings .minus:hover {
-    border: 1px solid lightgrey; }
+    align-items: center;
+    margin: 0 0 0 8px; }
+    #tool-settings .text-input > input {
+      width: 80px;
+      padding-right: 30px; }
+    #tool-settings .text-input > button {
+      position: absolute;
+      transform: translate(55px, 0);
+      border: 1px solid #5e5e5e;
+      border-radius: 2px;
+      background: #5e5e5e;
+      color: #fff; }
+    #tool-settings .text-input > .pressed {
+      border-color: #d3d3d3;
+      background: #444444; }
+    #tool-settings .text-input > .container {
+      position: absolute;
+      padding: 4px 10px;
+      border: 1px solid #444444;
+      background: #5e5e5e;
+      box-shadow: 0 2px 8px 0 black; }
   #tool-settings .workspace-presets {
     padding: 0 6px;
     box-sizing: border-box; }
@@ -4105,7 +4101,51 @@ select {
     .panel > .icon-tabs > ul > li {
       margin: 4px 0; }
       .panel > .icon-tabs > ul > li:hover {
-        border-color: #fff; }
+        border-color: #d3d3d3; }
     .panel > .icon-tabs > ul > .selected {
-      border: 1px solid #fff;
+      border-color: #d3d3d3;
       background: #444444; }
+
+#tool-menu {
+  color: #fff;
+  background: #5e5e5e; }
+  #tool-menu .tools, #tool-menu .tools-collapsed {
+    padding: 4px;
+    box-sizing: border-box;
+    height: 100%; }
+    #tool-menu .tools .tool:hover, #tool-menu .tools-collapsed .tool:hover {
+      border-color: #d3d3d3; }
+    #tool-menu .tools > .selected, #tool-menu .tools-collapsed > .selected {
+      border-color: #d3d3d3;
+      background: #444444; }
+  #tool-menu .tools {
+    display: flex;
+    flex-wrap: wrap;
+    width: 72px; }
+  #tool-menu .color, #tool-menu .color-collapsed {
+    margin: 0 auto; }
+    #tool-menu .color .one, #tool-menu .color .two, #tool-menu .color-collapsed .one, #tool-menu .color-collapsed .two {
+      margin: 0 auto;
+      padding: 2px;
+      box-sizing: border-box;
+      border: 1px solid #fff;
+      background: black; }
+  #tool-menu .color {
+    width: 60px; }
+    #tool-menu .color .one, #tool-menu .color .two {
+      width: 32px;
+      height: 32px; }
+    #tool-menu .color .one {
+      transform: translate(-8px, -24px); }
+    #tool-menu .color .two {
+      transform: translate(8px, 24px); }
+  #tool-menu .color-collapsed {
+    width: 30px;
+    padding: 4px 0; }
+    #tool-menu .color-collapsed .one, #tool-menu .color-collapsed .two {
+      width: 20px;
+      height: 20px; }
+    #tool-menu .color-collapsed .one {
+      transform: translate(-5px, -15px); }
+    #tool-menu .color-collapsed .two {
+      transform: translate(5px, 15px); }

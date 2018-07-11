@@ -73,11 +73,11 @@
     > ul > li {  // icons
       @extend %tool-menu-icon;
       margin: 4px 0;
-      &:hover { border-color: #fff; }
+      &:hover { border-color: $lightgray; }
     }
 
     > ul > .selected {  // selected icon
-      border: 1px solid #fff;
+      border-color: $lightgray;
       background: $darkgray;
     }
   }

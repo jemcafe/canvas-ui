@@ -9,11 +9,11 @@
 
     .tool {
       @extend %tool-menu-icon;
-      &:hover { border-color: #fff; }
+      &:hover { border-color: $lightgray; }
     }
 
     > .selected {  // selected tool
-      border-color: #fff;
+      border-color: $lightgray;
       background: $darkgray; 
     }
   }

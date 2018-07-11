@@ -1,0 +1,61 @@
+#tool-settings {
+  display: flex;
+  justify-content: space-between;
+  min-height: 40px;
+  padding: 2px;
+  box-sizing: border-box;
+  color: #fff;
+  background: $gray;
+  overflow-x: hidden;
+
+  > ul {  // settings
+    display: flex;
+    font-size: 12px;
+    background: $gray;
+
+    > li {  // each setting
+      @extend %center-content;
+      padding: 0 10px;
+      border-right: 1px solid $darkgray;
+    }
+  }
+
+  .text-input {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 8px;
+
+    > input {
+      width: 80px;
+      padding-right: 30px;
+    }
+
+    > button {
+      position: absolute;
+      transform: translate(55px, 0);
+      border: 1px solid $gray;
+      border-radius: 2px;
+      background: $gray;
+      color: #fff;
+    }
+
+    > .pressed {
+      border-color: $lightgray;
+      background: $darkgray;
+    }
+
+    > .container {  // dropdown content container
+      position: absolute;
+      padding: 4px 10px;
+      border: 1px solid $darkgray;
+      background: $gray;
+      box-shadow: 0 2px 8px 0 black;
+    }
+  }
+
+  .workspace-presets {
+    @extend %center-content;
+    padding: 0 6px;
+    box-sizing: border-box;
+  }
+}

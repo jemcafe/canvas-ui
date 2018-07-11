@@ -1,20 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import Tool from '../Tool';
+import Select from '../Select';
 
 function Move () {
   return (
-    <ul className="settings move-settings">
-      <li className="tool">
-        <div className="icon"><i className="icon-move"></i></div>
-        <div><i className="icon-angle-down"></i></div>
-      </li>
-      <li className="select">
-        Select:&nbsp;&nbsp;
-        <select defaultValue="Layer">
-          <option>Group</option>
-          <option>Layer</option>
-        </select>
-      </li>
-    </ul>
+    <Fragment>
+      <Tool />
+      <Select />
+    </Fragment>
   );
 }
 
