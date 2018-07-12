@@ -1,6 +1,6 @@
 import React from 'react';
 
-// PanelGroup's property value
+// Property values for PanelGroup
 import panels from '../panels/panels';
 
 // Components

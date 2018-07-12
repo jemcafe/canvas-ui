@@ -25,19 +25,14 @@ function PanelGroup (props) {
       </div>
       
       <div className="container">
-        { panels.length ? panels.map((e, i) => (
+        { panels.length ? panels.map((panel, i) => (
           <Panel 
-            key={e.id} 
+            key={panel.id} 
             index={i}
-            className={e.className} 
-            tabs={e.tabs} 
-            tab={e.tab}
-            isHidden={e.isHidden}
+            panel={panel}
             isCollapsed={isCollapsed}
             togglePanel={togglePanel}
-            changeTab={changeTab}>
-            { e.children }
-          </Panel> 
+            changeTab={changeTab} />
         )) : null }
 
         { tools && 

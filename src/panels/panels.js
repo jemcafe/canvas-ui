@@ -11,16 +11,19 @@ export default {
   '1': [
     {
       id: 1,
-      tabs: ['History'],
-      children: <History />,
+      tabs: [
+        { name: 'History', content: <History />, menu: ['option'] }
+      ],
       tab: 0,
       isHidden: true,
       isRemoved: false
     },
     {
       id: 2,
-      tabs: ['Character','Paragraph'],
-      children: [<Character key={1} />, <Paragraph key={2} />],
+      tabs: [
+        { name: 'Character', content: <Character />, menu: ['option'] },
+        { name: 'Paragraph', content: <Paragraph />, menu: ['option'] }
+      ],
       tab: 0,
       isHidden: true,
       isRemoved: false
@@ -29,19 +32,24 @@ export default {
   '2': [
     {
       id: 1,
-      tabs: ['Color', 'Swatches'],
-      children: [<Color key={1} />, <Swatches key={2} />],
+      tabs: [
+        { name: 'Color', content: <Color/>, menu: ['option'] },
+        { name: 'Swatches', content: <Swatches/>, menu: ['option'] }
+      ],
       tab: 0,
       isHidden: true,
       isRemoved: false
     },
     {
       id: 2,
-      tabs: ['Layers'],
-      children: <Layers />,
+      tabs: [
+        { name: 'Layers', content: <Layers />, menu: ['option'] }
+      ],
       tab: 0,
       isHidden: true,
       isRemoved: false
     }
   ]
 };
+
+/* className proptery is optional */

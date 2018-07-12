@@ -67,7 +67,7 @@ class PanelGroupCntr extends Component {
 }
 
 PanelGroupCntr.propTypes = {
-  isCollapsed: PropTypes.bool.isRequired,
+  isCollapsed: PropTypes.bool,
   side: PropTypes.string,
   panels: PropTypes.array,
   tools: PropTypes.bool

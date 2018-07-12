@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { isObject } from '../../../helpers/dataTypeCheck';
 
 function Panel (props) {
   const { 
     index,
-    className,  // optional
-    tabs = [], 
-    tab = 0, 
-    children, 
-    isHidden = true, 
+    panel: { 
+      className,  // optional
+      tabs = [], 
+      tab = 0, 
+      isHidden = true
+    },
     isCollapsed = false,
     togglePanel,
     changeTab
@@ -51,25 +51,16 @@ function Panel (props) {
   }
 
   const tabList = tabs.map((e, i) => (
-    <li key={i} className={ classNames.tab(i) } onClick={() => changeTab(index, i)}>{ e }</li>
+    <li key={i} className={ classNames.tab(i) } onClick={() => changeTab(index, i)}>{ e.name }</li>
   ));
 
   const iconList = tabs.map((e, i) => (
     <li key={i} className={ classNames.selectedIcon(i) } onClick={() => changeTab(index, i)}>
-      <i className={ classNames.icon(e) }></i>
+      <i className={ classNames.icon(e.name) }></i>
     </li>
   ));
 
-  // Children prop
-  const content = (
-    (!tabs.length)                                            // No tabs
-    ? ('NEED TABS') 
-    : (!children)                                             // No children
-    ? ('NO CHILDREN') 
-    : (isObject(children))                                    // One child
-    ? (tab === 0 ? children : 'NO CONTENT')
-    : (tab < children.length ? children[tab] : 'NO CONTENT')  // More than one child
-  );
+  const content = tabs[tab].content;
 
   return (
     <div className={`panel${ classNames.panel }`} style={ styles.panel }>
@@ -97,11 +88,10 @@ function Panel (props) {
 
 Panel.propTypes = {
   index: PropTypes.number.isRequired,
-  tabs: PropTypes.array.isRequired,
-  tab: PropTypes.number.isRequired,
-  isHidden: PropTypes.bool.isRequired,
+  panel: PropTypes.object.isRequired,
   isCollapsed: PropTypes.bool.isRequired,
-  changeTab: PropTypes.func.isRequired,
+  togglePanel: PropTypes.func.isRequired,
+  changeTab: PropTypes.func.isRequired
 }
 
 export default Panel;
