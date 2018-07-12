@@ -44,6 +44,9 @@ const initialState = {
   },
   hand: {
     selected: false
+  },
+  ellipsis: {
+    selected: false
   }
 };
 

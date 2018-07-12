@@ -54,13 +54,17 @@ function Panel (props) {
     <li key={i} className={ classNames.tab(i) } onClick={() => changeTab(index, i)}>{ e.name }</li>
   ));
 
+  const menuOptions = tabs[tab].menu.map((e, i) => (
+    <option key={i}>{ e }</option>
+  ));
+
+  const content = tabs[tab].content;
+
   const iconList = tabs.map((e, i) => (
     <li key={i} className={ classNames.selectedIcon(i) } onClick={() => changeTab(index, i)}>
       <i className={ classNames.icon(e.name) }></i>
     </li>
   ));
-
-  const content = tabs[tab].content;
 
   return (
     <div className={`panel${ classNames.panel }`} style={ styles.panel }>
@@ -71,7 +75,17 @@ function Panel (props) {
           <div>
             { isCollapsed && 
             <div onClick={() => togglePanel(index)}><i className="icon-angle-double-right"></i></div> }
-            <div><i className="icon-bars"></i></div>
+
+            <div className="menu">
+              <div><i className="icon-bars"></i></div>
+              <select>
+                { menuOptions }
+                <optgroup label="Close">
+                  <option>Close</option>
+                  <option>Close Tab Group</option>
+                </optgroup>
+              </select>
+            </div>
           </div>
         </nav>
         <div className="content">{ content }</div>

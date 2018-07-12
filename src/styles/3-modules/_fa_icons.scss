@@ -55,6 +55,11 @@
   &:before { 
     content: fa-content($fa-var-hand-paper); } 
 }
+.icon-ellipsis {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-ellipsis-h); } 
+}
 
 .icon-swap {
   @extend %fas;

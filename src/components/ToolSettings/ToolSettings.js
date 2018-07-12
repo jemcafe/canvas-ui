@@ -10,6 +10,7 @@ import Pen from './Pen/Pen';
 import Shape from './Shape/Shape';
 import Magnify from './Magnify/Magnify';
 import Hand from './Hand/Hand';
+import Ellipsis from './Ellipsis/Ellipsis';
 
 function ToolSettings ({ tools: t }) {
   return (
@@ -24,6 +25,7 @@ function ToolSettings ({ tools: t }) {
         { t.shape.selected && <Shape /> }
         { t.magnify.selected && <Magnify /> }
         { t.hand.selected && <Hand /> }
+        { t.ellipsis.selected && <Ellipsis /> }
       </ul>
 
       <div className="workspace-presets">

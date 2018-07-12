@@ -18,6 +18,7 @@
 .icon-magnify-minus,
 .icon-magnify-plus,
 .icon-hand,
+.icon-ellipsis,
 .icon-swap,
 .icon-undo,
 .icon-color,
@@ -126,6 +127,7 @@
 .fa-pull-left.icon-magnify-minus,
 .fa-pull-left.icon-magnify-plus,
 .fa-pull-left.icon-hand,
+.fa-pull-left.icon-ellipsis,
 .fa-pull-left.icon-swap,
 .fa-pull-left.icon-undo,
 .fa-pull-left.icon-color,
@@ -158,6 +160,7 @@
 .fa-pull-right.icon-magnify-minus,
 .fa-pull-right.icon-magnify-plus,
 .fa-pull-right.icon-hand,
+.fa-pull-right.icon-ellipsis,
 .fa-pull-right.icon-swap,
 .fa-pull-right.icon-undo,
 .fa-pull-right.icon-color,
@@ -3617,6 +3620,7 @@ readers do not read off random characters that represent icons */
 .icon-magnify-minus,
 .icon-magnify-plus,
 .icon-hand,
+.icon-ellipsis,
 .icon-swap,
 .icon-undo,
 .icon-color,
@@ -3637,7 +3641,7 @@ readers do not read off random characters that represent icons */
 /*---------------------------*/
 /*   Helpers                 */
 /*---------------------------*/
-.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-shape-circle, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-hand, .icon-swap, .icon-undo, .icon-color, .icon-adjust, .icon-swatches, .icon-layers, .icon-history, .icon-character, .icon-paragraph, .icon-times, .icon-angle-down, .icon-bars, .icon-angle-double-right, .icon-angle-double-left {
+.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-shape-circle, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-hand, .icon-ellipsis, .icon-swap, .icon-undo, .icon-color, .icon-adjust, .icon-swatches, .icon-layers, .icon-history, .icon-character, .icon-paragraph, .icon-times, .icon-angle-down, .icon-bars, .icon-angle-double-right, .icon-angle-double-left {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -3647,14 +3651,16 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-#tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, .panel > .icon-tabs > ul > li, #tool-menu .tools .tool, #tool-menu .tools-collapsed .tool, #app-layout #workspace #documents, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects > nav > div:last-child > div, .projects .container, #tool-settings > ul > li, #tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div div, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
+#tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, .panel > .icon-tabs > ul > li, #tool-menu .tools .tool,
+#tool-menu .tools-collapsed .tool, #app-layout #workspace #documents, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects > nav > div:last-child > div, .projects .container, #tool-settings > ul > li, #tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div .menu, .panel .container > nav > div .menu > div:first-child, .panel .container > .content, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
 #tool-menu .color-collapsed > div:first-child .reset,
 #tool-menu .color-collapsed > div:first-child .swap, #tool-menu .color, #tool-menu .color > div:first-child {
   display: flex;
   justify-content: center;
   align-items: center; }
 
-#tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, .panel > .icon-tabs > ul > li, #tool-menu .tools .tool, #tool-menu .tools-collapsed .tool {
+#tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, .panel > .icon-tabs > ul > li, #tool-menu .tools .tool,
+#tool-menu .tools-collapsed .tool {
   width: 30px;
   height: 30px;
   border: 1px solid transparent;
@@ -3718,9 +3724,16 @@ input[type=range] {
   padding: 0; }
 
 select {
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Chrome */
   outline: none;
   color: #fff;
-  background: #444444; }
+  background: #444444;
+  padding: 2px 4px; }
+  select::-ms-expand {
+    display: none; }
 
 /*---------------------------*/
 /*   Layouts                 */
@@ -3760,6 +3773,9 @@ select {
 
 .icon-hand:before {
   content: "\f256"; }
+
+.icon-ellipsis:before {
+  content: "\f141"; }
 
 .icon-swap:before {
   content: "\f2f1"; }
@@ -4092,15 +4108,18 @@ select {
         display: flex;
         justify-content: flex-end;
         align-items: center; }
-        .panel .container > nav > div div {
-          margin: 0 4px;
-          padding: 2px 4px;
-          border: 1px solid #5e5e5e;
-          border-radius: 2px; }
-          .panel .container > nav > div div:hover {
-            border-color: lightgrey; }
-          .panel .container > nav > div div:active {
-            background: #444444; }
+        .panel .container > nav > div .menu {
+          margin: 0 8px; }
+          .panel .container > nav > div .menu > select {
+            position: absolute;
+            background: none;
+            border-color: transparent;
+            width: 20px;
+            text-indent: 10px; }
+            .panel .container > nav > div .menu > select:hover {
+              border-color: gray; }
+            .panel .container > nav > div .menu > select:active {
+              background: #444444; }
     .panel .container > .content {
       flex: 1;
       overflow-y: auto;
@@ -4125,13 +4144,16 @@ select {
 #tool-menu {
   color: #fff;
   background: #5e5e5e; }
-  #tool-menu .tools, #tool-menu .tools-collapsed {
+  #tool-menu .tools,
+  #tool-menu .tools-collapsed {
     padding: 4px;
     box-sizing: border-box;
     height: 100%; }
-    #tool-menu .tools .tool:hover, #tool-menu .tools-collapsed .tool:hover {
+    #tool-menu .tools .tool:hover,
+    #tool-menu .tools-collapsed .tool:hover {
       border-color: #d3d3d3; }
-    #tool-menu .tools > .selected, #tool-menu .tools-collapsed > .selected {
+    #tool-menu .tools > .selected,
+    #tool-menu .tools-collapsed > .selected {
       border-color: #d3d3d3;
       background: #444444; }
   #tool-menu .tools {

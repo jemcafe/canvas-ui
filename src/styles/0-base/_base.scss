@@ -39,7 +39,11 @@ input[type=range] {
 }
 
 select {
+  @include select-arrow(none);
   outline: none;
   color: #fff;
   background: $darkgray;
+  padding: 2px 4px;
+  // text-indent: 1px;
+  // text-overflow: '';
 }

@@ -20,7 +20,8 @@ function ToolMenu (props) {
     { name: 'pen', icon: 'icon-pen' },
     { name: 'shape', icon: 'icon-shape-circle' },
     { name: 'magnify', icon: 'icon-magnify' },
-    { name: 'hand', icon: 'icon-hand' }
+    { name: 'hand', icon: 'icon-hand' },
+    { name: 'ellipsis', icon: 'icon-ellipsis' }
   ];
 
   const classNames = {

@@ -14,7 +14,8 @@ $color-icon-XY: $colorBlock1 * 0.75 !default;  // reset and swap icon coordinate
   color: #fff;
   background: $gray;
 
-  .tools, .tools-collapsed {
+  .tools, 
+  .tools-collapsed {
     padding: 4px;
     box-sizing: border-box;
     height: 100%;
@@ -80,9 +81,7 @@ $color-icon-XY: $colorBlock1 * 0.75 !default;  // reset and swap icon coordinate
       @extend %center-content;
       position: absolute;
 
-      .reset, .swap { 
-        position: absolute;
-      }
+      .reset, .swap { position: absolute; }
 
       .reset { transform: translate(-$color-icon-XY, $color-icon-XY); }
       .swap { transform: translate($color-icon-XY, -$color-icon-XY); }

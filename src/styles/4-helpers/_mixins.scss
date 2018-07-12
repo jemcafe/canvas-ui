@@ -4,3 +4,9 @@
   -ms-user-select: $value;      /* IE 10+ */
   user-select: $value;          /* Likely future */   
 }
+
+@mixin select-arrow ($value) {
+  -moz-appearance: $value;        /* Firefox */
+  -webkit-appearance: $value;     /* Chrome */
+  &::-ms-expand { display: $value; }
+}
