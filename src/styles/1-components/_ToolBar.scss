@@ -1,10 +1,10 @@
-.toolbar {
+#toolbar {
   font-size: 12px;
   color: #fff;
   border-bottom: 1px solid $darkgray;
   background: $gray;
 
-  > ul {
+  > ul {  //  container
     display: flex;
 
     > li {

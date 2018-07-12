@@ -3836,14 +3836,14 @@ select {
       background: #dfffdf;
       overflow: hidden; }
 
-.toolbar {
+#toolbar {
   font-size: 12px;
   color: #fff;
   border-bottom: 1px solid #444444;
   background: #5e5e5e; }
-  .toolbar > ul {
+  #toolbar > ul {
     display: flex; }
-    .toolbar > ul > li {
+    #toolbar > ul > li {
       -webkit-user-select: none;
       /* Chrome all / Safari all */
       -moz-user-select: none;
@@ -3853,7 +3853,7 @@ select {
       user-select: none;
       /* Likely future */
       padding: 6px 10px; }
-      .toolbar > ul > li:active {
+      #toolbar > ul > li:active {
         background: #3ee9be; }
 
 .projects {

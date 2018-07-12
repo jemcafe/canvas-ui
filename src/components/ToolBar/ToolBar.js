@@ -2,7 +2,7 @@ import React from 'react';
 
 function ToolBar () {
   return (
-    <div className="toolbar">
+    <div id="toolbar">
       <ul>
         <li>File</li>
         <li>Edit</li>
