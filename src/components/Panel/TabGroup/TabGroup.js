@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Panel (props) {
+function TabGroup (props) {
   const { 
     index,
-    panel: { 
+    tabGroup: { 
       className,  // optional
       tabs = [], 
       tab = 0, 
@@ -74,7 +74,7 @@ function Panel (props) {
           <ul className="tabs">{ tabList }</ul>
           <div>
             { isCollapsed && 
-            <div onClick={() => togglePanel(index)}><i className="icon-angle-double-right"></i></div> }
+            <div className="double-angle-btn" onClick={() => togglePanel(index)}><i className="icon-angle-double-right"></i></div> }
 
             <div className="menu">
               <div><i className="icon-bars"></i></div>
@@ -100,12 +100,12 @@ function Panel (props) {
   );
 }
 
-Panel.propTypes = {
+TabGroup.propTypes = {
   index: PropTypes.number.isRequired,
-  panel: PropTypes.object.isRequired,
+  tabGroup: PropTypes.object.isRequired,
   isCollapsed: PropTypes.bool.isRequired,
   togglePanel: PropTypes.func.isRequired,
   changeTab: PropTypes.func.isRequired
 }
 
-export default Panel;
+export default TabGroup;

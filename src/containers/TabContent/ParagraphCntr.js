@@ -1,5 +1,5 @@
 import React from 'react';
-import Paragraph from '../../components/PanelContent/Paragraph';
+import Paragraph from '../../components/TabContent/Paragraph';
 
 function ParagraphCntr (props) {
   return (

@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import PanelGroup from '../components/PanelGroup/PanelGroup';
+import Panel from '../components/Panel/Panel';
 
-class PanelGroupCntr extends Component {
+class PanelCntr extends Component {
   constructor (props) {
     super(props);
     this.state = { 
-      panels: this.props.panels || [],
+      tabGroups: this.props.tabGroups || [],
       isCollapsed: this.props.isCollapsed || false
     }
   }
 
   togglePanels = () => {
     this.setState(prev => ({ 
-      panels: prev.panels.map((e, i) => {
+      tabGroups: prev.tabGroups.map((e, i) => {
         e.isHidden = true;
         return e;
       }), 
@@ -23,7 +23,7 @@ class PanelGroupCntr extends Component {
 
   togglePanel = (panelIndex) => {
     this.setState(prev => ({
-      panels: prev.panels.map((e, i) => {
+      tabGroups: prev.tabGroups.map((e, i) => {
         if (panelIndex === i) e.isHidden = true;
         return e;
       })
@@ -32,7 +32,7 @@ class PanelGroupCntr extends Component {
 
   changeTab = (panelIndex, tabIndex) => {
     this.setState(prev => ({ 
-      panels: prev.panels.map((e, i) => {
+      tabGroups: prev.tabGroups.map((e, i) => {
 
         if ( i === panelIndex ) {
           if ( e.tab === tabIndex ) {
@@ -54,11 +54,11 @@ class PanelGroupCntr extends Component {
     const { side = 'R', tools = false } = this.props;
 
     return (
-      <PanelGroup
+      <Panel
         isCollapsed={this.state.isCollapsed}
         side={side}
         tools={tools} 
-        panels={this.state.panels} 
+        tabGroups={this.state.tabGroups} 
         togglePanels={this.togglePanels}
         togglePanel={this.togglePanel}
         changeTab={this.changeTab} />
@@ -66,11 +66,11 @@ class PanelGroupCntr extends Component {
   }
 }
 
-PanelGroupCntr.propTypes = {
+PanelCntr.propTypes = {
   isCollapsed: PropTypes.bool,
   side: PropTypes.string,
-  panels: PropTypes.array,
+  tabGroups: PropTypes.array,
   tools: PropTypes.bool
 }
 
-export default PanelGroupCntr;
+export default PanelCntr;

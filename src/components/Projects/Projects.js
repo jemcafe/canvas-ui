@@ -28,7 +28,7 @@ class Projects extends Component {
         { tabs.length > 0 && 
         <nav ref="nav">
           <ul ref="tabs" className="tabs">{ tabList }</ul>
-          <div><div><i className="icon-angle-double-right"></i></div></div>
+          <div><div className="double-angle-btn"><i className="icon-angle-double-right"></i></div></div>
         </nav> }
         <div className="container">
           { content }

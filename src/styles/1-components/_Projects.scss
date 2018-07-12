@@ -40,16 +40,6 @@
       justify-content: flex-end;
       align-items: center;
       @extend %right-tab;
-      
-      > div {  // double angle icon
-        @extend %center-content;
-        margin: 0 4px;
-        padding: 2px 4px;
-        border: 1px solid $gray;
-        border-radius: 2px;
-        &:hover { border-color: lightgrey; }
-        &:active { background: $darkgray; }
-      }
     }
   }
 

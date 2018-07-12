@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Panel from './Panel/Panel';
+import TabGroup from './TabGroup/TabGroup';
 import ToolMenu from '../../containers/ToolMenuCntr';
 
 function PanelGroup (props) {
@@ -10,7 +10,7 @@ function PanelGroup (props) {
     isCollapsed,
     side,
     tools,
-    panels,
+    tabGroups,
     togglePanels,
     togglePanel,
     changeTab
@@ -25,11 +25,11 @@ function PanelGroup (props) {
       </div>
       
       <div className="container">
-        { panels.length ? panels.map((panel, i) => (
-          <Panel 
-            key={panel.id} 
+        { tabGroups.length ? tabGroups.map((tabGroup, i) => (
+          <TabGroup 
+            key={tabGroup.id} 
             index={i}
-            panel={panel}
+            tabGroup={tabGroup}
             isCollapsed={isCollapsed}
             togglePanel={togglePanel}
             changeTab={changeTab} />
@@ -43,7 +43,7 @@ function PanelGroup (props) {
 }
 
 PanelGroup.propTypes = {
-  panels: PropTypes.array.isRequired
+  tabGroups: PropTypes.array.isRequired
 }
 
 export default PanelGroup;

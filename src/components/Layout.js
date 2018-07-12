@@ -1,14 +1,14 @@
 import React from 'react';
 
-// Property values for PanelGroup
-import panels from '../panels/panels';
+// Property values for Panel
+import tabGroups from '../tabs/tabs';
 
 // Components
 import ToolBar from '../containers/ToolBarCntr';
 // import ToolMenu from '../containers/ToolMenuCntr';
 import ToolSettings from '../containers/ToolSettingsCntr';
 import Projects from '../containers/ProjectsCntr';
-import PanelGroup from '../containers/PanelGroupCntr';
+import Panel from '../containers/PanelCntr';
 
 function Layout () {
   return (
@@ -19,14 +19,14 @@ function Layout () {
       </section>
       <div id="workspace">
         <section>
-          <PanelGroup side={'L'} tools={true} isCollapsed={true} />
+          <Panel side={'L'} tools={true} isCollapsed={true} />
         </section>
         <div id="documents">
           <Projects />
         </div>
         <section className="panels">
-          <PanelGroup side={'R'} panels={panels['1']} isCollapsed={true} />
-          <PanelGroup side={'R'} panels={panels['2']} />
+          <Panel side={'R'} tabGroups={tabGroups['1']} isCollapsed={true} />
+          <Panel side={'R'} tabGroups={tabGroups['2']} />
         </section>
       </div>
     </div>

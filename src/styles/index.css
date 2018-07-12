@@ -3652,7 +3652,7 @@ readers do not read off random characters that represent icons */
   vertical-align: -.125em; }
 
 #tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, .panel > .icon-tabs > ul > li, #tool-menu .tools .tool,
-#tool-menu .tools-collapsed .tool, #app-layout #workspace #documents, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects > nav > div:last-child > div, .projects .container, #tool-settings > ul > li, #tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div .menu, .panel .container > nav > div .menu > div:first-child, .panel .container > .content, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
+#tool-menu .tools-collapsed .tool, .double-angle-btn, #app-layout #workspace #documents, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects .container, #tool-settings > ul > li, #tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div .menu, .panel .container > nav > div .menu > div:first-child, .panel .container > .content, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
 #tool-menu .color-collapsed > div:first-child .reset,
 #tool-menu .color-collapsed > div:first-child .swap, #tool-menu .color, #tool-menu .color > div:first-child {
   display: flex;
@@ -3827,6 +3827,16 @@ select {
   .icon-angle-double-left:before {
     content: "\f100"; }
 
+.double-angle-btn {
+  margin: 0 4px;
+  padding: 2px 4px;
+  border: 1px solid transparent;
+  border-radius: 2px; }
+  .double-angle-btn:hover {
+    border-color: #5e5e5e; }
+  .double-angle-btn:active {
+    background: #272727; }
+
 /*---------------------------*/
 /*   Components              */
 /*---------------------------*/
@@ -3908,15 +3918,6 @@ select {
       display: flex;
       justify-content: flex-end;
       align-items: center; }
-      .projects > nav > div:last-child > div {
-        margin: 0 4px;
-        padding: 2px 4px;
-        border: 1px solid #5e5e5e;
-        border-radius: 2px; }
-        .projects > nav > div:last-child > div:hover {
-          border-color: lightgrey; }
-        .projects > nav > div:last-child > div:active {
-          background: #444444; }
   .projects .container {
     height: 100%;
     background: #272727; }

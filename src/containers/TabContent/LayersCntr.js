@@ -1,5 +1,5 @@
 import React from 'react';
-import Layers from '../../components/PanelContent/Layers';
+import Layers from '../../components/TabContent/Layers';
 
 function LayersCntr (props) {
   return (
