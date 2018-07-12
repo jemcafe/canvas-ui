@@ -1,6 +1,7 @@
 import { 
   COLOR_1, 
   COLOR_2, 
+  RESET_COLORS,
   SWAP_COLORS 
 } from './actions';
 
@@ -34,6 +35,8 @@ export default (state = initialState, action) => {
       return {...state, color_1: payload};
     case COLOR_2:
       return {...state, color_2: payload};
+    case RESET_COLORS:
+      return payload(state, initialState);
     case SWAP_COLORS:
       return payload(state);
     default:

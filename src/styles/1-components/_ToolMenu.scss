@@ -1,9 +1,13 @@
+$colorBlock1: 24px !default;                   // color block size
+$colorBlock2: 16px !default;                   // collapsed color block size
+$color-icon-XY: $colorBlock1 * 0.75 !default;  // reset and swap icon coordinate value for x and y when collapsed
+
 @function colorBlockX($value) {
-  @return round($value / 4);
+  @return round($value / 3.4);
 }
 
 @function colorBlockY($value) {
-  @return round($value / 1.2);
+  @return round($value / 1.08);
 }
 
 #tool-menu {
@@ -32,12 +36,13 @@
     width: 72px;
   }
 
-  > .color {
-
+  .color, 
+  .color-collapsed {
     > div:first-child {  // reset and swap container 
       display: flex;
-      justify-content: center;
-      .swap { 
+      justify-content: space-around;
+
+      .reset, .swap {  // icons
         @extend %center-content;
         font-size: 10px; 
         padding: 2px;
@@ -47,41 +52,49 @@
       }
     }
 
-    .colors, .colors-collapsed {
-      margin: 0 auto; 
+    .colors {
+      width: 30px;
+      margin: 0 auto;
       > .color-block {
+        width: $colorBlock2;
+        height: $colorBlock2;
         margin: 0 auto;
         border: 1px solid #000;
         padding: 1px;
         background: #fff;
+
+        &:last-child { transform: translate(colorBlockX(-$colorBlock2), colorBlockY(-$colorBlock2)); }
+        &:first-child { transform: translate(colorBlockX($colorBlock2), colorBlockY($colorBlock2)); }
+
         > div {  // color
           width: 100%;
           height: 100%;
         }
       }
     }
+  }
+
+  .color {
+    @extend %center-content;
+    > div:first-child { 
+      @extend %center-content;
+      position: absolute;
+
+      .reset, .swap { 
+        position: absolute;
+      }
+
+      .reset { transform: translate(-$color-icon-XY, $color-icon-XY); }
+      .swap { transform: translate($color-icon-XY, -$color-icon-XY); }
+    }
 
     .colors {
       width: 60px;
       > .color-block {
-        width: 28px;
-        height: 28px;
-        &:last-child { 
-          transform: translate(colorBlockX(-28px), colorBlockY(-28px)); }
-        &:first-child { 
-          transform: translate(colorBlockX(28px), colorBlockY(28px)); }
-      }
-    }
-
-    .colors-collapsed {
-      width: 30px;
-      > .color-block {
-        width: 20px;
-        height: 20px;
-        &:last-child { 
-          transform: translate(colorBlockX(-20px), colorBlockY(-20px)); }
-        &:first-child { 
-          transform: translate(colorBlockX(20px), colorBlockY(20px)); }
+        width: $colorBlock1;
+        height: $colorBlock1;
+        &:last-child { transform: translate(colorBlockX(-$colorBlock1), colorBlockY(-$colorBlock1)); }
+        &:first-child { transform: translate(colorBlockX($colorBlock1), colorBlockY($colorBlock1)); }
       }
     }
   }

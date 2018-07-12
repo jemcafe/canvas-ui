@@ -18,7 +18,8 @@
 .icon-magnify-minus,
 .icon-magnify-plus,
 .icon-hand,
-.icon-switch-colors,
+.icon-swap,
+.icon-undo,
 .icon-color,
 .icon-adjust,
 .icon-swatches,
@@ -125,7 +126,8 @@
 .fa-pull-left.icon-magnify-minus,
 .fa-pull-left.icon-magnify-plus,
 .fa-pull-left.icon-hand,
-.fa-pull-left.icon-switch-colors,
+.fa-pull-left.icon-swap,
+.fa-pull-left.icon-undo,
 .fa-pull-left.icon-color,
 .fa-pull-left.icon-adjust,
 .fa-pull-left.icon-swatches,
@@ -156,7 +158,8 @@
 .fa-pull-right.icon-magnify-minus,
 .fa-pull-right.icon-magnify-plus,
 .fa-pull-right.icon-hand,
-.fa-pull-right.icon-switch-colors,
+.fa-pull-right.icon-swap,
+.fa-pull-right.icon-undo,
 .fa-pull-right.icon-color,
 .fa-pull-right.icon-adjust,
 .fa-pull-right.icon-swatches,
@@ -3614,7 +3617,8 @@ readers do not read off random characters that represent icons */
 .icon-magnify-minus,
 .icon-magnify-plus,
 .icon-hand,
-.icon-switch-colors,
+.icon-swap,
+.icon-undo,
 .icon-color,
 .icon-adjust,
 .icon-swatches,
@@ -3633,7 +3637,7 @@ readers do not read off random characters that represent icons */
 /*---------------------------*/
 /*   Helpers                 */
 /*---------------------------*/
-.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-shape-circle, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-hand, .icon-switch-colors, .icon-color, .icon-adjust, .icon-swatches, .icon-layers, .icon-history, .icon-character, .icon-paragraph, .icon-times, .icon-angle-down, .icon-bars, .icon-angle-double-right, .icon-angle-double-left {
+.icon-move, .icon-eyedropper, .icon-paint-brush, .icon-eraser, .icon-paint-bucket, .icon-pen, .icon-shape-circle, .icon-magnify, .icon-magnify-minus, .icon-magnify-plus, .icon-hand, .icon-swap, .icon-undo, .icon-color, .icon-adjust, .icon-swatches, .icon-layers, .icon-history, .icon-character, .icon-paragraph, .icon-times, .icon-angle-down, .icon-bars, .icon-angle-double-right, .icon-angle-double-left {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -3643,7 +3647,9 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-#tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, .panel > .icon-tabs > ul > li, #tool-menu .tools .tool, #tool-menu .tools-collapsed .tool, #app-layout #workspace #documents, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects > nav > div:last-child > div, .projects .container, #tool-settings > ul > li, #tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div div, #tool-menu > .color > div:first-child .swap {
+#tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, .panel > .icon-tabs > ul > li, #tool-menu .tools .tool, #tool-menu .tools-collapsed .tool, #app-layout #workspace #documents, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects > nav > div:last-child > div, .projects .container, #tool-settings > ul > li, #tool-settings .workspace-presets, .panel-group > div:first-child div, .panel .container > nav > div div, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
+#tool-menu .color-collapsed > div:first-child .reset,
+#tool-menu .color-collapsed > div:first-child .swap, #tool-menu .color, #tool-menu .color > div:first-child {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -3755,8 +3761,11 @@ select {
 .icon-hand:before {
   content: "\f256"; }
 
-.icon-switch-colors:before {
+.icon-swap:before {
   content: "\f2f1"; }
+
+.icon-undo:before {
+  content: "\f2ea"; }
 
 .icon-color:before {
   content: "\f53f"; }
@@ -4129,41 +4138,57 @@ select {
     display: flex;
     flex-wrap: wrap;
     width: 72px; }
-  #tool-menu > .color > div:first-child {
+  #tool-menu .color > div:first-child,
+  #tool-menu .color-collapsed > div:first-child {
     display: flex;
-    justify-content: center; }
-    #tool-menu > .color > div:first-child .swap {
+    justify-content: space-around; }
+    #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
+    #tool-menu .color-collapsed > div:first-child .reset,
+    #tool-menu .color-collapsed > div:first-child .swap {
       font-size: 10px;
       padding: 2px;
       border: 1px solid transparent;
       border-radius: 2px; }
-      #tool-menu > .color > div:first-child .swap:hover {
+      #tool-menu .color > div:first-child .reset:hover, #tool-menu .color > div:first-child .swap:hover,
+      #tool-menu .color-collapsed > div:first-child .reset:hover,
+      #tool-menu .color-collapsed > div:first-child .swap:hover {
         border-color: gray; }
-  #tool-menu > .color .colors, #tool-menu > .color .colors-collapsed {
+  #tool-menu .color .colors,
+  #tool-menu .color-collapsed .colors {
+    width: 30px;
     margin: 0 auto; }
-    #tool-menu > .color .colors > .color-block, #tool-menu > .color .colors-collapsed > .color-block {
+    #tool-menu .color .colors > .color-block,
+    #tool-menu .color-collapsed .colors > .color-block {
+      width: 16px;
+      height: 16px;
       margin: 0 auto;
       border: 1px solid #000;
       padding: 1px;
       background: #fff; }
-      #tool-menu > .color .colors > .color-block > div, #tool-menu > .color .colors-collapsed > .color-block > div {
+      #tool-menu .color .colors > .color-block:last-child,
+      #tool-menu .color-collapsed .colors > .color-block:last-child {
+        transform: translate(-5px, -15px); }
+      #tool-menu .color .colors > .color-block:first-child,
+      #tool-menu .color-collapsed .colors > .color-block:first-child {
+        transform: translate(5px, 15px); }
+      #tool-menu .color .colors > .color-block > div,
+      #tool-menu .color-collapsed .colors > .color-block > div {
         width: 100%;
         height: 100%; }
-  #tool-menu > .color .colors {
+  #tool-menu .color > div:first-child {
+    position: absolute; }
+    #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap {
+      position: absolute; }
+    #tool-menu .color > div:first-child .reset {
+      transform: translate(-18px, 18px); }
+    #tool-menu .color > div:first-child .swap {
+      transform: translate(18px, -18px); }
+  #tool-menu .color .colors {
     width: 60px; }
-    #tool-menu > .color .colors > .color-block {
-      width: 28px;
-      height: 28px; }
-      #tool-menu > .color .colors > .color-block:last-child {
-        transform: translate(-7px, -23px); }
-      #tool-menu > .color .colors > .color-block:first-child {
-        transform: translate(7px, 23px); }
-  #tool-menu > .color .colors-collapsed {
-    width: 30px; }
-    #tool-menu > .color .colors-collapsed > .color-block {
-      width: 20px;
-      height: 20px; }
-      #tool-menu > .color .colors-collapsed > .color-block:last-child {
-        transform: translate(-5px, -17px); }
-      #tool-menu > .color .colors-collapsed > .color-block:first-child {
-        transform: translate(5px, 17px); }
+    #tool-menu .color .colors > .color-block {
+      width: 24px;
+      height: 24px; }
+      #tool-menu .color .colors > .color-block:last-child {
+        transform: translate(-7px, -22px); }
+      #tool-menu .color .colors > .color-block:first-child {
+        transform: translate(7px, 22px); }

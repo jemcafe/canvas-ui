@@ -7,6 +7,7 @@ function ToolMenu (props) {
     tools: t,
     color: c,
     selectTool,
+    resetColors,
     swapColors
   } = props;
 
@@ -24,7 +25,7 @@ function ToolMenu (props) {
 
   const classNames = {
     tools: isCollapsed ? 'tools-collapsed' : 'tools',
-    color: isCollapsed ? 'colors-collapsed' : 'colors'
+    color: isCollapsed ? 'color-collapsed' : 'color'
   }
 
   const listOfTools = tools.map((e, i) => {
@@ -37,11 +38,12 @@ function ToolMenu (props) {
       <ul className={classNames.tools}>
         { listOfTools }
       </ul>
-      <div className="color">
+      <div className={classNames.color}>
         <div>
-          <div className="swap" onClick={() => swapColors()}><i className="icon-switch-colors"></i></div>
+          <div className="reset" onClick={() => resetColors()}><i className="icon-undo"></i></div>
+          <div className="swap" onClick={() => swapColors()}><i className="icon-swap"></i></div>
         </div>
-        <div className={classNames.color}>
+        <div className="colors">
           <div className="color-block"><div style={{background: c.color_2.hex}} onClick={() => selectTool('eyedropper')}></div></div>
           <div className="color-block"><div style={{background: c.color_1.hex}} onClick={() => selectTool('eyedropper')}></div></div>
         </div>
@@ -51,9 +53,12 @@ function ToolMenu (props) {
 }
 
 ToolMenu.propTypes = {
+  isCollapsed: PropTypes.bool.isRequired,
   tools: PropTypes.object.isRequired,
+  color: PropTypes.object.isRequired,
   selectTool: PropTypes.func.isRequired,
-  isCollapsed: PropTypes.bool.isRequired
+  resetColors: PropTypes.func.isRequired,
+  swapColors: PropTypes.func.isRequired,
 }
 
 export default ToolMenu;
