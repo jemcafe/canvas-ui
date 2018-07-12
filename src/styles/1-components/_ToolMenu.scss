@@ -1,3 +1,11 @@
+@function colorBlockX($value) {
+  @return round($value / 4);
+}
+
+@function colorBlockY($value) {
+  @return round($value / 1.2);
+}
+
 #tool-menu {
   color: #fff;
   background: $gray;
@@ -24,35 +32,57 @@
     width: 72px;
   }
 
-  .color, .color-collapsed {
-    margin: 0 auto;
-    .one, .two {
-      margin: 0 auto;
-      padding: 2px;
-      box-sizing: border-box;
-      border: 1px solid #fff;
-      background: black;
-    }
-  }
+  > .color {
 
-  .color {
-    width: 60px;
-    .one, .two {
-      width: 32px;
-      height: 32px;
+    > div:first-child {  // reset and swap container 
+      display: flex;
+      justify-content: center;
+      .swap { 
+        @extend %center-content;
+        font-size: 10px; 
+        padding: 2px;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        &:hover { border-color: gray }
+      }
     }
-    .one { transform: translate(-8px, -24px); }
-    .two { transform: translate(8px, 24px); }
-  }
 
-  .color-collapsed {
-    width: 30px;
-    padding: 4px 0;
-    .one, .two {
-      width: 20px;
-      height: 20px;
+    .colors, .colors-collapsed {
+      margin: 0 auto; 
+      > .color-block {
+        margin: 0 auto;
+        border: 1px solid #000;
+        padding: 1px;
+        background: #fff;
+        > div {  // color
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
-    .one { transform: translate(-5px, -15px); }
-    .two { transform: translate(5px, 15px); }
+
+    .colors {
+      width: 60px;
+      > .color-block {
+        width: 28px;
+        height: 28px;
+        &:last-child { 
+          transform: translate(colorBlockX(-28px), colorBlockY(-28px)); }
+        &:first-child { 
+          transform: translate(colorBlockX(28px), colorBlockY(28px)); }
+      }
+    }
+
+    .colors-collapsed {
+      width: 30px;
+      > .color-block {
+        width: 20px;
+        height: 20px;
+        &:last-child { 
+          transform: translate(colorBlockX(-20px), colorBlockY(-20px)); }
+        &:first-child { 
+          transform: translate(colorBlockX(20px), colorBlockY(20px)); }
+      }
+    }
   }
 }

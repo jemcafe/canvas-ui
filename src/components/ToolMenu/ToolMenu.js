@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function ToolMenu (props) {
-  const { tools: t, selectTool, isCollapsed } = props;
+  const { 
+    isCollapsed,
+    tools: t,
+    color: c,
+    selectTool,
+    swapColors
+  } = props;
 
   const tools = [
     { name: 'move', icon: 'icon-move' },
@@ -18,7 +24,7 @@ function ToolMenu (props) {
 
   const classNames = {
     tools: isCollapsed ? 'tools-collapsed' : 'tools',
-    color: isCollapsed ? 'color-collapsed' : 'color'
+    color: isCollapsed ? 'colors-collapsed' : 'colors'
   }
 
   const listOfTools = tools.map((e, i) => {
@@ -31,9 +37,14 @@ function ToolMenu (props) {
       <ul className={classNames.tools}>
         { listOfTools }
       </ul>
-      <div className={classNames.color}>
-        <div className="two" onClick={() => selectTool('eyedropper')}></div>
-        <div className="one" onClick={() => selectTool('eyedropper')}></div>
+      <div className="color">
+        <div>
+          <div className="swap" onClick={() => swapColors()}><i className="icon-switch-colors"></i></div>
+        </div>
+        <div className={classNames.color}>
+          <div className="color-block"><div style={{background: c.color_2.hex}} onClick={() => selectTool('eyedropper')}></div></div>
+          <div className="color-block"><div style={{background: c.color_1.hex}} onClick={() => selectTool('eyedropper')}></div></div>
+        </div>
       </div>
     </div>
   );

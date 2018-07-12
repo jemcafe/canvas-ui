@@ -56,6 +56,12 @@
     content: fa-content($fa-var-hand-paper); } 
 }
 
+.icon-switch-colors {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-sync-alt); } 
+}
+
 // Panel icons
 
 .icon-color {

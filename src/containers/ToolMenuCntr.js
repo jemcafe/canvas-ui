@@ -1,6 +1,9 @@
 import React from 'react';
+
 import { connect } from 'react-redux';
 import { selectTool } from '../redux/reducer/tools/actions';
+import { swapColors } from '../redux/reducer/color/actions';
+
 import ToolMenu from '../components/ToolMenu/ToolMenu';
 
 function ToolMenuCntr (props) {
@@ -8,12 +11,20 @@ function ToolMenuCntr (props) {
     <ToolMenu 
       isCollapsed={props.isCollapsed}
       selectTool={props.selectTool} 
-      tools={props.tools} />
+      swapColors={props.swapColors} 
+      tools={props.tools}
+      color={props.color} />
   );
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state) => ({
+  tools: state.tools,
+  color: state.color,
+});
 
-const mapDispatchToProps = { selectTool };
+const mapDispatchToProps = { 
+  selectTool,
+  swapColors
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToolMenuCntr);

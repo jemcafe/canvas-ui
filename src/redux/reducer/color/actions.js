@@ -3,7 +3,8 @@ import { RGBtoHex, RGBtoCMYK, RGBtoHSL, RGBtoLAB, CMYKtoRGB, HSLtoRGB, LABtoRGB 
 
 // Action Types
 export const COLOR_1 = 'COLOR_1',
-             COLOR_2 = 'COLOR_2';
+             COLOR_2 = 'COLOR_2',
+             SWAP_COLORS = 'SWAP_COLORS';
 
 // Action Creators
 export const selectColor = (num, picker, c) => ({
@@ -65,4 +66,12 @@ export const selectColor = (num, picker, c) => ({
     
     return { hex, rgb, cmyk, hsl, lab, x, y };
   } 
+});
+
+export const swapColors = () => ({
+  type: SWAP_COLORS,
+  payload: (state) => {
+    const { color_1, color_2 } = state;
+    return {...state, color_1: color_2, color_2: color_1};
+  }
 });

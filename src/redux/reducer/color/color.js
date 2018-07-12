@@ -1,4 +1,8 @@
-import { COLOR_1, COLOR_2 } from './actions';
+import { 
+  COLOR_1, 
+  COLOR_2, 
+  SWAP_COLORS 
+} from './actions';
 
 const initialState = {
   color_1: {
@@ -30,6 +34,8 @@ export default (state = initialState, action) => {
       return {...state, color_1: payload};
     case COLOR_2:
       return {...state, color_2: payload};
+    case SWAP_COLORS:
+      return payload(state);
     default:
       return state;
   }
