@@ -4,13 +4,40 @@
   border-bottom: 1px solid $darkgray;
   background: $gray;
 
-  > ul {  //  container
+  > ul {  // options
     display: flex;
 
-    > li {
-      @include user-select(none);
-      padding: 6px 10px;
-      &:active { background: $themeColor; }
+    > li {  // option
+      display: flex;
+      align-items: flex-end;
+
+      .option-name {  // option name
+        padding: 6px 10px;
+        @include user-select(none);
+        &:active { background: $themeColor; }
+      }
+
+      .content {
+        display: none;
+        position: absolute;
+        border-radius: 0 0 4px 4px;
+        padding: 6px 0;
+        box-sizing: border-box;
+        background: $lightgray;
+        color: #000;
+        @extend %box-shadow;
+
+        li {  // content options
+          padding: 4px 12px;
+          text-align: left;
+          &:hover { background: blue; color: #fff; }
+        }
+      }
+    }
+
+    > li:hover {
+      .option-name { background: $themeColor; color: #000; }
+      .content { display: block; }
     }
   }
 }

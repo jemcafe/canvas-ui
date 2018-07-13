@@ -1,20 +1,25 @@
 import React from 'react';
 
-function ToolBar () {
+function ToolBar ({ options: o }) {
+  console.log(o);
+
   return (
     <div id="toolbar">
       <ul>
-        <li>File</li>
-        <li>Edit</li>
-        <li>Image</li>
-        <li>Layer</li>
-        <li>Type</li>
-        <li>Select</li>
-        <li>Filter</li>
-        <li>3D</li>
-        <li>View</li>
-        <li>Window</li>
-        <li>Help</li>
+        { o.length > 0 && o.map((e, i) => (
+          <li>
+            <div className="content-container">
+              <ul className="content">
+                { e.options.map((e, i) => (
+                <li key={i}>{ e }</li>
+                )) }
+              </ul>
+            </div>
+            <div className="option-name">
+              { e.name }
+            </div>
+          </li>
+        )) }
       </ul>
     </div>
   );

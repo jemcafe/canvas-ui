@@ -3659,6 +3659,9 @@ readers do not read off random characters that represent icons */
   justify-content: center;
   align-items: center; }
 
+#toolbar > ul > li .content, #new-project, #tool-settings > ul > li > .container {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); }
+
 #tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, #tool-menu .tools .tool,
 #tool-menu .tools-collapsed .tool, .tab-group > .icon-tabs > ul > li {
   width: 30px;
@@ -3902,17 +3905,39 @@ select {
   #toolbar > ul {
     display: flex; }
     #toolbar > ul > li {
-      -webkit-user-select: none;
-      /* Chrome all / Safari all */
-      -moz-user-select: none;
-      /* Firefox all */
-      -ms-user-select: none;
-      /* IE 10+ */
-      user-select: none;
-      /* Likely future */
-      padding: 6px 10px; }
-      #toolbar > ul > li:active {
-        background: #3ee9be; }
+      display: flex;
+      align-items: flex-end; }
+      #toolbar > ul > li .option-name {
+        padding: 6px 10px;
+        -webkit-user-select: none;
+        /* Chrome all / Safari all */
+        -moz-user-select: none;
+        /* Firefox all */
+        -ms-user-select: none;
+        /* IE 10+ */
+        user-select: none;
+        /* Likely future */ }
+        #toolbar > ul > li .option-name:active {
+          background: #3ee9be; }
+      #toolbar > ul > li .content {
+        display: none;
+        position: absolute;
+        border-radius: 0 0 4px 4px;
+        padding: 6px 0;
+        box-sizing: border-box;
+        background: #d3d3d3;
+        color: #000; }
+        #toolbar > ul > li .content li {
+          padding: 4px 12px;
+          text-align: left; }
+          #toolbar > ul > li .content li:hover {
+            background: blue;
+            color: #fff; }
+    #toolbar > ul > li:hover .option-name {
+      background: #3ee9be;
+      color: #000; }
+    #toolbar > ul > li:hover .content {
+      display: block; }
 
 #new-project {
   position: absolute;
@@ -3920,7 +3945,6 @@ select {
   bottom: 50vh;
   z-index: 1;
   border-radius: 4px;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.6);
   background: #5e5e5e; }
   #new-project > h5 {
     color: #000;
@@ -4005,7 +4029,6 @@ select {
         padding: 10px;
         box-sizing: border-box;
         background: #5e5e5e;
-        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.6);
         font-size: 12px; }
   #tool-settings .dropdown-btn,
   #tool-settings .dropdown-btn-pressed {

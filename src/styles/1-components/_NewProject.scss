@@ -4,9 +4,9 @@
   bottom: 50vh;
   z-index: 1;
   border-radius: 4px;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.6);
   background: $gray;
   // background: pink;
+  @extend %box-shadow;
 
   > h5 {
     color: #000;

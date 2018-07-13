@@ -15,6 +15,10 @@
   align-items: center;
 }
 
+%box-shadow {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
 // tool icon container style
 %tool-menu-icon {
   @extend %center-content;

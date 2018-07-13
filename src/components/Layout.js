@@ -1,7 +1,8 @@
 import React from 'react';
 
 //
-import tabGroups from '../tabs/panels';
+import toolbarOptions from '../tabs/toolbarOptions';
+import tabGroups from '../tabs/tabGroups';
 import projects from '../tabs/projects';
 
 // Components
@@ -15,7 +16,7 @@ import Panel from '../containers/PanelCntr';
 function Layout () {
   return (
     <div id="app-layout">
-      <ToolBar />
+      <ToolBar options={toolbarOptions}/>
       <section>
         <ToolSettings />
       </section>
