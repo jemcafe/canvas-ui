@@ -6,7 +6,7 @@ import Select from '../_Settings/Select';
 function Move () {
   return (
     <Aux>
-      <ToolPresets />
+      <ToolPresets icon={'icon-move'} />
       <Select />
     </Aux>
   );

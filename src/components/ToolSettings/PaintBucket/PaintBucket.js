@@ -6,7 +6,7 @@ import Opacity from '../_Settings/Opacity';
 function Fill () {
   return (
     <Aux>
-      <ToolPresets />
+      <ToolPresets icon={'icon-paint-bucket'} />
       <Opacity />
     </Aux>
   );

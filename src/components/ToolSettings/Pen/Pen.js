@@ -7,7 +7,7 @@ import ShapeStyle from '../_Settings/ShapeStyle';
 function Pen () {
   return (
     <Aux>
-      <ToolPresets />
+      <ToolPresets icon={'icon-pen'} />
       <ShapeType />
       <ShapeStyle />
     </Aux>

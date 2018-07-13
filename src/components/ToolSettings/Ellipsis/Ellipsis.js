@@ -5,7 +5,7 @@ import ToolPresets from '../_Settings/ToolPresets';
 function Ellipsis () {
   return (
     <Aux>
-      <ToolPresets />
+      <ToolPresets icon={'icon-ellipsis'} />
     </Aux>
   );
 }

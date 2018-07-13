@@ -6,7 +6,7 @@ import SampleSize from '../_Settings/SampleSize';
 function Eyedropper () {
   return (
     <Aux>
-      <ToolPresets />
+      <ToolPresets icon={'icon-eyedropper'} />
       <SampleSize />
     </Aux>
   );

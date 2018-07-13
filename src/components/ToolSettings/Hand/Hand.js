@@ -5,7 +5,7 @@ import ToolPresets from '../_Settings/ToolPresets';
 function Hand () {
   return (
     <Aux>
-      <ToolPresets />
+      <ToolPresets icon={'icon-hand'} />
     </Aux>
   );
 }

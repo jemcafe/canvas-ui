@@ -7,14 +7,17 @@ class ToolPresets extends Component {
   }
 
   render () {
+    const { icon = '' } = this.props;
+
     const classNames = {
-      button: this.state.isHidden ? 'dropdown-btn' : 'dropdown-btn-pressed'
+      button: this.state.isHidden ? 'dropdown-btn' : 'dropdown-btn-pressed',
+      icon: icon
     }
 
     return (
       <li className="tool-presets">
         <div className="tool-select" onClick={() => this.setState(prev =>({isHidden: !prev.isHidden}))}>
-          <div className="icon"><i className="icon-eraser"></i></div>
+          <div className="icon"><i className={classNames.icon}></i></div>
           <div>
             <div className={classNames.button}>
               <i className="icon-angle-down"></i>

@@ -8,7 +8,7 @@ import Opacity from '../_Settings/Opacity';
 function PaintBrush () {
   return (
     <Aux>
-      <ToolPresets />
+      <ToolPresets icon={'icon-paint-brush'} />
       <Brush />
       <Mode />
       <Opacity />

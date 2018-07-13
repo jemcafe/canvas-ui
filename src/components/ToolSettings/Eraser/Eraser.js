@@ -8,7 +8,7 @@ import Opacity from '../_Settings/Opacity';
 function Eraser () {
   return (
     <Aux>
-      <ToolPresets />
+      <ToolPresets icon={'icon-eraser'} />
       <Brush />
       <Mode />
       <Opacity />

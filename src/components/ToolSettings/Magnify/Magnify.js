@@ -6,7 +6,7 @@ import Zoom from '../_Settings/Zoom';
 function Magnify () {
   return (
     <Aux>
-      <ToolPresets />
+      <ToolPresets icon={'icon-magnify'} />
       <Zoom />
     </Aux>
   );
