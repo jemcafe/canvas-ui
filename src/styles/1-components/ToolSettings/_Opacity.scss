@@ -1,9 +1,5 @@
 #tool-settings > .settings > .opacity {
   .container {
     transform: translate(0, 30px);
-
-    > .range-container { 
-      @extend %center-content 
-    }
   }
 }

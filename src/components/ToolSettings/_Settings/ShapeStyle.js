@@ -8,7 +8,7 @@ class ShapeStyle extends Component {
 
   render () {
     const classNames = {
-      button: !this.state.isHidden ? 'pressed' : ''
+      button: this.state.isHidden ? 'dropdown-btn' : 'dropdown-btn-pressed'
     }
 
     return (
@@ -19,16 +19,20 @@ class ShapeStyle extends Component {
         Stroke:&nbsp;
         <div className="color"></div>
         
-        <div className="stroke-width text-input">
-          <input type="text" defaultValue="5px"/>
-          <button className={classNames.button} onClick={() => this.setState(prev =>({isHidden: !prev.isHidden}))}>
-            <i className="icon-angle-down"></i>
-          </button>
-          { !this.state.isHidden &&
-          <div className="container" onMouseLeave={() => this.setState({isHidden: true})}>
-            <input type="range" min="0" max="2000"/>
-          </div> }
+        <div className="stroke-width">
+          <div className="text-input">
+            <input type="text" defaultValue="5px"/>
+            <div className={classNames.button} onClick={() => this.setState(prev =>({isHidden: !prev.isHidden}))}>
+              <i className="icon-angle-down"></i>
+            </div>
+          </div>
         </div>
+        { !this.state.isHidden &&
+        <div className="container" onMouseLeave={() => this.setState({isHidden: true})}>
+          <div className="range-container">
+            <input type="range" min="0" max="2000"/>
+          </div>
+        </div> }
         
         <div className="stroke-options">
           STROKE OPTIONS

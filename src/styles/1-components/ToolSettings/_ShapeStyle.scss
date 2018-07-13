@@ -1,8 +1,8 @@
 #tool-settings > .settings > .shape-style {
   white-space: nowrap;
 
-  .text-input > .container {
-    transform: translate(-60px, 30px);
+  > .container {
+    transform: translate(0, 30px);
   }
   
   .color {
@@ -15,6 +15,8 @@
   .stroke-width, .stroke-options {
     margin: 0 0 0 8px;
   }
+
+  // .stroke-width { }
 
   .stroke-options {
     border: 1px solid gray;

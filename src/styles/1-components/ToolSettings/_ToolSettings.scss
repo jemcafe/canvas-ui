@@ -25,6 +25,10 @@
         background: $gray;
         box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.6);
         font-size: 12px;
+
+        > .range-container { // When the content is a range input
+          @extend %center-content;
+        }
       }
     }
   }

@@ -3652,7 +3652,7 @@ readers do not read off random characters that represent icons */
   vertical-align: -.125em; }
 
 #tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, #tool-menu .tools .tool,
-#tool-menu .tools-collapsed .tool, .tab-group > .icon-tabs > ul > li, .double-angle-btn, #app-layout #workspace #documents, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects .container, #tool-settings > ul > li, #tool-settings .workspace-presets, #tool-settings > .settings > .opacity .container > .range-container, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
+#tool-menu .tools-collapsed .tool, .tab-group > .icon-tabs > ul > li, .double-angle-btn, #app-layout #workspace #documents, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects .container, #tool-settings > ul > li, #tool-settings > ul > li > .container > .range-container, #tool-settings .workspace-presets, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
 #tool-menu .color-collapsed > div:first-child .reset,
 #tool-menu .color-collapsed > div:first-child .swap, #tool-menu .color, #tool-menu .color > div:first-child, .panel > div:first-child div, .tab-group .container > nav > div .menu, .tab-group .container > nav > div .menu > div:first-child, .tab-group .container > .content {
   display: flex;
@@ -4061,8 +4061,8 @@ select {
 
 #tool-settings > .settings > .shape-style {
   white-space: nowrap; }
-  #tool-settings > .settings > .shape-style .text-input > .container {
-    transform: translate(-60px, 30px); }
+  #tool-settings > .settings > .shape-style > .container {
+    transform: translate(0, 30px); }
   #tool-settings > .settings > .shape-style .color {
     width: 30px;
     height: 50%;
