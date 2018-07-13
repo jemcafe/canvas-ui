@@ -17,7 +17,7 @@ function TabGroup (props) {
 
   const styles = {
     panel: !isCollapsed ? {
-      height: '50%',  // Using percentage instead of flexbox to stretch the panels
+      flex: 1,  // Using percentage instead of flexbox to stretch the panels
     } : null,
     container: isCollapsed ? {
       position: 'absolute',

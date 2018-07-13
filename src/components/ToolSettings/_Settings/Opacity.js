@@ -8,7 +8,7 @@ class Opacity extends Component {
 
   render () {
     const classNames = {
-      button: !this.state.isHidden ? 'pressed' : ''
+      button: !this.state.isHidden ? ' pressed' : ''
     }
 
     return (
@@ -16,9 +16,9 @@ class Opacity extends Component {
         Opacity:
         <div className="text-input">
           <input type="text" defaultValue="100%"/>
-          <button className={classNames.button} onClick={() => this.setState(prev =>({isHidden: !prev.isHidden}))}>
+          <div className={`dropdown-btn${classNames.button}`} onClick={() => this.setState(prev =>({isHidden: !prev.isHidden}))}>
             <i className="icon-angle-down"></i>
-          </button>
+          </div>
         </div>
         { !this.state.isHidden &&
         <div className="container" onMouseLeave={() => this.setState({isHidden: true})}>

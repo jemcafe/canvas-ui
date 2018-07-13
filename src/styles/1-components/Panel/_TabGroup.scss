@@ -46,12 +46,12 @@
           }
 
           > select {  // overlaps the menu icon
-            @include select-arrow(none);
             position: absolute;
             background: none;
             border-color: transparent;
             width: 20px;
             text-indent: 10px;
+            text-overflow: '';
             &:hover { border-color: gray; }
             &:active { background: $darkgray; }
           }

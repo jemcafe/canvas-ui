@@ -1,6 +1,6 @@
 $colorBlock1: 24px !default;                   // color block size
 $colorBlock2: 16px !default;                   // collapsed color block size
-$color-icon-XY: $colorBlock1 * 0.75 !default;  // reset and swap icon coordinate value for x and y when collapsed
+$color-icon-XY: $colorBlock1 * 0.75 !default;  // x and y coordinate value for reset and swap icons when collapsed
 
 @function colorBlockX($value) {
   @return round($value / 3.4);
@@ -18,7 +18,6 @@ $color-icon-XY: $colorBlock1 * 0.75 !default;  // reset and swap icon coordinate
   .tools-collapsed {
     padding: 4px;
     box-sizing: border-box;
-    height: 100%;
 
     .tool {
       @extend %tool-menu-icon;

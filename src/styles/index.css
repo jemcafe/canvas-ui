@@ -3707,33 +3707,41 @@ button {
 
 input {
   outline: none; }
-
-input[type=text] {
-  border: none;
-  border-bottom: 1px solid lightgrey;
-  padding: 4px 5px;
-  box-sizing: border-box;
-  background: transparent;
-  color: #fff;
-  text-shadow: 0 0 0 #fff;
-  -webkit-text-fill-color: transparent; }
-  input[type=text]:focus {
-    border-color: #3ee9be; }
-
-input[type=text]::-webkit-input-placeholder {
-  color: #ccc;
-  text-shadow: none;
-  -webkit-text-fill-color: initial; }
-
-input[type=range] {
-  padding: 0;
-  margin: 0; }
+  input[type=text] {
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    padding: 4px 5px;
+    box-sizing: border-box;
+    background: transparent;
+    color: #fff;
+    text-shadow: 0 0 0 #fff;
+    -webkit-text-fill-color: transparent; }
+    input[type=text]:focus {
+      border-color: #3ee9be; }
+  input[type=text]::-webkit-input-placeholder {
+    color: #ccc;
+    text-shadow: none;
+    -webkit-text-fill-color: initial; }
+  input[type=range] {
+    padding: 0;
+    margin: 0; }
 
 select {
   outline: none;
   color: #fff;
+  padding: 2px 4px;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
   background: #444444;
-  padding: 2px 4px; }
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Chrome */ }
+  select::-ms-expand {
+    display: none; }
+  select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #fff; }
 
 /*---------------------------*/
 /*   Layouts                 */
@@ -3999,20 +4007,22 @@ select {
         background: #5e5e5e;
         box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.6);
         font-size: 12px; }
+  #tool-settings .dropdown-btn {
+    border: 1px solid #5e5e5e;
+    border-radius: 2px;
+    padding: 2px;
+    background: #5e5e5e;
+    color: #fff; }
   #tool-settings .text-input {
     display: flex;
     align-items: center;
     margin: 0 0 0 8px; }
     #tool-settings .text-input > input {
-      width: 80px;
+      width: 70px;
       padding-right: 30px; }
-    #tool-settings .text-input > button {
+    #tool-settings .text-input > .dropdown-btn {
       position: absolute;
-      transform: translate(55px, 0);
-      border: 1px solid #5e5e5e;
-      border-radius: 2px;
-      background: #5e5e5e;
-      color: #fff; }
+      transform: translate(55px, 0); }
     #tool-settings .text-input > .pressed {
       border-color: #d3d3d3;
       background: #444444; }
@@ -4039,11 +4049,6 @@ select {
       width: 15px;
       height: 15px;
       background: #969696; }
-  #tool-settings > .settings > .brush .brush-select > button {
-    border: 1px solid #5e5e5e;
-    border-radius: 2px;
-    background: #5e5e5e;
-    color: #fff; }
   #tool-settings > .settings > .brush .brush-select > .pressed {
     border-color: #d3d3d3;
     background: #444444; }
@@ -4072,25 +4077,20 @@ select {
     padding: 4px 6px;
     box-sizing: border-box; }
 
-#tool-settings > .settings > .tool .tool-select {
+#tool-settings > .settings > .tool-presets .tool-select {
   display: flex;
   justify-content: space-between;
   width: 50px; }
-  #tool-settings > .settings > .tool .tool-select > div {
+  #tool-settings > .settings > .tool-presets .tool-select > div {
     flex: 1; }
-    #tool-settings > .settings > .tool .tool-select > div:first-child {
+    #tool-settings > .settings > .tool-presets .tool-select > div:first-child {
       flex: 2;
       font-size: 16px; }
-  #tool-settings > .settings > .tool .tool-select > button {
-    border: 1px solid #5e5e5e;
-    border-radius: 2px;
-    background: #5e5e5e;
-    color: #fff; }
-  #tool-settings > .settings > .tool .tool-select > .pressed {
+  #tool-settings > .settings > .tool-presets .tool-select > .pressed {
     border-color: #d3d3d3;
     background: #444444; }
 
-#tool-settings > .settings > .tool > .container {
+#tool-settings > .settings > .tool-presets > .container {
   transform: translate(0, 30px); }
 
 #tool-settings > .settings > .zoom .plus:hover, #tool-settings > .settings > .zoom .minus:hover {
@@ -4102,8 +4102,7 @@ select {
   #tool-menu .tools,
   #tool-menu .tools-collapsed {
     padding: 4px;
-    box-sizing: border-box;
-    height: 100%; }
+    box-sizing: border-box; }
     #tool-menu .tools .tool:hover,
     #tool-menu .tools-collapsed .tool:hover {
       border-color: #d3d3d3; }
@@ -4188,6 +4187,8 @@ select {
   .panel > .left {
     justify-content: flex-start; }
   .panel > .container {
+    display: flex;
+    flex-direction: column;
     overflow-y: hidden;
     height: 100%;
     border-left: 2px solid #444444;
@@ -4231,17 +4232,12 @@ select {
         .tab-group .container > nav > div .menu {
           margin: 0 8px; }
           .tab-group .container > nav > div .menu > select {
-            -moz-appearance: none;
-            /* Firefox */
-            -webkit-appearance: none;
-            /* Chrome */
             position: absolute;
             background: none;
             border-color: transparent;
             width: 20px;
-            text-indent: 10px; }
-            .tab-group .container > nav > div .menu > select::-ms-expand {
-              display: none; }
+            text-indent: 10px;
+            text-overflow: ''; }
             .tab-group .container > nav > div .menu > select:hover {
               border-color: gray; }
             .tab-group .container > nav > div .menu > select:active {

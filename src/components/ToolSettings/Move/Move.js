@@ -1,12 +1,12 @@
 import React, { Fragment as Aux } from 'react';
 
-import Tool from '../_Settings/Tool';
+import ToolPresets from '../_Settings/ToolPresets';
 import Select from '../_Settings/Select';
 
 function Move () {
   return (
     <Aux>
-      <Tool />
+      <ToolPresets />
       <Select />
     </Aux>
   );

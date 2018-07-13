@@ -29,23 +29,27 @@
     }
   }
 
+  .dropdown-btn {
+    border: 1px solid $gray;
+    border-radius: 2px;
+    padding: 2px;
+    background: $gray;
+    color: #fff;
+  }
+
   .text-input {
     display: flex;
     align-items: center;
     margin: 0 0 0 8px;
 
     > input {
-      width: 80px;
+      width: 70px;
       padding-right: 30px;
     }
 
-    > button {
+    > .dropdown-btn {
       position: absolute;
       transform: translate(55px, 0);
-      border: 1px solid $gray;
-      border-radius: 2px;
-      background: $gray;
-      color: #fff;
     }
 
     > .pressed {

@@ -1,11 +1,11 @@
 import React, { Fragment as Aux } from 'react';
 
-import Tool from '../_Settings/Tool';
+import ToolPresets from '../_Settings/ToolPresets';
 
 function Ellipsis () {
   return (
     <Aux>
-      <Tool />
+      <ToolPresets />
     </Aux>
   );
 }

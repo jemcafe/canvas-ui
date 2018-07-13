@@ -8,16 +8,16 @@ class Brush extends Component {
 
   render () {
     const classNames = {
-      button: !this.state.isHidden ? 'pressed' : ''
+      button: !this.state.isHidden ? ' pressed' : ''
     }
 
     return (
       <li className="brush">
         <div className="brush-select" onClick={() => this.setState(prev =>({isHidden: !prev.isHidden}))}>
           <div><div className="img"></div>23</div>
-          <button className={classNames.button}>
+          <div className={`dropdown-btn${classNames.button}`}>
             <i className="icon-angle-down"></i>
-          </button>
+          </div>
         </div>
         { !this.state.isHidden && 
         <div className="container" onMouseLeave={() => this.setState({isHidden: true})}>

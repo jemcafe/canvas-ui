@@ -20,6 +20,8 @@
   > .left { justify-content: flex-start; }
 
   > .container {
+    display: flex;
+    flex-direction: column;
     overflow-y: hidden;
     height: 100%;
     border-left: 2px solid $darkgray;

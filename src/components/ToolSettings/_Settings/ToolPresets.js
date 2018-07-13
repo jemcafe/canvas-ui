@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Tool extends Component {
+class ToolPresets extends Component {
   constructor () {
     super();
     this.state = { isHidden: true }
@@ -8,16 +8,16 @@ class Tool extends Component {
 
   render () {
     const classNames = {
-      button: !this.state.isHidden ? 'pressed' : ''
+      button: !this.state.isHidden ? ' pressed' : ''
     }
 
     return (
-      <li className="tool">
+      <li className="tool-presets">
         <div className="tool-select" onClick={() => this.setState(prev =>({isHidden: !prev.isHidden}))}>
           <div className="icon"><i className="icon-eraser"></i></div>
-          <button className={classNames.button}>
+          <div className={`dropdown-btn${classNames.button}`}>
             <i className="icon-angle-down"></i>
-          </button>
+          </div>
         </div>
         { !this.state.isHidden && 
         <div className="container" onMouseLeave={() => this.setState({isHidden: true})}>
@@ -28,4 +28,4 @@ class Tool extends Component {
   }
 }
 
-export default Tool;
+export default ToolPresets;

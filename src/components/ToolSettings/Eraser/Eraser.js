@@ -1,6 +1,6 @@
 import React, { Fragment as Aux } from 'react';
 
-import Tool from '../_Settings/Tool';
+import ToolPresets from '../_Settings/ToolPresets';
 import Brush from '../_Settings/Brush';
 import Mode from '../_Settings/Mode';
 import Opacity from '../_Settings/Opacity';
@@ -8,7 +8,7 @@ import Opacity from '../_Settings/Opacity';
 function Eraser () {
   return (
     <Aux>
-      <Tool />
+      <ToolPresets />
       <Brush />
       <Mode />
       <Opacity />

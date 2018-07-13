@@ -16,13 +16,6 @@
       }
     }
 
-    > button {
-      border: 1px solid $gray;
-      border-radius: 2px;
-      background: $gray;
-      color: #fff;
-    }
-
     > .pressed {
       border-color: $lightgray;
       background: $darkgray;

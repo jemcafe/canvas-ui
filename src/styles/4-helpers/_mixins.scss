@@ -5,8 +5,14 @@
   user-select: $value;          /* Likely future */   
 }
 
-@mixin select-arrow ($value) {
+@mixin select ($value) {
   -moz-appearance: $value;        /* Firefox */
   -webkit-appearance: $value;     /* Chrome */
-  &::-ms-expand { display: $value; }
+  &::-ms-expand { 
+    display: $value; 
+  }
+  &:-moz-focusring {  // Removes dotted outline in Firefox broswer
+    color: transparent;
+    text-shadow: 0 0 0 #fff;
+  }
 }

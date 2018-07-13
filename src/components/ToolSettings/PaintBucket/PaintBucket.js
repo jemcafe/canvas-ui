@@ -1,12 +1,12 @@
 import React, { Fragment as Aux } from 'react';
 
-import Tool from '../_Settings/Tool';
+import ToolPresets from '../_Settings/ToolPresets';
 import Opacity from '../_Settings/Opacity';
 
 function Fill () {
   return (
     <Aux>
-      <Tool />
+      <ToolPresets />
       <Opacity />
     </Aux>
   );
