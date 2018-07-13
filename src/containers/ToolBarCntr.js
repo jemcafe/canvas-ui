@@ -7,19 +7,19 @@ class ToolBarCntr extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      options: this.props.options || []
+      items: this.props.items || []
     }
   }
 
   render () {
     return (
-      <ToolBar options={this.state.options} />
+      <ToolBar items={this.state.items} />
     );
   }
 }
 
 ToolBarCntr.propTypes =  {
-  options: PropTypes.array
+  items: PropTypes.array
 }
 
 export default ToolBarCntr;

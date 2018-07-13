@@ -119,17 +119,24 @@
   font-size: 12px;
 }
 
+.icon-bars {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-bars); }
+}
+
+.icon-angle-right {
+  @extend %fas;
+  &:before { 
+    content: fa-content($fa-var-angle-right); }
+  font-size: 12px;
+}
+
 .icon-angle-down {
   @extend %fas;
   &:before { 
     content: fa-content($fa-var-angle-down); }
   font-size: 12px;
-}
-
-.icon-bars {
-  @extend %fas;
-  &:before { 
-    content: fa-content($fa-var-bars); }
 }
 
 .icon-angle-double-right {

@@ -3,17 +3,17 @@
   color: #fff;
   border-bottom: 1px solid $darkgray;
   background: $gray;
+  @include user-select(none);
 
-  > ul {  // options
+  > .items {
     display: flex;
 
-    > li {  // option
+    > .item {
       display: flex;
       align-items: flex-end;
 
-      .option-name {  // option name
+      > .item-name {
         padding: 6px 10px;
-        @include user-select(none);
         &:active { background: $themeColor; }
       }
 
@@ -27,17 +27,33 @@
         color: #000;
         @extend %box-shadow;
 
-        li {  // content options
-          padding: 4px 12px;
-          text-align: left;
-          &:hover { background: blue; color: #fff; }
+        .option { 
+          display: flex; 
+          text-align: left; }
+        .option-name { 
+          flex: 1; 
+          white-space: nowrap;
+          padding: 4px 12px; }
+        .arrow { 
+          @extend %center-content; 
+          padding: 0 6px; }
+        .option-content { 
+          transform: translate(0, -6px); }
+        .content { 
+          border-radius: 4px; }
+
+        .option:hover { 
+          background: blue; 
+          > .option-name { color: #fff; }
+          > .arrow { color: #fff; }
+          > .option-content > .content { display: block; }
         }
       }
     }
 
-    > li:hover {
-      .option-name { background: $themeColor; color: #000; }
-      .content { display: block; }
+    > .item:hover {
+      .item-name { background: $themeColor; color: #000; }
+      .item-content > .content { display: block; }
     }
   }
 }

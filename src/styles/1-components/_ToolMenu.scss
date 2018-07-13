@@ -1,6 +1,6 @@
 $colorBlock1: 24px !default;                   // color block size
 $colorBlock2: 16px !default;                   // collapsed color block size
-$color-icon-XY: $colorBlock1 * 0.75 !default;  // x and y coordinate value for reset and swap icons when collapsed
+$reset-swap-XY: $colorBlock1 * 0.75 !default;  // x and y coordinate value for reset and swap icons when collapsed
 
 @function colorBlockX($value) {
   @return round($value / 3.4);
@@ -82,8 +82,8 @@ $color-icon-XY: $colorBlock1 * 0.75 !default;  // x and y coordinate value for r
 
       .reset, .swap { position: absolute; }
 
-      .reset { transform: translate(-$color-icon-XY, $color-icon-XY); }
-      .swap { transform: translate($color-icon-XY, -$color-icon-XY); }
+      .reset { transform: translate(-$reset-swap-XY, $reset-swap-XY); }
+      .swap { transform: translate($reset-swap-XY, -$reset-swap-XY); }
     }
 
     .colors {
