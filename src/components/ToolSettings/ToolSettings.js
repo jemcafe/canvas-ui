@@ -16,16 +16,16 @@ function ToolSettings ({ tools: t }) {
   return (
     <div id="tool-settings">
       <ul className="settings">
-        { t.move.selected && <Move /> }
-        { t.eyedropper.selected && <Eyedropper /> }
-        { t.paintBrush.selected && <PaintBrush /> }
-        { t.eraser.selected && <Eraser /> }
+        { t.move.selected        && <Move /> }
+        { t.eyedropper.selected  && <Eyedropper /> }
+        { t.paintBrush.selected  && <PaintBrush /> }
+        { t.eraser.selected      && <Eraser /> }
         { t.paintBucket.selected && <PaintBucket /> }
-        { t.pen.selected && <Pen /> }
-        { t.shape.selected && <Shape /> }
-        { t.magnify.selected && <Magnify /> }
-        { t.hand.selected && <Hand /> }
-        { t.ellipsis.selected && <Ellipsis /> }
+        { t.pen.selected         && <Pen /> }
+        { t.shape.selected       && <Shape /> }
+        { t.magnify.selected     && <Magnify /> }
+        { t.hand.selected        && <Hand /> }
+        { t.ellipsis.selected    && <Ellipsis /> }
       </ul>
 
       <div className="workspace-presets">

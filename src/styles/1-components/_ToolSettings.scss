@@ -17,6 +17,15 @@
       @extend %center-content;
       padding: 0 10px;
       border-right: 1px solid $darkgray;
+
+      > .container {  // dropdown content container
+        position: absolute;
+        padding: 10px;
+        box-sizing: border-box;
+        background: $gray;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.6);
+        font-size: 12px;
+      }
     }
   }
 
@@ -42,14 +51,6 @@
     > .pressed {
       border-color: $lightgray;
       background: $darkgray;
-    }
-
-    > .container {  // dropdown content container
-      position: absolute;
-      padding: 4px 10px;
-      border: 1px solid $darkgray;
-      background: $gray;
-      box-shadow: 0 2px 8px 0 black;
     }
   }
 

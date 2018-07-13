@@ -2,10 +2,12 @@
 @import 'AppLayout';
 
 @import 'ToolBar';
+@import 'NewProject';
 
 @import 'Projects';
 @import 'MainCanvas';
 
+@import 'ToolSettings';
 @import 'ToolSettings/Brush';
 // @import 'ToolSettings/Mode';
 @import 'ToolSettings/Opacity';
@@ -15,12 +17,11 @@
 // @import 'ToolSettings/ShapeType';
 @import 'ToolSettings/Tool';
 @import 'ToolSettings/Zoom';
-@import 'ToolSettings';
-
-@import 'PanelGroup/PanelGroup';
-@import 'PanelGroup/Panel';
 
 @import 'ToolMenu';
+
+@import 'Panel/Panel';
+@import 'Panel/TabGroup';
 
 @import 'PanelContent/History';
 @import 'PanelContent/Character';

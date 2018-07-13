@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import TabGroup from './TabGroup/TabGroup';
 import ToolMenu from '../../containers/ToolMenuCntr';
 
-function PanelGroup (props) {
+function Panel (props) {
   const {
     isCollapsed,
     side,
@@ -17,7 +17,7 @@ function PanelGroup (props) {
   } = props;
 
   return (
-    <div className="panel-group">
+    <div className="panel">
       <div className={side === 'L' ? 'left' : 'right'}>
         { !isCollapsed 
         ? <div onClick={ togglePanels }><i className={`icon-angle-double-${side === 'L' ? 'left' : 'right'}`}></i></div>
@@ -42,8 +42,8 @@ function PanelGroup (props) {
   );
 }
 
-PanelGroup.propTypes = {
+Panel.propTypes = {
   tabGroups: PropTypes.array.isRequired
 }
 
-export default PanelGroup;
+export default Panel;

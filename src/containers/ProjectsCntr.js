@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import Projects from '../components/Projects/Projects';
 
-class ToolBarCntr extends Component {
-  constructor () {
-    super();
-    this.state = { tab: 0 }
+class ProjectsCntr extends Component {
+  constructor (props) {
+    super(props);
+    this.state = { 
+      projects: this.props.projects || [],
+      tab: 0 
+    }
   }
 
   changeTab = (index) => {
@@ -12,19 +15,13 @@ class ToolBarCntr extends Component {
   }
 
   render () {
-    const tabs = [
-      { id: 1, name: 'Untitled 1', children: 'CANVAS 1' },
-      { id: 2, name: 'Untitled 2', children: 'CANVAS 2' },
-      { id: 3, name: 'Untitled 3', children: 'CANVAS 3' },
-    ];
-
     return (
       <Projects 
-        tabs={tabs}
+        projects={this.state.projects}
         tab={this.state.tab} 
         changeTab={this.changeTab} />
     );
   }
 }
 
-export default ToolBarCntr;
+export default ProjectsCntr;

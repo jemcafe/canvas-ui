@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
   text-align: center;
 }
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+}
  
 ul {
   margin: 0;
@@ -15,8 +19,12 @@ button {
   outline: none;
 }
 
+
 input {
   outline: none;
+}
+
+input[type=text] {
   border: none;
   border-bottom: 1px solid lightgrey;
   padding: 4px 5px;
@@ -28,7 +36,7 @@ input {
   &:focus { border-color: $themeColor; }
 }
 
-input::-webkit-input-placeholder {
+input[type=text]::-webkit-input-placeholder {
   color: #ccc;
   text-shadow: none;
   -webkit-text-fill-color: initial;
@@ -36,10 +44,10 @@ input::-webkit-input-placeholder {
 
 input[type=range] {
   padding: 0;
+  margin: 0;
 }
 
 select {
-  @include select-arrow(none);
   outline: none;
   color: #fff;
   background: $darkgray;

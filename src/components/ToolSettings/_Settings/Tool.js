@@ -18,11 +18,11 @@ class Tool extends Component {
           <button className={classNames.button}>
             <i className="icon-angle-down"></i>
           </button>
-          { !this.state.isHidden && 
-          <div className="container" onMouseLeave={() => this.setState({isHidden: true})}>
-            BRUSHES
-          </div> }
         </div>
+        { !this.state.isHidden && 
+        <div className="container" onMouseLeave={() => this.setState({isHidden: true})}>
+          PRESETS
+        </div> }
       </li>
     );
   }

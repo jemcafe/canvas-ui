@@ -1,5 +1,9 @@
 #tool-settings > .settings > .opacity {
-  .text-input > .container {
-    transform: translate(-70px, 30px);
+  .container {
+    transform: translate(0, 30px);
+
+    > .range-container { 
+      @extend %center-content 
+    }
   }
 }

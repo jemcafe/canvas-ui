@@ -27,13 +27,9 @@
       border-color: $lightgray;
       background: $darkgray;
     }
+  }
 
-    > .container {  // dropdown content container
-      position: absolute;
-      transform: translate(-60px, 30px);
-      padding: 10px;
-      background: $gray;
-      box-shadow: 0 2px 8px 0 black;
-    }
+  > .container {  // dropdown content container
+    transform: translate(0, 30px);
   }
 }

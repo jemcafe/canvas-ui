@@ -20,7 +20,7 @@ class ShapeStyle extends Component {
         <div className="color"></div>
         
         <div className="stroke-width text-input">
-          <input defaultValue="5px"/>
+          <input type="text" defaultValue="5px"/>
           <button className={classNames.button} onClick={() => this.setState(prev =>({isHidden: !prev.isHidden}))}>
             <i className="icon-angle-down"></i>
           </button>

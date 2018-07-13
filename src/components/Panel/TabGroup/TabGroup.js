@@ -67,7 +67,7 @@ function TabGroup (props) {
   ));
 
   return (
-    <div className={`panel${ classNames.panel }`} style={ styles.panel }>
+    <div className={`tab-group${ classNames.panel }`} style={ styles.panel }>
       { (!isHidden || !isCollapsed) &&
       <div className="container" style={ styles.container }>
         <nav>
