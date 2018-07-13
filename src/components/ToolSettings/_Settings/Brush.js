@@ -8,14 +8,14 @@ class Brush extends Component {
 
   render () {
     const classNames = {
-      button: !this.state.isHidden ? ' pressed' : ''
+      button: this.state.isHidden ? 'dropdown-btn' : 'dropdown-btn-pressed'
     }
 
     return (
       <li className="brush">
         <div className="brush-select" onClick={() => this.setState(prev =>({isHidden: !prev.isHidden}))}>
           <div><div className="img"></div>23</div>
-          <div className={`dropdown-btn${classNames.button}`}>
+          <div className={classNames.button}>
             <i className="icon-angle-down"></i>
           </div>
         </div>

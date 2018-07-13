@@ -4007,12 +4007,17 @@ select {
         background: #5e5e5e;
         box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.6);
         font-size: 12px; }
-  #tool-settings .dropdown-btn {
+  #tool-settings .dropdown-btn,
+  #tool-settings .dropdown-btn-pressed {
+    width: 8px;
+    padding: 2px;
     border: 1px solid #5e5e5e;
     border-radius: 2px;
-    padding: 2px;
     background: #5e5e5e;
     color: #fff; }
+  #tool-settings .dropdown-btn-pressed {
+    border-color: #d3d3d3;
+    background: #444444; }
   #tool-settings .text-input {
     display: flex;
     align-items: center;
@@ -4020,12 +4025,10 @@ select {
     #tool-settings .text-input > input {
       width: 70px;
       padding-right: 30px; }
-    #tool-settings .text-input > .dropdown-btn {
+    #tool-settings .text-input .dropdown-btn,
+    #tool-settings .text-input .dropdown-btn-pressed {
       position: absolute;
       transform: translate(55px, 0); }
-    #tool-settings .text-input > .pressed {
-      border-color: #d3d3d3;
-      background: #444444; }
   #tool-settings .workspace-presets {
     padding: 0 6px;
     box-sizing: border-box; }
@@ -4049,9 +4052,6 @@ select {
       width: 15px;
       height: 15px;
       background: #969696; }
-  #tool-settings > .settings > .brush .brush-select > .pressed {
-    border-color: #d3d3d3;
-    background: #444444; }
 
 #tool-settings > .settings > .brush > .container {
   transform: translate(0, 30px); }
@@ -4086,9 +4086,6 @@ select {
     #tool-settings > .settings > .tool-presets .tool-select > div:first-child {
       flex: 2;
       font-size: 16px; }
-  #tool-settings > .settings > .tool-presets .tool-select > .pressed {
-    border-color: #d3d3d3;
-    background: #444444; }
 
 #tool-settings > .settings > .tool-presets > .container {
   transform: translate(0, 30px); }
