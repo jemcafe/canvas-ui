@@ -3724,11 +3724,7 @@ input {
     text-shadow: 0 0 0 #fff;
     -webkit-text-fill-color: transparent; }
     input[type=text]:focus {
-      border-color: #3ee9be; }
-  input[type=text]::-webkit-input-placeholder {
-    color: #ccc;
-    text-shadow: none;
-    -webkit-text-fill-color: initial; }
+      border-color: #1daeb3; }
   input[type=range] {
     padding: 0;
     margin: 0; }
@@ -3847,16 +3843,6 @@ select {
   .icon-angle-double-left:before {
     content: "\f100"; }
 
-.double-angle-btn {
-  margin: 0 4px;
-  padding: 2px 4px;
-  border: 1px solid transparent;
-  border-radius: 2px; }
-  .double-angle-btn:hover {
-    border-color: #5e5e5e; }
-  .double-angle-btn:active {
-    background: #272727; }
-
 .btn {
   color: #fff;
   font-size: 14px;
@@ -3880,6 +3866,16 @@ select {
   .submit-btn > input:active {
     color: #5e5e5e;
     background: #fff; }
+
+.double-angle-btn {
+  margin: 0 4px;
+  padding: 2px 4px;
+  border: 1px solid transparent;
+  border-radius: 2px; }
+  .double-angle-btn:hover {
+    border-color: #5e5e5e; }
+  .double-angle-btn:active {
+    background: #272727; }
 
 /*---------------------------*/
 /*   Components              */
@@ -3927,7 +3923,7 @@ select {
       #toolbar > .items > .item > .item-name {
         padding: 6px 10px; }
         #toolbar > .items > .item > .item-name:active {
-          background: #3ee9be; }
+          background: #1daeb3; }
       #toolbar > .items > .item .content {
         display: none;
         position: absolute;
@@ -3959,7 +3955,7 @@ select {
           #toolbar > .items > .item .content .option:hover > .option-content > .content {
             display: block; }
     #toolbar > .items > .item:hover .item-name {
-      background: #30aeb3; }
+      background: #1daeb3; }
     #toolbar > .items > .item:hover .item-content > .content {
       display: block; }
 
@@ -4267,7 +4263,7 @@ select {
           padding: 8px 10px;
           white-space: nowrap; }
           .tab-group .container > nav .tabs li:active {
-            background: #3ee9be; }
+            background: #1daeb3; }
       .tab-group .container > nav > div {
         flex: 1;
         display: flex;

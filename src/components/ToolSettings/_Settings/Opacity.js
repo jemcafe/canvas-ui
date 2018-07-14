@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Opacity extends Component {
   constructor (props) {
     super(props);
     this.state = {
       isHidden: true,
-      input: this.props.tool.opacity,
-      rangeInput: this.props.tool.opacity
+      input: this.props.tool.opacity
     }
   }
 
   handleTextChange = (value) => {
-    const checkInput = /^([0-9%]){1,}$/;
-    const isValid = checkInput.test(value);
-
+    const isValid = /^([0-9%]){1,}$/.test(value);
+    
     if (isValid || !value.length) {
       this.setState({ input: value });
     }
@@ -21,48 +20,44 @@ class Opacity extends Component {
 
   handleRangeChange = (value) => {
     const input = `${value}%`;
-    this.setState({ input: input });
+    this.setState({ input });
     this.props.updateOpacity(input);
   }
 
   handleBlur = () => {
     this.setState(prev => {
       let input = prev.input;
-      const checkInput = /^([0-9]){1,}%$/;
-      const isValid = checkInput.test(input);
+      const checkStr = /^([0-9]){1,}([%]){0,1}$/.test(input);
+      const isValid = checkStr && (parseInt(input, 10) <= 100);
 
       if ( isValid ) {
-        if (!input.length || input === '%') {
-          input = '0%';
-        } else if (input.length < 3) {
-          input = `${input.slice(0, 1)}%`;
-        } else {
-          input = `${input.slice(0, prev.input.length-1)}%`;
-        }
+        // Every character after the first '%' is removed. n is hoisted.
+        const n = input.indexOf('%');
+        input = input.substring(0, n !== -1 ? n+1 : input.length);
+        
+        if (n ===  0) input = this.props.tool.opacity;
+        if (n === -1) input = `${input}%`;
+
       } else {
-        input = prev.rangeInput;
+        console.log('Invalid opacity input');
+        input = this.props.tool.opacity;
       }
 
       this.props.updateOpacity(input);
-      return { input: input, rangeInput: input };
+      return { input };
     })
   }
 
   render () {
-    const { tool, updateOpacity } = this.props;
-
     const classNames = {
       button: this.state.isHidden ? 'dropdown-btn' : 'dropdown-btn-pressed'
     }
-
-    console.log('input: ',this.state.input);
-    console.log('rangeInput: ',this.state.rangeInput);
 
     return (
       <li className="opacity">
         Opacity:
         <div className="text-input">
-          <input type="text" value={this.state.input} onChange={(e) => this.handleTextChange(e.target.value)} onBlur={(e) => this.handleBlur()}/>
+          <input type="text" value={this.state.input} onChange={(e) => this.handleTextChange(e.target.value)} onBlur={ this.handleBlur }/>
           <div className={classNames.button} onClick={() => this.setState(prev =>({isHidden: !prev.isHidden}))}>
             <i className="icon-angle-down"></i>
           </div>
@@ -76,6 +71,11 @@ class Opacity extends Component {
       </li>
     );
   }
+}
+
+Opacity.propTypes = {
+  tool: PropTypes.object.isRequired,
+  updateOpacity: PropTypes.func.isRequired
 }
 
 export default Opacity;

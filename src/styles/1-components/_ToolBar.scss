@@ -53,7 +53,7 @@
     }
 
     > .item:hover {
-      .item-name { background: $themeColor2; }
+      .item-name { background: $themeColor; }
       .item-content > .content { display: block; }
     }
   }

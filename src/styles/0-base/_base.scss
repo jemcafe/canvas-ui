@@ -35,11 +35,11 @@ input {
     &:focus { border-color: $themeColor; }
   }
 
-  &[type=text]::-webkit-input-placeholder {
-    color: #ccc;
-    text-shadow: none;
-    -webkit-text-fill-color: initial;
-  }
+  // &[type=text]::-webkit-input-placeholder {  // Placeholder text of a form element
+  //   color: #fff;
+  //   text-shadow: none;
+  //   -webkit-text-fill-color: initial;
+  // }
 
   &[type=range] {
     padding: 0;
