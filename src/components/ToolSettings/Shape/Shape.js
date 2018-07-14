@@ -7,7 +7,7 @@ import ShapeStyle from '../_Settings/ShapeStyle';
 function Shape () {
   return (
     <Aux>
-      <ToolPresets icon={'icon-shape'} />
+      <ToolPresets icon={'icon-shape-circle'} />
       <ShapeType />
       <ShapeStyle />
     </Aux>
