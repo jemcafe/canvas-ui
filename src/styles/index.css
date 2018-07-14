@@ -4071,7 +4071,8 @@ select {
     #tool-settings .text-input .dropdown-btn,
     #tool-settings .text-input .dropdown-btn-pressed {
       position: absolute;
-      transform: translate(55px, 0); }
+      transform: translate(55px, 0);
+      width: 14px; }
   #tool-settings .workspace-presets {
     padding: 0 6px;
     box-sizing: border-box; }

@@ -10,62 +10,77 @@ class Opacity extends Component {
     }
   }
 
-  handleTextChange = (value) => {
-    const isValid = /^([0-9%]){1,}$/.test(value);
+  toggleDropdown = () => {
+    this.setState(prev => ({ isHidden: !prev.isHidden }));
+  }
+
+  hideDropdown = () => {
+    this.setState({ isHidden: true });
+  }
+
+  handleTextChange = (e) => {
+    const value = e.target.value;
+    let isValid = /^([0-9%]){1,}$/.test(value);
+    isValid = isValid || !value.length;
     
-    if (isValid || !value.length) {
+    if (isValid) {
       this.setState({ input: value });
     }
   }
 
-  handleRangeChange = (value) => {
-    const input = `${value}%`;
+  handleRangeChange = (e) => {
+    const { updateOpacity } = this.props;
+    const input = `${e.target.value}%`;
     this.setState({ input });
-    this.props.updateOpacity(input);
+    updateOpacity(input);
   }
 
-  handleBlur = () => {
+  confirmInput = () => {
+    const { tool, updateOpacity } = this.props;
     this.setState(prev => {
       let input = prev.input;
-      const checkStr = /^([0-9]){1,}([%]){0,1}$/.test(input);
-      const isValid = checkStr && (parseInt(input, 10) <= 100);
+      let isValid = /^([0-9]){1,}([%]){0,1}$/.test(input);
+      isValid = isValid && (parseInt(input, 10) <= 100);
 
-      if ( isValid ) {
+      if (isValid) {
         // Every character after the first '%' is removed. n is hoisted.
         const n = input.indexOf('%');
         input = input.substring(0, n !== -1 ? n+1 : input.length);
         
-        if (n ===  0) input = this.props.tool.opacity;
+        if (n ===  0) input = tool.opacity;
         if (n === -1) input = `${input}%`;
 
       } else {
         console.log('Invalid opacity input');
-        input = this.props.tool.opacity;
+        input = tool.opacity;
       }
 
-      this.props.updateOpacity(input);
+      updateOpacity(input);
       return { input };
     })
   }
 
   render () {
+    const { isHidden, input } = this.state;
+    const { tool } = this.props;
+
     const classNames = {
-      button: this.state.isHidden ? 'dropdown-btn' : 'dropdown-btn-pressed'
+      button: isHidden ? 'dropdown-btn' : 'dropdown-btn-pressed'
     }
 
     return (
-      <li className="opacity">
+      <li className="opacity" onBlur={ this.hideDropdown }>
         Opacity:
         <div className="text-input">
-          <input type="text" value={this.state.input} onChange={(e) => this.handleTextChange(e.target.value)} onBlur={ this.handleBlur }/>
-          <div className={classNames.button} onClick={() => this.setState(prev =>({isHidden: !prev.isHidden}))}>
+          <input type="text" value={input} onChange={ this.handleTextChange } onFocus={ this.hideDropdown } onBlur={ this.confirmInput } />
+          <button className={classNames.button} onClick={ this.toggleDropdown } onBlur={(e) => { e.stopPropagation(); }}>
             <i className="icon-angle-down"></i>
-          </div>
+          </button >
         </div>
-        { !this.state.isHidden &&
-        <div className="container" onMouseLeave={() => this.setState({isHidden: true})}>
+        { !isHidden &&
+        <div className="container">
           <div className="range-container">
-            <input type="range" min="0" max="100" onChange={(e) => this.handleRangeChange(e.target.value)}/>
+            <input type="range" min="0" max="100" value={parseInt(tool.opacity, 10)} onChange={ this.handleRangeChange }/>
           </div>
         </div> }
       </li>
