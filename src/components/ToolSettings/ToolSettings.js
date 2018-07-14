@@ -12,15 +12,17 @@ import Magnify from './Magnify/Magnify';
 import Hand from './Hand/Hand';
 import Ellipsis from './Ellipsis/Ellipsis';
 
-function ToolSettings ({ tools: t }) {
+function ToolSettings (props) {
+  const { tools: t, updateOpacity } = props;
+
   return (
     <div id="tool-settings">
       <ul className="settings">
         { t.move.selected        && <Move /> }
         { t.eyedropper.selected  && <Eyedropper /> }
-        { t.paintBrush.selected  && <PaintBrush /> }
-        { t.eraser.selected      && <Eraser /> }
-        { t.paintBucket.selected && <PaintBucket /> }
+        { t.paintBrush.selected  && <PaintBrush tool={t.paintBrush} updateOpacity={updateOpacity} /> }
+        { t.eraser.selected      && <Eraser tool={t.eraser} updateOpacity={updateOpacity} /> }
+        { t.paintBucket.selected && <PaintBucket tool={t.paintBucket} updateOpacity={updateOpacity} /> }
         { t.pen.selected         && <Pen /> }
         { t.shape.selected       && <Shape /> }
         { t.magnify.selected     && <Magnify /> }
@@ -43,7 +45,8 @@ function ToolSettings ({ tools: t }) {
 }
 
 ToolSettings.propTypes = {
-  tools: PropTypes.object.isRequired
+  tools: PropTypes.object.isRequired,
+  updateOpacity: PropTypes.func.isRequired
 }
 
 export default ToolSettings;

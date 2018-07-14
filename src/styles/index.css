@@ -3959,8 +3959,7 @@ select {
           #toolbar > .items > .item .content .option:hover > .option-content > .content {
             display: block; }
     #toolbar > .items > .item:hover .item-name {
-      background: #3ee9be;
-      color: #000; }
+      background: #30aeb3; }
     #toolbar > .items > .item:hover .item-content > .content {
       display: block; }
 
@@ -4059,7 +4058,7 @@ select {
   #tool-settings .dropdown-btn-pressed {
     width: 8px;
     padding: 2px;
-    border: 1px solid #5e5e5e;
+    border: 1px solid transparent;
     border-radius: 2px;
     background: #5e5e5e;
     color: #fff; }

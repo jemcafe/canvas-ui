@@ -1,6 +1,6 @@
 ## Sketcher
 
-An app for sketching images with React and Sass.
+A simplified version of photoshop built with React, Redux and Sass.
 
 ### Installed
 

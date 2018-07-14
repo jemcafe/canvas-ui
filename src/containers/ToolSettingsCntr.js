@@ -1,14 +1,22 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
+import { updateOpacity } from '../redux/reducer/tools/actions';
+
 import ToolSettings from '../components/ToolSettings/ToolSettings';
 
 function ToolSettingsCntr (props) {
   return (
-    <ToolSettings tools={props.tools} />
+    <ToolSettings {...props} />
   );
 }
 
-const mapStateToProps = (state) => state;
+const mapStateToProps = (state) => ({
+  tools: state.tools 
+});
 
-export default connect(mapStateToProps)(ToolSettingsCntr);
+const mapDispatchToProps = {
+  updateOpacity
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToolSettingsCntr);

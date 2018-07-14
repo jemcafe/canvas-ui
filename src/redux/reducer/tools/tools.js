@@ -1,5 +1,8 @@
 import { 
-  SELECT_TOOL
+  SELECT_TOOL,
+  UPDATE_BRUSH_SIZE,
+  UPDATE_BRUSH,
+  UPDATE_OPACITY
 } from './actions';
 
 const initialState = {
@@ -15,19 +18,19 @@ const initialState = {
     selected: true,
     brush: 'Hard Round',
     radius: 10,
-    opacity: 1,
+    opacity: '100%',
     mode: 'Normal'
   },
   eraser: {
     selected: false,
     brush: 'Hard Round',
     radius: 10,
-    opacity: 1,
+    opacity: '100%',
     mode: 'Brush'
   },
   paintBucket: {
     selected: false,
-    opacity: 1
+    opacity: '100%'
   },
   pen: {
     selected: false,
@@ -56,6 +59,12 @@ export default (state = initialState, action) => {
 
   switch (type) {
     case SELECT_TOOL:
+      return payload(state);
+    case UPDATE_BRUSH_SIZE:
+      return payload(state);
+    case UPDATE_BRUSH:
+      return payload(state);
+    case UPDATE_OPACITY:
       return payload(state);
     default:
       return state;
