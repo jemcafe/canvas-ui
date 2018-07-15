@@ -3,6 +3,7 @@ export const SELECT_TOOL = 'SELECT_TOOL',
              UPDATE_BRUSH_SIZE = 'UPDATE_BRUSH_SIZE',
              UPDATE_BRUSH = 'UPDATE_BRUSH',
              UPDATE_OPACITY = 'UPDATE_OPACITY',
+             UPDATE_STROKE_WIDTH = 'UPDATE_STROKE_WIDTH',
              ZOOM = 'ZOOM';
 
 // Action creators
@@ -81,12 +82,30 @@ export const updateOpacity = (value) => ({
   }
 })
 
+export const updateStrokeWidth = (value) => ({
+  type: UPDATE_STROKE_WIDTH,
+  payload: (state) => {
+    let tool = '';
+    let newObj = {};
+
+    for (let i in state) {
+      if (state[i].selected && state[i].strokeWidth ) {
+        tool = i;
+        newObj = state[i];
+        state[i] = null;
+        newObj.strokeWidth = value;
+        console.log( i, newObj.strokeWidth );
+      }
+    }
+    return {...state, [tool]: newObj };
+  }
+});
+
 export const zoom = (value) => ({
   type: ZOOM,
   payload: (state) => {
     let newObj = state.magnify;
     state.magnify = null;
-
     console.log('zoom: ', value);
     
     if (value === 'in') {

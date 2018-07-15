@@ -6,14 +6,14 @@ import Mode from '../_Settings/Mode';
 import Opacity from '../_Settings/Opacity';
 
 function PaintBrush (props) {
-  const { tool, updateOpacity } = props;
+  const { tool } = props;
   
   return (
     <Aux>
       <ToolPresets icon={'icon-paint-brush'} />
       <Brush tool={tool} />
       <Mode tool={tool} />
-      <Opacity tool={tool} updateOpacity={updateOpacity} />
+      <Opacity tool={tool} {...props} />
     </Aux>
   );
 }

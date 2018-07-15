@@ -3656,14 +3656,14 @@ readers do not read off random characters that represent icons */
   vertical-align: -.125em; }
 
 #tool-settings > .settings > .zoom > div, #tool-menu .tools .tool,
-#tool-menu .tools-collapsed .tool, .tab-group > .icon-tabs > ul > li, .double-angle-btn, #app-layout #workspace #documents, #toolbar > .items > .item .content .arrow, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects .container, #tool-settings > ul > li, #tool-settings > ul > li > .container > .range-container, #tool-settings .workspace-presets, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
+#tool-menu .tools-collapsed .tool, .tab-group > .icon-tabs > ul > li, .double-angle-btn, #app-layout #workspace #documents, #toolbar > .items > .item .content .arrow, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects .container, #tool-settings > ul > li, #tool-settings > ul > li .dropdown-container > .range-container, #tool-settings .workspace-presets, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
 #tool-menu .color-collapsed > div:first-child .reset,
 #tool-menu .color-collapsed > div:first-child .swap, #tool-menu .color, #tool-menu .color > div:first-child, .panel > div:first-child div, .tab-group .container > nav > div .menu, .tab-group .container > nav > div .menu > div:first-child, .tab-group .container > .content {
   display: flex;
   justify-content: center;
   align-items: center; }
 
-#toolbar > .items > .item .content, #new-project, #tool-settings > ul > li > .container, .window {
+#toolbar > .items > .item .content, #new-project, #tool-settings > ul > li .dropdown-container, .window {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); }
 
 #tool-settings > .settings > .zoom > div, #tool-menu .tools .tool,
@@ -4052,7 +4052,7 @@ select {
     #tool-settings > ul > li {
       padding: 0 10px;
       border-right: 1px solid #444444; }
-      #tool-settings > ul > li > .container {
+      #tool-settings > ul > li .dropdown-container {
         position: absolute;
         padding: 6px;
         box-sizing: border-box;
@@ -4075,7 +4075,7 @@ select {
     margin: 0 0 0 8px; }
     #tool-settings .text-input > input {
       width: 70px;
-      padding-right: 30px; }
+      padding-right: 25px; }
     #tool-settings .text-input .dropdown-btn,
     #tool-settings .text-input .dropdown-btn-pressed {
       position: absolute;
@@ -4105,24 +4105,23 @@ select {
       height: 15px;
       background: #969696; }
 
-#tool-settings > .settings > .brush > .container {
+#tool-settings > .settings > .brush > .dropdown-container {
   transform: translate(0, 30px); }
 
-#tool-settings > .settings > .opacity .container {
+#tool-settings > .settings > .opacity .dropdown-container {
   transform: translate(0, 30px); }
 
 #tool-settings > .settings > .shape-style {
   white-space: nowrap; }
-  #tool-settings > .settings > .shape-style > .container {
-    transform: translate(0, 30px); }
+  #tool-settings > .settings > .shape-style .dropdown-container {
+    transform: translate(-55px, 5px); }
   #tool-settings > .settings > .shape-style .color {
     width: 30px;
     height: 50%;
     border: 1px solid #d3d3d3;
     background: black; }
-  #tool-settings > .settings > .shape-style .stroke-width, #tool-settings > .settings > .shape-style .stroke-options {
-    margin: 0 0 0 8px; }
   #tool-settings > .settings > .shape-style .stroke-options {
+    margin: 0 0 0 8px;
     border: 1px solid gray;
     border-radius: 2px;
     background: #444444;
@@ -4139,7 +4138,7 @@ select {
       flex: 2;
       font-size: 16px; }
 
-#tool-settings > .settings > .tool-presets > .container {
+#tool-settings > .settings > .tool-presets > .dropdown-container {
   transform: translate(0, 30px); }
 
 #tool-settings > .settings > .zoom > div:hover {

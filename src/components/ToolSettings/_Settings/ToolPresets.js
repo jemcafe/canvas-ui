@@ -25,7 +25,7 @@ class ToolPresets extends Component {
           </div>
         </div>
         { !this.state.isHidden && 
-        <div className="container" onMouseLeave={() => this.setState({isHidden: true})}>
+        <div className="dropdown-container" onMouseLeave={() => this.setState({isHidden: true})}>
           PRESETS
         </div> }
       </li>

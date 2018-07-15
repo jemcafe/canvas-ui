@@ -1,8 +1,8 @@
 #tool-settings > .settings > .shape-style {
   white-space: nowrap;
 
-  > .container {
-    transform: translate(0, 30px);
+  .dropdown-container {
+    transform: translate(-55px, 5px);
   }
   
   .color {
@@ -12,13 +12,14 @@
     background: black;
   }
 
-  .stroke-width, .stroke-options {
-    margin: 0 0 0 8px;
-  }
+  // .stroke-width, .stroke-options {
+
+  // }
 
   // .stroke-width { }
 
   .stroke-options {
+    margin: 0 0 0 8px;
     border: 1px solid gray;
     border-radius: 2px;
     background: $darkgray;

@@ -29,7 +29,6 @@ class Opacity extends Component {
   handleRangeChange = (e) => {
     const { updateOpacity } = this.props;
     const value = `${e.target.value}%`;
-
     this.setState({ input: value });
     updateOpacity(value);
   }
@@ -38,14 +37,15 @@ class Opacity extends Component {
     const { tool, updateOpacity } = this.props;
     this.setState(prev => {
       let input = prev.input;
-      let isValid = /^([0-9]){1,}([%]){0,1}$/.test(input);
-      isValid = isValid && (parseInt(input, 10) <= 100);
+      let isValid = /^([0-9]){1,}([%]){0,1}$/;           // Valid characters
+      isValid = isValid.test(input);
+      isValid = isValid && (parseInt(input, 10) <= 100); // Less than or equal to 100%
+      const n = isValid && input.indexOf('%');           // First '%' char
 
       if (isValid) {
-        // Every character after the first '%' is removed. n is hoisted.
-        const n = input.indexOf('%');
+
+        // Every character after the first '%' is removed.
         input = input.substring(0, n !== -1 ? n+1 : input.length);
-        
         if (n ===  0) input = tool.opacity;
         if (n === -1) input = `${input}%`;
 
@@ -83,7 +83,7 @@ class Opacity extends Component {
           
         </div>
         { !isHidden &&
-        <div className="container">
+        <div className="dropdown-container">
 
           <div className="range-container">
             <input name="range" type="range" min="0" max="100" value={parseInt(tool.opacity, 10)} 

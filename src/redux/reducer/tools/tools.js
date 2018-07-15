@@ -3,6 +3,7 @@ import {
   UPDATE_BRUSH_SIZE,
   UPDATE_BRUSH,
   UPDATE_OPACITY,
+  UPDATE_STROKE_WIDTH,
   ZOOM
 } from './actions';
 
@@ -35,11 +36,13 @@ const initialState = {
   },
   pen: {
     selected: false,
-    type: 'Path'
+    type: 'Path',
+    strokeWidth: '1px'
   },
   shape: {
     selected: false,
     type: 'Path',
+    strokeWidth: '1px'
   },
   magnify: {
     selected: false,
@@ -66,6 +69,8 @@ export default (state = initialState, action) => {
     case UPDATE_BRUSH:
       return payload(state);
     case UPDATE_OPACITY:
+      return payload(state);
+    case UPDATE_STROKE_WIDTH:
       return payload(state);
     case ZOOM:
       return payload(state);
