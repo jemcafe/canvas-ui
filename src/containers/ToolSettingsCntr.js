@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { updateOpacity } from '../redux/reducer/tools/actions';
+import { updateOpacity, zoom } from '../redux/reducer/tools/actions';
 
 import ToolSettings from '../components/ToolSettings/ToolSettings';
 
@@ -16,7 +16,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  updateOpacity
+  updateOpacity,
+  zoom
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToolSettingsCntr);

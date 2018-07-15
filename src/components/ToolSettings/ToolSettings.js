@@ -13,21 +13,21 @@ import Hand from './Hand/Hand';
 import Ellipsis from './Ellipsis/Ellipsis';
 
 function ToolSettings (props) {
-  const { tools: t, updateOpacity } = props;
+  const { tools: t } = props;
 
   return (
     <div id="tool-settings">
       <ul className="settings">
-        { t.move.selected        && <Move /> }
-        { t.eyedropper.selected  && <Eyedropper /> }
-        { t.paintBrush.selected  && <PaintBrush tool={t.paintBrush} updateOpacity={updateOpacity} /> }
-        { t.eraser.selected      && <Eraser tool={t.eraser} updateOpacity={updateOpacity} /> }
-        { t.paintBucket.selected && <PaintBucket tool={t.paintBucket} updateOpacity={updateOpacity} /> }
-        { t.pen.selected         && <Pen /> }
-        { t.shape.selected       && <Shape /> }
-        { t.magnify.selected     && <Magnify /> }
-        { t.hand.selected        && <Hand /> }
-        { t.ellipsis.selected    && <Ellipsis /> }
+        { t.move.selected        && <Move tool={t.move} {...props} /> }
+        { t.eyedropper.selected  && <Eyedropper tool={t.eyedropper} {...props} /> }
+        { t.paintBrush.selected  && <PaintBrush tool={t.paintBrush} {...props} /> }
+        { t.eraser.selected      && <Eraser tool={t.eraser} {...props} /> }
+        { t.paintBucket.selected && <PaintBucket tool={t.paintBucket} {...props} /> }
+        { t.pen.selected         && <Pen tool={t.pen} {...props} /> }
+        { t.shape.selected       && <Shape tool={t.shape} {...props} /> }
+        { t.magnify.selected     && <Magnify tool={t.magnify} {...props} /> }
+        { t.hand.selected        && <Hand tool={t.hand} {...props} /> }
+        { t.ellipsis.selected    && <Ellipsis tool={t.ellipsis} {...props} /> }
       </ul>
 
       <div className="workspace-presets">
@@ -46,7 +46,8 @@ function ToolSettings (props) {
 
 ToolSettings.propTypes = {
   tools: PropTypes.object.isRequired,
-  updateOpacity: PropTypes.func.isRequired
+  updateOpacity: PropTypes.func.isRequired,
+  zoom: PropTypes.func.isRequired
 }
 
 export default ToolSettings;

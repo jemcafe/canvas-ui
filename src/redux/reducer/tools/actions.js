@@ -2,7 +2,8 @@
 export const SELECT_TOOL = 'SELECT_TOOL',
              UPDATE_BRUSH_SIZE = 'UPDATE_BRUSH_SIZE',
              UPDATE_BRUSH = 'UPDATE_BRUSH',
-             UPDATE_OPACITY = 'UPDATE_OPACITY';
+             UPDATE_OPACITY = 'UPDATE_OPACITY',
+             ZOOM = 'ZOOM';
 
 // Action creators
 export const selectTool = (tool) => ({
@@ -28,8 +29,6 @@ export const updateBrushSize = (value) => ({
   payload: (state) => {
     let tool = '';
     let newObj = {};
-    // value = parseInt(value, 10);
-    // value = !isNaN(value) ? value : 0;
 
     for (let i in state) {
       if (state[i].selected && state[i].radius ) {
@@ -68,8 +67,6 @@ export const updateOpacity = (value) => ({
   payload: (state) => {
     let tool = '';
     let newObj = {};
-    // value = parseInt(value, 10);
-    // value = !isNaN(value) ? value : 0;
 
     for (let i in state) {
       if (state[i].selected && state[i].opacity) {
@@ -81,5 +78,26 @@ export const updateOpacity = (value) => ({
       }
     }
     return {...state, [tool]: newObj };
+  }
+})
+
+export const zoom = (value) => ({
+  type: ZOOM,
+  payload: (state) => {
+    let newObj = state.magnify;
+    state.magnify = null;
+
+    console.log('zoom: ', value);
+    
+    if (value === 'in') {
+      newObj.in = true;
+      newObj.out = false;
+    }
+    if (value === 'out') {
+      newObj.in = false;
+      newObj.out = true;
+    }
+
+    return {...state, magnify: newObj };
   }
 })

@@ -3655,7 +3655,7 @@ readers do not read off random characters that represent icons */
   line-height: 1;
   vertical-align: -.125em; }
 
-#tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, #tool-menu .tools .tool,
+#tool-settings > .settings > .zoom > div, #tool-menu .tools .tool,
 #tool-menu .tools-collapsed .tool, .tab-group > .icon-tabs > ul > li, .double-angle-btn, #app-layout #workspace #documents, #toolbar > .items > .item .content .arrow, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects .container, #tool-settings > ul > li, #tool-settings > ul > li > .container > .range-container, #tool-settings .workspace-presets, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
 #tool-menu .color-collapsed > div:first-child .reset,
 #tool-menu .color-collapsed > div:first-child .swap, #tool-menu .color, #tool-menu .color > div:first-child, .panel > div:first-child div, .tab-group .container > nav > div .menu, .tab-group .container > nav > div .menu > div:first-child, .tab-group .container > .content {
@@ -3666,14 +3666,14 @@ readers do not read off random characters that represent icons */
 #toolbar > .items > .item .content, #new-project, #tool-settings > ul > li > .container, .window {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); }
 
-#tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, #tool-menu .tools .tool,
+#tool-settings > .settings > .zoom > div, #tool-menu .tools .tool,
 #tool-menu .tools-collapsed .tool, .tab-group > .icon-tabs > ul > li {
   width: 30px;
   height: 30px;
   border: 1px solid transparent;
   border-radius: 4px;
   background: #5e5e5e; }
-  #tool-settings > .settings > .zoom .plus i, #tool-settings > .settings > .zoom .minus i, #tool-menu .tools .tool i, #tool-menu .tools-collapsed .tool i, .tab-group > .icon-tabs > ul > li i {
+  #tool-settings > .settings > .zoom > div i, #tool-menu .tools .tool i, #tool-menu .tools-collapsed .tool i, .tab-group > .icon-tabs > ul > li i {
     font-size: 16px; }
 
 .projects > nav .selected-tab, .tab-group .container > nav .selected-tab {
@@ -4054,7 +4054,7 @@ select {
       border-right: 1px solid #444444; }
       #tool-settings > ul > li > .container {
         position: absolute;
-        padding: 10px;
+        padding: 6px;
         box-sizing: border-box;
         background: #5e5e5e;
         font-size: 12px; }
@@ -4142,8 +4142,12 @@ select {
 #tool-settings > .settings > .tool-presets > .container {
   transform: translate(0, 30px); }
 
-#tool-settings > .settings > .zoom .plus:hover, #tool-settings > .settings > .zoom .minus:hover {
+#tool-settings > .settings > .zoom > div:hover {
   border: 1px solid lightgrey; }
+
+#tool-settings > .settings > .zoom > .selected {
+  border-color: #d3d3d3;
+  background: #444444; }
 
 #tool-menu {
   color: #fff;

@@ -2,7 +2,8 @@ import {
   SELECT_TOOL,
   UPDATE_BRUSH_SIZE,
   UPDATE_BRUSH,
-  UPDATE_OPACITY
+  UPDATE_OPACITY,
+  ZOOM
 } from './actions';
 
 const initialState = {
@@ -65,6 +66,8 @@ export default (state = initialState, action) => {
     case UPDATE_BRUSH:
       return payload(state);
     case UPDATE_OPACITY:
+      return payload(state);
+    case ZOOM:
       return payload(state);
     default:
       return state;

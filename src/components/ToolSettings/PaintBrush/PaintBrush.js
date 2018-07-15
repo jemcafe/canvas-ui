@@ -12,7 +12,7 @@ function PaintBrush (props) {
     <Aux>
       <ToolPresets icon={'icon-paint-brush'} />
       <Brush tool={tool} />
-      <Mode />
+      <Mode tool={tool} />
       <Opacity tool={tool} updateOpacity={updateOpacity} />
     </Aux>
   );

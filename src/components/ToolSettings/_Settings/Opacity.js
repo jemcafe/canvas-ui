@@ -23,9 +23,7 @@ class Opacity extends Component {
     let isValid = /^([0-9%]){1,}$/.test(value);
     isValid = isValid || !value.length;
     
-    if (isValid) {
-      this.setState({ input: value });
-    }
+    if (isValid) this.setState({ input: value });
   }
 
   handleRangeChange = (e) => {
@@ -33,7 +31,6 @@ class Opacity extends Component {
     const value = `${e.target.value}%`;
 
     this.setState({ input: value });
-
     updateOpacity(value);
   }
 
@@ -65,8 +62,6 @@ class Opacity extends Component {
     const { input, isHidden } = this.state;
     const { tool } = this.props;
 
-    console.log('isHidden: ', isHidden);
-
     const classNames = {
       button: isHidden ? 'dropdown-btn' : 'dropdown-btn-pressed'
     }
@@ -89,13 +84,13 @@ class Opacity extends Component {
         </div>
         { !isHidden &&
         <div className="container">
-          <div className="range-container">
 
+          <div className="range-container">
             <input name="range" type="range" min="0" max="100" value={parseInt(tool.opacity, 10)} 
               onChange={ this.handleRangeChange }
               onBlur={ this.hideDropdown }/>
-
           </div>
+          
         </div> }
       </li>
     );
