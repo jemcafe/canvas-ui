@@ -5,12 +5,12 @@ class Opacity extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      isHidden: true,
-      input: this.props.tool.opacity
+      input: this.props.tool.opacity,
+      isHidden: true
     }
   }
 
-  toggleDropdown = () => {
+  toggleDropdown = (e) => {
     this.setState(prev => ({ isHidden: !prev.isHidden }));
   }
 
@@ -30,9 +30,11 @@ class Opacity extends Component {
 
   handleRangeChange = (e) => {
     const { updateOpacity } = this.props;
-    const input = `${e.target.value}%`;
-    this.setState({ input });
-    updateOpacity(input);
+    const value = `${e.target.value}%`;
+
+    this.setState({ input: value });
+
+    updateOpacity(value);
   }
 
   confirmInput = () => {
@@ -51,7 +53,6 @@ class Opacity extends Component {
         if (n === -1) input = `${input}%`;
 
       } else {
-        console.log('Invalid opacity input');
         input = tool.opacity;
       }
 
@@ -61,26 +62,39 @@ class Opacity extends Component {
   }
 
   render () {
-    const { isHidden, input } = this.state;
+    const { input, isHidden } = this.state;
     const { tool } = this.props;
+
+    console.log('isHidden: ', isHidden);
 
     const classNames = {
       button: isHidden ? 'dropdown-btn' : 'dropdown-btn-pressed'
     }
 
     return (
-      <li className="opacity" onBlur={ this.hideDropdown }>
+      <li className="opacity">
         Opacity:
         <div className="text-input">
-          <input type="text" value={input} onChange={ this.handleTextChange } onFocus={ this.hideDropdown } onBlur={ this.confirmInput } />
-          <button className={classNames.button} onClick={ this.toggleDropdown } onBlur={(e) => { e.stopPropagation(); }}>
-            <i className="icon-angle-down"></i>
+
+          <input type="text" value={input} 
+            onChange={ this.handleTextChange } 
+            onFocus={ this.hideDropdown } 
+            onKeyPress={(e) => e.charCode === 13 && this.confirmInput()}
+            onBlur={ this.confirmInput }/>
+
+          <button name="button" className={classNames.button} 
+            onClick={ this.toggleDropdown }><i className="icon-angle-down"></i>
           </button >
+          
         </div>
         { !isHidden &&
         <div className="container">
           <div className="range-container">
-            <input type="range" min="0" max="100" value={parseInt(tool.opacity, 10)} onChange={ this.handleRangeChange }/>
+
+            <input name="range" type="range" min="0" max="100" value={parseInt(tool.opacity, 10)} 
+              onChange={ this.handleRangeChange }
+              onBlur={ this.hideDropdown }/>
+
           </div>
         </div> }
       </li>

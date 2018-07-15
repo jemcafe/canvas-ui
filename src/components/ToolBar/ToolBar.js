@@ -9,16 +9,14 @@ function Toolbar ({ items = [] }) {
 
       return options.map((e, i) => (
         <li key={i} className="option">
-          <div className="option-name">{e.name}</div>
-          { e.options &&
-          <Aux>
+          <div className="option-name" onClick={() => !e.options ? console.log('OPTION CLICKED') : null}>{e.name}</div>
+          { e.options && <Aux>
             <div className="arrow"><i className="icon-angle-right"></i></div>
             <div className="option-content">
               <ul className="content">
                 { displayOptions(e.options) }
               </ul>
-            </div> 
-          </Aux> }
+            </div></Aux> }
         </li>
       ))
 

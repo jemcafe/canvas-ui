@@ -11,11 +11,12 @@ import ToolSettings from '../containers/ToolSettingsCntr';
 import Projects from '../containers/ProjectsCntr';
 import Panel from '../containers/PanelCntr';
 
-// import NewProject from '../containers/NewProjectCntr';
+import NewProject from '../containers/NewProjectCntr';
 
 function Layout () {
   return (
     <div id="app-layout">
+      <NewProject />
       <ToolBar items={toolbarItems}/>
       <section>
         <ToolSettings />

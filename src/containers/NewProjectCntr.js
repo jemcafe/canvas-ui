@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NewProject from '../components/NewProject/NewProject';
+import NewProject from '../components/Window/NewProject/NewProject';
 
 class NewProjectCntr extends Component {
   constructor (props) {
@@ -7,7 +7,7 @@ class NewProjectCntr extends Component {
     this.state = { }
   }
   
-  handleChange (property, value) {
+  handleChange = (property, value) => {
     this.setState({ [property]: value });
   }
 

@@ -1,9 +1,9 @@
 import React from 'react';
+import Window from '../Window';
 
-function NewProject () {
+function NewProject (props) {
   return (
-    <div id="new-project">
-      <h5>New</h5>
+    <Window name={'New'} className={'new-project'}>
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
           <div className="submit-btn">
@@ -12,7 +12,7 @@ function NewProject () {
           <button className="btn">Cancel</button>
         </div>
       </form>
-    </div>
+    </Window>
   );
 }
 

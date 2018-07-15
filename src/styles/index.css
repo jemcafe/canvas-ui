@@ -3663,7 +3663,7 @@ readers do not read off random characters that represent icons */
   justify-content: center;
   align-items: center; }
 
-#toolbar > .items > .item .content, #new-project, #tool-settings > ul > li > .container {
+#toolbar > .items > .item .content, #new-project, #tool-settings > ul > li > .container, .window {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); }
 
 #tool-settings > .settings > .zoom .plus, #tool-settings > .settings > .zoom .minus, #tool-menu .tools .tool,
@@ -3877,6 +3877,16 @@ select {
   .double-angle-btn:active {
     background: #272727; }
 
+.focus-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background: #c0d9ff;
+  opacity: 0.5; }
+
 /*---------------------------*/
 /*   Components              */
 /*---------------------------*/
@@ -3961,8 +3971,6 @@ select {
 
 #new-project {
   position: absolute;
-  left: 50vw;
-  bottom: 50vh;
   z-index: 1;
   border-radius: 4px;
   background: #5e5e5e; }
@@ -4303,3 +4311,27 @@ select {
     .tab-group > .icon-tabs > ul > .selected {
       border-color: #d3d3d3;
       background: #444444; }
+
+.window {
+  position: absolute;
+  z-index: 1;
+  border-radius: 4px;
+  background: #5e5e5e; }
+  .window > h5 {
+    color: #000;
+    font-weight: normal;
+    padding: 4px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #a8a8a8;
+    border-radius: 4px 4px 0 0;
+    background: lightgray;
+    -webkit-user-select: none;
+    /* Chrome all / Safari all */
+    -moz-user-select: none;
+    /* Firefox all */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+    /* Likely future */ }
+  .window > .container {
+    padding: 8px; }
