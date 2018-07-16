@@ -39,7 +39,7 @@ class ShapeStyle extends Component {
       let input = prev.input;
       let isValid = /^([0-9]){1,}([px]){0,2}$/;           // Valid characters
       isValid = isValid.test(input);
-      isValid = isValid && (parseInt(input, 10) <= 1000); // Less than or equal to 2000px
+      isValid = isValid && (parseInt(input, 10) <= 500); // Less than or equal to 2000px
       const p = isValid && input.indexOf('p');            // First 'p' char
       const x = isValid && input.indexOf('x');            // First 'x' char
       isValid = isValid && (p !== 0 && ( x > p ));        // 'p' is not the first char or 'x' follows after 'p'
@@ -93,7 +93,7 @@ class ShapeStyle extends Component {
           <div className="dropdown-container" onMouseLeave={ this.hideDropdown }>
 
             <div className="range-container">
-              <input type="range" min="0" max="2000" value={parseInt(tool.strokeWidth, 10)}
+              <input type="range" min="0" max="500" value={parseInt(tool.strokeWidth, 10)}
                 onChange={ this.handleRangeChange }
                 onBlur={ this.hideDropdown }/>
             </div>

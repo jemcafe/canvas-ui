@@ -4,6 +4,7 @@ class Window extends Component {
   constructor () {
     super();
     this.state = {
+      browserWindow: { width: 0, height: 0 },
       pos: { x: 0, y: 0 },
       offset: { x: 0, y: 0 },
       dragging: false,
@@ -12,7 +13,29 @@ class Window extends Component {
   }
 
   componentDidMount () {
+    window.addEventListener("resize", this.updateDimensions);
+
+    this.updateDimensions();
     this.initPosition();
+  }
+
+  componentWillUnmount() {  //  
+    window.removeEventListener("resize", this.updateDimensions);
+  }
+
+  updateDimensions = () => {
+    const { innerWidth, innerHeight } = window;
+    // The equation for the position keeps the element within the browser window when it resizes ( a1 / a2 = x / b2 ) ( x = a1 * b2 / a2 )
+    this.setState(prev => ({
+      browserWindow: {
+        height: innerHeight, 
+        width: innerWidth
+      },
+      pos: {
+        x: Math.round(prev.pos.x/prev.browserWindow.width * innerWidth), 
+        y: Math.round(prev.pos.y/prev.browserWindow.height * innerHeight)
+      }
+    }));
   }
 
   initPosition = () => {
@@ -45,8 +68,8 @@ class Window extends Component {
   }
 
   updatePosition = (e) => {
-    e.persist();  // accesses events asyncronously
     if (this.state.dragging) {
+      e.persist();  // accesses events asyncronously
       this.setState(prev => ({ 
         pos: { 
           x: e.clientX - prev.offset.x, 
@@ -57,19 +80,17 @@ class Window extends Component {
   }
 
   render () {
-    const { name = '?', className, children } = this.props;
+    const { pos } = this.state;
+    const { name = '?', hide, children } = this.props;
 
     const style = {
-      window: {
-        top: this.state.pos.y,
-        left: this.state.pos.x
-      }
+      window: { top: pos.y, left: pos.x }
     }
 
     return (
       <div ref="window" className="window" style={style.window}>
         <h5 onMouseDown={this.engage}>{ name }</h5>
-        <div className={`container${className?` ${className}`:''}`}>
+        <div className="container">
           { children }
         </div>
         { this.state.focused &&
