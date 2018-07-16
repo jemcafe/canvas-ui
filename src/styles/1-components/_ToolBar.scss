@@ -44,7 +44,7 @@
           border-radius: 4px; }
 
         .option:hover { 
-          background: blue; 
+          background: $themeColor; 
           > .option-name { color: #fff; }
           > .arrow { color: #fff; }
           > .option-content > .content { display: block; }

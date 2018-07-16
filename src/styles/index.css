@@ -3957,7 +3957,7 @@ select {
         #toolbar > .items > .item .content .content {
           border-radius: 4px; }
         #toolbar > .items > .item .content .option:hover {
-          background: blue; }
+          background: #1daeb3; }
           #toolbar > .items > .item .content .option:hover > .option-name {
             color: #fff; }
           #toolbar > .items > .item .content .option:hover > .arrow {
@@ -4314,6 +4314,32 @@ select {
     .tab-group > .icon-tabs > ul > .selected {
       border-color: #d3d3d3;
       background: #444444; }
+
+.hue-gradient {
+  display: flex;
+  align-items: flex-start;
+  background: lightgrey; }
+  .hue-gradient .color-block {
+    border: 1px solid #000; }
+    .hue-gradient .color-block div {
+      width: 1em;
+      height: 1em;
+      border: 1px solid #fff; }
+  .hue-gradient .slider-wrapper {
+    display: inline-block;
+    width: 20px;
+    height: 200px;
+    padding: 0; }
+    .hue-gradient .slider-wrapper input {
+      width: 200px;
+      height: 20px;
+      margin: 0;
+      transform-origin: 100px 100px;
+      transform: rotate(-90deg); }
+  .hue-gradient .hue {
+    width: 1em;
+    height: 200px;
+    background: colorGradient(0deg); }
 
 .window {
   position: absolute;

@@ -3,7 +3,7 @@ import React from 'react';
 import History from '../containers/TabContent/HistoryCntr';
 import Character from '../containers/TabContent/CharacterCntr';
 import Paragraph from '../containers/TabContent/ParagraphCntr';
-import Color from '../containers/TabContent/ColorCntr';
+import Color from '../components/Panel/TabContent/Color/Color';
 import Swatches from '../containers/TabContent/SwatchesCntr';
 import Layers from '../containers/TabContent/LayersCntr';
 
@@ -33,8 +33,8 @@ export default {
     {
       id: 1,
       tabs: [
-        { name: 'Color', content: <Color/>, menu: ['Hue Box', 'RGB Sliders', 'HSL Sliders', 'CMYK Sliders', 'Lab Sliders'] },
-        { name: 'Swatches', content: <Swatches/>, menu: ['New Swatch...'] }
+        { name: 'Color', content: <Color />, menu: ['Hue Box', 'RGB Sliders', 'HSL Sliders', 'CMYK Sliders', 'Lab Sliders'] },
+        { name: 'Swatches', content: <Swatches />, menu: ['New Swatch...'] }
       ],
       tab: 0,
       isHidden: true,

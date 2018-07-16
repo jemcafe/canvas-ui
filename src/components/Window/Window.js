@@ -81,7 +81,7 @@ class Window extends Component {
 
   render () {
     const { pos } = this.state;
-    const { name = '?', hide, children } = this.props;
+    const { name = '?', children } = this.props;
 
     const style = {
       window: { top: pos.y, left: pos.x }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-//
+// data
 import toolbarItems from '../tabs/toolbarItems';
 import tabGroups from '../tabs/tabGroups';
 import projects from '../tabs/projects';
