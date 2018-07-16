@@ -31,10 +31,6 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
   
   switch (type) {
-    case COLOR_1:
-      return {...state, color_1: payload};
-    case COLOR_2:
-      return {...state, color_2: payload};
     case RESET_COLORS:
       return payload(state, initialState);
     case SWAP_COLORS:

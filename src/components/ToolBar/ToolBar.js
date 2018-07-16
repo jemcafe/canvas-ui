@@ -2,6 +2,8 @@ import React, { Fragment as Aux } from 'react';
 import PropTypes from 'prop-types';
 
 function Toolbar ({ items = [] }) {
+
+  
   
   // Recursion for displaying the options
   function displayOptions (options) {

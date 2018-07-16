@@ -41,8 +41,8 @@ function ToolMenu (props) {
       </ul>
       <div className={classNames.color}>
         <div>
-          <div className="reset" onClick={() => resetColors()}><i className="icon-undo"></i></div>
-          <div className="swap" onClick={() => swapColors()}><i className="icon-swap"></i></div>
+          <div className="reset" onClick={ resetColors }><i className="icon-undo"></i></div>
+          <div className="swap" onClick={ swapColors }><i className="icon-swap"></i></div>
         </div>
         <div className="colors">
           <div className="color-block"><div style={{background: c.color_2.hex}} onClick={() => selectTool('eyedropper')}></div></div>
