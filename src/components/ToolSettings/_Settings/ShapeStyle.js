@@ -39,16 +39,16 @@ class ShapeStyle extends Component {
       let input = prev.input;
       let isValid = /^([0-9]){1,}([px]){0,2}$/;           // Valid characters
       isValid = isValid.test(input);
-      isValid = isValid && (parseInt(input, 10) <= 2000); // Less than or equal to 2000px
+      isValid = isValid && (parseInt(input, 10) <= 1000); // Less than or equal to 2000px
       const p = isValid && input.indexOf('p');            // First 'p' char
       const x = isValid && input.indexOf('x');            // First 'x' char
-      isValid = isValid && (p !== 0 && x > p );           // 'p' is not the first char and 'x' follows after 'p'
+      isValid = isValid && (p !== 0 && ( x > p ));        // 'p' is not the first char or 'x' follows after 'p'
 
       if (isValid) {
 
-        // Every character after the first 'px' is removed.
+        // Every character before the first 'px' are kept.
         input = input.substring(0, p !== -1 ? p+2 : input.length);
-        if (p === -1) input = `${input}px`;
+        input = `${parseInt(input, 10)}px`;
 
       } else {
         input = tool.strokeWidth;

@@ -41,13 +41,13 @@ class Opacity extends Component {
       isValid = isValid.test(input);
       isValid = isValid && (parseInt(input, 10) <= 100); // Less than or equal to 100%
       const n = isValid && input.indexOf('%');           // First '%' char
+      isValid = isValid && n !== 0;                      // '%' is not the first char
 
       if (isValid) {
-
-        // Every character after the first '%' is removed.
+        
+        // Every character before the first '%' are kept.
         input = input.substring(0, n !== -1 ? n+1 : input.length);
-        if (n ===  0) input = tool.opacity;
-        if (n === -1) input = `${input}%`;
+        input = `${parseInt(input, 10)}%`;
 
       } else {
         input = tool.opacity;
