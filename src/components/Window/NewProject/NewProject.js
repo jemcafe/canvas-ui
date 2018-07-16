@@ -3,7 +3,7 @@ import Window from '../Window';
 
 function NewProject (props) {
   return (
-    <Window name={'New'} hide={}>
+    <Window name={'New'}>
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
           <div className="submit-btn">
