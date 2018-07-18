@@ -61,9 +61,8 @@ class Window extends Component {
     this.setState({ dragging: false, focused: false });
   }
 
-  updatePosition = (e) => {
+  updatePosition = ({ nativeEvent: e }) => {
     if (this.state.dragging) {
-      e.persist();  // accesses events asyncronously
       this.setState(prev => ({ 
         pos: { 
           x: e.clientX - prev.offset.x, 

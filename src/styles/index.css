@@ -3658,7 +3658,7 @@ readers do not read off random characters that represent icons */
 #tool-settings > .settings > .zoom > div, #tool-menu .tools .tool,
 #tool-menu .tools-collapsed .tool, .tab-group > .icon-tabs > ul > li, .double-angle-btn, #app-layout #workspace #documents, #toolbar > .items > .item .content .arrow, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects .container, #tool-settings > ul > li, #tool-settings > ul > li .dropdown-container > .range-container, #tool-settings .workspace-presets, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
 #tool-menu .color-collapsed > div:first-child .reset,
-#tool-menu .color-collapsed > div:first-child .swap, #tool-menu .color, #tool-menu .color > div:first-child, .panel > div:first-child div, .tab-group .container > nav > div .menu, .tab-group .container > nav > div .menu > div:first-child, .hue-gradient > .colors > .color-block, .hue-gradient .slider-wrapper {
+#tool-menu .color-collapsed > div:first-child .swap, #tool-menu .color, #tool-menu .color > div:first-child, .panel > div:first-child div, .tab-group .container > nav > div .menu, .tab-group .container > nav > div .menu > div:first-child, .hue-gradient > .colors > .color-block {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -3876,10 +3876,6 @@ select {
     border-color: #5e5e5e; }
   .double-angle-btn:active {
     background: #272727; }
-
-.touch-overlay,
-.focus-overlay {
-  cursor: none; }
 
 .touch-overlay {
   position: absolute;
@@ -4340,11 +4336,24 @@ select {
     transform: translate(5px, 5px); }
 
 .hue-gradient .slider-wrapper {
+  display: flex;
+  justify-content: center;
   background: #bdbdff; }
   .hue-gradient .slider-wrapper input {
     width: 200px;
     height: 20px;
     transform: rotate(-90deg); }
+  .hue-gradient .slider-wrapper .handle {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-image: radial-gradient(#fff 50%, #636363 90%); }
+  .hue-gradient .slider-wrapper .slider {
+    width: 20px;
+    border: 2px solid #444444;
+    border-radius: 20px;
+    background: linear-gradient(0deg, red, yellow, lime, cyan, blue, magenta, red); }
 
 .window {
   position: absolute;

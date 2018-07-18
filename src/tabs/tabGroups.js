@@ -33,7 +33,7 @@ export default {
     {
       id: 1,
       tabs: [
-        { name: 'Color', content: <Color />, menu: ['Hue Box', 'RGB Sliders', 'HSL Sliders', 'CMYK Sliders', 'Lab Sliders'] },
+        { name: 'Color', content: <Color />, menu: ['Hue Box'] },
         { name: 'Swatches', content: <Swatches />, menu: ['New Swatch...'] }
       ],
       tab: 0,

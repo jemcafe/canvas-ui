@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CircleCursor from './CircleCursor';
+import Cursor from './Cursor';
+import Slider from './Slider';
 
 class HueGradient extends Component {
 
@@ -29,8 +30,7 @@ class HueGradient extends Component {
         <div ref="wrapper" className="gradient-wrapper" style={{flex:'1',display:'flex'}}>
           <canvas ref="canvas" className="color-canvas" style={{position: 'absolute'}}/>
 
-          { (inCanvas || focus) && 
-          <CircleCursor mouse={mouse} /> }
+          { (inCanvas || focus) && <Cursor mouse={mouse} /> }
           
           <canvas ref="touch" className="touch-overlay"
             onMouseDown={(e) => engage(this.refs.canvas, e)}
@@ -38,7 +38,7 @@ class HueGradient extends Component {
             onMouseOver={() => detectCanvas(true)}
             onMouseLeave={() => detectCanvas(false)}/>
 
-            { focus &&
+          { focus &&
           <div className="focus-overlay"
             onMouseMove={(e) => getColor(this.refs.canvas, e)}
             onMouseUp={() => disengage(this.refs.canvas)}
@@ -46,9 +46,10 @@ class HueGradient extends Component {
           </div> }
         </div>
 
-        <div className="slider-wrapper" style={{width:'30px'}}>
-          <input className="slider" type="range" min="0" max={255 * 6} defaultValue="0" 
-            onChange={(e) => handleHueChange(this.refs.canvas, e)}/>
+        <div className="slider-wrapper" style={{width:'40px'}}>
+          {/* <input className="slider" type="range" min="0" max={255 * 6} defaultValue="0" 
+            onChange={(e) => handleHueChange(this.refs.canvas, e)}/> */}
+            <Slider min={0} max={255 * 7} />
         </div>
       </div>
     );

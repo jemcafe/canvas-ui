@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function CircleCursor (props) {
+function Cursor (props) {
   const { mouse, zIndex } = props;
 
   const strokeWidth = 3;
@@ -31,8 +31,8 @@ function CircleCursor (props) {
   );
 }
 
-CircleCursor.propTypes = {
+Cursor.propTypes = {
   mouse: PropTypes.object.isRequired
 }
 
-export default CircleCursor;
+export default Cursor;
