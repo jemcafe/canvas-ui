@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment as Aux } from 'react';
 
 // data
 import toolbarItems from '../tabs/toolbarItems';
@@ -12,11 +12,12 @@ import Projects from '../containers/ProjectsCntr';
 import Panel from '../containers/PanelCntr';
 
 import NewProject from '../containers/NewProjectCntr';
+import HueGradient from '../containers/HueGradientCntr';
 
 function Layout () {
   return (
+    <Aux>
     <div id="app-layout">
-      <NewProject />
       <ToolBar items={toolbarItems}/>
       <section>
         <ToolSettings />
@@ -33,7 +34,10 @@ function Layout () {
           <Panel side={'R'} tabGroups={tabGroups['2']} />
         </section>
       </div>
+      <NewProject />
     </div>
+    <HueGradient />
+    </Aux>
   );
 }
 

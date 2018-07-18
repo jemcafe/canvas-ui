@@ -27,10 +27,7 @@ class Window extends Component {
     const { innerWidth, innerHeight } = window;
     // The equation for the position keeps the element within the browser window when it resizes ( a1 / a2 = x / b2 ) ( x = a1 * b2 / a2 )
     this.setState(prev => ({
-      browserWindow: {
-        height: innerHeight, 
-        width: innerWidth
-      },
+      browserWindow: { height: innerHeight, width: innerWidth },
       pos: {
         x: Math.round(prev.pos.x/prev.browserWindow.width * innerWidth), 
         y: Math.round(prev.pos.y/prev.browserWindow.height * innerHeight)
@@ -61,10 +58,7 @@ class Window extends Component {
   }
 
   disengage = () => {
-    this.setState({ 
-      dragging: false, 
-      focused: false 
-    });
+    this.setState({ dragging: false, focused: false });
   }
 
   updatePosition = (e) => {

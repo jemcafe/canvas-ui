@@ -9,9 +9,7 @@
 // LABtoRGB } from '../../../helpers/colorConversion';
 
 // Action Types
-export const COLOR_1 = 'COLOR_1',
-             COLOR_2 = 'COLOR_2',
-             RESET_COLORS = 'RESET_COLORS',
+export const RESET_COLORS = 'RESET_COLORS',
              SWAP_COLORS = 'SWAP_COLORS';
 
 // Action Creators

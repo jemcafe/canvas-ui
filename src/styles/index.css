@@ -3658,7 +3658,7 @@ readers do not read off random characters that represent icons */
 #tool-settings > .settings > .zoom > div, #tool-menu .tools .tool,
 #tool-menu .tools-collapsed .tool, .tab-group > .icon-tabs > ul > li, .double-angle-btn, #app-layout #workspace #documents, #toolbar > .items > .item .content .arrow, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects .container, #tool-settings > ul > li, #tool-settings > ul > li .dropdown-container > .range-container, #tool-settings .workspace-presets, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
 #tool-menu .color-collapsed > div:first-child .reset,
-#tool-menu .color-collapsed > div:first-child .swap, #tool-menu .color, #tool-menu .color > div:first-child, .panel > div:first-child div, .tab-group .container > nav > div .menu, .tab-group .container > nav > div .menu > div:first-child, .tab-group .container > .content {
+#tool-menu .color-collapsed > div:first-child .swap, #tool-menu .color, #tool-menu .color > div:first-child, .panel > div:first-child div, .tab-group .container > nav > div .menu, .tab-group .container > nav > div .menu > div:first-child, .hue-gradient > .colors > .color-block, .hue-gradient .slider-wrapper {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -3877,11 +3877,21 @@ select {
   .double-angle-btn:active {
     background: #272727; }
 
+.touch-overlay,
 .focus-overlay {
+  cursor: none; }
+
+.touch-overlay {
+  z-index: 1;
+  position: absolute;
+  background: rgba(0, 255, 255, 0.4);
+  outline: 1px solid gray; }
+
+.focus-overlay {
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
   width: 100vw;
   height: 100vh;
   background: #c0d9ff;
@@ -4255,7 +4265,8 @@ select {
   .tab-group .container {
     display: flex;
     flex-direction: column;
-    min-width: 200px; }
+    min-width: 200px;
+    max-width: 200px; }
     .tab-group .container > nav {
       display: flex;
       background: #444444; }
@@ -4316,30 +4327,29 @@ select {
       background: #444444; }
 
 .hue-gradient {
-  display: flex;
-  align-items: flex-start;
-  background: lightgrey; }
-  .hue-gradient .color-block {
-    border: 1px solid #000; }
-    .hue-gradient .color-block div {
-      width: 1em;
-      height: 1em;
-      border: 1px solid #fff; }
+  display: flex; }
+  .hue-gradient > .colors {
+    padding: 22px;
+    background: pink; }
+    .hue-gradient > .colors > .color-block > div {
+      position: absolute;
+      border: 1px solid #000; }
+      .hue-gradient > .colors > .color-block > div > div {
+        width: 16px;
+        height: 16px;
+        border: 1px solid #fff; }
+    .hue-gradient > .colors > .color-block:last-child {
+      transform: translate(-5px, -5px); }
+    .hue-gradient > .colors > .color-block:first-child {
+      transform: translate(5px, 5px); }
+  .hue-gradient .gradient-wrapper {
+    width: 100%; }
   .hue-gradient .slider-wrapper {
-    display: inline-block;
-    width: 20px;
-    height: 200px;
-    padding: 0; }
+    background: #bdbdff; }
     .hue-gradient .slider-wrapper input {
       width: 200px;
       height: 20px;
-      margin: 0;
-      transform-origin: 100px 100px;
       transform: rotate(-90deg); }
-  .hue-gradient .hue {
-    width: 1em;
-    height: 200px;
-    background: colorGradient(0deg); }
 
 .window {
   position: absolute;

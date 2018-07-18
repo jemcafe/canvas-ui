@@ -1,6 +1,4 @@
 import { 
-  COLOR_1, 
-  COLOR_2, 
   RESET_COLORS,
   SWAP_COLORS 
 } from './actions';

@@ -1,5 +1,5 @@
 import React from 'react';
-import Swatches from '../../components/TabContent/Swatches';
+import Swatches from '../../components/Panel/TabContent/Swatches';
 
 function SwatchesCntr (props) {
   return (

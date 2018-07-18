@@ -1,0 +1,46 @@
+.hue-gradient {
+  display: flex;
+  // // align-items: flex-start;
+  // width: 100%;
+  // height: 100%;
+  // background: lightgrey;
+
+  > .colors {
+    padding: 22px;
+    background: pink;
+    > .color-block {
+      @extend %center-content;
+      > div {
+        position: absolute;
+        border: 1px solid #000;
+        > div {  // color
+          width: 16px;
+          height: 16px;
+          border: 1px solid #fff;
+        }
+      }
+      &:last-child { transform: translate(-5px, -5px); }
+      &:first-child { transform: translate(5px, 5px); }
+    }
+  }
+
+  .gradient-wrapper {
+    width: 100%;
+  }
+
+  .slider-wrapper {
+    @extend %center-content;
+    background: rgb(189, 189, 255);
+    input {
+      width: 200px;
+      height: 20px;
+      transform: rotate(-90deg);
+    }
+  }
+
+  // // .hue {
+  // //    width: 1em;
+  // //    height: 200px;
+  // //    background: colorGradient(0deg);
+  // // }
+}
