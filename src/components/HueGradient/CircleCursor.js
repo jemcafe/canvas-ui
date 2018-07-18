@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Brush (props) {
+function CircleCursor (props) {
   const { mouse, zIndex } = props;
 
   const strokeWidth = 3;
@@ -11,10 +11,7 @@ function Brush (props) {
   const height = (r * 2) + (strokeWidth * 2);
   const cx = r + 2;
   const cy = r + 2;
-  const pos = { 
-    x: mouse.x - cx, 
-    y: mouse.y - cy
-  };
+  const pos = { x: mouse.x - cx, y: mouse.y - cy };
 
   // styles
   const styles = {
@@ -22,7 +19,7 @@ function Brush (props) {
       position: 'fixed',
       top: pos.y,
       left: pos.x,
-      zIndex: zIndex
+      zIndex: zIndex ? zIndex : null
     }
   }
 
@@ -34,9 +31,8 @@ function Brush (props) {
   );
 }
 
-Brush.propTypes = {
-  mouse: PropTypes.object.isRequired,
-  zIndex: PropTypes.number.isRequired
+CircleCursor.propTypes = {
+  mouse: PropTypes.object.isRequired
 }
 
-export default Brush;
+export default CircleCursor;

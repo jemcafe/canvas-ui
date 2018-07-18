@@ -3882,13 +3882,11 @@ select {
   cursor: none; }
 
 .touch-overlay {
-  z-index: 1;
   position: absolute;
-  background: rgba(0, 255, 255, 0.4);
-  outline: 1px solid gray; }
+  background: rgba(0, 255, 255, 0.4); }
 
 .focus-overlay {
-  z-index: 2;
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
@@ -4326,30 +4324,27 @@ select {
       border-color: #d3d3d3;
       background: #444444; }
 
-.hue-gradient {
-  display: flex; }
-  .hue-gradient > .colors {
-    padding: 22px;
-    background: pink; }
-    .hue-gradient > .colors > .color-block > div {
-      position: absolute;
-      border: 1px solid #000; }
-      .hue-gradient > .colors > .color-block > div > div {
-        width: 16px;
-        height: 16px;
-        border: 1px solid #fff; }
-    .hue-gradient > .colors > .color-block:last-child {
-      transform: translate(-5px, -5px); }
-    .hue-gradient > .colors > .color-block:first-child {
-      transform: translate(5px, 5px); }
-  .hue-gradient .gradient-wrapper {
-    width: 100%; }
-  .hue-gradient .slider-wrapper {
-    background: #bdbdff; }
-    .hue-gradient .slider-wrapper input {
-      width: 200px;
-      height: 20px;
-      transform: rotate(-90deg); }
+.hue-gradient > .colors {
+  padding: 22px;
+  background: pink; }
+  .hue-gradient > .colors > .color-block > div {
+    position: absolute;
+    border: 1px solid #000; }
+    .hue-gradient > .colors > .color-block > div > div {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #fff; }
+  .hue-gradient > .colors > .color-block:last-child {
+    transform: translate(-5px, -5px); }
+  .hue-gradient > .colors > .color-block:first-child {
+    transform: translate(5px, 5px); }
+
+.hue-gradient .slider-wrapper {
+  background: #bdbdff; }
+  .hue-gradient .slider-wrapper input {
+    width: 200px;
+    height: 20px;
+    transform: rotate(-90deg); }
 
 .window {
   position: absolute;

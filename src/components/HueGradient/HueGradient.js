@@ -19,22 +19,18 @@ class HueGradient extends Component {
       detectCanvas 
     } = this.props;
 
-    console.log(inCanvas, focus);
-
     return (
-      <div ref="container" className="hue-gradient" style={{display:'flex',height:'100%'}}>
-        <div ref="colors" className="colors">
+      <div className="hue-gradient" style={{display:'flex',height:'100%'}}>
+        <div className="colors">
           <div className="color-block"><div><div style={{ background: color.hex }}></div></div></div>
           <div className="color-block"><div><div style={{ background: color.hex }}></div></div></div>
         </div>
         
-        <div ref="wrapper" className="gradient-wrapper">
-          { focus &&
-          <div className="focus-overlay"
-            onMouseMove={(e) => getColor(this.refs.canvas, e)}
-            onMouseUp={() => disengage(this.refs.canvas)}
-            onMouseLeave={() => disengage(this.refs.canvas)}>
-          </div> }
+        <div ref="wrapper" className="gradient-wrapper" style={{flex:'1',display:'flex'}}>
+          <canvas ref="canvas" className="color-canvas" style={{position: 'absolute'}}/>
+
+          { (inCanvas || focus) && 
+          <CircleCursor mouse={mouse} /> }
           
           <canvas ref="touch" className="touch-overlay"
             onMouseDown={(e) => engage(this.refs.canvas, e)}
@@ -42,13 +38,15 @@ class HueGradient extends Component {
             onMouseOver={() => detectCanvas(true)}
             onMouseLeave={() => detectCanvas(false)}/>
 
-          { (inCanvas || focus) && 
-          <CircleCursor mouse={mouse} zIndex={0} /> }
-
-          <canvas ref="canvas" style={{zIndex: -2}}/>
+            { focus &&
+          <div className="focus-overlay"
+            onMouseMove={(e) => getColor(this.refs.canvas, e)}
+            onMouseUp={() => disengage(this.refs.canvas)}
+            onMouseLeave={() => disengage(this.refs.canvas)}>
+          </div> }
         </div>
 
-        <div ref="slider" className="slider-wrapper" style={{width:'30px'}}>
+        <div className="slider-wrapper" style={{width:'30px'}}>
           <input className="slider" type="range" min="0" max={255 * 6} defaultValue="0" 
             onChange={(e) => handleHueChange(this.refs.canvas, e)}/>
         </div>

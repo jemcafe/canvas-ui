@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { RGBtoHex } from '../helpers/colorConversion';
-import { getPosition } from '../helpers/colorPickers';
+import { getPosition } from '../helpers/canvas';
 import HueGradient from '../components/HueGradient/HueGradient';
 
 class HueGradientCntr extends Component {
@@ -28,20 +28,14 @@ class HueGradientCntr extends Component {
   }
 
   initCanvas = (refs) => {
-    const { container, canvas, touch, wrapper } = refs;
+    const { canvas: c, touch: t, wrapper: w } = refs;
 
-    touch.width = wrapper.clientWidth;
-    touch.height = wrapper.clientHeight;
+    t.width = w.clientWidth;
+    t.height = w.clientHeight;
+    c.width = t.width;
+    c.height = t.height;
 
-    for ( let i = 0; i < container.children.length; i++ ) {
-      if ( container.children[i].className !== 'gradient-wrapper' ) {
-        touch.width -= container.children[i].clientWidth;
-      }
-    }
-
-    canvas.width = touch.clientWidth;
-    canvas.height = touch.clientHeight;
-    this.setCanvas(canvas);
+    this.setCanvas(c);
   }
 
   engage = (canvas, e) => {
@@ -72,8 +66,6 @@ class HueGradientCntr extends Component {
       
       const rgb = { r: imgData[0], g: imgData[1], b: imgData[2] };
       const hex = RGBtoHex(rgb.r, rgb.g, rgb.b);
-
-      // console.log('getColor', { rgb, hex, x, y });
 
       this.setState({ color: { rgb, hex, x, y } });
       this.updateMousePosition(e);
