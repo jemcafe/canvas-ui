@@ -5,11 +5,12 @@
   background: #ade6d3;
   // background: $darkgray;
 
-  .container {
+  > .container {
     display: flex;
     flex-direction: column;
     min-width: 200px;
     max-width: 200px;
+    background: $gray;
 
     > nav {
       display: flex;
@@ -62,13 +63,12 @@
 
     > .content {  // content
       flex: 1;
+      display: flex;
+      overflow: hidden;
       overflow-y: auto;
-      // width: 100%;
-      // height: 100%;
       border-left: 1px solid $darkergray;
       border-bottom: 1px solid $darkergray;
       border-right: 1px solid $darkergray;
-      // background: $gray;
       background: lightblue;
       // @extend %center-content; // temporary style
     }

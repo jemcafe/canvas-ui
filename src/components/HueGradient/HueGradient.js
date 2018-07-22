@@ -6,7 +6,14 @@ import Slider from './Slider';
 class HueGradient extends Component {
 
   componentDidMount () {
-    this.props.initCanvas(this.refs);
+    const { initCanvas } = this.props;
+    window.addEventListener("resize", () => initCanvas(this.refs));
+    initCanvas(this.refs);
+  }
+
+  componentWillUnmount() {
+    const { initCanvas } = this.props;
+    window.removeEventListener("resize", () => initCanvas(this.refs));
   }
 
   render () {
@@ -15,16 +22,27 @@ class HueGradient extends Component {
       engage, 
       disengage, 
       getColor, 
-      handleHueChange,
+      changeHue,
       updateMousePosition,
-      detectCanvas 
+      detectCanvas,
+      color:{ color_1, color_2 },
+      selectColor
     } = this.props;
 
+    const style = {
+      color_1: color_1.selected ? {
+        borderColor: '#ff0000'
+      } : null,
+      color_2: color_2.selected ? {
+        borderColor: '#ff0000'
+      } : null
+    }
+
     return (
-      <div className="hue-gradient" style={{display:'flex',height:'100%'}}>
-        <div className="colors">
-          <div className="color-block"><div><div style={{ background: color.hex }}></div></div></div>
-          <div className="color-block"><div><div style={{ background: color.hex }}></div></div></div>
+      <div className="hue-gradient">
+        <div className="color-pair">
+          <div className="color-block-wrapper"><div className="color-block" style={style.color_2} onClick={() => selectColor(2)}><div><div style={{ background: color_2.hex }}></div></div></div></div>
+          <div className="color-block-wrapper"><div className="color-block" style={style.color_1} onClick={() => selectColor(1)}><div><div style={{ background: color_1.hex }}></div></div></div></div>
         </div>
         
         <div ref="wrapper" className="gradient-wrapper" style={{flex:'1',display:'flex'}}>
@@ -40,17 +58,13 @@ class HueGradient extends Component {
 
           { focus &&
           <div className="focus-overlay"
-            onMouseMove={(e) => getColor(this.refs.canvas, e)}
+            onMouseMove={(e) => getColor({canvas:this.refs.canvas, e})}
             onMouseUp={() => disengage(this.refs.canvas)}
             onMouseLeave={() => disengage(this.refs.canvas)}>
           </div> }
         </div>
 
-        <div className="slider-wrapper" style={{width:'40px'}}>
-          {/* <input className="slider" type="range" min="0" max={255 * 6} defaultValue="0" 
-            onChange={(e) => handleHueChange(this.refs.canvas, e)}/> */}
-            <Slider min={0} max={255 * 7} />
-        </div>
+        <Slider min={0} max={255 * 6} onChange={(value) => changeHue({canvas:this.refs.canvas, value})} />
       </div>
     );
   }
@@ -62,7 +76,7 @@ HueGradient.propTypes = {
   engage: PropTypes.func.isRequired,
   disengage: PropTypes.func.isRequired,
   getColor: PropTypes.func.isRequired,
-  handleHueChange: PropTypes.func.isRequired,
+  changeHue: PropTypes.func.isRequired,
   updateMousePosition: PropTypes.func.isRequired,
 }
 

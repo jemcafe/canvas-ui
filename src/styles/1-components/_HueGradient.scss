@@ -1,55 +1,35 @@
 .hue-gradient {
-  // display: flex;
+  flex: 1;
+  display: flex;
+  padding: 6px;
 
-  > .colors {
-    padding: 22px;
+  > .color-pair {
+    padding: 4px; 
     background: pink;
-    > .color-block {
+    width: 36px;
+    height: 36px;
+    @extend %center-content;
+
+    > .color-block-wrapper {
+      position: absolute;
       @extend %center-content;
-      > div {
-        position: absolute;
-        border: 1px solid #000;
-        > div {  // color
-          width: 16px;
-          height: 16px;
-          border: 1px solid #fff;
+
+      .color-block {
+        border: 1px solid transparent;
+        padding: 1px;
+        // cursor: pointer;
+        > div {
+          border: 1px solid #000;
+          > div {  // color
+            width: 16px;
+            height: 16px;
+            border: 1px solid #fff;
+          }
         }
       }
+
       &:last-child { transform: translate(-5px, -5px); }
       &:first-child { transform: translate(5px, 5px); }
-    }
-  }
-
-  // .gradient-wrapper {
-  //   flex: 1;
-  //   display: flex;
-  //   // width: 100%;
-  // }
-
-  .slider-wrapper {
-    display: flex;
-    justify-content: center;
-    background: rgb(189, 189, 255);
-    input {
-      width: 200px;
-      height: 20px;
-      transform: rotate(-90deg);
-    }
-
-    .handle {
-      position: relative;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      // background: lightgray;
-      background-image: radial-gradient(#fff 50%, rgb(99, 99, 99) 90%);
-    }
-
-    .slider {
-      width: 20px;
-      border: 2px solid $darkgray;
-      border-radius: 20px;
-      background: colorGradient(0deg);
     }
   }
 }

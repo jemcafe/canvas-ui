@@ -17,15 +17,20 @@ function TabGroup (props) {
 
   const styles = {
     panel: !isCollapsed ? {
-      flex: 1,  // Using percentage instead of flexbox to stretch the panels
+      flex: 1,
     } : null,
     container: isCollapsed ? {
       position: 'absolute',
+      right: '0',
+      top: '0',
       minWidth: `${220}px`,
-      transform: `translate(-${222}px, 0)`
+      // transform: `translate(-${222}px, 0)`
     } : {
       height: '100%'
-    }
+    },
+    content: isCollapsed ? {
+      minHeight: '200px'
+    } : null
   }
 
   const classNames = {
@@ -51,7 +56,7 @@ function TabGroup (props) {
   }
 
   const tabList = tabs.map((e, i) => (
-    <li key={i} className={ classNames.tab(i) } onClick={() => changeTab(index, i)}>{ e.name }</li>
+    <li key={i} className={ classNames.tab(i) } tabIndex={i} onClick={() => changeTab(index, i)}>{ e.name }</li>
   ));
 
   const menuOptions = tabs[tab].menu.map((e, i) => (
@@ -88,7 +93,9 @@ function TabGroup (props) {
             </div>
           </div>
         </nav>
-        <div className="content">{ content }</div>
+        <div className="content" style={styles.content}>
+          { content }
+        </div>
       </div> }
 
       { isCollapsed &&

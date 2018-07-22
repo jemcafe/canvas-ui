@@ -3658,7 +3658,7 @@ readers do not read off random characters that represent icons */
 #tool-settings > .settings > .zoom > div, #tool-menu .tools .tool,
 #tool-menu .tools-collapsed .tool, .tab-group > .icon-tabs > ul > li, .double-angle-btn, #app-layout #workspace #documents, #toolbar > .items > .item .content .arrow, .projects > nav > .tabs > li, .projects > nav > .tabs > li > div:first-child, .projects .container, #tool-settings > ul > li, #tool-settings > ul > li .dropdown-container > .range-container, #tool-settings .workspace-presets, #tool-menu .color > div:first-child .reset, #tool-menu .color > div:first-child .swap,
 #tool-menu .color-collapsed > div:first-child .reset,
-#tool-menu .color-collapsed > div:first-child .swap, #tool-menu .color, #tool-menu .color > div:first-child, .panel > div:first-child div, .tab-group .container > nav > div .menu, .tab-group .container > nav > div .menu > div:first-child, .hue-gradient > .colors > .color-block {
+#tool-menu .color-collapsed > div:first-child .swap, #tool-menu .color, #tool-menu .color > div:first-child, .panel > div:first-child div, .tab-group > .container > nav > div .menu, .tab-group > .container > nav > div .menu > div:first-child, .hue-gradient > .color-pair, .hue-gradient > .color-pair > .color-block-wrapper {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -3676,17 +3676,17 @@ readers do not read off random characters that represent icons */
   #tool-settings > .settings > .zoom > div i, #tool-menu .tools .tool i, #tool-menu .tools-collapsed .tool i, .tab-group > .icon-tabs > ul > li i {
     font-size: 16px; }
 
-.projects > nav .selected-tab, .tab-group .container > nav .selected-tab {
+.projects > nav .selected-tab, .tab-group > .container > nav .selected-tab {
   border: 1px solid #272727;
   background: #5e5e5e; }
 
-.projects > nav .right-tab, .projects > nav > div:last-child, .tab-group .container > nav .right-tab, .tab-group .container > nav > div {
+.projects > nav .right-tab, .projects > nav > div:last-child, .tab-group > .container > nav .right-tab, .tab-group > .container > nav > div {
   border-top: 1px solid #272727;
   border-right: 1px solid #272727;
   border-bottom: 1px solid #272727;
   background: #444444; }
 
-.projects > nav .left-tab, .tab-group .container > nav .left-tab {
+.projects > nav .left-tab, .tab-group > .container > nav .left-tab {
   border-bottom: 1px solid #272727;
   border-left: 1px solid #272727;
   border-top: 1px solid #272727;
@@ -3710,7 +3710,8 @@ ul {
   list-style-type: none; }
 
 button {
-  outline: none; }
+  outline: none;
+  border: none; }
 
 input {
   outline: none; }
@@ -3876,6 +3877,43 @@ select {
     border-color: #5e5e5e; }
   .double-angle-btn:active {
     background: #272727; }
+
+#color-slider {
+  width: 36px;
+  background: #ffffdd; }
+  #color-slider input[type=range] {
+    -webkit-appearance: none;
+    /* Override default CSS styles */
+    appearance: none;
+    height: 20px;
+    /* Specified height */
+    border: 2px solid #444444;
+    border-radius: 20px;
+    background: linear-gradient(270deg, red, yellow, lime, cyan, blue, magenta, red);
+    transform-origin: top left;
+    transform: rotate(90deg) translate(0, -30px);
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ }
+    #color-slider input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      /* Override default look */
+      appearance: none;
+      width: 20px;
+      /* Set a specific slider handle width */
+      height: 20px;
+      /* Slider handle height */
+      border-radius: 50%;
+      background-image: radial-gradient(#ffffff 50%, #636363 90%);
+      cursor: pointer;
+      /* Cursor on hover */ }
+    #color-slider input[type=range]::-moz-range-thumb {
+      width: 20px;
+      /* Set a specific slider handle width */
+      height: 20px;
+      /* Slider handle height */
+      border-radius: 50%;
+      background-image: radial-gradient(#ffffff 50%, #636363 90%);
+      cursor: pointer;
+      /* Cursor on hover */ }
 
 .touch-overlay {
   position: absolute;
@@ -4256,19 +4294,20 @@ select {
   font-size: 12px;
   color: #fff;
   background: #ade6d3; }
-  .tab-group .container {
+  .tab-group > .container {
     display: flex;
     flex-direction: column;
     min-width: 200px;
-    max-width: 200px; }
-    .tab-group .container > nav {
+    max-width: 200px;
+    background: #5e5e5e; }
+    .tab-group > .container > nav {
       display: flex;
       background: #444444; }
-      .tab-group .container > nav .selected-tab {
+      .tab-group > .container > nav .selected-tab {
         border-bottom: none; }
-      .tab-group .container > nav .tabs {
+      .tab-group > .container > nav .tabs {
         display: flex; }
-        .tab-group .container > nav .tabs li {
+        .tab-group > .container > nav .tabs li {
           -webkit-user-select: none;
           /* Chrome all / Safari all */
           -moz-user-select: none;
@@ -4279,28 +4318,30 @@ select {
           /* Likely future */
           padding: 8px 10px;
           white-space: nowrap; }
-          .tab-group .container > nav .tabs li:active {
+          .tab-group > .container > nav .tabs li:active {
             background: #1daeb3; }
-      .tab-group .container > nav > div {
+      .tab-group > .container > nav > div {
         flex: 1;
         display: flex;
         justify-content: flex-end;
         align-items: center; }
-        .tab-group .container > nav > div .menu {
+        .tab-group > .container > nav > div .menu {
           margin: 0 8px; }
-          .tab-group .container > nav > div .menu > select {
+          .tab-group > .container > nav > div .menu > select {
             position: absolute;
             background: none;
             border-color: transparent;
             width: 20px;
             text-indent: 10px;
             text-overflow: ''; }
-            .tab-group .container > nav > div .menu > select:hover {
+            .tab-group > .container > nav > div .menu > select:hover {
               border-color: gray; }
-            .tab-group .container > nav > div .menu > select:active {
+            .tab-group > .container > nav > div .menu > select:active {
               background: #444444; }
-    .tab-group .container > .content {
+    .tab-group > .container > .content {
       flex: 1;
+      display: flex;
+      overflow: hidden;
       overflow-y: auto;
       border-left: 1px solid #272727;
       border-bottom: 1px solid #272727;
@@ -4320,40 +4361,30 @@ select {
       border-color: #d3d3d3;
       background: #444444; }
 
-.hue-gradient > .colors {
-  padding: 22px;
-  background: pink; }
-  .hue-gradient > .colors > .color-block > div {
-    position: absolute;
-    border: 1px solid #000; }
-    .hue-gradient > .colors > .color-block > div > div {
-      width: 16px;
-      height: 16px;
-      border: 1px solid #fff; }
-  .hue-gradient > .colors > .color-block:last-child {
-    transform: translate(-5px, -5px); }
-  .hue-gradient > .colors > .color-block:first-child {
-    transform: translate(5px, 5px); }
-
-.hue-gradient .slider-wrapper {
+.hue-gradient {
+  flex: 1;
   display: flex;
-  justify-content: center;
-  background: #bdbdff; }
-  .hue-gradient .slider-wrapper input {
-    width: 200px;
-    height: 20px;
-    transform: rotate(-90deg); }
-  .hue-gradient .slider-wrapper .handle {
-    position: relative;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-image: radial-gradient(#fff 50%, #636363 90%); }
-  .hue-gradient .slider-wrapper .slider {
-    width: 20px;
-    border: 2px solid #444444;
-    border-radius: 20px;
-    background: linear-gradient(0deg, red, yellow, lime, cyan, blue, magenta, red); }
+  padding: 6px; }
+  .hue-gradient > .color-pair {
+    padding: 4px;
+    background: pink;
+    width: 36px;
+    height: 36px; }
+    .hue-gradient > .color-pair > .color-block-wrapper {
+      position: absolute; }
+      .hue-gradient > .color-pair > .color-block-wrapper .color-block {
+        border: 1px solid transparent;
+        padding: 1px; }
+        .hue-gradient > .color-pair > .color-block-wrapper .color-block > div {
+          border: 1px solid #000; }
+          .hue-gradient > .color-pair > .color-block-wrapper .color-block > div > div {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #fff; }
+      .hue-gradient > .color-pair > .color-block-wrapper:last-child {
+        transform: translate(-5px, -5px); }
+      .hue-gradient > .color-pair > .color-block-wrapper:first-child {
+        transform: translate(5px, 5px); }
 
 .window {
   position: absolute;

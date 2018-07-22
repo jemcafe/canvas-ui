@@ -1,10 +1,8 @@
 export const getPosition = (canvas, e, initial = {x: 0, y: 0}) => {
-  let x = initial.x;
-  let y = initial.y;
+  let x = initial.x, y = initial.y;
 
   if (e && e.clientX && e.clientY) {
-    // Subtracting the canvas offset from the event coordinates get the coordinates relative to the canvas, which is needed to position the circle when the mouse is out the canvas.
-    // Adding the window offset gets the coordinates relative to the canvas when the window page is scrolled.
+    // Subtracting the canvas offset from the event coordinates get the coordinates relative to the canvas, which is needed to position the circle when the mouse is out the canvas. Adding the window offset gets the coordinates relative to the canvas when the window page is scrolled.
     x = e.clientX - canvas.offsetLeft + window.pageXOffset;
     y = e.clientY - canvas.offsetTop + window.pageYOffset;
 

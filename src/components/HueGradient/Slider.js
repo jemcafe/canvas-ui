@@ -5,68 +5,37 @@ class Slider extends Component {
   constructor () {
     super();
     this.state = {
-      value: 0,
-      y: 0,
-      offset: 0,
-      boundary: { top: 0, btm: 0 },
-      dragging: false,
-      focus: false
+      width: 0
     }
   }
 
   componentDidMount () {
-    this.initSlider();
+    window.addEventListener("resize", this.updateDimensions);
+    this.updateDimensions();
   }
 
-  initSlider = () => {
-    this.setState({
-      boundary: {
-        top: this.refs.handle.offsetTop,
-        btm: this.refs.slider.clientHeight
-      },
-    });
+  componentWillUnmount() { 
+    window.removeEventListener("resize", this.updateDimensions);
   }
 
-  engage = ({ nativeEvent: e }) => {
-    this.setState({ 
-      dragging: true, 
-      focus: true,
-      offset: e.clientY - this.refs.handle.offsetTop
-    })
-  }
-
-  disengage = () => {
-    this.setState({ dragging: false, focus: false })
-  }
-
-  updatePosition = ({ nativeEvent: e }) => {
-    const { handle: h } = this.refs;
-    const { min = 0, max = 0 } = this.props;
-    
-    if (this.state.dragging) {
-      this.setState(prev => {
-        let y = e.clientY - prev.offset - prev.boundary.top;
-        const btm = prev.boundary.btm - h.offsetHeight;
-        let value = Math.round((y * max)/btm);
-
-        if (y < 0)   { y = 0;   value = min; }
-        if (y > btm) { y = btm; value = max; }
-        
-        return { value, y };
-      });
-    }
+  updateDimensions = () => {
+    const { slider: s } = this.refs;
+    this.setState({ width: s.clientHeight });
   }
 
   render () {
-    return (
-      <div ref="slider" className="slider">
-        <div ref="handle" className="handle" style={{top: this.state.y}} onMouseDown={this.engage}></div>
+    const { width } = this.state;
+    const { min, max, value = 0, onChange } = this.props;
 
-        { this.state.focus &&
-        <div className="focus-overlay"
-          onMouseMove={this.updatePosition} 
-          onMouseUp={this.disengage}>
-        </div> }
+    const style = {
+      input: {
+        width: width-4,  // -4 for border
+      }
+    }
+
+    return (
+      <div ref="slider" id="color-slider">
+        <input type="range" style={style.input} min={min} max={max} defaultValue="0" onChange={(e) => onChange(e.target.value)}/>
       </div>
     );
   }
@@ -74,7 +43,8 @@ class Slider extends Component {
 
 Slider.propTypes = {
   min: PropTypes.number.isRequired,
-  max: PropTypes.number.isRequired
+  max: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired
 }
 
 export default Slider;

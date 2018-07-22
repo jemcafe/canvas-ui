@@ -13,13 +13,11 @@ export const selectTool = (tool) => ({
     // The tool object is stored in new variable, and selected becomes true.
     // The tool is set to null, so redux knows there's a change.
     let newObj = state[tool];
-    state[tool] = null;
+    delete state[tool];
     newObj.selected = true;
 
     // The other tools are not selected.
-    for (let i in state) {
-      if (state[i]) state[i].selected = false;
-    } 
+    for (let i in state) state[i].selected = false;
 
     return {...state, [tool]: newObj};
   }

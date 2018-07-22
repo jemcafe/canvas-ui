@@ -1,7 +1,12 @@
 
 import React, { Component } from 'react';
+
 import { RGBtoHex } from '../helpers/colorConversion';
 import { getPosition } from '../helpers/canvas';
+
+import { connect } from 'react-redux';
+import { selectColor, updateColor } from '../redux/reducer/color/actions';
+
 import HueGradient from '../components/HueGradient/HueGradient';
 
 class HueGradientCntr extends Component {
@@ -28,29 +33,35 @@ class HueGradientCntr extends Component {
   }
 
   initCanvas = (refs) => {
-    const { canvas: c, touch: t, wrapper: w } = refs;
+    const { canvas, touch: t, wrapper: w } = refs;
 
     t.width = w.clientWidth;
     t.height = w.clientHeight;
-    c.width = t.width;
-    c.height = t.height;
+    canvas.width = t.width;
+    canvas.height = t.height;
 
-    this.setCanvas(c);
+    this.setCanvas({canvas});
+
+    this.setState(prev => { 
+      prev.color.y = w.clientHeight;
+      console.log('previous color', prev.color);
+      return { color: prev.color };
+    });
   }
 
   engage = (canvas, e) => {
     this.setState({ dragging: true, focus: true, inCanvas: true });
-    this.getColor(canvas, e, true);
+    this.getColor({canvas, e, fire: true});
   }
 
   disengage = (canvas) => {
     this.setState({ dragging: false, focus: false, inCanvas: false });
   }
 
-  getColor = (canvas, e, fire) => {
+  getColor = ({canvas, e, fire}) => {
     if ( this.state.dragging || fire ) {
       // The canvas is updated so the circle changes position.
-      this.setCanvas(canvas, e);
+      this.setCanvas({canvas, e});
 
       // Canvas context
       const context = canvas.getContext('2d');
@@ -69,11 +80,13 @@ class HueGradientCntr extends Component {
 
       this.setState({ color: { rgb, hex, x, y } });
       this.updateMousePosition(e);
+      this.props.updateColor(rgb);
     }
   }
 
-  handleHueChange = (canvas, e) => {
-    const value = +e.target.value;               // The string is converted to a number
+  changeHue = ({canvas, e, value}) => {
+    value = e ? +e.target.value : value;         // The string is converted to a number
+    value = (255 * 6) - value;                   // The value starts at max
     let rgb = [0, 0, 0];
     const range = new Array(rgb.length * 2 + 1); // red, green, and blue increases to 255 and decreases to 0  (3 * 2).  1 is added for when the color goes back to red.
 
@@ -83,39 +96,48 @@ class HueGradientCntr extends Component {
     // RGB values
     const l = range.length-1;
     rgb = rgb.map((e, i) => {
-      // Function expression for the ranges's index value. The value loops around.
+      // The ranges's index value. The value loops around.
       const index = (offset, j = (i * 2 + offset)) => (i === rgb.length-1 && j === l) ? l : (j % l);
 
       // The rgb values change if the input value is within the specific ranges
-      return (value >= range[index(4)] && value < range[index(5)]+1) 
-           ? (value - range[index(4)]) 
-           : (value >= range[index(5)] && value < range[index(1)]+1) ||
-             (i === 0 && (value >= range[5] || (value >= range[0] && value < range[1]+1))) // When the color goes back to red
-           ? range[1] 
-           : (value >= range[index(1)] && value < range[index(2)]+1) 
-           ? (range[index(2)] - value) 
-           : range[0];
+      if (value >= range[index(4)] && value < range[index(5)]+1) {
+
+        return (value - range[index(4)]);
+
+      } else if (value >= range[index(5)] && value < range[index(1)]+1) {
+
+        return range[1];
+
+      } else if (i === 0 && (value >= range[5] || (value >= range[0] && value < range[1]+1))) {
+
+        return range[1];
+      
+      } else if (value >= range[index(1)] && value < range[index(2)]+1) {
+
+        return (range[index(2)] - value);
+
+      } else {
+
+        return range[0];
+        
+      }
     });
 
-    const r = rgb[0], 
-          g = rgb[1], 
-          b = rgb[2], 
-          hex = RGBtoHex(r, g, b);
+    const r = rgb[0], g = rgb[1], b = rgb[2], hex = RGBtoHex(r, g, b);
 
     this.setState({ gradientHue: { r, g, b, hex } });
 
     // The selected color and the canvas are updated.
-    this.getColor(canvas, e, true);
-    this.setCanvas(canvas, e, hex);
+    this.getColor({canvas, e, fire: true});
+    this.setCanvas({canvas, e, hex});
   }
 
-  setCanvas = (canvas, e, hex) => {
+  setCanvas = ({canvas, e, hex}) => {
     this.setGradientColor(canvas, hex);
     this.drawCircle(canvas, e);
   }
 
   setGradientColor = (canvas, hex = this.state.gradientHue.hex ) => {  // The default hex color is the color stored in state. 
-    // Canvas context
     const context = canvas.getContext('2d');
     
     // White linear gradient
@@ -166,7 +188,9 @@ class HueGradientCntr extends Component {
   }
 
   updateMousePosition = (e) => {
-    this.setState({ mouse: { x: e.clientX, y: e.clientY } });
+    if (e && e.clientX && e.clientY) {
+      this.setState({ mouse: { x: e.clientX, y: e.clientY } });
+    }
   }
 
   detectCanvas = (bool) => {
@@ -181,11 +205,21 @@ class HueGradientCntr extends Component {
         engage={ this.engage }
         disengage={ this.disengage }
         getColor={ this.getColor }
-        handleHueChange={ this.handleHueChange }
+        changeHue={ this.changeHue }
         updateMousePosition={ this.updateMousePosition }
-        detectCanvas={ this.detectCanvas } />
+        detectCanvas={ this.detectCanvas }
+        {...this.props} />
     );
   }
 }
 
-export default HueGradientCntr;
+const mapStateToProps = (state) => ({
+  color: state.color
+});
+
+const mapDispatchToProps = {
+  selectColor,
+  updateColor
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HueGradientCntr);
