@@ -8,37 +8,39 @@ import ToolMenu from '../../containers/ToolMenuCntr';
 function Panel (props) {
   const {
     isCollapsed,
-    side,
-    tools,
+    align = 'R',
+    isTools = false,
     tabGroups: tg,
     togglePanels,
     togglePanel,
-    changeTab
+    changeTab,
+    updateOffset
   } = props;
 
   const tabGroups = tg.length > 0 
-  ? tg.map((tabGroup, i) => (
-    <TabGroup 
-      key={tabGroup.id} 
-      index={i}
-      tabGroup={tabGroup}
-      isCollapsed={isCollapsed}
-      togglePanel={togglePanel}
-      changeTab={changeTab} />
-  )) : null;
-  
+    ? tg.map((tabGroup, i) => (
+      <TabGroup 
+        key={tabGroup.id} 
+        index={i}
+        tabGroup={tabGroup}
+        isCollapsed={isCollapsed}
+        togglePanel={togglePanel}
+        changeTab={changeTab}
+        updateOffset={updateOffset} />
+    )) : null;
+
   return (
     <div className="panel">
-      <div className={side === 'L' ? 'left' : 'right'}>
+      <div className={align === 'L' ? 'left' : 'right'}>
         { !isCollapsed 
-        ? <div onClick={ togglePanels }><i className={`icon-angle-double-${side === 'L' ? 'left' : 'right'}`}></i></div>
-        : <div onClick={ togglePanels }><i className={`icon-angle-double-${side === 'L' ? 'right' : 'left'}`}></i></div> }
+        ? <div onClick={ togglePanels }><i className={`icon-angle-double-${align === 'L' ? 'left' : 'right'}`}></i></div>
+        : <div onClick={ togglePanels }><i className={`icon-angle-double-${align === 'L' ? 'right' : 'left'}`}></i></div> }
       </div>
       
       <div className="container">
         { !isCollapsed && tabGroups }
         { isCollapsed && tabGroups }
-        { tools && <ToolMenu isCollapsed={isCollapsed} /> }
+        { isTools && <ToolMenu isCollapsed={isCollapsed} /> }
       </div>
     </div>
   );

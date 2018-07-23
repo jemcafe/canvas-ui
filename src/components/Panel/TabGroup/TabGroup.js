@@ -2,6 +2,24 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class TabGroup extends Component {
+  componentDidMount () {
+    const { tab_group: t } = this.refs;
+    const { index, isCollapsed, updateOffset } = this.props;
+    let offset = {};
+
+    if (index === 0) {
+      if (t && isCollapsed) {
+        console.log('height', t.offsetTop);
+        offset = { width: t.offsetLeft-222, height: t.offsetTop };
+        updateOffset(offset);
+      } else {
+        offset = { width: 0, height: 0 };
+        updateOffset(offset);
+      }
+      console.log('Tab Group offset: ', offset);
+    }
+  }
+
   render () {
     const { 
       index,
@@ -66,7 +84,7 @@ class TabGroup extends Component {
     ));
 
     return (
-      <div className={`tab-group${ classNames.panel }`} style={ styles.panel }>
+      <div ref="tab_group" className={`tab-group${ classNames.panel }`} style={ styles.panel }>
         { (!isHidden || !isCollapsed) &&
         <div className="container" style={ styles.container }>
           <nav>

@@ -1,8 +1,5 @@
 import React, { Fragment as Aux } from 'react';
 
-// redux
-import { connnect } from 'react-redux';
-
 // data
 import toolbarItems from '../tabs/toolbarItems';
 import tabGroups from '../tabs/tabGroups';
@@ -29,20 +26,19 @@ function Layout () {
       </section>
       <div id="workspace">
         <section>
-          <Panel side={'L'} tools={true} isCollapsed={true} />
+          <Panel align={'L'} isTools={true} isCollapsed={true} />
         </section>
         <div id="documents">
           <Projects projects={projects}/>
         </div>
         <section className="panels">
-          <Panel side={'R'} tabGroups={tabGroups['1']} isCollapsed={true} />
-          <Panel side={'R'} tabGroups={tabGroups['2']} />
+          <Panel align={'R'} tabGroups={tabGroups['1']} isCollapsed={true} />
+          <Panel align={'R'} tabGroups={tabGroups['2']} />
         </section>
       </div>
       <NewProject />
       <FocusLayer />
     </div>
-    <HueGradient />
     </Aux>
   );
 }

@@ -23,7 +23,7 @@ class Slider extends Component {
 
   render () {
     const { width } = this.state;
-    const { min, max, value = 0, onChange } = this.props;
+    const { min, max, onChange } = this.props;
 
     const style = {
       input: { width: width-4 }  // -4 for border
@@ -31,7 +31,9 @@ class Slider extends Component {
 
     return (
       <div ref="slider" id="color-slider">
-        <input type="range" style={style.input} min={min} max={max} defaultValue="0" onChange={(e) => onChange(e.target.value)}/>
+        <input type="range" style={style.input} min={min} max={max} defaultValue="0" 
+          onClick={(e) => onChange(e.target.value)}
+          onChange={(e) => onChange(e.target.value)}/>
       </div>
     );
   }

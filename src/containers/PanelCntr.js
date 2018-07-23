@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
+import { connect } from 'react-redux';
+import { updateOffset } from '../redux/reducer/canvas/actions';
+
 import Panel from '../components/Panel/Panel';
 
 class PanelCntr extends Component {
@@ -51,26 +55,33 @@ class PanelCntr extends Component {
   }
 
   render () {
-    const { side = 'R', tools = false } = this.props;
-
     return (
       <Panel
+        align={this.props.align}
+        isTools={this.props.isTools}
         isCollapsed={this.state.isCollapsed}
-        side={side}
-        tools={tools} 
         tabGroups={this.state.tabGroups} 
         togglePanels={this.togglePanels}
         togglePanel={this.togglePanel}
-        changeTab={this.changeTab} />
+        changeTab={this.changeTab}
+        updateOffset={this.props.updateOffset}/>
     );
   }
 }
 
 PanelCntr.propTypes = {
+  align: PropTypes.string.isRequired,
+  tools: PropTypes.bool,
   isCollapsed: PropTypes.bool,
-  side: PropTypes.string,
-  tabGroups: PropTypes.array,
-  tools: PropTypes.bool
+  tabGroups: PropTypes.array
 }
 
-export default PanelCntr;
+const mapStateToProps = (state) => ({
+  canvas: state.canvas
+});
+
+const mapDispatchToProps = {
+  updateOffset
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PanelCntr);

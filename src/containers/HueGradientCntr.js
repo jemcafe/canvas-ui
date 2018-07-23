@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 // helpers
 import { RGBtoHex } from '../helpers/colorConversion';
-import { getPosition, getPixelColors } from '../helpers/canvas';
+import { getPosition } from '../helpers/canvas';
 
 // redux
 import { connect } from 'react-redux';
@@ -66,6 +66,8 @@ class HueGradientCntr extends Component {
   }
 
   getColor = ({canvas, e, fire}) => {
+    const { color } = this.state;
+
     if ( this.state.dragging || fire ) {
       // The canvas is updated so the circle changes position.
       this.setCanvas({canvas, e});
@@ -74,9 +76,8 @@ class HueGradientCntr extends Component {
       const context = canvas.getContext('2d');
 
       // Color location (mouse location)
-      const { color: c } = this.state;
-      const initialPos = { x: c.x, y: c.y };
-      const pos = getPosition(canvas, e, initialPos);
+      const initialPos = { x: color.x, y: color.y };
+      const pos = getPosition({canvas, e, initialPos, offset:this.props.canvas.offset});
       const x = pos.x, y = pos.y;
       
       // The .getImageData() method returns an array of the pixel rgb colors [r,g,b,a,r,g,b,a,r...]
@@ -86,7 +87,7 @@ class HueGradientCntr extends Component {
       const hex = RGBtoHex(rgb.r, rgb.g, rgb.b);
 
       this.setState({ color: { rgb, hex, x, y } });
-      this.updateMousePosition(e);
+      this.updateMousePosition(e, this.props.canvas.offset);
       this.props.updateColor({rgb, pos});
     }
   }
@@ -167,7 +168,8 @@ class HueGradientCntr extends Component {
 
     // Arc values
     const initialPos = { x: color.x, y: color.y };
-    const pos = getPosition(canvas, e, initialPos);
+    // console.log('get color', this.props.canvas.offset);
+    const pos = getPosition({canvas, e, initialPos, offset:this.props.canvas.offset});
     const x = pos.x, y = pos.y;
     const radius = 5;
     
@@ -187,8 +189,12 @@ class HueGradientCntr extends Component {
   }
 
   updateMousePosition = (e) => {
-    if (e && e.clientX && e.clientY) {
-      this.setState({ mouse: { x: e.clientX, y: e.clientY } });
+    const { offset } = this.props.canvas;
+    if (e) {
+      this.setState({ mouse: { 
+        x: e.clientX - offset.width + window.pageXOffset, 
+        y: e.clientY - offset.height + window.pageYOffset
+      } });
     }
   }
 
