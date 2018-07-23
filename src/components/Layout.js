@@ -1,5 +1,8 @@
 import React, { Fragment as Aux } from 'react';
 
+// redux
+import { connnect } from 'react-redux';
+
 // data
 import toolbarItems from '../tabs/toolbarItems';
 import tabGroups from '../tabs/tabGroups';
@@ -13,6 +16,8 @@ import Panel from '../containers/PanelCntr';
 
 import NewProject from '../containers/NewProjectCntr';
 import HueGradient from '../containers/HueGradientCntr';
+
+import FocusLayer from './FocusLayer/FocusLayer';
 
 function Layout () {
   return (
@@ -35,6 +40,7 @@ function Layout () {
         </section>
       </div>
       <NewProject />
+      <FocusLayer />
     </div>
     <HueGradient />
     </Aux>

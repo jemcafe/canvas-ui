@@ -86,7 +86,7 @@ export const updateColor = ({rgb, pos}) => ({
       }
     }
 
-    console.log(property, state[property]);
+    // console.log(property, state[property]);
     return {...state, [property]: state[property] }
   }
 });
@@ -104,7 +104,7 @@ export const updateColorPosition = (pos) => ({
       }
     }
 
-    console.log('color position', pos);
+    // console.log('color position', pos);
     return {...state, [property]: state[property] }
   }
 });

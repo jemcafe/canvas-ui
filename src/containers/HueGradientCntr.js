@@ -1,12 +1,16 @@
 
 import React, { Component } from 'react';
 
+// helpers
 import { RGBtoHex } from '../helpers/colorConversion';
 import { getPosition, getPixelColors } from '../helpers/canvas';
 
+// redux
 import { connect } from 'react-redux';
 import { selectColor, updateColor } from '../redux/reducer/color/actions';
+import { focusCanvas, unfocusCanvas } from '../redux/reducer/canvas/actions';
 
+// components
 import HueGradient from '../components/HueGradient/HueGradient';
 
 class HueGradientCntr extends Component {
@@ -27,14 +31,14 @@ class HueGradientCntr extends Component {
       },
       mouse: { x: 0, y: 0 },
       dragging: false,
-      focus: false,
       inCanvas: false
     }
   }
 
   initCanvas = (refs) => {
     const { canvas: c, touch: t, wrapper: w } = refs;
-    // refs are unmounted then mounted when the window is resize, so they must cheked for undefined
+
+    // refs are unmounted then mounted when the window is resize, so they must checked for undefined
     if ( c && t && w ) {
       t.width = w.clientWidth;
       t.height = w.clientHeight;
@@ -45,12 +49,20 @@ class HueGradientCntr extends Component {
   }
 
   engage = (canvas, e) => {
-    this.setState({ dragging: true, focus: true, inCanvas: true });
+    this.setState({ dragging: true, inCanvas: true });
     this.getColor({canvas, e, fire: true});
+
+    this.props.focusCanvas({
+      focus: true, 
+      onMouseMove: (e) => { this.getColor({canvas, e}); },
+      onMouseUp: () => { this.disengage(); },
+      onMouseLeave: () => { this.disengage(); }
+    });
   }
 
   disengage = (canvas) => {
-    this.setState({ dragging: false, focus: false, inCanvas: false });
+    this.setState({ dragging: false, inCanvas: false });
+    this.props.unfocusCanvas();
   }
 
   getColor = ({canvas, e, fire}) => {
@@ -74,10 +86,9 @@ class HueGradientCntr extends Component {
       const hex = RGBtoHex(rgb.r, rgb.g, rgb.b);
 
       this.setState({ color: { rgb, hex, x, y } });
-      // this.updateMousePosition(e);
+      this.updateMousePosition(e);
       this.props.updateColor({rgb, pos});
     }
-    this.updateMousePosition(e);
   }
 
   changeHue = ({canvas, e, value}) => {
@@ -189,6 +200,7 @@ class HueGradientCntr extends Component {
     return (
       <HueGradient
         state={ this.state }
+        focus={this.props.canvas.focus}
         initCanvas={ this.initCanvas }
         engage={ this.engage }
         disengage={ this.disengage }
@@ -202,12 +214,15 @@ class HueGradientCntr extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  color: state.color
+  color: state.color,
+  canvas: state.canvas
 });
 
 const mapDispatchToProps = {
   selectColor,
-  updateColor
+  updateColor,
+  focusCanvas,
+  unfocusCanvas
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HueGradientCntr);

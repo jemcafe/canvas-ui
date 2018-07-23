@@ -2,7 +2,7 @@ import React from 'react';
 
 function Layers () {
   return (
-    <div className="layers">
+    <div className="layers" style={{margin:'auto',alignSelf:'center'}}>
       <div>LAYERS CONTENT</div>
     </div>
   );

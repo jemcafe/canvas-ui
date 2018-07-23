@@ -18,7 +18,8 @@ class HueGradient extends Component {
 
   render () {
     const { 
-      state:{ mouse, focus, inCanvas }, 
+      state:{ mouse, inCanvas }, 
+      focus,
       engage, 
       disengage, 
       getColor, 
@@ -51,13 +52,6 @@ class HueGradient extends Component {
             onMouseMove={(e) => updateMousePosition(e)}
             onMouseOver={() => detectCanvas(true)}
             onMouseLeave={() => detectCanvas(false)}/>
-
-          { focus &&
-          <div className="focus-overlay"
-            onMouseMove={(e) => getColor({canvas:this.refs.canvas, e})}
-            onMouseUp={() => disengage(this.refs.canvas)}
-            onMouseLeave={() => disengage(this.refs.canvas)}>
-          </div> }
         </div>
 
         <Slider min={0} max={255 * 6} onChange={(value) => changeHue({canvas:this.refs.canvas, value})} />
