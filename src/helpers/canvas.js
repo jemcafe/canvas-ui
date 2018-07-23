@@ -14,6 +14,26 @@ export const getPosition = (canvas, e, initial = {x: 0, y: 0}) => {
   return { x, y };
 }
 
+export const getPixelColors = (canvas) => {
+    const context = canvas.getContext('2d');
+    let imgData = null;
+
+    let pixels = new Array(canvas.height);
+    // console.log('height', pixels.length);
+
+    for (let y = 0; y < canvas.height; y++) {
+      pixels[y] = new Array(canvas.width);
+      for (let x = 0; x < canvas.width; x++) {
+        // const pixelIndex = x + (y * canvas.width);
+        imgData = context.getImageData(x, y, 1, 1).data;
+        pixels[y][x] = { r: imgData[0], g: imgData[1], b: imgData[2] };
+      }
+    }
+    
+    // console.log('pixels', pixels);
+    return pixels;
+  }
+
 export const setGradientColor = (canvas) => {  // The default hex color is the color stored in state. 
   // Canvas context
   const context = canvas.getContext('2d');

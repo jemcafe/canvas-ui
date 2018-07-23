@@ -10,12 +10,23 @@ function Panel (props) {
     isCollapsed,
     side,
     tools,
-    tabGroups,
+    tabGroups: tg,
     togglePanels,
     togglePanel,
     changeTab
   } = props;
 
+  const tabGroups = tg.length > 0 
+  ? tg.map((tabGroup, i) => (
+    <TabGroup 
+      key={tabGroup.id} 
+      index={i}
+      tabGroup={tabGroup}
+      isCollapsed={isCollapsed}
+      togglePanel={togglePanel}
+      changeTab={changeTab} />
+  )) : null;
+  
   return (
     <div className="panel">
       <div className={side === 'L' ? 'left' : 'right'}>
@@ -25,18 +36,9 @@ function Panel (props) {
       </div>
       
       <div className="container">
-        { tabGroups.length ? tabGroups.map((tabGroup, i) => (
-          <TabGroup 
-            key={tabGroup.id} 
-            index={i}
-            tabGroup={tabGroup}
-            isCollapsed={isCollapsed}
-            togglePanel={togglePanel}
-            changeTab={changeTab} />
-        )) : null }
-
-        { tools && 
-          <ToolMenu isCollapsed={isCollapsed} /> }
+        { !isCollapsed && tabGroups }
+        { isCollapsed && tabGroups }
+        { tools && <ToolMenu isCollapsed={isCollapsed} /> }
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { 
   SELECT_TOOL,
-  UPDATE_BRUSH_SIZE,
+  UPDATE_BRUSH_RADIUS,
   UPDATE_BRUSH,
   UPDATE_OPACITY,
   UPDATE_STROKE_WIDTH,
@@ -64,7 +64,7 @@ export default (state = initialState, action) => {
   switch (type) {
     case SELECT_TOOL:
       return payload(state);
-    case UPDATE_BRUSH_SIZE:
+    case UPDATE_BRUSH_RADIUS:
       return payload(state);
     case UPDATE_BRUSH:
       return payload(state);

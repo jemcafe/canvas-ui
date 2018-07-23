@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 class Slider extends Component {
   constructor () {
     super();
-    this.state = {
-      width: 0
-    }
+    this.state = { width: 0 }
   }
 
   componentDidMount () {
@@ -28,9 +26,7 @@ class Slider extends Component {
     const { min, max, value = 0, onChange } = this.props;
 
     const style = {
-      input: {
-        width: width-4,  // -4 for border
-      }
+      input: { width: width-4 }  // -4 for border
     }
 
     return (

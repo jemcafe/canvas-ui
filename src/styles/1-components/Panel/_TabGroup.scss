@@ -64,13 +64,12 @@
     > .content {  // content
       flex: 1;
       display: flex;
-      overflow: hidden;
+      overflow-x: hidden;
       overflow-y: auto;
       border-left: 1px solid $darkergray;
       border-bottom: 1px solid $darkergray;
       border-right: 1px solid $darkergray;
       background: lightblue;
-      // @extend %center-content; // temporary style
     }
   }
 

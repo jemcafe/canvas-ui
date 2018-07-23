@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 import { RGBtoHex } from '../helpers/colorConversion';
-import { getPosition } from '../helpers/canvas';
+import { getPosition, getPixelColors } from '../helpers/canvas';
 
 import { connect } from 'react-redux';
 import { selectColor, updateColor } from '../redux/reducer/color/actions';
@@ -15,7 +15,7 @@ class HueGradientCntr extends Component {
     this.state = {
       color: {
         rgb: { r: 255, g: 0, b: 0 },
-        hex: '#ffffff',
+        hex: '#ff0000',
         x: 0,
         y: 0
       },
@@ -33,20 +33,15 @@ class HueGradientCntr extends Component {
   }
 
   initCanvas = (refs) => {
-    const { canvas, touch: t, wrapper: w } = refs;
-
-    t.width = w.clientWidth;
-    t.height = w.clientHeight;
-    canvas.width = t.width;
-    canvas.height = t.height;
-
-    this.setCanvas({canvas});
-
-    this.setState(prev => { 
-      prev.color.y = w.clientHeight;
-      console.log('previous color', prev.color);
-      return { color: prev.color };
-    });
+    const { canvas: c, touch: t, wrapper: w } = refs;
+    // refs are unmounted then mounted when the window is resize, so they must cheked for undefined
+    if ( c && t && w ) {
+      t.width = w.clientWidth;
+      t.height = w.clientHeight;
+      c.width = t.width;
+      c.height = t.height;
+      this.setCanvas({ canvas: c });
+    }
   }
 
   engage = (canvas, e) => {
@@ -79,9 +74,10 @@ class HueGradientCntr extends Component {
       const hex = RGBtoHex(rgb.r, rgb.g, rgb.b);
 
       this.setState({ color: { rgb, hex, x, y } });
-      this.updateMousePosition(e);
-      this.props.updateColor(rgb);
+      // this.updateMousePosition(e);
+      this.props.updateColor({rgb, pos});
     }
+    this.updateMousePosition(e);
   }
 
   changeHue = ({canvas, e, value}) => {
@@ -124,7 +120,6 @@ class HueGradientCntr extends Component {
     });
 
     const r = rgb[0], g = rgb[1], b = rgb[2], hex = RGBtoHex(r, g, b);
-
     this.setState({ gradientHue: { r, g, b, hex } });
 
     // The selected color and the canvas are updated.
@@ -142,14 +137,14 @@ class HueGradientCntr extends Component {
     
     // White linear gradient
     const whiteGrd = context.createLinearGradient(0, 0, canvas.width, 0);
-    whiteGrd.addColorStop(0, "#fff");
+    whiteGrd.addColorStop(0.01, "#fff");
     whiteGrd.addColorStop(0.99, hex);
     context.fillStyle = whiteGrd;
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     // Black linear gradient
     const blackGrd = context.createLinearGradient(0, canvas.height, 0, 0);
-    blackGrd.addColorStop(0, "#000");
+    blackGrd.addColorStop(0.01, "#000");
     blackGrd.addColorStop(0.99, "transparent");
     context.fillStyle = blackGrd;
     context.fillRect(0, 0, canvas.width, canvas.height);
@@ -164,19 +159,12 @@ class HueGradientCntr extends Component {
     const pos = getPosition(canvas, e, initialPos);
     const x = pos.x, y = pos.y;
     const radius = 5;
-
-    // Values for where the stroke color should change
-    const limit = {
-      x: Math.floor( (canvas.width-1)/2 ),
-      y: Math.floor( canvas.height/3 )
-    }
     
-    // The fourth character in the hexidecimal string is tested to see if the gradient hue is one of the lighter colors (colors between orange and light blue)
-    let isLighter = /^([a-f])$/.test( gradientHue.hex[3] );
+    // Stroke Color
+    const limit = { x: Math.floor(canvas.width/2), y: Math.floor(canvas.height/3) };  // Values for where the stroke color should change
+    let isLighter = /^([a-f])$/.test( gradientHue.hex[3] );  // The fourth character in the hexidecimal string is tested to see if the gradient hue is one of the lighter colors (colors between orange and light blue)
     isLighter = (x < limit.x || isLighter) && y < limit.y;
-
-    // The stroke is black if it's in a lighter color and white if it's not.
-    const strokeColor = isLighter ? '#000' : '#fff';;
+    const strokeColor = isLighter ? '#000' : '#fff';  // The stroke is black if it's in a lighter color and white if it's not.
 
     // Circle
     context.arc(x, y, radius, 0, 2 * Math.PI);

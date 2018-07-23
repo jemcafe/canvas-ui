@@ -3879,8 +3879,7 @@ select {
     background: #272727; }
 
 #color-slider {
-  width: 36px;
-  background: #ffffdd; }
+  width: 36px; }
   #color-slider input[type=range] {
     -webkit-appearance: none;
     /* Override default CSS styles */
@@ -4341,7 +4340,7 @@ select {
     .tab-group > .container > .content {
       flex: 1;
       display: flex;
-      overflow: hidden;
+      overflow-x: hidden;
       overflow-y: auto;
       border-left: 1px solid #272727;
       border-bottom: 1px solid #272727;
@@ -4367,7 +4366,6 @@ select {
   padding: 6px; }
   .hue-gradient > .color-pair {
     padding: 4px;
-    background: pink;
     width: 36px;
     height: 36px; }
     .hue-gradient > .color-pair > .color-block-wrapper {

@@ -1,6 +1,6 @@
 // Action types
 export const SELECT_TOOL = 'SELECT_TOOL',
-             UPDATE_BRUSH_SIZE = 'UPDATE_BRUSH_SIZE',
+             UPDATE_BRUSH_RADIUS = 'UPDATE_BRUSH_RADIUS',
              UPDATE_BRUSH = 'UPDATE_BRUSH',
              UPDATE_OPACITY = 'UPDATE_OPACITY',
              UPDATE_STROKE_WIDTH = 'UPDATE_STROKE_WIDTH',
@@ -10,73 +10,68 @@ export const SELECT_TOOL = 'SELECT_TOOL',
 export const selectTool = (tool) => ({
   type: SELECT_TOOL,
   payload: (state) => {
-    // The tool object is stored in new variable, and selected becomes true.
-    // The tool is set to null, so redux knows there's a change.
-    let newObj = state[tool];
-    delete state[tool];
-    newObj.selected = true;
+    const property = tool;
 
-    // The other tools are not selected.
-    for (let i in state) state[i].selected = false;
+    for (let i in state) {
+      if (i === property) {
+        state[i].selected = true;
+      } else {
+        state[i].selected = false;
+      }
+    }
 
-    return {...state, [tool]: newObj};
+    return {...state, [property]: state[property] };
   }
 });
 
-export const updateBrushSize = (value) => ({
-  type: UPDATE_BRUSH_SIZE,
+export const updateBrushRadius = (value) => ({
+  type: UPDATE_BRUSH_RADIUS,
   payload: (state) => {
-    let tool = '';
-    let newObj = {};
+    let property = null;
 
     for (let i in state) {
-      if (state[i].selected && state[i].radius ) {
-        tool = i;
-        newObj = state[i];
-        state[i] = null;
-        newObj.radius = value;
-        console.log( i, newObj.radius );
+      if (state[i].selected && state[i].radius) {
+        property = i;
+        state[i].radius = value;
+        console.log(property, state[i].radius);
       }
     }
-    return {...state, [tool]: newObj };
+
+    return {...state, [property]: state[property] };
   }
 });
 
 export const updateBrush = (value) => ({
   type: UPDATE_BRUSH,
   payload: (state) => {
-    let tool = '';
-    let newObj = {};
+    let property = null;
 
     for (let i in state) {
-      if (state[i].selected && state[i].brush ) {
-        tool = i;
-        newObj = state[i];
-        state[i] = null;
-        newObj.brush = value
-        console.log( i, newObj.brush );
+      if (state[i].selected && state[i].brush) {
+        property = i;
+        state[i].brush = value;
+        console.log(property, state[i].brush);
       }
     }
-    return {...state, [tool]: newObj };
+
+    return {...state, [property]: state[property] };
   }
 });
 
 export const updateOpacity = (value) => ({
   type: UPDATE_OPACITY,
   payload: (state) => {
-    let tool = '';
-    let newObj = {};
+    let property = null;
 
     for (let i in state) {
       if (state[i].selected && state[i].opacity) {
-        tool = i;
-        newObj = state[i];
-        state[i] = null;
-        newObj.opacity = value;
-        console.log( i, newObj.opacity );
+        property = i;
+        state[i].opacity = value;
+        console.log(property, state[i].opacity);
       }
     }
-    return {...state, [tool]: newObj };
+
+    return {...state, [property]: state[property] };
   }
 })
 
@@ -95,6 +90,7 @@ export const updateStrokeWidth = (value) => ({
         console.log( i, newObj.strokeWidth );
       }
     }
+    
     return {...state, [tool]: newObj };
   }
 });
@@ -102,19 +98,17 @@ export const updateStrokeWidth = (value) => ({
 export const zoom = (value) => ({
   type: ZOOM,
   payload: (state) => {
-    let newObj = state.magnify;
-    state.magnify = null;
-    console.log('zoom: ', value);
-    
+    const { magnify } = state;
+
     if (value === 'in') {
-      newObj.in = true;
-      newObj.out = false;
+      magnify.in = true;
+      magnify.out = false;
     }
     if (value === 'out') {
-      newObj.in = false;
-      newObj.out = true;
+      magnify.in = false;
+      magnify.out = true;
     }
 
-    return {...state, magnify: newObj };
+    return {...state, magnify };
   }
 })

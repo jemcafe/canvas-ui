@@ -18,7 +18,7 @@ class HueGradient extends Component {
 
   render () {
     const { 
-      state:{ color, mouse, focus, inCanvas }, 
+      state:{ mouse, focus, inCanvas }, 
       engage, 
       disengage, 
       getColor, 
@@ -30,12 +30,8 @@ class HueGradient extends Component {
     } = this.props;
 
     const style = {
-      color_1: color_1.selected ? {
-        borderColor: '#ff0000'
-      } : null,
-      color_2: color_2.selected ? {
-        borderColor: '#ff0000'
-      } : null
+      color_1: color_1.selected ? { borderColor: '#ffffff' } : null,
+      color_2: color_2.selected ? { borderColor: '#ffffff' } : null
     }
 
     return (

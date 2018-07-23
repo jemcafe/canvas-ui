@@ -2,7 +2,8 @@ import {
   SELECT_COLOR,
   RESET_COLORS,
   SWAP_COLORS,
-  UPDATE_COLOR
+  UPDATE_COLOR,
+  UPDATE_COLOR_POSITION
 } from './actions';
 
 const initialState = {
@@ -40,6 +41,8 @@ export default (state = initialState, action) => {
     case SWAP_COLORS:
       return payload(state);
     case UPDATE_COLOR:
+      return payload(state);
+    case UPDATE_COLOR_POSITION:
       return payload(state);
     default:
       return state;

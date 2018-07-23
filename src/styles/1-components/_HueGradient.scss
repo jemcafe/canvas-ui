@@ -5,10 +5,10 @@
 
   > .color-pair {
     padding: 4px; 
-    background: pink;
     width: 36px;
     height: 36px;
     @extend %center-content;
+    // background: pink;
 
     > .color-block-wrapper {
       position: absolute;
